@@ -1,1 +1,0 @@
-{renderTopicUX(id)};window.render=function(){const r=legacyRender.apply(this,arguments);setTimeout(enhanceLesson,0);return r};buildShell();try{if(lsGet("lemma-entered",false)||hasProgress())renderHomeUX()}catch(err){console.error("UX v2 Phase 1 bootstrap",err)}})();
