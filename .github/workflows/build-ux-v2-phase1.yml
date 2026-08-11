@@ -1,0 +1,24 @@
+name: Build UX v2 Phase 1
+on:
+  workflow_dispatch:
+  push:
+    branches: [ux-v2-phase1-fresh]
+    paths: [.github/phase1_patch.py]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ux-v2-phase1-fresh
+      - name: Apply presentation-only UX layer
+        run: python .github/phase1_patch.py
+      - name: Commit generated Phase 1 files
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html assets/ux-v2-phase1.css assets/ux-v2-phase1.js
+          git diff --cached --quiet || git commit -m "Build LEMMA UX v2 Phase 1"
+          git push origin HEAD:ux-v2-phase1-fresh
