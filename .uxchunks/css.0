@@ -1,0 +1,48 @@
+/* LEMMA UX v2.0 — Phase 1 presentation layer only */
+:root{
+  --ux-bg:#f6f7fb; --ux-card:#fff; --ux-ink:#19172a; --ux-muted:#6e6b7c;
+  --ux-violet:#654cf2; --ux-violet-2:#8875ff; --ux-lime:#d9f45a;
+  --ux-line:#e7e5ef; --ux-green:#1f9d63; --ux-amber:#e6a418;
+  --ux-shadow:0 18px 48px rgba(55,42,120,.12);
+  --ux-radius:24px;
+}
+body.uxv2-active{background:var(--ux-bg);color:var(--ux-ink)}
+body.uxv2-active .dnav,body.uxv2-active .mnav{display:none!important}
+#uxv2-root{display:none;max-width:1180px;margin:0 auto;padding:26px 22px 110px}
+#uxv2-root.ux-on{display:block}
+.ux-screen{display:none}.ux-screen.ux-on{display:block}
+.ux-kicker{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ux-violet)}
+.ux-title{font-size:clamp(34px,5vw,54px);line-height:1.02;letter-spacing:-.035em;margin:8px 0 10px}
+.ux-lead{max-width:720px;color:var(--ux-muted);font-size:16px;line-height:1.55}
+.ux-card{background:var(--ux-card);border:1px solid var(--ux-line);border-radius:var(--ux-radius);padding:21px;box-shadow:0 8px 28px rgba(47,42,88,.06)}
+.ux-card h3{margin:0 0 6px;font-size:20px}.ux-card p{margin:0;color:var(--ux-muted);line-height:1.5}
+.ux-home-head{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px}
+.ux-profile{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--ux-line);border-radius:999px;padding:7px 12px 7px 8px;white-space:nowrap}
+.ux-avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#eeeaff,#ddf8ed);font-size:21px}
+.ux-profile b{display:block;font-size:13px}.ux-profile small{display:block;font-size:11px;color:var(--ux-muted)}
+.ux-home-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.72fr);gap:22px;align-items:start}
+.ux-mission{position:relative;overflow:hidden;background:linear-gradient(135deg,#5e48e7 0%,#7761f2 64%,#9a86ff 100%);color:#fff;border-radius:30px;padding:29px;box-shadow:var(--ux-shadow)}
+.ux-mission:after{content:"✦";position:absolute;right:-11px;top:-45px;font-size:185px;opacity:.08;pointer-events:none}
+.ux-mission .ux-label{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.ux-mission h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.03em;margin:11px 0 3px}
+.ux-mission .ux-stage{font-size:18px;font-weight:800;opacity:.94;margin-bottom:18px}
+.ux-progress{height:9px;background:rgba(255,255,255,.21);border-radius:999px;overflow:hidden}
+.ux-progress>i{display:block;height:100%;background:var(--ux-lime);border-radius:inherit}
+.ux-meta{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0;font-size:13px;font-weight:800;opacity:.92}
+.ux-primary{appearance:none;border:0;border-radius:16px;min-height:54px;padding:0 22px;background:var(--ux-lime);color:#292519;font-size:16px;font-weight:950;cursor:pointer;box-shadow:0 7px 0 rgba(38,35,17,.15)}
+.ux-primary:active{transform:translateY(2px);box-shadow:0 4px 0 rgba(38,35,17,.15)}
+.ux-mission .ux-primary{width:100%}
+.ux-preview{display:grid;gap:8px;margin-top:14px}
+.ux-preview-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 11px;border-radius:14px;background:#fafafe}
+.ux-preview-row.ux-current{background:#f0edff}.ux-preview-row.ux-done{background:#f2fbf6}
+.ux-dot{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#eceaf3;font-weight:900}
+.ux-preview-row.ux-current .ux-dot{background:var(--ux-violet);color:#fff}.ux-preview-row.ux-done .ux-dot{background:#e2f6eb;color:var(--ux-green)}
+.ux-preview-row b{font-size:14px}.ux-preview-row small{display:block;color:var(--ux-muted);font-size:12px;margin-top:2px}
+.ux-secondary-grid{display:grid;gap:9px;margin-top:14px}
+.ux-secondary{border:1px solid var(--ux-line);background:#fafafe;border-radius:15px;padding:13px;text-align:left;font-weight:850;color:var(--ux-ink);cursor:pointer}
+.ux-secondary span{font-size:20px;margin-right:7px}
+.ux-luma{margin-top:18px;padding:14px;border-radius:16px;background:#f4f1ff}.ux-luma small{display:block;margin-top:4px;color:var(--ux-muted);line-height:1.4}
+.ux-back{appearance:none;border:0;background:transparent;color:var(--ux-violet);font-weight:900;padding:8px 0;cursor:pointer}
+.ux-path-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}
+.ux-path-summary{font-weight:850;color:var(--ux-muted);white-space:nowrap}
+.ux-unit{margin:25px 0 12p
