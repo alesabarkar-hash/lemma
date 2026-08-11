@@ -2,18 +2,22 @@ name: Test UX v2 Phase 1
 on:
   push:
     branches: [ux-v2-phase1-lite]
+permissions:
+  contents: write
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build test copy
+      - name: Build preview index
         run: |
           python - <<'PY'
           from pathlib import Path
           p=Path('index.html');s=p.read_text()
-          s=s.replace('</head>','<link rel="stylesheet" href="assets/ux-v2-phase1.css">\n</head>',1)
-          s=s.replace('</body>','<script src="assets/ux-v2-core.js"></script><script src="assets/ux-v2-book.js"></script><script src="assets/ux-v2-ui1.js"></script><script src="assets/ux-v2-ui2.js"></script>\n</body>',1)
+          css='<link rel="stylesheet" href="assets/ux-v2-phase1.css">'
+          js='<script src="assets/ux-v2-core.js"></script><script src="assets/ux-v2-book.js"></script><script src="assets/ux-v2-ui1.js"></script><script src="assets/ux-v2-ui2.js"></script>'
+          if css not in s:s=s.replace('</head>',css+'\n</head>',1)
+          if js not in s:s=s.replace('</body>',js+'\n</body>',1)
           p.write_text(s)
           PY
       - name: Syntax checks
@@ -23,3 +27,10 @@ jobs:
           node --check assets/ux-v2-ui1.js
           node --check assets/ux-v2-ui2.js
           grep -q 'ux-v2-phase1.css' index.html
+      - name: Commit preview index
+        run: |
+          git config user.name github-actions-bot
+          git config user.email actions@github.com
+          git add index.html
+          git diff --cached --quiet || git commit -m "Assemble UX v2 Phase 1 preview"
+          git push origin HEAD:ux-v2-phase1-lite
