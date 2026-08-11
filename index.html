@@ -1433,6 +1433,7 @@ body.landing #luma-root{display:none}
   display:grid;place-items:center;font-size:9px;font-weight:900;color:var(--violet)}
 .dotline i.on{background:var(--lime);border-color:var(--lime)}
 .dotline b{flex:1;height:2px;background:rgba(255,255,255,.26)}
+@media(max-width:480px){.ring>div{min-width:0}.dotline{gap:1px;width:100%;max-width:100%}.dotline i{width:14px;height:14px;flex:0 0 14px;font-size:9px}}
 .lnote{font-size:13.5px;font-weight:600;opacity:.85}
 
 .kind{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--violet)}
@@ -1467,6 +1468,15 @@ body.landing #luma-root{display:none}
 .opt.no{background:#FFE6DF;border-color:#E58C77}
 .opt .big{font-size:32px;display:block;line-height:1.15}
 .opt .cap{font-size:12.5px;font-weight:700;color:var(--gray);display:block}
+.task-visual{margin:4px 0 14px;padding:14px;border:2px solid var(--hair);border-radius:18px;background:linear-gradient(135deg,#fff,#F7F5FF);text-align:center;overflow:hidden}
+.task-visual .tv-emoji{font-size:36px;line-height:1.35;letter-spacing:4px;word-spacing:5px}
+.task-visual .tv-swatch{width:112px;height:72px;border-radius:18px;border:3px solid var(--ink);margin:auto;box-shadow:0 5px 16px rgba(20,16,38,.10)}
+.task-visual svg{max-height:210px}
+.compound-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:6px 0 10px;color:var(--gray);font-size:13px;font-weight:800}
+.compound-q{font-weight:850;font-size:18px;line-height:1.3;margin:8px 0 12px}
+.compound-next{margin-top:12px}
+.area-result{margin-top:12px;padding:12px 14px;border-radius:16px;background:#F7F5FF;text-align:left;border:1px solid var(--hair)}
+.area-result b{color:var(--violet-dk)}
 .slots{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
 .slot{width:46px;height:56px;border-radius:14px;background:#fff;border:2px dashed var(--hair);
   display:grid;place-items:center;font-size:22px;font-weight:900;color:var(--gray)}
@@ -3408,6 +3418,7 @@ function awardCoins(id,right,perfect,streakBonus){
 
 /* ===================== ИЛЛЮСТРАЦИИ ===================== */
 const ART={
+ bk_review2_scene:`<svg viewBox="0 0 640 360" width="100%" role="img" aria-label="Временная сцена Review 2: семья готовится к празднику дома"><defs><linearGradient id="r2bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4EFFF"/><stop offset="1" stop-color="#FFF4DE"/></linearGradient></defs><rect width="640" height="360" rx="22" fill="url(#r2bg)"/><rect x="22" y="28" width="410" height="282" rx="18" fill="#fff" stroke="#8E79D7" stroke-width="3"/><line x1="228" y1="28" x2="228" y2="310" stroke="#D7CDEE" stroke-width="3"/><line x1="22" y1="170" x2="432" y2="170" stroke="#D7CDEE" stroke-width="3"/><text x="52" y="55" font-size="17" font-weight="700" fill="#58428F">bedroom</text><text x="255" y="55" font-size="17" font-weight="700" fill="#58428F">bathroom</text><text x="52" y="198" font-size="17" font-weight="700" fill="#58428F">kitchen</text><text x="255" y="198" font-size="17" font-weight="700" fill="#58428F">living room</text><text x="465" y="55" font-size="17" font-weight="700" fill="#58428F">garden</text><text x="485" y="258" font-size="17" font-weight="700" fill="#58428F">tree house</text><text x="58" y="112" font-size="42">👵 👴</text><text x="267" y="112" font-size="42">👨 👦</text><text x="58" y="255" font-size="42">👩 👧</text><text x="258" y="258" font-size="38">🎂 🎈 🎁</text><text x="478" y="115" font-size="44">🌳</text><text x="505" y="220" font-size="43">🏡</text><g transform="translate(452 138)"><circle cx="0" cy="0" r="12" fill="#ef4444"/><circle cx="28" cy="0" r="12" fill="#3b82f6"/><circle cx="56" cy="0" r="12" fill="#22c55e"/><circle cx="84" cy="0" r="12" fill="#eab308"/><circle cx="0" cy="30" r="12" fill="#111827"/><circle cx="28" cy="30" r="12" fill="#fff" stroke="#999"/><circle cx="56" cy="30" r="12" fill="#f97316"/><circle cx="84" cy="30" r="12" fill="#ec4899"/></g><text x="34" y="338" font-size="15" font-weight="700" fill="#6C5A91">Временная смысловая сцена · Family + Colours + Home + Birthday</text></svg>`,
  bk_world:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Луми у вывесок на английском"><defs><linearGradient id="sky_bk_world" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_world" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_world" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_world" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_world" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#sky_bk_world)"/><circle cx="28" cy="30" r="1.8" fill="#fff" opacity="0.8"/><circle cx="78" cy="18" r="1.3" fill="#fff" opacity="0.6"/><circle cx="250" cy="26" r="2" fill="#fff" opacity="0.85"/><circle cx="300" cy="60" r="1.5" fill="#fff" opacity="0.6"/><circle cx="46" cy="88" r="1.2" fill="#fff" opacity="0.5"/><circle cx="288" cy="128" r="1.6" fill="#fff" opacity="0.55"/><circle cx="196" cy="16" r="1.4" fill="#fff" opacity="0.7"/><circle cx="128" cy="34" r="1.1" fill="#fff" opacity="0.45"/><ellipse cx="160" cy="196" rx="140" ry="14" fill="#000" opacity=".22"/><g stroke="#111018" stroke-width="2.5"><rect x="16" y="88" width="74" height="88" rx="8" fill="#F7F4FF"/><rect x="26" y="100" width="54" height="26" rx="6" fill="#4F32E8"/><rect x="26" y="134" width="24" height="20" rx="4" fill="#16C4B8"/><rect x="56" y="134" width="24" height="20" rx="4" fill="#16C4B8"/><rect x="100" y="62" width="66" height="114" rx="8" fill="#F7F4FF"/><rect x="110" y="76" width="46" height="26" rx="6" fill="#CFF64F"/><rect x="110" y="112" width="46" height="20" rx="4" fill="#EDE8FE"/><rect x="118" y="142" width="30" height="34" rx="4" fill="#FFB43A"/></g><text x="53" y="118" text-anchor="middle" font-family="Helvetica" font-size="13" font-weight="bold" fill="#fff">OPEN</text><text x="133" y="94" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" fill="#111018">SALE</text><circle cx="286" cy="42" r="16" fill="#FFB43A" opacity=".9"/><image href="__CHAR_lumi_walking__" x="176" y="40" width="130" height="162" filter="url(#soft_bk_world)"/></svg>`,
  bk_letters:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Олли и буквы алфавита"><defs><linearGradient id="sky_bk_letters" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_letters" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_letters" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_letters" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_letters" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#mint_bk_letters)"/><circle cx="150" cy="96" r="86" fill="url(#glow_bk_letters)"/><g stroke="#111018" stroke-width="2.5" font-family="Helvetica" font-size="24" font-weight="bold" text-anchor="middle"><rect x="14" y="56" width="48" height="48" rx="12" fill="#4F32E8"/><text x="38" y="88" fill="#fff" stroke="none">a</text><rect x="14" y="112" width="48" height="48" rx="12" fill="#FFB43A"/><text x="38" y="144" fill="#111018" stroke="none">b</text><rect x="70" y="84" width="48" height="48" rx="12" fill="#16C4B8"/><text x="94" y="116" fill="#fff" stroke="none">c</text><rect x="70" y="140" width="48" height="48" rx="12" fill="#FF6F91"/><text x="94" y="172" fill="#fff" stroke="none">d</text><rect x="126" y="150" width="48" height="48" rx="12" fill="#CFF64F"/><text x="150" y="182" fill="#111018" stroke="none">e</text></g><image href="__CHAR_ollie_explaining__" x="186" y="24" width="124" height="154" filter="url(#soft_bk_letters)"/></svg>`,
  bk_silent:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Слова pin и pine"><defs><linearGradient id="sky_bk_silent" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_silent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_silent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_silent" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_silent" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#mint_bk_silent)"/><rect x="14" y="46" width="104" height="58" rx="14" fill="#fff" stroke="#111018" stroke-width="2.5"/><text x="66" y="86" text-anchor="middle" font-family="Helvetica" font-size="27" font-weight="bold" fill="#111018">pin</text><text x="66" y="122" text-anchor="middle" font-family="Helvetica" font-size="13" font-weight="bold" fill="#4F32E8">булавка</text><rect x="14" y="134" width="104" height="58" rx="14" fill="#EDE8FE" stroke="#4F32E8" stroke-width="2.5"/><text x="58" y="174" text-anchor="middle" font-family="Helvetica" font-size="27" font-weight="bold" fill="#111018">pin</text><text x="88" y="174" font-family="Helvetica" font-size="27" font-weight="bold" fill="#B4AECC">e</text><path d="M79 152 l20 30 M99 152 l-20 30" stroke="#FF6F91" stroke-width="3.5" stroke-linecap="round"/><rect x="128" y="86" width="56" height="34" rx="17" fill="#CFF64F" stroke="#111018" stroke-width="2.5"/><text x="156" y="109" text-anchor="middle" font-family="Helvetica" font-size="13" font-weight="bold" fill="#111018">сосна</text><image href="__CHAR_lumi_thinking__" x="196" y="40" width="112" height="139" filter="url(#soft_bk_silent)"/></svg>`,
@@ -3540,66 +3551,65 @@ hello:{
 /* --------------------- ТЕМА 2 --------------------- */
 abc1:{
  id:"abc1",no:"Тема 02",name:"Алфавит a–h",sub:"My Letters!",
- desc:"Первые восемь букв английского алфавита: как они выглядят, как звучат и какие слова с них начинаются.",
+ desc:"Первые восемь букв английского алфавита: a–h, их имена, базовые звуки и слова-опоры.",
  print:"worksheets/tema-02-alfavit-a-h.pdf",
- intro:"Английских букв двадцать шесть, и первые восемь мы разберём здесь. Ты научишься их писать, узнаешь слово-опору к каждой и поймёшь главную странность английского письма: буква и звук — совсем разные вещи. Пока это не уложится в голове, читать не получится, поэтому не спеши.",
+ intro:"В этой теме мы изучаем первые восемь букв английского алфавита. Сначала a–d, затем e–h. Для каждой буквы есть знакомое слово-опора, а ещё мы учимся отличать имя буквы от звука в слове.",
  words:["ant","bed","cat","dog","egg","flag","glass","horse"],
  theory:[
-  {kind:"Начало",head:"Буква и звук — разные вещи",
-   art:"abc",cap:"В английском алфавите 26 букв, а звуков около сорока.",
-   rule:"Буква — это то, что мы <b>пишем</b>. Звук — то, что мы <b>слышим</b>. В английском они часто не совпадают: буква <b>c</b> называется «си», но в слове <b>cat</b> читается как «к».",
-   warn:"Поэтому английские слова не читают «как написано». Каждое новое слово мы сразу и произносим, и запоминаем целиком."},
+  {kind:"Буква и звук",head:"Буква и звук — разные вещи",
+   art:"abc",cap:"Букву мы видим и пишем, звук — слышим и произносим.",
+   rule:"Английская буква имеет своё имя, но внутри слова может звучать иначе. Буква — то, что мы <b>видим и пишем</b>. Звук — то, что мы <b>слышим и произносим</b>. Слово не читают как последовательность названий букв.",
+   examples:["<b>c</b> → <b>cat</b> → звук /k/"]},
 
-  {kind:"Буквы a–d",head:"Первые четыре",
-   art:"sound",cap:"Название буквы и её звук в слове — не одно и то же.",
-   phrases:[["a — ant","энт","муравей"],["b — bed","бэд","кровать"],["c — cat","кэт","кошка"],["d — dog","дог","собака"]],
-   rule:"Запоминать буквы удобнее не по отдельности, а вместе со словом-опорой. Услышал «эй» — вспомнил <b>ant</b>.",
-   examples:["<b>a</b>nt — муравей, слово начинается с короткого «э»","<b>b</b>ed — кровать, звук «б» как в русском","<b>c</b>at — кошка, здесь c звучит как «к»","<b>d</b>og — собака, звук «д» чуть мягче русского"]},
+  {kind:"Буквы a–d",head:"Буквы a–d",
+   phrases:[["a — ant","эй — энт","муравей"],["b — bed","би — бэд","кровать"],["c — cat","си — кэт","кошка"],["d — dog","ди — дог","собака"]],
+   rule:"Запомни букву вместе со словом-опорой. В каждом слове выделена начальная буква.",
+   examples:["<b>a</b>nt","<b>b</b>ed","<b>c</b>at","<b>d</b>og"]},
 
-  {kind:"Буквы e–h",head:"Ещё четыре",
-   phrases:[["e — egg","эг","яйцо"],["f — flag","флэг","флаг"],["g — glass","глас","стакан"],["h — horse","хос","лошадь"]],
-   rule:"Буква <b>h</b> в начале слова даёт лёгкий выдох, а не жёсткое русское «х». Попробуйте сказать <b>horse</b>, будто дышите на стекло.",
-   examples:["<b>e</b>gg — яйцо","<b>f</b>lag — флаг","<b>g</b>lass — стакан, а не «глаз»","<b>h</b>orse — лошадь"]},
+  {kind:"Большая и маленькая",head:"Большая и маленькая буква",
+   rule:"У каждой изученной буквы есть большая и маленькая форма. Имя человека начинается с большой буквы. Первое слово предложения начинается с большой буквы. Обычное слово <b>cat</b> пишется со строчной.",
+   examples:["<b>A / a</b>","<b>B / b</b>","<b>C / c</b>","<b>D / d</b>"]},
 
-  {kind:"Письмо",head:"Заглавные и строчные",
-   rule:"У каждой буквы две формы: большая (<b>A</b>) и маленькая (<b>a</b>). С большой пишут первое слово предложения и имена: <b>Anna</b>, <b>Boris</b>. Всё остальное — с маленькой.",
-   examples:["<b>A</b>nna has a <b>c</b>at. — имя с большой, кошка с маленькой","Местоимение <b>I</b> («я») в английском всегда пишется с большой буквы — где бы ни стояло"]},
+  {kind:"Буквы e–h",head:"Буквы e–h",
+   phrases:[["e — egg","и — эг","яйцо"],["f — flag","эф — флэг","флаг"],["g — glass","джи — глас","стакан"],["h — horse","эйч — хос","лошадь"]],
+   rule:"Запомни букву вместе со словом-опорой. В начале слова <b>horse</b> звук h произносится как лёгкий выдох.",
+   examples:["<b>e</b>gg","<b>f</b>lag","<b>g</b>lass","<b>h</b>orse"]},
 
-  {kind:"Имя и звук",head:"Почему буква и звук — разные вещи",
-   phrases:[["cake","кейк","здесь a звучит «эй»"],["cat","кэт","а здесь — «э»"],["he","хи","здесь e звучит «и»"],["bed","бэд","а здесь — «э»"]],
-   rule:"У каждой буквы есть имя — как её зовут в алфавите, и звук — как она читается внутри слова. Это разные вещи, и путать их — главная сложность в самом начале.",
-   warn:"Поэтому нельзя «прочитать слово по буквам»: <b>cat</b> — это не «си-эй-ти», а «кэт». Имена букв нужны для диктовки, звуки — для чтения."},
+  {kind:"Большая и маленькая",head:"Большая и маленькая буква",
+   rule:"У каждой изученной буквы есть большая и маленькая форма.",
+   examples:["<b>E / e</b>","<b>F / f</b>","<b>G / g</b>","<b>H / h</b>"]},
 
-  {kind:"Заглавные буквы",head:"Когда нужна большая буква",
-   rule:"В английском заглавных букв заметно больше, чем в русском. С большой пишут не только имена, но и языки, национальности, месяцы и дни недели.",
-   examples:["Первое слово предложения: <b>Hello</b>, my name is Tom","Имена и фамилии: <b>Anna</b>, <b>Tom</b>, <b>Smith</b>","Языки и страны: <b>English</b>, <b>Russia</b>","Месяцы и дни недели: <b>May</b>, <b>Monday</b> — по-русски они со строчной"]}
+  {kind:"Имя и звук",head:"Имя буквы и звук",
+   phrases:[["cake","кейк","a звучит иначе, чем в cat"],["cat","кэт","c звучит как /k/"],["he","хи","e звучит иначе, чем в bed"],["bed","бэд","e звучит кратко"],["horse","хос","начальный h — лёгкий выдох"]],
+   rule:"Имя буквы может не совпадать со звуком в слове. <b>c</b> в <b>cat</b> — короткое повторение, а <b>h</b> в <b>horse</b> — новая фонетическая опора.",
+   warn:"cake и he здесь только для сравнения звучания. Их не нужно запоминать как новые слова этой темы."}
  ],
  tasks:[
-  {t:"choice",q:"На какую букву начинается «кошка» по-английски?",
-   opts:[{txt:"b"},{txt:"c",ok:1},{txt:"d"},{txt:"a"}]},
-  {t:"listen",q:"Послушай и выбери слово.",play:"horse",
-   opts:[{txt:"house"},{txt:"horse",ok:1},{txt:"glass"},{txt:"flag"}]},
-  {t:"letters",q:"Собери слово «собака».",answer:"dog",pool:["d","o","g","b","a"]},
-  {t:"match",q:"Соедини слово и перевод.",
-   pairs:[["ant","муравей"],["egg","яйцо"],["flag","флаг"],["bed","кровать"]]},
-  {t:"dnd",q:"Перетащи слово к картинке.",
-   drops:[{emo:"🐴",cap:"лошадь",answer:"horse"},{emo:"🥛",cap:"стакан",answer:"glass"}],
-   chips:["glass","horse"]},
-  {t:"gap",q:"Вставь пропущенные буквы.",word:"flag",show:[0,3],pool:["l","a"]},
-  {t:"order",q:"Составь предложение «У Анны есть кошка».",answer:["Anna","has","a","cat."],extra:["dog"]},
-  {t:"tf",q:"Слово «cat» надо писать с большой буквы.",answer:false,
-   why:"С большой буквы пишут имена и первое слово предложения. Cat — обычное слово, ему большая буква не нужна."},
-  {t:"speak",q:"Скажи вслух: сначала слово, потом всю фразу.",
-   word:"horse",wordRu:"лошадь",
-   phrase:"Anna has a cat and a dog.",phraseRu:"У Анны есть кошка и собака."},
+  {t:"choice",q:"На какую букву начинается cat?",
+   opts:[{txt:"a"},{txt:"b"},{txt:"c",ok:1},{txt:"d"}]},
+  {t:"listen",q:"Послушай и выбери слово.",play:"dog",
+   opts:[{txt:"ant"},{txt:"bed"},{txt:"cat"},{txt:"dog",ok:1}]},
+  {t:"letters",q:"Собери слово «собака».",answer:"dog",pool:["d","o","g","a","b"]},
+  {t:"match",q:"Соедини слово и картинку.",
+   pairs:[["ant","🐜"],["bed","🛏️"],["cat","🐱"],["dog","🐶"]]},
+  {t:"gap",q:"Вставь пропущенную букву.",word:"cat",show:[0,2],pool:["a","b","d"]},
+  {t:"choice",q:"Какая буква — большая форма b?",
+   opts:[{txt:"B",ok:1},{txt:"D"},{txt:"A"},{txt:"C"}]},
+  {t:"tf",q:"Слово cat обычно пишется с маленькой буквы.",answer:true,
+   why:"Верно. Cat — обычное слово, поэтому обычно пишется со строчной буквы."},
+  {t:"match",q:"Соедини букву и слово.",
+   pairs:[["a","ant"],["b","bed"],["c","cat"],["d","dog"]]},
+
   {t:"choice",q:"Какое слово начинается с буквы g?",
    opts:[{txt:"glass",ok:1},{txt:"horse"},{txt:"egg"},{txt:"flag"}]},
   {t:"letters",q:"Собери слово «флаг».",answer:"flag",pool:["f","l","a","g","e","b"]},
   {t:"listen",q:"Послушай и выбери слово.",play:"egg",
-   opts:[{txt:"egg",ok:1},{txt:"bed"},{txt:"dog"},{txt:"cat"}]},
-  {t:"gap",q:"Вставь пропущенные буквы.",word:"horse",show:[0,4],pool:["o","r","s","a"]},
-  {t:"tf",q:"Буква c в слове «cat» читается как «к».",answer:true,
-   why:"Да. Перед a, o и u буква c читается «к»: cat, cup, cold."}
+   opts:[{txt:"egg",ok:1},{txt:"flag"},{txt:"glass"},{txt:"horse"}]},
+  {t:"gap",q:"Вставь пропущенную букву.",word:"horse",show:[0,1,2,3],pool:["e","a","d"]},
+  {t:"speak",q:"Скажи вслух слово. Обрати внимание на лёгкий начальный h.",
+   word:"horse",wordRu:"лошадь"},
+  {t:"match",q:"Соедини букву и слово.",
+   pairs:[["e","egg"],["f","flag"],["g","glass"],["h","horse"]]}
  ],
  adv:{title:"Буквосочетания и хитрые звуки",
   desc:"Что происходит, когда две буквы встают рядом и начинают читаться совсем иначе. С разбором звука th и тренировкой произношения.",
@@ -3755,63 +3765,66 @@ abc3:{
  intro:"Последние девять букв, и алфавит закрыт. Здесь самый трудный английский звук — r, который не рычит. Здесь пара v и w, которую путают почти все. И буква, с которой английские слова почти никогда не начинаются, хотя в середине и в конце встречается часто.",
  words:["rabbit","snake","tree","umbrella","vest","window","box","yacht","zip"],
  theory:[
-  {kind:"Буквы r–u",head:"Четыре буквы и один трудный звук",
-   phrases:[["r — rabbit","рЭбит","кролик"],["s — snake","снэйк","змея"],["t — tree","три","дерево"],["u — umbrella","амбрЭла","зонт"]],
-   rule:"Английское <b>r</b> — самый непривычный для нас звук. Кончик языка поднят к нёбу, но ни к чему не прикасается, и раската нет совсем.",
-   warn:"Русское раскатистое «р» в слове <b>rabbit</b> слышно сразу. Попробуйте начать слово почти как «уэ» — получится гораздо ближе.",
-   examples:["<b>r</b>abbit — кролик","<b>s</b>nake — змея","<b>t</b>ree — дерево, звучит почти как «три»","<b>u</b>mbrella — зонт, ударение на второй слог"]},
+  {kind:"Буквы r–u",head:"Буквы r–u",
+   phrases:[["r — rabbit","rabbit","кролик"],["s — snake","snake","змея"],["t — tree","tree","дерево"],["u — umbrella","umbrella","зонт"]],
+   rule:"R/r — rabbit, S/s — snake, T/t — tree, U/u — umbrella. Слушай имя буквы, затем слово и находи начальную букву.",
+   examples:["<b>r</b>abbit","<b>s</b>nake","<b>t</b>ree","<b>u</b>mbrella"]},
 
-  {kind:"Буквы v–x",head:"v, w и буква, которой не бывает в начале",
-   art:"sound",cap:"Похожие на слух звуки, но губы работают по-разному.",
-   phrases:[["v — vest","вест","жилет"],["w — window","уИндоу","окно"],["x — box","бокс","коробка"]],
-   rule:"Для <b>v</b> верхние зубы касаются нижней губы, как в русском «в». Для <b>w</b> губы вытягиваются трубочкой, а зубы не участвуют вовсе.",
-   warn:"Букву <b>x</b> показывают в слове <b>box</b>, а не в начале: английских слов на x почти нет, и читается она «кс»."},
+  {kind:"Английский r",head:"Английский r",
+   art:"sound",cap:"Listen → Say: rabbit.",
+   rule:"В слове <b>rabbit</b> английский <b>r</b> произносится без раскатистого русского «р». Кончик языка не вибрирует.",
+   examples:["Listen → <b>rabbit</b>","Say → <b>rabbit</b>"]},
 
-  {kind:"Буквы y–z",head:"Последние две",
-   phrases:[["y — yacht","йот","яхта"],["z — zip","зип","молния на одежде"]],
-   rule:"В слове <b>yacht</b> буквы <b>ch</b> не читаются вообще — остаётся короткое «йот». Такие слова не разбирают по правилам, а запоминают целиком.",
-   examples:["<b>y</b>acht — яхта, произносится «йот»","<b>z</b>ip — застёжка-молния","букву <b>z</b> британцы называют «зед», американцы — «зи»"]},
+  {kind:"Буква и слово",head:"Закрепляем r–u",
+   phrases:[["r → rabbit","rabbit","кролик"],["s → snake","snake","змея"],["t → tree","tree","дерево"],["u → umbrella","umbrella","зонт"]],
+   rule:"Связывай каждую изученную букву с её словом-опорой.",
+   examples:["r → rabbit","s → snake","t → tree","u → umbrella"]},
 
-  {kind:"Итог",head:"Двадцать шесть букв",
-   art:"abc",cap:"Алфавит закончен: от a до z.",
-   rule:"Пять букв гласные, одна (<b>y</b>) переменчивая, остальные двадцать — согласные. Дальше начинается самое интересное: как из них складываются слова.",
-   examples:["Порядок букв нужен не для песенки, а для словаря: слова стоят строго по алфавиту","В списке класса фамилии тоже идут по алфавиту — в английской школе так же"]},
+  {kind:"v и w",head:"v и w — разные",
+   art:"sound",cap:"Listen → Say → Compare.",
+   phrases:[["v — vest","vest","жилет"],["w — window","window","окно"]],
+   rule:"Для <b>v</b> верхние зубы касаются нижней губы. Для <b>w</b> губы округляются и вытягиваются, а зубы не создают звук как при v.",
+   examples:["Listen → <b>vest</b>","Listen → <b>window</b>","Say → Compare"]},
 
-  {kind:"Одна буква — разные звуки",head:"c, g и s меняют характер",
-   phrases:[["cat — city","кэт — сИти","c: «к» и «с»"],["go — giraffe","гоу — джирАф","g: «г» и «дж»"],["books — dogs","букс — догз","s: «с» и «з»"]],
-   rule:"Перед <b>e</b>, <b>i</b> и <b>y</b> буквы <b>c</b> и <b>g</b> смягчаются: <b>c</b> становится «с», а <b>g</b> — «дж». В остальных случаях они читаются твёрдо.",
-   warn:"Буква <b>s</b> тоже меняется: после глухого звука она «с» (<b>books</b>), после звонкого — «з» (<b>dogs</b>). Специально это не учат — язык делает так сам, потому что удобнее."},
+  {kind:"Буква x",head:"Найди x в box",
+   phrases:[["x — box","box","коробка"]],
+   rule:"Буква <b>x</b> находится внутри слова <b>box</b> и звучит близко к «кс».",
+   examples:["bo<b>x</b>"]},
 
-  {kind:"Как учить алфавит",head:"Что делать, если буквы путаются",
-   rule:"Алфавит выучивается не чтением списка, а использованием. Как только буквы начинают складываться в слова, они запоминаются сами — поэтому важнее читать, чем повторять порядок.",
-   examples:["Называйте букву вместе со словом-опорой: «эй — ant», «би — bed»","Пишите парами то, что путается: b и d, p и q","Продиктуйте по буквам свою фамилию — это лучшая проверка","Ищите знакомые буквы на вывесках, упаковках и в названиях игр"]}
+  {kind:"y и z",head:"y и z",
+   phrases:[["y — yacht","yacht","яхта"],["z — zip","zip","молния"]],
+   rule:"Слово <b>yacht</b> запоминается целиком: буквы <b>ch</b> не произносятся. Основное название буквы <b>z</b> — <b>zed</b>.",
+   examples:["<b>y</b>acht","<b>z</b>ip"]}
  ],
  tasks:[
-  {t:"choice",q:"С какой буквы английские слова почти не начинаются?",
-   opts:[{txt:"s"},{txt:"x",ok:1},{txt:"t"},{txt:"r"}]},
+  {t:"choice",q:"На какую букву начинается rabbit?",
+   opts:[{txt:"r",ok:1},{txt:"s"},{txt:"t"},{txt:"u"}]},
+  {t:"listen",q:"Послушай и выбери слово.",play:"snake",
+   opts:[{txt:"rabbit"},{txt:"snake",ok:1},{txt:"tree"},{txt:"umbrella"}]},
+  {t:"letters",q:"Собери слово «дерево».",answer:"tree",pool:["t","r","e","e","u","s"]},
+  {t:"match",q:"Соедини слово и картинку.",
+   pairs:[["rabbit","🐇"],["snake","🐍"],["tree","🌳"],["umbrella","☂️"]]},
+  {t:"gap",q:"Вставь пропущенную букву.",word:"umbrella",show:[1,2,3,4,5,6,7],pool:["u"]},
+  {t:"speak",q:"Скажи вслух. Английский r — без раскатистого русского «р».",
+   word:"rabbit",wordRu:"кролик"},
+  {t:"match",q:"Соедини букву и слово.",
+   pairs:[["r","rabbit"],["s","snake"],["t","tree"],["u","umbrella"]]},
+
   {t:"listen",q:"Послушай и выбери слово.",play:"window",
    opts:[{txt:"vest"},{txt:"window",ok:1},{txt:"box"},{txt:"zip"}]},
-  {t:"letters",q:"Собери слово «дерево».",answer:"tree",pool:["t","r","e","e","a","s"]},
-  {t:"match",q:"Соедини слово и перевод.",
-   pairs:[["rabbit","кролик"],["snake","змея"],["umbrella","зонт"],["window","окно"]]},
-  {t:"dnd",q:"Перетащи слово к картинке.",
-   drops:[{emo:"🐇",cap:"кролик",answer:"rabbit"},{emo:"⛵",cap:"яхта",answer:"yacht"}],
-   chips:["yacht","rabbit"]},
-  {t:"gap",q:"Вставь пропущенные буквы.",word:"umbrella",show:[0,1,2,7],pool:["r","e","l","l","o"]},
-  {t:"order",q:"Составь предложение «Это моя яхта».",answer:["This","is","my","yacht."],extra:["your"]},
-  {t:"tf",q:"Английская буква r рычит, как русская «р».",answer:false,
-   why:"Наоборот. Кончик языка ни к чему не прикасается, и раската нет — иначе получается сильный русский акцент."},
-  {t:"speak",q:"Скажи вслух. Не рычи на букве r.",
-   word:"rabbit",wordRu:"кролик",
-   phrase:"This is my yacht.",phraseRu:"Это моя яхта."},
   {t:"choice",q:"В каком слове есть буква x?",
-   opts:[{txt:"box",ok:1},{txt:"vest"},{txt:"zip"},{txt:"tree"}]},
-  {t:"letters",q:"Собери слово «змея».",answer:"snake",pool:["s","n","a","k","e","t"]},
+   opts:[{txt:"box",ok:1},{txt:"vest"},{txt:"window"},{txt:"zip"}]},
+  {t:"match",q:"Соедини букву и слово.",
+   pairs:[["v","vest"],["w","window"],["x","box"],["y","yacht"],["z","zip"]]},
+  {t:"choice",q:"Сравни v и w.",items:[
+    {q:"Какая буква: верхние зубы касаются нижней губы?",opts:[{txt:"v",ok:1},{txt:"w"}]},
+    {q:"Какая буква: губы округляются, а зубы не создают звук как при v?",opts:[{txt:"v"},{txt:"w",ok:1}]}
+   ]},
+  {t:"letters",q:"Собери слово «молния».",answer:"zip",pool:["z","i","p","v","w"]},
   {t:"listen",q:"Послушай и выбери слово.",play:"yacht",
    opts:[{txt:"yacht",ok:1},{txt:"zip"},{txt:"vest"},{txt:"box"}]},
-  {t:"gap",q:"Вставь пропущенные буквы.",word:"rabbit",show:[0,5],pool:["a","b","b","i","o"]},
-  {t:"tf",q:"В слове «yacht» буквы ch не читаются.",answer:true,
-   why:"Верно. Слово звучит «йот», а ch внутри молчит. Такие слова просто запоминают."}
+  {t:"tf",q:"В слове yacht буквы ch не произносятся.",answer:true,
+   why:"Верно. Yacht запоминается целиком, а ch в этом слове не произносится."}
  ],
  adv:{title:"Весь алфавит и пары, которые путают",
   desc:"Названия всех двадцати шести букв, зачем нужен алфавитный порядок и три пары слов, на которых спотыкаются почти все.",
@@ -3956,11 +3969,11 @@ family:{
 
 /* --------------------- ТЕМА 6 --------------------- */
 colours:{
- id:"colours",no:"Тема 06",name:"Цвета и школа",sub:"Colours",
- desc:"Цвета, школьные вещи и первое правило порядка слов: почему по-английски нельзя сказать «ручка красная», а нужно «красная ручка».",
+ id:"colours",no:"Тема 06",name:"Colours Around Me",sub:"Цвета",
+ desc:"Восемь знакомых цветов и готовые модели для вопроса и ответа о цвете.",
  print:"worksheets/tema-06-cveta-i-shkola.pdf",
- intro:"Цвета, школьные вещи и одно правило, которое будет работать до самого конца обучения: признак всегда идёт перед предметом. По-русски можно сказать «ручка красная», и всё понятно. По-английски так нельзя — и в этой теме разберёмся почему.",
- words:["red","yellow","green","blue","white","black","pen","pencil","book","bag"],
+ intro:"Учимся узнавать и называть red, blue, green, yellow, black, white, orange и pink, а затем использовать готовые модели What colour is it? и It is…",
+ words:["red","blue","green","yellow","black","white","orange","pink"],
  theory:[
   {kind:"Цвета",head:"Четыре главных",
    phrases:[["red","рэд","красный"],["yellow","йЭлоу","жёлтый"],["green","грин","зелёный"],["blue","блу","синий"]],
@@ -4265,90 +4278,180 @@ bday:{
 
 /* --------------------- ПОВТОРЕНИЕ 1 --------------------- */
 rev1:{
- id:"rev1",no:"Повторение 1",name:"Буквы и знакомство",sub:"Revision 1",
- desc:"Всё из первых четырёх тем сразу: приветствия, весь алфавит и слова-опоры. Двенадцать заданий вперемешку — как на проверочной.",
+ id:"rev1",no:"Повторение 1",name:"Повторение 1",sub:"Review 1",
+ desc:"Итоговое повторение букв a–z и начальных навыков чтения из abc1, abc2 и abc3.",
  print:"worksheets/povtorenie-1.pdf",
- intro:"Это не новая тема, а проверка себя. Здесь собрано всё из первых четырёх тем: приветствия, весь алфавит и слова-опоры к буквам. Задания идут вперемешку и не подсказывают, откуда они взяты — как на настоящей проверочной работе.",
+ intro:"Это повторение первого алфавитно-читательского блока. Новых слов здесь нет: вспоминаем изученные буквы, слова-опоры и знакомые особенности чтения.",
  words:[],
+ areaNames:{l1:"Узнавание и восстановление",l2:"Чтение и применение"},
  theory:[
-  {kind:"Что повторяем",head:"Четыре темы за один заход",
-   rule:"Новых слов здесь нет — только те, что уже встречались. Задания идут вперемешку и не подсказывают, из какой темы взяты. Так проверяется настоящее знание, а не свежая память.",
-   examples:["Тема 01 — приветствия и знакомство","Темы 02–04 — весь алфавит от a до z","Слова-опоры к каждой букве"]},
-  {kind:"Алфавит целиком",head:"Двадцать шесть букв",
-   art:"abc",cap:"Если помните слово-опору, помните и звук буквы.",
-   rule:"Пять гласных — <b>a, e, i, o, u</b>, переменчивая <b>y</b> и двадцать согласных. Порядок букв нужен для словарей и списков, поэтому его стоит знать наизусть.",
-   examples:["a — ant · b — bed · c — cat · d — dog","e — egg · f — flag · g — glass · h — horse","i — ink · j — jug · k — kangaroo · l — lamp","m — mouse · n — nose · o — orange · p — pin · q — queen","r — rabbit · s — snake · t — tree · u — umbrella","v — vest · w — window · x — box · y — yacht · z — zip"]}
+  {kind:"Повторение",head:"Вспомни a–z",art:"abc",
+   rule:"Верни в память все изученные буквы и слова-опоры. Смотри, слушай, показывай и повторяй — нового материала здесь нет.",
+   phrases:[
+    ["a — ant","",""],["b — bed","",""],["c — cat","",""],["d — dog","",""],
+    ["e — egg","",""],["f — flag","",""],["g — glass","",""],["h — horse","",""],
+    ["i — ink","",""],["j — jug","",""],["k — kangaroo","",""],["l — lamp","",""],
+    ["m — mouse","",""],["n — nose","",""],["o — orange","",""],["p — pin","",""],["q — queen","",""],
+    ["r — rabbit","",""],["s — snake","",""],["t — tree","",""],["u — umbrella","",""],
+    ["v — vest","",""],["w — window","",""],["x — box","",""],["y — yacht","",""],["z — zip","",""]
+   ]},
+  {kind:"Чтение",head:"Буква и звук",art:"sound",
+   rule:"Только вспоминаем уже изученные опоры: буква и звук могут отличаться, некоторые буквы похожи, а знакомые слова помогают вспомнить чтение.",
+   phrases:[
+    ["c → cat","",""],["h → horse","",""],["j → jug","",""],["q + u → queen","",""],
+    ["r → rabbit","",""],["v → vest","",""],["w → window","",""],["x → box","",""],["y → yacht","",""],
+    ["pin → pine","",""],["one","",""]
+   ],
+   examples:["i / j","p / q","silent e: pin → pine","one — уже изученное слово-исключение"]},
+  {kind:"Итог",head:"Ты уже знаешь весь алфавит",art:"abc",
+   rule:"A a → Z z — это единое поле уже изученных букв. Вспомни: какая буква подходит слову, с какой буквы начинается слово, какую букву слышишь, где большая и маленькая форма и как восстановить знакомое слово.",
+   examples:["буква ↔ слово","первая буква слова","большая ↔ маленькая форма","восстановление знакомого слова","знакомые особенности чтения"]}
  ],
  tasks:[
-  {t:"choice",q:"Ты здороваешься с директором школы. Что сказать?",
-   opts:[{txt:"Hi"},{txt:"Hello",ok:1},{txt:"Hey"},{txt:"Yo"}]},
-  {t:"match",q:"Соедини слово и перевод.",
-   pairs:[["ant","муравей"],["egg","яйцо"],["ink","чернила"],["queen","королева"]]},
-  {t:"letters",q:"Собери слово «лошадь».",answer:"horse",pool:["h","o","r","s","e","a","c"]},
-  {t:"gap",q:"Вставь пропущенные буквы.",word:"umbrella",show:[0,1,2,7],pool:["r","e","l","l"]},
-  {t:"listen",q:"Послушай и выбери слово.",play:"goodbye",
-   opts:[{txt:"goodbye",ok:1},{txt:"good morning"},{txt:"hello"},{txt:"good night"}]},
-  {t:"choice",q:"С какой буквы английские слова почти не начинаются?",
-   opts:[{txt:"x",ok:1},{txt:"s"},{txt:"r"},{txt:"w"}]},
-  {t:"dnd",q:"Перетащи слово к картинке.",
-   drops:[{emo:"🐇",cap:"кролик",answer:"rabbit"},{emo:"👑",cap:"королева",answer:"queen"}],
-   chips:["queen","rabbit"]},
-  {t:"order",q:"Составь фразу «Меня зовут Анна».",answer:["My","name","is","Anna."],extra:["are"]},
-  {t:"tf",q:"В слове «nose» буква e не читается.",answer:true,
-   why:"Верно, это немая e. Она молчит, но заставляет o звучать «оу»."},
-  {t:"letters",q:"Собери слово «окно».",answer:"window",pool:["w","i","n","d","o","w","e"]},
-  {t:"choice",q:"Что значит «See you tomorrow»?",
-   opts:[{txt:"Приятно познакомиться"},{txt:"Увидимся завтра",ok:1},{txt:"Доброе утро"},{txt:"Как дела"}]},
-  {t:"speak",q:"Скажи вслух.",word:"goodbye",wordRu:"до свидания",
-   phrase:"See you tomorrow!",phraseRu:"Увидимся завтра!"},
-  {t:"choice",q:"Сколько букв в английском алфавите?",
-   opts:[{txt:"26",ok:1},{txt:"33"},{txt:"24"},{txt:"30"}]},
-  {t:"letters",q:"Собери слово «зонт».",answer:"umbrella",
-   pool:["u","m","b","r","e","l","l","a","o"]}
+  {t:"match",area:"l1",q:"Соедини букву и слово.",pairs:[["a","ant"],["d","dog"],["h","horse"],["i","ink"],["m","mouse"],["q","queen"],["r","rabbit"],["w","window"],["z","zip"]]},
+  {t:"listen",area:"l1",q:"Послушай и выбери слово.",items:[
+    {play:"bed",opts:[{txt:"bed",ok:1},{txt:"cat"},{txt:"flag"},{txt:"horse"}]},
+    {play:"jug",opts:[{txt:"jug",ok:1},{txt:"ink"},{txt:"lamp"},{txt:"queen"}]},
+    {play:"snake",opts:[{txt:"snake",ok:1},{txt:"rabbit"},{txt:"tree"},{txt:"umbrella"}]},
+    {play:"yacht",opts:[{txt:"yacht",ok:1},{txt:"vest"},{txt:"box"},{txt:"zip"}]}
+   ]},
+  {t:"choice",area:"l1",q:"Выбери первую букву слова.",items:[
+    {q:"cat",opts:[{txt:"c",ok:1},{txt:"a"},{txt:"d"},{txt:"h"}]},
+    {q:"orange",opts:[{txt:"o",ok:1},{txt:"i"},{txt:"p"},{txt:"q"}]},
+    {q:"tree",opts:[{txt:"t",ok:1},{txt:"r"},{txt:"s"},{txt:"u"}]},
+    {q:"zip",opts:[{txt:"z",ok:1},{txt:"v"},{txt:"x"},{txt:"y"}]}
+   ]},
+  {t:"match",area:"l1",q:"Соедини большую и маленькую букву.",pairs:[["A","a"],["G","g"],["J","j"],["P","p"],["R","r"],["W","w"],["Z","z"]]},
+  {t:"gap",area:"l1",q:"Восстанови знакомые слова.",items:[
+    {word:"cat",show:[0,2],pool:["a","e","o"]},
+    {word:"egg",show:[1,2],pool:["e","a","i"]},
+    {word:"jug",show:[1,2],pool:["j","i","q"]},
+    {word:"rabbit",show:[1,2,3,4,5],pool:["r","s","t"]},
+    {word:"box",show:[0,1],pool:["x","z","q"]}
+   ]},
+  {t:"letters",area:"l1",q:"Собери знакомые слова.",items:[
+    {answer:"dog",pool:["d","o","g","b","e"]},
+    {answer:"lamp",pool:["l","a","m","p","i"]},
+    {answer:"snake",pool:["s","n","a","k","e","t"]}
+   ]},
+  {t:"order",area:"l1",q:"Поставь соседние буквы по порядку.",items:[
+    {answer:["c","d","e","f"],extra:[]},
+    {answer:["w","x","y","z"],extra:[]}
+   ]},
+
+  {t:"choice",area:"l2",q:"Как звучит c в слове cat?",opts:[{txt:"/k/",ok:1},{txt:"как имя буквы c"}]},
+  {t:"choice",area:"l2",q:"Выбери правильную букву.",items:[
+    {q:"Какая буква показана?",visual:{kind:"emoji",value:"j"},opts:[{txt:"i"},{txt:"j",ok:1}]},
+    {q:"Какая буква показана?",visual:{kind:"emoji",value:"q"},opts:[{txt:"p"},{txt:"q",ok:1}]}
+   ]},
+  {t:"choice",area:"l2",q:"pin → pine. Что происходит со словом?",opts:[
+    {txt:"Последняя e не произносится и меняет чтение.",ok:1},
+    {txt:"Последняя e произносится отдельно."},
+    {txt:"Слово не меняется."}
+   ]},
+  {t:"match",area:"l2",q:"Соедини знакомую особенность и слово.",pairs:[
+    ["j","jug"],["q + u","queen"],["r без русского раската","rabbit"],
+    ["v: зубы у нижней губы","vest"],["w: губы округлены","window"],["x внутри слова","box"]
+   ]},
+  {t:"tf",area:"l2",q:"В слове yacht буквы ch не произносятся.",answer:true,why:"Верно. Yacht нужно узнавать по уже изученному звучанию; общего нового правила ch здесь нет."},
+  {t:"choice",area:"l2",q:"Какое слово нужно запомнить как уже изученное исключение?",opts:[{txt:"one",ok:1},{txt:"pin"},{txt:"lamp"},{txt:"rabbit"}]},
+  {t:"match",area:"l2",q:"Соедини слово с тем, что нужно вспомнить.",pairs:[
+    ["cat","c звучит /k/"],["horse","лёгкий h"],["queen","q + u"],["pine","silent e"],
+    ["rabbit","английский r"],["window","w"],["box","x"],["yacht","ch не произносится"],["zip","z = zed"]
+   ]}
  ]
 },
 
 /* --------------------- ПОВТОРЕНИЕ 2 --------------------- */
 rev2:{
- id:"rev2",no:"Повторение 2",name:"Слова второго класса",sub:"Revision 2",
- desc:"Семья, цвета, дом и праздник вместе. Здесь проверяются не только слова, но и три правила порядка, которые встречались по дороге.",
+ id:"rev2",no:"Повторение 2",name:"Повторение 2",sub:"Revision 2",
+ desc:"Family, Colours, Home и Birthday.",
  print:"worksheets/povtorenie-2.pdf",
- intro:"Вторая проверка себя. Семья, цвета, дом и праздник вместе. Здесь важны уже не только слова: проверяются три правила порядка, которые встречались по дороге и на которых держится вся английская фраза.",
+ intro:"Family, Colours, Home и Birthday.",
  words:[],
+ areaNames:{l1:"L1",l2:"L2"},
  theory:[
-  {kind:"Что повторяем",head:"Четыре темы про жизнь",
-   rule:"Семья, цвета, дом и день рождения. В этих темах впервые появились не только новые слова, но и правила, по которым слова выстраиваются в предложение.",
-   examples:["Тема 05 — семья и this is my…","Тема 06 — цвета и порядок слов","Тема 07 — дом и комнаты","Тема 08 — числа и праздник"]},
-  {kind:"Три правила",head:"То, что важнее слов",
-   rule:"Слова забываются и вспоминаются заново, а правила держат всю речь. Здесь их было три, и все три — про порядок.",
-   examples:["Признак идёт <b>перед</b> предметом: a red pen","Про комнату говорят <b>in the</b>: in the kitchen","Возраст выражают глаголом «быть»: I'm eight"]}
+  {kind:"Повторение",head:"Вспомни изученное",
+   rule:"Family, Colours, Home и Birthday — всё, что уже изучено в этом блоке.",
+   examples:["mummy · brother · grandma · grandpa","red · blue · green · yellow · black · white · orange · pink","bedroom · bathroom · kitchen · living room · garden · tree house","birthday · party · cake · candle · balloon · present"]},
+  {kind:"Повторение",head:"Вспомни, как сказать",
+   examples:["This is… · These are… · my · your · his · her","What colour is it? · It is…","This is my house. · It’s got… · There is… · There are… · Where’s…? · She’s in the kitchen.","How old are you? · I’m eight. · How many candles?","Happy birthday! · Thank you! · Thank you very much! · Here you are. · Let’s sing! · Make a wish. · Blow out the candles."]},
+  {kind:"Повторение",head:"Используй всё вместе",
+   rule:"Смотри на ситуацию и выбирай знакомые слова и фразы из Family, Colours, Home и Birthday.",
+   examples:["кто · где · какого цвета","сколько · возраст · праздничная реплика"]}
  ],
  tasks:[
-  {t:"choice",q:"Какой вариант правильный?",
-   opts:[{txt:"a bag red"},{txt:"a red bag",ok:1},{txt:"red a bag"},{txt:"bag a red"}]},
-  {t:"match",q:"Соедини слово и перевод.",
-   pairs:[["grandma","бабушка"],["kitchen","кухня"],["cake","торт"],["blue","синий"]]},
-  {t:"letters",q:"Собери слово «брат».",answer:"brother",pool:["b","r","o","t","h","e","r","a"]},
-  {t:"gap",q:"Вставь пропущенные буквы.",word:"yellow",show:[0,5],pool:["e","l","l","o","a"]},
-  {t:"listen",q:"Послушай и выбери слово.",play:"garden",
-   opts:[{txt:"garden",ok:1},{txt:"kitchen"},{txt:"bedroom"},{txt:"birthday"}]},
-  {t:"choice",q:"Как сказать «Я иду домой»?",
-   opts:[{txt:"I go home",ok:1},{txt:"I go to home"},{txt:"I go in home"},{txt:"I go at home"}]},
-  {t:"dnd",q:"Перетащи слово к картинке.",
-   drops:[{emo:"🎂",cap:"торт",answer:"cake"},{emo:"🛏",cap:"спальня",answer:"bedroom"}],
-   chips:["bedroom","cake"]},
-  {t:"order",q:"Составь предложение «Это моя сестра».",answer:["This","is","my","sister."],extra:["are"]},
-  {t:"tf",q:"«Мне восемь лет» по-английски будет «I have eight years».",answer:false,
-   why:"Нет. Возраст выражают через глагол «быть»: I'm eight."},
-  {t:"letters",q:"Собери слово «подарок».",answer:"present",pool:["p","r","e","s","e","n","t","a"]},
-  {t:"choice",q:"Что значит «It's got a garden»?",
-   opts:[{txt:"В нём есть сад",ok:1},{txt:"Он в саду"},{txt:"Это сад"},{txt:"У него нет сада"}]},
-  {t:"speak",q:"Скажи вслух.",word:"birthday",wordRu:"день рождения",
-   phrase:"I've got a red bag.",phraseRu:"У меня красный портфель."},
-  {t:"choice",q:"Как спросить, сколько тебе лет?",
-   opts:[{txt:"How old are you?",ok:1},{txt:"How many you?"},{txt:"What old you?"},{txt:"How old you have?"}]},
-  {t:"match",q:"Соедини слово и перевод.",
-   pairs:[["garden","сад"],["present","подарок"],["yellow","жёлтый"],["sister","сестра"]]}
+  {t:"match",area:"l1",q:"Соедини слово и картинку.",
+   pairs:[["mummy","👩"],["brother","👦"],["grandma","👵"],["grandpa","👴"],
+          ["bedroom","🛏️"],["bathroom","🛁"],["kitchen","🍳"],["living room","🛋️"],["garden","🌳"],["tree house","🌳🏠"],
+          ["birthday","🎂🎈"],["party","🎉🥳"],["cake","🎂"],["candle","🕯️"],["balloon","🎈"],["present","🎁"]]},
+  {t:"match",area:"l1",q:"Соедини цвет с его названием.",
+   pairs:[["red","🟥"],["blue","🟦"],["green","🟩"],["yellow","🟨"],["black","⬛"],["white","⬜"],["orange","🟧"],["pink","🩷"]]},
+  {t:"choice",area:"l1",q:"Выбери правильный вариант.",items:[
+   {visual:{kind:"emoji",value:"👩"},opts:[{txt:"This is…",ok:1},{txt:"These are…"}]},
+   {visual:{kind:"emoji",value:"👩  👨"},opts:[{txt:"This is…"},{txt:"These are…",ok:1}]},
+   {q:"This is ___ mummy.",visual:{kind:"emoji",value:"Я → 👩"},opts:[{txt:"my",ok:1},{txt:"your"},{txt:"his"},{txt:"her"}]},
+   {q:"___ mummy / daddy / sister / brother",visual:{kind:"emoji",value:"Ты → 👩"},opts:[{txt:"my"},{txt:"your",ok:1},{txt:"his"},{txt:"her"}]},
+   {visual:{kind:"emoji",value:"Он → 👩"},opts:[{txt:"my"},{txt:"your"},{txt:"his",ok:1},{txt:"her"}]},
+   {visual:{kind:"emoji",value:"Она → 👩"},opts:[{txt:"my"},{txt:"your"},{txt:"his"},{txt:"her",ok:1}]},
+   {visual:{kind:"emoji",value:"🧒"},opts:[{txt:"child",ok:1},{txt:"children"}]},
+   {visual:{kind:"emoji",value:"🧒  🧒  🧒"},opts:[{txt:"child"},{txt:"children",ok:1}]}
+  ]},
+  {t:"choice",area:"l1",q:"Выбери знакомую фразу для картинки.",items:[
+   {visual:{kind:"emoji",value:"🏠"},opts:[{txt:"This is my house.",ok:1},{txt:"Happy birthday!"},{txt:"What colour is it?"}]},
+   {visual:{kind:"emoji",value:"🏠  🛏️  🛁  🍳  🛋️"},opts:[{txt:"It’s got…",ok:1},{txt:"Where’s…?"},{txt:"This is…"}]},
+   {visual:{kind:"emoji",value:"🏠  ➜  🍳"},opts:[{txt:"There is…",ok:1},{txt:"There are…"}]},
+   {visual:{kind:"emoji",value:"🏠  ➜  🛏️  🛁  🍳"},opts:[{txt:"There is…"},{txt:"There are…",ok:1}]},
+   {q:"Where’s…?",visual:{kind:"emoji",value:"👩  🍳"},opts:[{txt:"She’s in the kitchen.",ok:1},{txt:"I’m eight."},{txt:"It is green."}]}
+  ]},
+  {t:"listen",area:"l1",q:"Послушай и выбери.",items:[
+   {play:"seven",opts:[{txt:"7",ok:1},{txt:"4"},{txt:"8"},{txt:"10"}]},
+   {play:"four",opts:[{txt:"4",ok:1},{txt:"7"},{txt:"6"},{txt:"9"}]},
+   {play:"birthday",opts:[{txt:"день рождения",emo:"🎂🎈",ok:1},{txt:"подарок",emo:"🎁"},{txt:"кухня",emo:"🍳"},{txt:"сестра",emo:"👧"}]},
+   {play:"present",opts:[{txt:"present",emo:"🎁",ok:1},{txt:"cake",emo:"🎂"},{txt:"balloon",emo:"🎈"},{txt:"candle",emo:"🕯️"}]},
+   {play:"kitchen",opts:[{txt:"kitchen",emo:"🍳",ok:1},{txt:"bedroom",emo:"🛏️"},{txt:"bathroom",emo:"🛁"},{txt:"living room",emo:"🛋️"}]},
+   {play:"sister",opts:[{txt:"sister",emo:"👧",ok:1},{txt:"grandma",emo:"👵"},{txt:"brother",emo:"👦"},{txt:"grandpa",emo:"👴"}]},
+   {play:"orange",opts:[{txt:"orange",emo:"🟧",ok:1},{txt:"blue",emo:"🟦"},{txt:"green",emo:"🟩"},{txt:"black",emo:"⬛"}]},
+   {play:"black",opts:[{txt:"black",emo:"⬛",ok:1},{txt:"white",emo:"⬜"},{txt:"orange",emo:"🟧"},{txt:"yellow",emo:"🟨"}]}
+  ]},
+  {t:"choice",area:"l1",q:"Выбери правильный ответ.",items:[
+   {q:"What colour is it?",visual:{kind:"swatch",value:"#FF7EB6"},opts:[{txt:"It is pink.",ok:1},{txt:"It is green."},{txt:"It is blue."}]},
+   {q:"How old are you?",opts:[{txt:"I’m eight.",ok:1},{txt:"I have eight years."},{txt:"Thank you!"}]},
+   {q:"How many candles?",visual:{kind:"emoji",value:"🎂  🕯️🕯️🕯️🕯️🕯️🕯️🕯️🕯️"},opts:[{txt:"six"},{txt:"eight",ok:1},{txt:"ten"}]},
+   {q:"Как сказать правильно?",opts:[{txt:"I’m eight years old.",ok:1},{txt:"I have eight years."}],note:"I have eight years — неверный вариант."}
+  ]},
+  {t:"match",area:"l1",q:"Соедини реплику и ситуацию.",
+   pairs:[["Happy birthday!","🎂🎉"],["Happy birthday to you!","🎶🎂"],["Thank you!","🎉🙏"],["Thank you very much!","🎁🙏"],
+          ["Here you are.","🎁➡️"],["Let’s sing!","👨‍👩‍👧‍👦🎶"],["Make a wish.","🎂🤞"],["Blow out the candles.","🎂💨"]]},
+  {t:"choice",area:"l2",q:"Посмотри на сцену и выбери ответы.",visual:{kind:"emoji",value:"🏠  🍳  👧  🟦  🎈  🎉"},items:[
+   {q:"Кого ты видишь?",opts:[{txt:"This is my sister.",ok:1},{txt:"This is my grandma."},{txt:"These are…"}]},
+   {q:"Where’s…?",opts:[{txt:"She’s in the kitchen.",ok:1},{txt:"I’m eight."},{txt:"It is blue."}]},
+   {q:"What colour is it?",opts:[{txt:"It is blue.",ok:1},{txt:"It is yellow."},{txt:"It is pink."}]}
+  ]},
+  {t:"match",area:"l2",q:"Соедини часть сцены с подходящей фразой.",
+   pairs:[["🏠","This is my house."],["🏠  🛏️🛁🍳🛋️","It’s got…"],["🏠 ➜ 🍳","There is…"],["🏠 ➜ 🛏️🛁🍳","There are…"],["👩  🍳","She’s in the kitchen."],["👵  👴","These are…"]]},
+  {t:"choice",area:"l2",q:"Посмотри на праздник и ответь.",visual:{kind:"emoji",value:"🎂  🕯️🕯️🕯️🕯️🕯️🕯️🕯️🕯️  🟧  🎈🎁"},items:[
+   {q:"How many candles?",opts:[{txt:"seven"},{txt:"eight",ok:1},{txt:"nine"}]},
+   {q:"What colour is it?",opts:[{txt:"It is orange.",ok:1},{txt:"It is black."},{txt:"It is green."}]},
+   {q:"Какую реплику выбрать для именинника?",opts:[{txt:"Happy birthday!",ok:1},{txt:"Where’s…?"},{txt:"This is my house."}]}
+  ]},
+  {t:"order",area:"l2",q:"Собери короткий праздничный диалог.",
+   preChoice:{q:"Кого ты видишь?",visual:{kind:"emoji",value:"👧"},opts:[{txt:"This is my sister.",ok:1},{txt:"This is my grandma."},{txt:"These are…"}]},
+   answer:["Happy birthday!","Thank you!","How old are you today?","I’m eight!"],extra:[]},
+  {t:"order",area:"l2",q:"Расставь праздничные действия по сцене.",
+   preChoice:{q:"Где проходит праздник?",visual:{kind:"emoji",value:"🏠  🛋️  🎂🎈"},opts:[{txt:"bedroom"},{txt:"living room",ok:1},{txt:"garden"}]},
+   answer:["Here you are.","Thank you very much!","Let’s sing!","Happy birthday to you!","Make a wish.","Blow out the candles."],extra:[]},
+  {t:"match",area:"l2",q:"Соедини вопрос или начало с подходящим ответом.",
+   pairs:[["This is my…","sister"],["What colour is it?","It is green."],["Where’s…?","She’s in the kitchen."],["How old are you today?","I’m eight!"],["How many candles?","eight"],["Happy birthday!","Thank you!"]]},
+  {t:"choice",area:"l2",q:"Посмотри на всю сцену и выбери правильные ответы.",visual:{kind:"emoji",value:"🏠  👩👨👧👦👵👴  🎂  🎈🎈  🎁🎁"},items:[
+   {visual:{kind:"emoji",value:"👵  👴"},opts:[{txt:"This is…"},{txt:"These are…",ok:1},{txt:"It is…"}]},
+   {q:"Where’s…?",visual:{kind:"emoji",value:"👩  🍳"},opts:[{txt:"She’s in the kitchen.",ok:1},{txt:"I’m eight!"},{txt:"Thank you!"}]},
+   {q:"What colour is it?",visual:{kind:"swatch",value:"#FF7EB6"},opts:[{txt:"It is pink.",ok:1},{txt:"It is white."},{txt:"It is orange."}]},
+   {q:"How many candles?",visual:{kind:"emoji",value:"🎂  🕯️🕯️🕯️🕯️🕯️🕯️🕯️🕯️"},opts:[{txt:"six"},{txt:"eight",ok:1},{txt:"ten"}]},
+   {q:"How old are you today?",opts:[{txt:"I’m eight!",ok:1},{txt:"Here you are."},{txt:"This is my house."}]},
+   {visual:{kind:"emoji",value:"🧑  🎁➡️  🧒"},opts:[{txt:"Here you are.",ok:1},{txt:"Make a wish."},{txt:"Where’s…?"}]},
+   {visual:{kind:"emoji",value:"🧒  🎁  🙏"},opts:[{txt:"Thank you very much!",ok:1},{txt:"There are…"},{txt:"It is blue."}]}
+  ]}
  ]
 },
 
@@ -4569,12 +4672,12 @@ const TOPICS={2:[
  {id:"abc1",name:"Алфавит a–h",sub:"My Letters!",ready:true},
  {id:"abc2",name:"Алфавит i–q",sub:"My Letters!",ready:true},
  {id:"abc3",name:"Алфавит r–z",sub:"Letter Blends",ready:true},
- {id:"rev1",name:"Повторение: буквы и знакомство",sub:"Revision 1",ready:true,rev:true,mark:"П1"},
+ {id:"rev1",name:"Повторение 1",sub:"Review 1",ready:true,rev:true,mark:"П1"},
  {id:"family",name:"Моя семья",sub:"My Family!",ready:true},
- {id:"colours",name:"Цвета и школа",sub:"Colours",ready:true},
+ {id:"colours",name:"Colours Around Me",sub:"Цвета",ready:true},
  {id:"home",name:"Мой дом",sub:"My Home!",ready:true},
  {id:"bday",name:"День рождения",sub:"My Birthday!",ready:true},
- {id:"rev2",name:"Повторение: слова второго класса",sub:"Revision 2",ready:true,rev:true,mark:"П2"},
+ {id:"rev2",name:"Повторение 2",sub:"Revision 2",ready:true,rev:true,mark:"П2"},
 ],
 3:[
  {id:"g3_school",name:"Снова в школу",sub:"School Again!",ready:true},
@@ -4601,18 +4704,18 @@ const PRINTS={2:[
  {no:"05",name:"Моя семья",sub:"My Family!",pages:3,file:"worksheets/tema-05-moya-semya.pdf",
   what:["Прописи: mummy, daddy, sister, brother","Написать слова самому","Вставить пропущенные буквы",
         "Соединить слово с переводом","Подписать членов семьи","Составить «This is my …»"]},
- {no:"06",name:"Цвета и школа",sub:"Colours",pages:3,file:"worksheets/tema-06-cveta-i-shkola.pdf",
-  what:["Прописи: red, yellow, green, blue","Написать слова самому","Вставить пропущенные буквы",
-        "Соединить слово с переводом","Раскрасить квадраты по подписям","Составить «I've got a …»"]},
+ {no:"06",name:"Colours Around Me",sub:"Цвета",pages:3,file:"worksheets/tema-06-cveta-i-shkola.pdf",
+  what:["Прописи и письмо знакомых цветов","Вставить пропущенные буквы","Соединить цвет и слово",
+        "Раскрасить по нормативным подписям","Дополнить готовую модель It is…"]},
  {no:"07",name:"Мой дом",sub:"My Home!",pages:3,file:"worksheets/tema-07-moy-dom.pdf",
   what:["Прописи: bedroom, kitchen, garden","Написать слова самому","Вставить пропущенные буквы",
         "Соединить комнату с переводом","Подписать комнаты","Составить «She's in the …»"]},
  {no:"08",name:"День рождения",sub:"My Birthday!",pages:3,file:"worksheets/tema-08-den-rozhdeniya.pdf",
   what:["Прописи чисел от one до five","Написать числа самому","Соединить число с цифрой",
         "Вставить пропущенные буквы","Подписать предметы праздника","Написать, сколько тебе лет"]},
- {no:"П1",name:"Повторение: буквы и знакомство",sub:"Revision 1",pages:2,file:"worksheets/povtorenie-1.pdf",
-  what:["Вписать пропущенные буквы алфавита","Вспомнить слово-опору к букве","Вставить пропущенные буквы",
-        "Соединить букву со словом","Подписать приветствие и прощание","Написать о себе"]},
+ {no:"П1",name:"Повторение 1",sub:"Review 1",pages:2,file:"worksheets/povtorenie-1.pdf",
+  what:["Восстановить знакомые буквы и последовательности","Вспомнить слово-опору к букве","Вставить пропущенные буквы",
+        "Соединить букву со знакомым словом","Повторить знакомые случаи чтения"]},
  {no:"П2",name:"Повторение: слова второго класса",sub:"Revision 2",pages:3,file:"worksheets/povtorenie-2.pdf",
   what:["Прописи слов четырёх тем","Написать слова самому","Вставить пропущенные буквы",
         "Соединить слово с переводом","Расставить слова в предложении","Написать три фразы о себе"]},
@@ -5252,10 +5355,259 @@ const BOOK={2:[
     text:"Англичане часто спрашивают <b>How are you?</b> Но это не настоящий вопрос о здоровье. Это просто часть приветствия. Отвечают коротко: <b>I'm fine, thanks</b> — и тут же спрашивают в ответ: <b>And you?</b> Рассказывать, что болит голова, тут не нужно.",
     words:[["How are you?","Как дела?"],["I'm fine, thanks.","Хорошо, спасибо."],["And you?","А ты?"]],
     tip:"Ответил — верни вопрос. Это считается вежливым."},
-   {h:"Утро, день и вечер",
-    text:"Здороваться можно и по времени суток. Утром говорят <b>good morning</b>, днём — <b>good afternoon</b>, вечером при встрече — <b>good evening</b>. А вот <b>good night</b> — не приветствие. Это прощание перед сном, как наше «спокойной ночи».",
-    words:[["good morning","доброе утро"],["good afternoon","добрый день"],["good evening","добрый вечер"],["good night","спокойной ночи"]],
-    tip:"Встретил вечером — <b>good evening</b>. Уходишь спать — <b>good night</b>."}
+   {h:"Good morning",
+    text:"В основном Hello уже встречается знакомое приветствие <b>good morning</b>. Его достаточно узнать и использовать как готовую фразу вместе с остальным материалом основной темы.",
+    words:[["good morning","доброе утро"]],
+    tip:"Углублённые приветствия по времени суток остаются в отдельном Hello ADV и здесь не изучаются."}
+  ]},
+
+
+ {id:"b12",title:"Алфавит a–h",sub:"abc1 · My Letters!",
+  about:"Шесть учебниковых страниц темы abc1: буквы a–h, восемь нормативных слов и итоговое повторение перед цифровой проверкой.",
+  pages:[
+   {kind:"lemmaBook",spread:1,h:"Первые четыре буквы",kicker:"Страница 1 · Listen · Point · Say",img:"bk_letters",
+    lead:"Познакомься с первыми четырьмя буквами. Нажимай на карточки, слушай и повторяй.",
+    vocab:[["a","буква A / a","A a"],["ant","муравей","🐜"],["b","буква B / b","B b"],["bed","кровать","🛏️"],["c","буква C / c","C c"],["cat","кошка","🐱"],["d","буква D / d","D d"],["dog","собака","🐶"]],
+    models:[["a → ant","начальная буква"],["b → bed","начальная буква"],["c → cat","начальная буква"],["d → dog","начальная буква"],["c → cat → /k/","буква и звук — разные вещи"]],
+    activities:[
+      {type:"say",title:"Listen • Point • Say",text:"Послушай букву и слово, покажи карточку и повтори.",say:"a, ant, b, bed, c, cat, d, dog"},
+      {type:"point",title:"Find the letter",text:"Найди пару с буквой c.",items:["a — ant","b — bed","c — cat","d — dog"],answer:"c — cat"},
+      {type:"choice",title:"Letter or sound?",text:"Что мы видим в записи C / c?",options:[["букву",1],["звук /k/",0]]}
+    ],note:"Буква — то, что мы видим и пишем. Звук — то, что слышим и произносим. В слове cat буква c звучит как /k/."},
+   {kind:"lemmaBook",spread:1,h:"Найди и напиши букву",kicker:"Страница 2 · Big and small · Match · Complete · Trace",img:"bk_letters",
+    lead:"Сопоставь большую и маленькую форму, восстанови знакомые слова и потренируй отдельные буквы.",
+    objects:[["A a","A / a"],["B b","B / b"],["C c","C / c"],["D d","D / d"]],
+    activities:[
+      {type:"match",title:"Big and small",text:"Соедини большую и маленькую форму.",pairs:[["A","a"],["B","b"],["C","c"],["D","d"]]},
+      {type:"match",title:"Match • Complete",text:"Соедини букву со словом и восстанови пропуск.",pairs:[["a → _nt","ant"],["b → _ed","bed"],["c → _at","cat"],["d → _og","dog"]]},
+      {type:"checklist",title:"Trace and write",text:"Обведи пальцем контур, затем напиши одну отдельную букву рядом.",items:["A / a","B / b","C / c","D / d"]}
+    ],note:"Пишем только отдельные буквы и знакомые слова с пропуском. Свободных предложений здесь нет."},
+   {kind:"lemmaBook",spread:2,h:"Ещё четыре буквы",kicker:"Страница 3 · Listen · Point · Say",img:"bk_letters",
+    lead:"Познакомься с e, f, g, h и четырьмя знакомыми словами-опорами.",
+    vocab:[["e","буква E / e","E e"],["egg","яйцо","🥚"],["f","буква F / f","F f"],["flag","флаг","🚩"],["g","буква G / g","G g"],["glass","стакан","🥛"],["h","буква H / h","H h"],["horse","лошадь","🐴"]],
+    models:[["e → egg","начальная буква"],["f → flag","начальная буква"],["g → glass","начальная буква"],["h → horse","начальная буква"],["h → horse","начальный h звучит как лёгкий выдох"]],
+    activities:[
+      {type:"say",title:"Listen • Point • Say",text:"Послушай букву и слово, покажи карточку и повтори.",say:"e, egg, f, flag, g, glass, h, horse"},
+      {type:"point",title:"Find the first letter",text:"Найди пару с буквой g.",items:["e — egg","f — flag","g — glass","h — horse"],answer:"g — glass"},
+      {type:"say",title:"Hear h",text:"Послушай и повтори horse. Обрати внимание на лёгкий начальный h.",say:"h, horse"}
+    ],note:"Имя буквы и её звук в слове могут не совпадать. Здесь главная новая фонетическая опора — h в horse."},
+   {kind:"lemmaBook",spread:2,h:"Собери и восстанови",kicker:"Страница 4 · Big · Small · Word · Build",img:"bk_letters",
+    lead:"Свяжи большую букву, маленькую букву и слово. Затем собери и восстанови знакомые слова.",
+    models:[["E ↔ e ↔ egg","буква и слово"],["F ↔ f ↔ flag","буква и слово"],["G ↔ g ↔ glass","буква и слово"],["H ↔ h ↔ horse","буква и слово"]],
+    activities:[
+      {type:"match",title:"Big • Small • Word",text:"Соедини букву со словом.",pairs:[["E / e","egg"],["F / f","flag"],["G / g","glass"],["H / h","horse"]]},
+      {type:"build",title:"Build and complete",text:"Собери flag из показанных букв.",before:"f + l + a + g =",tokens:["flag","glass","horse"],answer:"flag"},
+      {type:"build",title:"Complete",text:"Восстанови hors_ → horse.",before:"hors",tokens:["e","a","g"],answer:"e"},
+      {type:"say",title:"Listen and say",text:"Послушай и повтори все четыре пары.",say:"e, egg, f, flag, g, glass, h, horse"}
+    ],note:"Новых слов и новых правил чтения здесь нет."},
+   {kind:"lemmaBook",spread:3,h:"Найди букву и слово",kicker:"Страница 5 · Listen · Match · Complete",img:"bk_letters",
+    lead:"Перемешай a–h и восемь знакомых слов. Слушай, находи и восстанавливай.",
+    vocab:[["ant","муравей","🐜"],["bed","кровать","🛏️"],["cat","кошка","🐱"],["dog","собака","🐶"],["egg","яйцо","🥚"],["flag","флаг","🚩"],["glass","стакан","🥛"],["horse","лошадь","🐴"]],
+    activities:[
+      {type:"say",title:"Listen and point",text:"Слушай в смешанном порядке и показывай нужную карточку.",say:"dog, egg, ant, horse, bed, glass, cat, flag"},
+      {type:"match",title:"Match all eight",text:"Соедини букву и слово.",pairs:[["a","ant"],["b","bed"],["c","cat"],["d","dog"],["e","egg"],["f","flag"],["g","glass"],["h","horse"]]},
+      {type:"match",title:"Complete",text:"Восстанови восемь знакомых слов.",pairs:[["_nt","ant"],["b_d","bed"],["c_t","cat"],["_og","dog"],["_gg","egg"],["fl_g","flag"],["gl_ss","glass"],["hors_","horse"]]}
+    ],note:"Все восемь слов уже изучены. Здесь только итоговое смешанное повторение."},
+   {kind:"lemmaBook",spread:3,h:"Я знаю a–h",kicker:"Страница 6 · Find · Choose · Say · Check yourself",img:"bk_letters",
+    lead:"Используй буквы A/a–H/h и восемь знакомых слов перед цифровой проверкой abc1.",
+    objects:[["A a","ant"],["B b","bed"],["C c","cat"],["D d","dog"],["E e","egg"],["F f","flag"],["G g","glass"],["H h","horse"]],
+    activities:[
+      {type:"point",title:"Find • Choose • Say",text:"Найди пару H / h — horse и произнеси её.",items:["A / a — ant","C / c — cat","H / h — horse","F / f — flag"],answer:"H / h — horse"},
+      {type:"build",title:"Listen • Build",text:"Собери знакомое слово glass.",before:"gl",tokens:["ass","ag","orse"],answer:"ass"},
+      {type:"checklist",title:"Trace • Complete • Check yourself",text:"Обведи A/a–H/h, дополни знакомые слова с пропусками и отметь, что уже получается.",items:["узнаю a–h","называю a–h","нахожу слово для буквы","нахожу первую букву слова","различаю большую и маленькую букву","собираю знакомое слово","узнаю знакомое слово на слух"]}
+    ],note:"Страница готовит к abc1_check, но не копирует его десять вопросов."}
+  ]},
+
+
+ {id:"b13",title:"Алфавит i–q",sub:"abc2 · My Letters!",about:"Шесть страниц темы abc2: буквы i–q, девять нормативных слов и утверждённые опоры чтения.",pages:[
+ {kind:"lemmaBook",spread:1,h:"Буквы i–q",kicker:"Страница 1 · Look · Listen · Say",img:"bk_letters",lead:"Познакомься с девятью буквами и девятью словами-опорами. Слушай, показывай и повторяй.",
+ vocab:[["i","I / i","I i"],["ink","чернила","🖋️"],["j","J / j","J j"],["jug","кувшин","🏺"],["k","K / k","K k"],["kangaroo","кенгуру","🦘"],["l","L / l","L l"],["lamp","лампа","💡"],["m","M / m","M m"],["mouse","мышь","🐭"],["n","N / n","N n"],["nose","нос","👃"],["o","O / o","O o"],["orange","апельсин","🍊"],["p","P / p","P p"],["pin","булавка","📌"],["q","Q / q","Q q"],["queen","королева","👑"]],
+ models:[["i → ink","буква и слово"],["j → jug","услышь j"],["k → kangaroo","буква и слово"],["l → lamp","буква и слово"],["m → mouse","буква и слово"],["n → nose","буква и слово"],["o → orange","буква и слово"],["p → pin","буква и слово"],["q + u → queen","q вместе с u"]],
+ activities:[{type:"say",title:"Look • Listen • Say",text:"Послушай букву и слово, покажи карточку и повтори.",say:"i, ink, j, jug, k, kangaroo, l, lamp, m, mouse, n, nose, o, orange, p, pin, q, queen"},{type:"point",title:"Find and point",text:"Найди q вместе с u.",items:["i — ink","j — jug","p — pin","q + u — queen"],answer:"q + u — queen"},{type:"say",title:"Hear it",text:"Послушай особенно внимательно.",say:"j, jug, q, queen"}],note:"Q/q + queen ясно показывает сочетание <b>q + u</b>."},
+ {kind:"lemmaBook",spread:1,h:"Буква + слово",kicker:"Страница 2 · Match · Build · Trace and find",img:"bk_letters",lead:"Свяжи букву со словом, собери jug и потренируй похожие формы.",
+ models:[["i → ink","пара"],["j → jug","пара"],["k → kangaroo","пара"],["l → lamp","пара"],["m → mouse","пара"],["n → nose","пара"],["o → orange","пара"],["p → pin","пара"],["q → queen","q + u"]],
+ activities:[{type:"match",title:"Match",text:"Соедини букву и слово.",pairs:[["i","ink"],["j","jug"],["k","kangaroo"],["l","lamp"],["m","mouse"],["n","nose"],["o","orange"],["p","pin"],["q","queen"]]},{type:"build",title:"Build",text:"Собери jug.",before:"j + u + g =",tokens:["jug","mouse","queen"],answer:"jug"},{type:"checklist",title:"Trace and find",text:"Обведи отдельную букву и найди похожую пару.",items:["I / i","J / j","P / p","Q / q","i ↔ j","p ↔ q","q + u → queen"]}],note:"Письмо ограничено отдельной буквой."},
+ {kind:"lemmaBook",spread:2,h:"i или j? p или q?",kicker:"Страница 3 · Look closely · Find · Trace and choose",img:"bk_letters",lead:"Различай похожие буквы и восстанавливай только знакомые слова.",
+ objects:[["I / i","ink","🖋️"],["J / j","jug","🏺"],["P / p","pin","📌"],["Q / q","queen","👑"]],
+ activities:[{type:"point",title:"Look closely",text:"Покажи похожие пары.",items:["i ↔ j","p ↔ q"],answer:"i ↔ j"},{type:"match",title:"Find",text:"Соедини пропуск и букву.",pairs:[["_ug","j"],["_in","p"],["_ueen","q"]]},{type:"checklist",title:"Trace and choose",text:"Обведи и различи формы.",items:["I / i","J / j","P / p","Q / q"]}],note:"Опоры: ink, jug, pin, queen."},
+ {kind:"lemmaBook",spread:2,h:"Silent e",kicker:"Страница 4 · Listen and compare · Find · Complete",img:"bk_letters",lead:"Последняя e иногда не произносится, но может изменить чтение предыдущей гласной.",
+ models:[["pin → + e → pine","конечная e тихая"],["nose","конечная e"],["one","слово-исключение"],["This is a lamp.","готовая повторяемая конструкция"]],
+ activities:[{type:"say",title:"Listen and compare",text:"Послушай утверждённые опоры.",say:"pin, pine, nose, one"},{type:"point",title:"Find the silent e",text:"Найди конечную e в утверждённых примерах.",items:["pin → pine","nose"],answer:"pin → pine"},{type:"build",title:"Complete",text:"Добавь e к pin.",before:"pin +",tokens:["e","i","o"],answer:"e"},{type:"build",title:"Build",text:"Собери готовую конструкцию.",before:"This is a",tokens:["lamp."],answer:"lamp."}],note:"pine и one — читательские опоры, не новые слова. one не объясняется через silent e."},
+ {kind:"lemmaBook",spread:3,h:"Я знаю i–q",kicker:"Страница 5 · Listen · First letter · Match · Complete",img:"bk_letters",lead:"Смешанное повторение букв i–q, девяти слов и утверждённых опор.",
+ vocab:[["ink","чернила","🖋️"],["jug","кувшин","🏺"],["kangaroo","кенгуру","🦘"],["lamp","лампа","💡"],["mouse","мышь","🐭"],["nose","нос","👃"],["orange","апельсин","🍊"],["pin","булавка","📌"],["queen","королева","👑"]],
+ activities:[{type:"say",title:"Listen and point",text:"Слушай и показывай.",say:"queen, lamp, jug, orange"},{type:"match",title:"First letter",text:"Соедини букву и слово.",pairs:[["i","ink"],["j","jug"],["k","kangaroo"],["l","lamp"],["m","mouse"],["n","nose"],["o","orange"],["p","pin"],["q","queen"]]},{type:"match",title:"Match and complete",text:"Восстанови слова.",pairs:[["_nk","ink"],["_ug","jug"],["_amp","lamp"],["_ouse","mouse"],["_ueen","queen"]]},{type:"say",title:"Remember",text:"Повтори слуховые опоры.",say:"j, jug, q, queen, nose, pin, pine"}],note:"pine остаётся только читательской опорой."},
+ {kind:"lemmaBook",spread:3,h:"Я готов к проверке",kicker:"Страница 6 · Letter detective · Word maker · Check yourself",img:"bk_letters",lead:"Итоговое применение перед abc2_check без отдельного результата.",
+ models:[["i–q","девять букв"],["q + u → queen","помню пару"],["i ↔ j","различаю"],["p ↔ q","различаю"],["nose · pin → pine","вижу silent e"],["one","узнаю слово-исключение"]],
+ activities:[{type:"match",title:"Letter detective",text:"Соедини букву и слово.",pairs:[["i","ink"],["j","jug"],["k","kangaroo"],["l","lamp"],["m","mouse"],["n","nose"],["o","orange"],["p","pin"],["q","queen"]]},{type:"build",title:"Word maker",text:"Собери готовую конструкцию.",before:"This is a",tokens:["lamp."],answer:"lamp."},{type:"say",title:"Listen",text:"Послушай и узнай.",say:"ink, jug, kangaroo, lamp, mouse, nose, orange, pin, queen, pine, one"},{type:"checklist",title:"Check yourself",items:["узнаю i–q","называю i–q","нахожу слово для буквы","различаю i/j","различаю p/q","помню q + u","вижу silent e в nose/pine","понимаю разницу pin/pine","узнаю one как слово-исключение","узнаю знакомое слово на слух"]}],note:"Подготовка к abc2_check без копирования его заданий."}
+ ]},
+
+
+ {id:"b14",title:"Алфавит r–z",sub:"abc3 · Letter Blends",
+  about:"Шесть учебниковых страниц темы abc3: буквы r–z, девять нормативных слов и утверждённые фонетические опоры перед цифровой проверкой.",
+  pages:[
+   {kind:"lemmaBook",spread:1,h:"Буквы r–u",kicker:"Страница 1 · Listen · Point · Say",img:"bk_letters",
+    lead:"Познакомься с r, s, t, u и четырьмя словами-опорами. Слушай, показывай и повторяй.",
+    vocab:[["r","R / r","R r"],["rabbit","кролик","🐇"],["s","S / s","S s"],["snake","змея","🐍"],["t","T / t","T t"],["tree","дерево","🌳"],["u","U / u","U u"],["umbrella","зонт","☂️"]],
+    models:[["r → rabbit","буква и слово"],["s → snake","буква и слово"],["t → tree","буква и слово"],["u → umbrella","буква и слово"]],
+    activities:[
+      {type:"say",title:"Listen • Point • Say",text:"Послушай букву и слово, покажи карточку и повтори.",say:"r, rabbit, s, snake, t, tree, u, umbrella"},
+      {type:"point",title:"First letter",text:"Найди слово, которое начинается с r.",items:["rabbit","snake","tree","umbrella"],answer:"rabbit"},
+      {type:"say",title:"English r",text:"Послушай и повтори rabbit. Английский r — без раскатистого русского «р».",say:"r, rabbit"}
+    ],
+    note:"Поддержка abc3_l1: только r–u и rabbit, snake, tree, umbrella."},
+
+   {kind:"lemmaBook",spread:1,h:"Буква и слово",kicker:"Страница 2 · Big and small · Match · Build",img:"bk_letters",
+    lead:"Закрепи большие и маленькие формы, свяжи букву со словом и восстанови знакомые слова.",
+    models:[["R / r → rabbit","буква и слово"],["S / s → snake","буква и слово"],["T / t → tree","буква и слово"],["U / u → umbrella","буква и слово"]],
+    activities:[
+      {type:"match",title:"Big and small",text:"Соедини большую и маленькую форму.",pairs:[["R","r"],["S","s"],["T","t"],["U","u"]]},
+      {type:"match",title:"Letter ↔ word",text:"Соедини букву и слово.",pairs:[["r","rabbit"],["s","snake"],["t","tree"],["u","umbrella"]]},
+      {type:"build",title:"Build",text:"Собери tree.",before:"t + r + e + e =",tokens:["tree"],answer:"tree"},
+      {type:"match",title:"Complete",text:"Восстанови первую букву знакомого слова.",pairs:[["_abbit","rabbit"],["_nake","snake"],["_ree","tree"],["_mbrella","umbrella"]]}
+    ],
+    note:"Только буквы r–u и четыре нормативных слова Урока 1."},
+
+   {kind:"lemmaBook",spread:2,h:"v или w?",kicker:"Страница 3 · Listen · Say · Compare",img:"bk_letters",
+    lead:"Познакомься с v, w и x. Сравни v и w и найди x внутри box.",
+    vocab:[["v","V / v","V v"],["vest","жилет","🦺"],["w","W / w","W w"],["window","окно","🪟"],["x","X / x","X x"],["box","коробка","📦"]],
+    models:[["v → vest","верхние зубы касаются нижней губы"],["w → window","губы округляются, зубы не создают звук"],["box","x внутри слова"],["x ≈ «кс»","опора на box"]],
+    activities:[
+      {type:"say",title:"Listen • Say • Compare",text:"Послушай vest и window, повтори и сравни положение губ.",say:"v, vest, w, window"},
+      {type:"point",title:"v or w?",text:"Покажи v: верхние зубы касаются нижней губы.",items:["v","w"],answer:"v"},
+      {type:"point",title:"Find x",text:"Найди слово с x.",items:["vest","window","box"],answer:"box"},
+      {type:"say",title:"Hear x",text:"Послушай box. Буква x в box звучит близко к «кс».",say:"x, box"}
+    ],
+    note:"Информация о том, что x редко бывает первой буквой, не является отдельным заданием."},
+
+   {kind:"lemmaBook",spread:2,h:"y и z",kicker:"Страница 4 · Listen · Find · Remember",img:"bk_letters",
+    lead:"Познакомься с y и z. Запомни yacht целиком и основное название z — zed.",
+    vocab:[["y","Y / y","Y y"],["yacht","яхта","⛵"],["z","Z / z","Z z"],["zip","молния","🤐"]],
+    models:[["y → yacht","слово запоминается целиком"],["yacht","ch не произносится"],["z → zip","буква и слово"],["z = zed","основное название буквы"]],
+    activities:[
+      {type:"say",title:"Listen and say",text:"Послушай и повтори yacht, zip и zed.",say:"y, yacht, z, zip, zed"},
+      {type:"point",title:"Find",text:"Найди слово, где ch не произносится.",items:["yacht","zip"],answer:"yacht"},
+      {type:"match",title:"Letter ↔ word",text:"Соедини букву и слово.",pairs:[["y","yacht"],["z","zip"]]},
+      {type:"checklist",title:"Remember",items:["yacht — ch не произносится","z — zed","zip — слово-опора для z"]}
+    ],
+    note:"Американский вариант zee может быть справочной пометкой, но здесь не проверяется."},
+
+   {kind:"lemmaBook",spread:3,h:"Я знаю r–z",kicker:"Страница 5 · Listen · Match · Complete",img:"bk_letters",
+    lead:"Повтори r–z и все девять нормативных слов в смешанном порядке.",
+    vocab:[["rabbit","кролик","🐇"],["snake","змея","🐍"],["tree","дерево","🌳"],["umbrella","зонт","☂️"],["vest","жилет","🦺"],["window","окно","🪟"],["box","коробка","📦"],["yacht","яхта","⛵"],["zip","молния","🤐"]],
+    activities:[
+      {type:"say",title:"Listen and point",text:"Послушай в смешанном порядке и покажи нужную карточку.",say:"window, rabbit, yacht, tree, box, umbrella, zip, snake, vest"},
+      {type:"match",title:"Letter ↔ word",text:"Соедини букву и слово.",pairs:[["r","rabbit"],["s","snake"],["t","tree"],["u","umbrella"],["v","vest"],["w","window"],["x","box"],["y","yacht"],["z","zip"]]},
+      {type:"match",title:"First letter • Complete",text:"Восстанови знакомое слово.",pairs:[["_abbit","rabbit"],["_nake","snake"],["_ree","tree"],["_mbrella","umbrella"],["_est","vest"],["_indow","window"],["bo_","box"],["_acht","yacht"],["_ip","zip"]]},
+      {type:"say",title:"Phonics",text:"Повтори главные фонетические опоры.",say:"rabbit, vest, window, box, yacht, zed"}
+    ],
+    note:"Это повторение только материала abc3, а не новая общая глава алфавита."},
+
+   {kind:"lemmaBook",spread:3,h:"Я готов к проверке",kicker:"Страница 6 · Find · Build · Check yourself",img:"bk_letters",
+    lead:"Примени изученное перед abc3_check. Страница не выставляет отдельный результат.",
+    models:[["r → rabbit","английский r"],["v / w","различаю"],["x → box","x внутри слова"],["y → yacht","ch не произносится"],["z → zip","z = zed"]],
+    activities:[
+      {type:"match",title:"Find the word",text:"Соедини букву и нормативное слово.",pairs:[["r","rabbit"],["s","snake"],["t","tree"],["u","umbrella"],["v","vest"],["w","window"],["x","box"],["y","yacht"],["z","zip"]]},
+      {type:"build",title:"Build",text:"Собери знакомое слово.",before:"z + i + p =",tokens:["zip"],answer:"zip"},
+      {type:"say",title:"Listen",text:"Послушай и узнай девять нормативных слов.",say:"rabbit, snake, tree, umbrella, vest, window, box, yacht, zip"},
+      {type:"checklist",title:"Check yourself",items:["узнаю r–z","нахожу слово для буквы","нахожу первую букву слова","собираю знакомое слово","произношу rabbit без раскатистого русского «р»","различаю v/w","нахожу x в box","помню, что ch в yacht не произносится","знаю z как zed"]}
+    ],
+    note:"Подготовка к abc3_check без буквального копирования его вопросов."}
+  ]},
+
+
+ {id:"b15",title:"Повторение 1",sub:"rev1 · Revision 1",
+  about:"Шесть страниц итогового повторения букв, знакомых слов и начальных навыков чтения из abc1, abc2 и abc3.",
+  pages:[
+   {kind:"lemmaBook",spread:1,h:"Вспомни буквы",kicker:"Страница 1 · Listen • Find",img:"bk_letters",
+    lead:"Вспомни A/a–Z/z: слушай, находи буквы, соединяй большие и маленькие формы и восстанавливай короткие знакомые последовательности.",
+    models:[
+      ["A a · B b · C c · D d · E e · F f · G g","буквы"],
+      ["H h · I i · J j · K k · L l · M m · N n","буквы"],
+      ["O o · P p · Q q · R r · S s · T t · U u","буквы"],
+      ["V v · W w · X x · Y y · Z z","буквы"]
+    ],
+    activities:[
+      {type:"say",title:"Listen • Find",text:"Послушай буквы и покажи нужную карточку.",say:"a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"},
+      {type:"match",title:"Big and small",text:"Соедини большую и маленькую форму.",pairs:[["A","a"],["D","d"],["H","h"],["J","j"],["Q","q"],["W","w"],["Z","z"]]},
+      {type:"match",title:"Find what is missing",text:"Восстанови короткие знакомые последовательности.",pairs:[["c · _ · e · f","d"],["w · x · _ · z","y"]]}
+    ],
+    note:"Это восстановление уже знакомых букв, а не новый урок алфавитной сортировки."},
+
+   {kind:"lemmaBook",spread:1,h:"Найди знакомое слово",kicker:"Страница 2 · Listen • Point • Say",img:"bk_letters",
+    lead:"Повтори все 26 слов-опор из abc1, abc2 и abc3. Слушай, показывай, называй первую букву и восстанавливай знакомое слово.",
+    vocab:[
+      ["ant","a","🐜"],["bed","b","🛏️"],["cat","c","🐈"],["dog","d","🐕"],["egg","e","🥚"],["flag","f","🚩"],["glass","g","🥛"],["horse","h","🐎"],
+      ["ink","i","🖋️"],["jug","j","🏺"],["kangaroo","k","🦘"],["lamp","l","💡"],["mouse","m","🐭"],["nose","n","👃"],["orange","o","🍊"],["pin","p","📌"],["queen","q","👑"],
+      ["rabbit","r","🐇"],["snake","s","🐍"],["tree","t","🌳"],["umbrella","u","☂️"],["vest","v","🦺"],["window","w","🪟"],["box","x","📦"],["yacht","y","⛵"],["zip","z","🤐"]
+    ],
+    activities:[
+      {type:"say",title:"Listen • Point • Say",text:"Послушай и покажи знакомое слово.",say:"ant, bed, cat, dog, egg, flag, glass, horse, ink, jug, kangaroo, lamp, mouse, nose, orange, pin, queen, rabbit, snake, tree, umbrella, vest, window, box, yacht, zip"},
+      {type:"match",title:"Match the letter and word",text:"Соедини букву и знакомое слово.",pairs:[["a","ant"],["d","dog"],["h","horse"],["i","ink"],["m","mouse"],["q","queen"],["r","rabbit"],["w","window"],["z","zip"]]},
+      {type:"match",title:"Complete the word",text:"Восстанови знакомое слово.",pairs:[["c_t","cat"],["_gg","egg"],["_ug","jug"],["_abbit","rabbit"],["bo_","box"]]}
+    ],
+    note:"Новых слов нет: это только нормативные слова-опоры abc1 + abc2 + abc3."},
+
+   {kind:"lemmaBook",spread:2,h:"Буква может звучать иначе",kicker:"Страница 3 · Listen • Say",img:"bk_letters",
+    lead:"Вспомни только уже изученные звуковые и визуальные опоры — без новых правил.",
+    models:[
+      ["c → cat","c звучит /k/"],
+      ["h → horse","лёгкий h"],
+      ["j → jug","знакомое звучание j"],
+      ["q + u → queen","q вместе с u"],
+      ["i / j","похожие буквы"],
+      ["p / q","похожие буквы"]
+    ],
+    activities:[
+      {type:"say",title:"Listen • Say",text:"Послушай и повтори знакомые опоры.",say:"cat, horse, jug, queen"},
+      {type:"match",title:"Match what you remember",text:"Соедини опору со знакомым словом.",pairs:[["c звучит /k/","cat"],["лёгкий h","horse"],["j","jug"],["q + u","queen"]]},
+      {type:"point",title:"Look carefully",text:"Найди нужную букву среди похожих форм.",items:["i / j","p / q"],answer:"i / j"}
+    ],
+    note:"Страница только напоминает материал abc1–abc2 и не вводит новую фонетическую систему."},
+
+   {kind:"lemmaBook",spread:2,h:"Знакомые случаи чтения",kicker:"Страница 4 · Listen and compare",img:"bk_letters",
+    lead:"Верни знакомые читательские опоры: pin/pine, one, английский r, v/w, x в box, yacht и zed.",
+    models:[
+      ["pin → pine","silent e в уже изученном объёме"],
+      ["one","знакомое слово-исключение"],
+      ["rabbit","английский r"],
+      ["vest / window","v / w"],
+      ["box","x внутри слова"],
+      ["yacht","ch не произносится"],
+      ["z → zip","z = zed"]
+    ],
+    activities:[
+      {type:"say",title:"Pin and pine",text:"Послушай знакомую пару.",say:"pin, pine"},
+      {type:"say",title:"Listen and compare",text:"Послушай фонетические опоры.",say:"one, rabbit, vest, window, box, yacht, zip, zed"},
+      {type:"match",title:"Remember the word",text:"Соедини знакомую особенность и слово.",pairs:[["silent e","pine"],["слово-исключение","one"],["английский r","rabbit"],["v","vest"],["w","window"],["x внутри","box"],["ch не произносится","yacht"],["zed","zip"]]}
+    ],
+    note:"Новых исключений, правил ch или расширения silent e здесь нет."},
+
+   {kind:"lemmaBook",spread:3,h:"Буквы, слова и звуки вместе",kicker:"Страница 5 · Listen and find",img:"bk_letters",
+    lead:"Используй вместе только знакомые слова и уже изученные читательские опоры.",
+    vocab:[
+      ["cat","c /k/","🐈"],["horse","лёгкий h","🐎"],["ink","i","🖋️"],["jug","j","🏺"],["queen","q + u","👑"],["rabbit","английский r","🐇"],
+      ["window","w","🪟"],["box","x","📦"],["yacht","ch не произносится","⛵"],["zip","zed","🤐"],["pin","pin","📌"],["pine","silent e","🌲"],["one","знакомое исключение","1"]
+    ],
+    activities:[
+      {type:"say",title:"Listen and find",text:"Послушай и найди знакомую карточку.",say:"cat, horse, ink, jug, queen, rabbit, window, box, yacht, zip, pin, pine, one"},
+      {type:"match",title:"Match the clue",text:"Соедини знакомую подсказку и слово.",pairs:[["c /k/","cat"],["q + u","queen"],["английский r","rabbit"],["x","box"],["ch не произносится","yacht"],["zed","zip"],["silent e","pine"],["исключение","one"]]},
+      {type:"match",title:"Complete and choose",text:"Восстанови знакомое слово.",pairs:[["c_t","cat"],["qu_en","queen"],["r_bbit","rabbit"],["bo_","box"],["y_cht","yacht"],["z_p","zip"]]}
+    ],
+    note:"Страница не копирует цифровые tasks rev1 дословно и не создаёт нового содержания."},
+
+   {kind:"lemmaBook",spread:3,h:"Проверь себя перед следующим шагом",kicker:"Страница 6 · Quick mix · Reading check",img:"bk_letters",
+    lead:"Смешай знакомые буквы, слова и навыки чтения, затем спокойно отметь, что уже получается и что стоит повторить.",
+    vocab:[
+      ["dog","dog","🐕"],["glass","glass","🥛"],["kangaroo","kangaroo","🦘"],["nose","nose","👃"],["queen","q + u","👑"],["tree","tree","🌳"],
+      ["vest","v","🦺"],["yacht","ch не произносится","⛵"],["horse","лёгкий h","🐎"],["pin / pine","silent e","📌"],["rabbit","английский r","🐇"],["box","x","📦"]
+    ],
+    activities:[
+      {type:"match",title:"Quick mix",text:"Соедини букву и знакомое слово.",pairs:[["d","dog"],["g","glass"],["k","kangaroo"],["n","nose"],["q","queen"],["t","tree"],["v","vest"],["y","yacht"]]},
+      {type:"match",title:"Reading check",text:"Соедини знакомую читательскую опору и слово.",pairs:[["лёгкий h","horse"],["silent e","pine"],["английский r","rabbit"],["x внутри","box"],["q + u","queen"],["ch не произносится","yacht"]]},
+      {type:"checklist",title:"Я уже могу",text:"Для каждого пункта выбери про себя: умею · пока с подсказкой · нужно повторить.",items:["узнаю буквы","узнаю знакомые слова","узнаю слово на слух","различаю большую и маленькую форму","собираю знакомые слова","восстанавливаю знакомые слова","различаю похожие буквы","вспоминаю знакомые чтение и звуки"]},
+      {type:"checklist",title:"Что повторить",items:["буквы","слова","аудирование","большая/маленькая форма","сборка слов","восстановление слов","похожие буквы","чтение и звуки"]}
+    ],
+    note:"Самооценка не является тестом и не влияет на доступ к следующей теме."}
   ]},
 
  {id:"b4",title:"Моя семья",sub:"Глава 4",
@@ -5401,6 +5753,81 @@ const BOOK={2:[
     tip:"Спой <b>Happy Birthday to You</b> целиком. Это первая английская песня, которую знают все."}
   ]},
 
+ {id:"b11",title:"Повторение 2",sub:"Повторение 2",
+  about:"Шесть страниц итогового повторения: вспоминаем Family, Colours, Home и Birthday, используем навыки вместе и отмечаем, что стоит повторить.",
+  pages:[
+   {kind:"lemmaBook",spread:1,h:"Вспомни слова",kicker:"Страница 1 · Look · Listen · Find and point · Match · Choose · Say",img:"bk_review2_scene",
+    lead:"Вспомни знакомые слова четырёх тем. Нажимай на карточки, слушай, находи нужный объект или цвет, показывай и повторяй.",
+    vocab:[
+      ["family","семья","👨‍👩‍👧‍👦"],["mummy","мама","👩"],["daddy","папа","👨"],["sister","сестра","👧"],["brother","брат","👦"],["grandma","бабушка","👵"],["grandpa","дедушка","👴"],
+      ["home","дом","🏠"],["bedroom","спальня","🛏️"],["bathroom","ванная","🛁"],["kitchen","кухня","🍽️"],["living room","гостиная","🛋️"],["garden","сад","🌳"],["tree house","домик на дереве","🏡"],
+      ["birthday","день рождения","🎉"],["party","праздник","🥳"],["cake","торт","🎂"],["candle","свеча","🕯️"],["balloon","воздушный шарик","🎈"],["present","подарок","🎁"],["happy","счастливый","😊"],
+      ["one","1","1️⃣"],["two","2","2️⃣"],["three","3","3️⃣"],["four","4","4️⃣"],["five","5","5️⃣"],["six","6","6️⃣"],["seven","7","7️⃣"],["eight","8","8️⃣"],["nine","9","9️⃣"],["ten","10","🔟"]
+    ],
+    colours:[["red","красный","#ef4444"],["blue","синий","#3b82f6"],["green","зелёный","#22c55e"],["yellow","жёлтый","#eab308"],["black","чёрный","#111827"],["white","белый","#ffffff"],["orange","оранжевый","#f97316"],["pink","розовый","#ec4899"]],
+    activities:[
+      {type:"say",title:"Listen • Find • Say",text:"Послушай представителей всех четырёх тем, найди их на странице и повтори.",say:"mummy, blue, kitchen, birthday, grandma, orange, garden, present"},
+      {type:"match",title:"Match • Put into groups",text:"Сопоставь знакомые карточки с областями Family / Colours / Home / Birthday.",pairs:[["mummy · brother · grandma","Family"],["red · blue · pink","Colours"],["bedroom · kitchen · garden","Home"],["birthday · cake · present","Birthday"]]},
+      {type:"match",title:"Colours • Count",text:"Покажи восемь цветов. Затем сопоставь знакомые количества свечей и шариков с one–ten.",pairs:[["🕯️","one"],["🕯️🕯️","two"],["🎈🎈🎈","three"],["🕯️🕯️🕯️🕯️","four"],["🎈🎈🎈🎈🎈","five"],["🕯️🕯️🕯️🕯️🕯️🕯️","six"],["🎈🎈🎈🎈🎈🎈🎈","seven"],["🕯️🕯️🕯️🕯️🕯️🕯️🕯️🕯️","eight"],["🎈🎈🎈🎈🎈🎈🎈🎈🎈","nine"],["🕯️🕯️🕯️🕯️🕯️🕯️🕯️🕯️🕯️🕯️","ten"]]}
+    ],note:"Подготовка L1: здесь нет новых слов — только восстановление уже изученного материала."},
+
+   {kind:"lemmaBook",spread:1,h:"Вспомни, как сказать",kicker:"Страница 2 · Choose · Match · Build",img:"bk_review2_scene",
+    lead:"Узнай знакомую ситуацию и выбери или собери уже изученную модель. Новых правил здесь нет.",
+    models:[["This is…","один персонаж"],["These are…","несколько персонажей"],["This is my…","готовая модель Family"],["What colour is it? → It is…","вопрос и ответ о цвете"],["This is my house.","общий дом"],["It’s got…","дом с изученными частями"],["There is… / There are…","одна / несколько частей"],["Where’s…? → She’s in the kitchen.","утверждённая ситуация Home"]],
+    grammar:[["my · your · his · her","выбери по ситуации"],["child ↔ children","один ребёнок / несколько детей"],["How old are you? → I’m eight.","возраст"],["How many candles?","количество"]],
+    colours:[["It is red.","red","#ef4444"],["It is blue.","blue","#3b82f6"],["It is green.","green","#22c55e"],["It is yellow.","yellow","#eab308"],["It is black.","black","#111827"],["It is white.","white","#ffffff"],["It is orange.","orange","#f97316"],["It is pink.","pink","#ec4899"]],
+    objects:[["🏠","home","bedroom · bathroom · kitchen · living room · garden · tree house"],["👩","my / your","выбери владельца по ситуации"],["👨","his","владелец мужского пола"],["👧","her","владелец женского пола"],["🧒","child","один ребёнок"],["🧒🧒","children","несколько детей"]],
+    activities:[
+      {type:"match",title:"Choose the model",text:"Сопоставь визуальную ситуацию и знакомую модель Family / Home.",pairs:[["👧 один персонаж","This is…"],["👨‍👩‍👧‍👦 несколько","These are…"],["🏠 общий дом","This is my house."],["🏠 одна часть","There is…"],["🏠 несколько частей","There are…"],["👧 в kitchen","Where’s…? → She’s in the kitchen."]]},
+      {type:"match",title:"Match • Build",text:"Сопоставь знакомые вопросы и ответы и восстанови модели.",pairs:[["What colour is it?","It is…"],["How old are you?","I’m eight."],["How old are you today?","I’m eight years old."],["How many candles?","eight"],["This is my…","mummy / daddy / sister / brother / grandma / grandpa"]]},
+      {type:"say",title:"Birthday • Remember",text:"Прослушай и повтори знакомые модели Family, Colours, Home и Birthday. Ошибочная модель звучит только для распознавания ошибки.",say:"This is. These are. This is my. my, your, his, her, child, children. What colour is it? It is. This is my house. It's got. There is. There are. Where's? She's in the kitchen. How old are you? I'm eight. How old are you today? I'm eight! I'm eight years old. How many candles? Happy birthday! Happy birthday to you! Thank you! Thank you very much! Here you are. Let's sing! Make a wish. Blow out the candles. I have eight years."}
+    ],note:"I have eight years — утверждённый неправильный вариант: его нужно узнать как ошибку, а не использовать как модель."},
+
+   {kind:"lemmaBook",spread:2,h:"Семья готовится к празднику",kicker:"Страница 3 · Используй навыки вместе",img:"bk_review2_scene",
+    lead:"Одна большая ситуация: семья готовится к празднику дома. Найди людей и места, выбери знакомые модели, назови цвета и посчитай праздничные предметы.",
+    models:[["This is my mummy.","mummy"],["This is my daddy.","daddy"],["This is my sister.","sister"],["This is my brother.","brother"],["This is my grandma.","grandma"],["This is my grandpa.","grandpa"],["This is… / These are…","один / несколько"],["Where’s…? → She’s in the kitchen.","утверждённая ситуация"]],
+    objects:[["🛏️","bedroom"],["🛁","bathroom"],["🍽️","kitchen"],["🛋️","living room"],["🌳","garden"],["🏡","tree house"],["🎂","cake"],["🕯️","candle"],["🎈","balloon"],["🎁","present"]],
+    colours:[["It is red.","red","#ef4444"],["It is blue.","blue","#3b82f6"],["It is green.","green","#22c55e"],["It is yellow.","yellow","#eab308"],["It is black.","black","#111827"],["It is white.","white","#ffffff"],["It is orange.","orange","#f97316"],["It is pink.","pink","#ec4899"]],
+    activities:[
+      {type:"say",title:"Meet the family • Find the place",text:"Найди всех шестерых родственников и представь их по готовым образцам. Затем найди части дома.",say:"This is my mummy. This is my daddy. This is my sister. This is my brother. This is my grandma. This is my grandpa. This is. These are. Where's? She's in the kitchen."},
+      {type:"match",title:"Look at the house • Choose the model",text:"Выбери уже изученную модель для каждой ситуации.",pairs:[["общий дом","This is my house."],["дом с изученными частями","It’s got…"],["одна выделенная часть","There is…"],["несколько выделенных частей","There are…"]]},
+      {type:"match",title:"Colours • Count the party things",text:"Ответь What colour is it? для всех восьми цветов. Найди cake, candle, balloon, present и посчитай знакомые праздничные предметы.",pairs:[["How many candles?","eight"],["1","one"],["2","two"],["3","three"],["4","four"],["5","five"],["6","six"],["7","seven"],["8","eight"],["9","nine"],["10","ten"]]}
+    ],note:"L2: Family, Colours, Home и Birthday используются в одной общей ситуации."},
+
+   {kind:"lemmaBook",spread:2,h:"Праздник начинается",kicker:"Страница 4 · Meet · Ask · Count · Celebrate",img:"bk_review2_scene",
+    lead:"Продолжи ту же сцену: представь семью, спроси возраст, посчитай свечи, поздравь, вручи подарок и используй знакомые модели дома и цвета.",
+    vocab:[["birthday","день рождения","🎉"],["party","праздник","🥳"],["cake","торт","🎂"],["candle","свеча","🕯️"],["balloon","воздушный шарик","🎈"],["present","подарок","🎁"],["happy","Happy birthday!","😊"]],
+    models:[["This is… / These are… / This is my…","семья"],["How old are you today? → I’m eight!","возраст"],["How many candles? → eight","счёт"],["Happy birthday! → Thank you!","поздравление"],["Here you are. → Thank you very much!","подарок"],["Let’s sing! → Happy birthday to you!","песня"],["Make a wish. → Blow out the candles.","праздничные действия"]],
+    colours:[["It is red.","red","#ef4444"],["It is blue.","blue","#3b82f6"],["It is green.","green","#22c55e"],["It is yellow.","yellow","#eab308"],["It is black.","black","#111827"],["It is white.","white","#ffffff"],["It is orange.","orange","#f97316"],["It is pink.","pink","#ec4899"]],
+    activities:[
+      {type:"say",title:"Meet • Ask • Count",text:"Устно повтори one–ten и знакомые реплики семьи, возраста и счёта.",say:"mummy, daddy, sister, brother, grandma, grandpa. This is. These are. This is my. one, two, three, four, five, six, seven, eight, nine, ten. How old are you today? I'm eight! How many candles? eight."},
+      {type:"say",title:"Celebrate • Give • Say",text:"Разыграй знакомую праздничную последовательность по сцене.",say:"Happy birthday! Thank you! Happy birthday to you! Let's sing! Here you are. Thank you very much! Make a wish. Blow out the candles."},
+      {type:"match",title:"Look around the birthday home",text:"Найди все части дома и сопоставь ситуации с уже изученными моделями.",pairs:[["общий дом","This is my house."],["дом с частями","It’s got…"],["одна часть","There is…"],["несколько частей","There are…"],["женский персонаж в kitchen","Where’s…? → She’s in the kitchen."],["цвет праздничного элемента","What colour is it? → It is…"]]}
+    ],note:"L2: несколько навыков применяются последовательно в одной праздничной ситуации."},
+
+   {kind:"lemmaBook",spread:3,h:"Я узнаю и вспоминаю",kicker:"Страница 5 · Поддержка L1",img:"bk_review2_scene",
+    lead:"Три крупных блока помогают проверить узнавание слов и знакомых моделей без копирования цифровых заданий Review 2.",
+    vocab:[["family","семья","👨‍👩‍👧‍👦"],["mummy","мама","👩"],["daddy","папа","👨"],["sister","сестра","👧"],["brother","брат","👦"],["grandma","бабушка","👵"],["grandpa","дедушка","👴"],["home","дом","🏠"],["bedroom","спальня","🛏️"],["bathroom","ванная","🛁"],["kitchen","кухня","🍽️"],["living room","гостиная","🛋️"],["garden","сад","🌳"],["tree house","домик на дереве","🏡"],["birthday","день рождения","🎉"],["party","праздник","🥳"],["cake","торт","🎂"],["candle","свеча","🕯️"],["balloon","воздушный шарик","🎈"],["present","подарок","🎁"],["happy","Happy birthday!","😊"]],
+    colours:[["red","красный","#ef4444"],["blue","синий","#3b82f6"],["green","зелёный","#22c55e"],["yellow","жёлтый","#eab308"],["black","чёрный","#111827"],["white","белый","#ffffff"],["orange","оранжевый","#f97316"],["pink","розовый","#ec4899"]],
+    activities:[
+      {type:"say",title:"Listen • Find • Match",text:"Прослушай смешанный материал Family, Colours, Home и Birthday, найди его на странице и повтори.",say:"family, mummy, daddy, sister, brother, grandma, grandpa, red, blue, green, yellow, black, white, orange, pink, home, bedroom, bathroom, kitchen, living room, garden, tree house, birthday, party, cake, candle, balloon, present, happy. What colour is it? It is."},
+      {type:"match",title:"Choose the model",text:"Сопоставь знакомую ситуацию с моделью. Каждый заявленный элемент используется как действие выбора.",pairs:[["один человек","This is…"],["несколько людей","These are…"],["своя семья","This is my…"],["принадлежность","my / your / his / her"],["один / несколько детей","child / children"],["общий дом","This is my house."],["дом с частями","It’s got…"],["одна / несколько частей","There is… / There are…"],["персонаж в kitchen","Where’s…? / She’s in the kitchen."]]},
+      {type:"say",title:"Birthday • Count • Remember",text:"Повтори one–ten, возраст, количество и праздничные ситуации. В конце узнай ошибочную модель.",say:"one, two, three, four, five, six, seven, eight, nine, ten. How old are you? I'm eight. How old are you today? I'm eight years old. How many candles? Happy birthday! Happy birthday to you! Thank you! Thank you very much! Here you are. Let's sing! Make a wish. Blow out the candles. I have eight years."}
+    ],note:"Страница поддерживает L1 и не выставляет отдельный блокирующий результат."},
+
+   {kind:"lemmaBook",spread:3,h:"Я применяю всё вместе",kicker:"Страница 6 · Поддержка L2 · Самооценка",img:"bk_review2_scene",
+    lead:"Посмотри на итоговую праздничную сцену и пройди маршрут: кто → где → какого цвета → сколько → что сказать. Затем собери праздник и отметь, что уже получается.",
+    objects:[["👧","Кто?","This is my sister. / These are…"],["🍽️","Где?","Where’s…? → She’s in the kitchen."],["🎨","Какого цвета?","What colour is it? → It is…"],["🎂","Сколько?","How many candles? → eight"],["💬","Что сказать?","Happy birthday! → Thank you!"],["🎁","Подарок","Here you are. → Thank you very much!"]],
+    colours:[["It is red.","red","#ef4444"],["It is blue.","blue","#3b82f6"],["It is green.","green","#22c55e"],["It is yellow.","yellow","#eab308"],["It is black.","black","#111827"],["It is white.","white","#ffffff"],["It is orange.","orange","#f97316"],["It is pink.","pink","#ec4899"]],
+    models:[["one · two · three · four · five · six · seven · eight · nine · ten","счёт"],["How old are you today? → I’m eight!","возраст"],["bedroom · bathroom · kitchen · living room · garden · tree house","покажи знакомые части дома"]],
+    variants:[["умею","✅","выбери этот статус, если получается самостоятельно"],["пока с подсказкой","💡","если образец ещё помогает"],["нужно повторить","↻","если навык стоит повторить"]],
+    activities:[
+      {type:"match",title:"Look at the scene • Use the skills",text:"Пройди последовательный визуальный маршрут по одной сцене.",pairs:[["Кто?","This is my sister. / These are…"],["Где?","Where’s…? → She’s in the kitchen."],["Какого цвета?","What colour is it? → It is…"],["Сколько?","How many candles? → eight"],["Что сказать?","Happy birthday! → Thank you! / Here you are. → Thank you very much!"]]},
+      {type:"match",title:"Build the celebration",text:"Сопоставь готовые реплики с последовательными кадрами праздника и разыграй их по образцу.",pairs:[["1","Happy birthday!"],["2","Thank you!"],["3","How old are you today?"],["4","I’m eight!"],["5","Here you are."],["6","Thank you very much!"],["7","Let’s sing!"],["8","Happy birthday to you!"],["9","Make a wish."],["10","Blow out the candles."]]},
+      {type:"checklist",title:"Я уже могу · Что повторить",text:"Для каждого пункта используй статус: умею / пока с подсказкой / нужно повторить. Отметки помогут выбрать дальнейшее повторение навыков.",items:["Family — узнаю членов семьи; представляю одного родственника по готовой модели; различаю одного и нескольких — [умею · пока с подсказкой · нужно повторить]","Colours — узнаю все восемь цветов; отвечаю на вопрос о цвете — [умею · пока с подсказкой · нужно повторить]","Home — узнаю части дома; понимаю, где находится персонаж; выбираю знакомую модель описания дома — [умею · пока с подсказкой · нужно повторить]","Birthday — считаю one–ten; спрашиваю и называю возраст по образцу; узнаю слова дня рождения; поздравляю и благодарю; понимаю знакомые праздничные действия — [умею · пока с подсказкой · нужно повторить]","Общие навыки — узнаю знакомые слова на слух; выбираю модель по ситуации; использую несколько изученных навыков вместе — [умею · пока с подсказкой · нужно повторить]","Что повторить — Family / Colours / Home / Birthday / словарь / аудирование / выбор модели / счёт / совместное применение навыков"]}
+    ],note:"Самооценка не имеет единого правильного ответа и служит переходом к дальнейшему сопровождению навыков."}
+  ]},
+
  {id:"b8",title:"Учимся читать",sub:"Глава 8",
   about:"Почему одна буква читается по-разному и как догадаться о звуке по соседям.",
   pages:[
@@ -5465,7 +5892,7 @@ let bkClass=2,chId=null,chPage=0;
    не стал, поэтому её здесь нет. Когда появится содержимое для 3+ класса,
    таблица расширяется той же рукой, автоматического сопоставления по
    тексту названий не завожу — слишком велик риск случайного совпадения. */
-const BOOK_TOPIC_LINK={b3:"hello",b4:"family",b5:"colours",b6:"home",b7:"bday"};
+const BOOK_TOPIC_LINK={b3:"hello",b12:"abc1",b13:"abc2",b14:"abc3",b15:"rev1",b4:"family",b5:"colours",b6:"home",b7:"bday",b11:"rev2"};
 /* ============================================================
    УРОКИ ВНУТРИ ТЕМЫ — ЕДИНЫЙ МЕХАНИЗМ ПОДУРОКОВ
    ------------------------------------------------------------
@@ -5549,11 +5976,11 @@ LESSONS.hello_check={
 
 buildTopicLessons("abc1",[
   {title:"Буквы a–d",
-   goal:"После урока сможет: назвать и написать первые 4 буквы алфавита и простые слова на них.",
-   theory:[0,1,5], tasks:[0,1,2,3,4,5,6,7], words:["ant","bed","cat","dog"]},
+   goal:"После урока сможет: узнавать и называть a–d, связывать их с ant, bed, cat, dog, определять начальную букву, различать букву и звук, собирать слова и различать большую и маленькую форму.",
+   theory:[0,1,2], tasks:[0,1,2,3,4,5,6,7], words:["ant","bed","cat","dog"]},
   {title:"Буквы e–h",
-   goal:"После урока сможет: назвать буквы e–h и отличить имя буквы от её звука.",
-   theory:[2,3,4], tasks:[8,9,10,11,12,13], words:["egg","flag","glass","horse"]},
+   goal:"После урока сможет: узнавать и называть e–h, связывать их с egg, flag, glass, horse, определять начальную букву, различать имя буквы и звук, узнавать начальный h в horse и собирать слова урока.",
+   theory:[3,4,5], tasks:[8,9,10,11,12,13], words:["egg","flag","glass","horse"]},
 ]);
 
 /* Проверка темы — только по материалу двух уроков (буквы a–h, заглавная
@@ -5565,24 +5992,24 @@ LESSONS.abc1_check={
   areaNames:{l1:"буквы a–d",l2:"буквы e–h"},
   theory:[],
   tasks:[
-    {t:"choice",area:"l1",q:"Какое слово начинается на букву a?",
-     opts:[{txt:"ant",ok:1},{txt:"dog"}]},
-    {t:"choice",area:"l1",q:"Какое слово начинается на букву d?",
-     opts:[{txt:"cat"},{txt:"dog",ok:1}]},
-    {t:"tf",area:"l1",q:"Слово «cat» можно писать и с маленькой, и с большой буквы — разницы нет.",
-     answer:false,why:"Есть правило: имена и начало предложения — с большой буквы, а обычное слово cat — с маленькой."},
+    {t:"choice",area:"l1",q:"Какое слово начинается с буквы a?",
+     opts:[{txt:"ant",ok:1},{txt:"bed"},{txt:"cat"},{txt:"dog"}]},
+    {t:"choice",area:"l1",q:"Какое слово начинается с буквы d?",
+     opts:[{txt:"ant"},{txt:"dog",ok:1},{txt:"bed"},{txt:"cat"}]},
     {t:"gap",area:"l1",q:"Вставь пропущенную букву.",word:"cat",show:[0,2],pool:["a"]},
-    {t:"listen",area:"l1",q:"Послушай и выбери, что прозвучало.",play:"dog",
-     opts:[{txt:"cat"},{txt:"dog",ok:1},{txt:"bed"},{txt:"ant"}]},
-    {t:"choice",area:"l2",q:"Какое слово начинается на букву g?",
-     opts:[{txt:"horse"},{txt:"glass",ok:1}]},
-    {t:"choice",area:"l2",q:"Какое слово начинается на букву h?",
-     opts:[{txt:"horse",ok:1},{txt:"egg"}]},
-    {t:"tf",area:"l2",q:"Буква c в английском всегда читается как «с», никогда как «к».",
-     answer:false,why:"В слове cat буква c читается как «к» — правило не единственное."},
+    {t:"listen",area:"l1",q:"Послушай и выбери слово.",play:"dog",
+     opts:[{txt:"dog",ok:1},{txt:"cat"},{txt:"ant"},{txt:"bed"}]},
+    {t:"choice",area:"l1",q:"Какая буква — большая форма c?",
+     opts:[{txt:"C",ok:1},{txt:"D"},{txt:"B"},{txt:"A"}]},
+    {t:"choice",area:"l2",q:"Какое слово начинается с буквы e?",
+     opts:[{txt:"egg",ok:1},{txt:"flag"},{txt:"glass"},{txt:"horse"}]},
+    {t:"choice",area:"l2",q:"Какое слово начинается с буквы g?",
+     opts:[{txt:"egg"},{txt:"flag"},{txt:"glass",ok:1},{txt:"horse"}]},
     {t:"gap",area:"l2",q:"Вставь пропущенную букву.",word:"flag",show:[0,1,3],pool:["a"]},
-    {t:"listen",area:"l2",q:"Послушай и выбери, что прозвучало.",play:"egg",
-     opts:[{txt:"egg",ok:1},{txt:"flag"},{txt:"glass"},{txt:"horse"}]}
+    {t:"listen",area:"l2",q:"Послушай и выбери слово.",play:"horse",
+     opts:[{txt:"horse",ok:1},{txt:"glass"},{txt:"flag"},{txt:"egg"}]},
+    {t:"match",area:"l2",q:"Соедини букву и слово.",
+     pairs:[["e","egg"],["f","flag"],["g","glass"],["h","horse"]]}
   ]
 };
 
@@ -5651,6 +6078,70 @@ function migrateAbc2LegacyProgress(){
 migrateAbc2LegacyProgress();
 
 
+
+buildTopicLessons("abc3",[
+  {title:"Буквы r–u",
+   goal:"После урока сможет: узнавать и называть r–u, связывать их с rabbit, snake, tree, umbrella и произносить английский r без раскатистого русского «р».",
+   theory:[0,1,2], tasks:[0,1,2,3,4,5,6],
+   words:["rabbit","snake","tree","umbrella"]},
+  {title:"Буквы v–z",
+   goal:"После урока сможет: узнавать v–z, связывать их с vest, window, box, yacht, zip, различать v/w, находить x в box и помнить, что ch в yacht не произносится.",
+   theory:[3,4,5], tasks:[7,8,9,10,11,12,13],
+   words:["vest","window","box","yacht","zip"]},
+]);
+
+LESSONS.abc3_check={
+  id:"abc3_check",no:LESSONS.abc3.no+" · Проверка темы",name:"Проверка темы: Алфавит r–z",
+  sub:"Letter Blends",words:[],print:null,parent:"abc3",isCheck:true,
+  areaNames:{l1:"буквы r–u",l2:"буквы v–z"},
+  theory:[],
+  tasks:[
+    {t:"choice",area:"l1",q:"Какое слово начинается с r?",
+     opts:[{txt:"rabbit",ok:1},{txt:"snake"},{txt:"tree"},{txt:"umbrella"}]},
+    {t:"choice",area:"l1",q:"Какое слово начинается с t?",
+     opts:[{txt:"rabbit"},{txt:"snake"},{txt:"tree",ok:1},{txt:"umbrella"}]},
+    {t:"listen",area:"l1",q:"Послушай и выбери слово.",play:"snake",
+     opts:[{txt:"rabbit"},{txt:"snake",ok:1},{txt:"tree"},{txt:"umbrella"}]},
+    {t:"gap",area:"l1",q:"Вставь пропущенную букву.",word:"umbrella",show:[1,2,3,4,5,6,7],pool:["u"]},
+    {t:"tf",area:"l1",q:"Английский r в rabbit нужно произносить как раскатистое русское «р».",
+     answer:false,why:"Нет. В rabbit английский r произносится без раскатистого русского «р»."},
+
+    {t:"choice",area:"l2",q:"В каком слове есть x?",
+     opts:[{txt:"box",ok:1},{txt:"vest"},{txt:"window"},{txt:"zip"}]},
+    {t:"listen",area:"l2",q:"Послушай и выбери слово.",play:"window",
+     opts:[{txt:"vest"},{txt:"window",ok:1},{txt:"box"},{txt:"zip"}]},
+    {t:"choice",area:"l2",q:"Какая буква связана со словом yacht?",
+     opts:[{txt:"y",ok:1},{txt:"v"},{txt:"w"},{txt:"z"}]},
+    {t:"tf",area:"l2",q:"В слове yacht буквы ch не произносятся.",
+     answer:true,why:"Верно. Yacht запоминается целиком, а ch в этом слове не произносится."},
+    {t:"match",area:"l2",q:"Соедини букву и слово.",
+     pairs:[["v","vest"],["w","window"],["x","box"],["y","yacht"],["z","zip"]]}
+  ]
+};
+
+/* Совместимость с завершённой abc3 старой структуры.
+   Родительский прогресс и ранее выданные награды сохраняются.
+   Подуроки создаются как служебные завершённые записи без фиктивной
+   диагностики по областям; повторные лемы при миграции не начисляются. */
+function migrateAbc3LegacyProgress(){
+  const old=PROG.abc3;
+  if(!old||old.done!==true)return;
+  if(PROG.abc3_l1||PROG.abc3_l2||PROG.abc3_check)return;
+  /* Не восстанавливаем несуществовавшие раньше L1/L2-результаты.
+     Эти записи нужны только для сохранения открытого маршрута. Поля
+     stars/total намеренно отсутствуют до первого реального прохождения.
+     coins фиксируем на максимуме одного 7-задательного урока, но COINS
+     пользователя не меняем: это лишь защита от повторного фарма после
+     содержательной миграции уже завершённой темы. */
+  PROG.abc3_l1={done:true,words:4,coins:20,
+    tDone:true,tSeen:3,tTotal:3,legacyMigrated:true,legacyNoDiagnostic:true};
+  PROG.abc3_l2={done:true,words:5,coins:20,
+    tDone:true,tSeen:3,tTotal:3,legacyMigrated:true,legacyNoDiagnostic:true};
+  PROG.abc3_check={done:true,legacyMigrated:true,legacyNoDiagnostic:true};
+  saveAll();
+}
+migrateAbc3LegacyProgress();
+
 buildTopicLessons("family",[
   {title:"Члены семьи и знакомство",
    goal:"После урока сможет: назвать членов семьи, узнать их на слух и представить одного или нескольких родственников.",
@@ -5660,6 +6151,56 @@ buildTopicLessons("family",[
    goal:"После урока сможет: использовать my/your/his/her, образовывать множественное число и рассказать о семье несколькими фразами.",
    theory:[3,4,5], tasks:[5,7,9,10,12,13], words:[]},
 ]);
+
+/* v1.55.0 · Нормативная синхронизация Family core.
+   family_check не меняется; подуроки получают только принятый Family-материал. */
+LESSONS.family_l1.theory=[
+  {kind:"Семья",head:"Кто есть кто",
+   phrases:[["mummy","мАми","мама"],["daddy","дЭди","папа"],["sister","сИста","сестра"],["brother","брАза","брат"]],
+   rule:"Слушай знакомые слова, находи нужного члена семьи и повторяй его название."},
+  {kind:"Семья",head:"Бабушка, дедушка и семья",
+   phrases:[["grandma","грЭнма","бабушка"],["grandpa","грЭнпа","дедушка"],["family","фЭмили","семья"]],
+   rule:"Все три слова уже входят в словарь Family: слушай, показывай и повторяй."},
+  {kind:"Как представить",head:"This is… · This is my…",
+   art:"wave",cap:"Используй только знакомые готовые модели.",
+   phrases:[["This is…","","Это…"],["This is my…","","Это мой / моя…"],["These are…","","Это… — для нескольких"]],
+   examples:["This is my sister.","This is my brother."]}
+];
+LESSONS.family_l1.tasks[7]=
+  {t:"listen",q:"Послушай и выбери слово.",play:"brother",
+   opts:[{txt:"brother",ok:1},{txt:"daddy"},{txt:"sister"},{txt:"grandma"}]};
+
+LESSONS.family_l2.name="Моя семья: my / your / his / her";
+LESSONS.family_l2.sub="После урока сможет: выбирать my, your, his, her и использовать готовую модель This is my… только с нормативным Family-словарём.";
+LESSONS.family_l2.theory=[
+  {kind:"Чей это родственник",head:"my · your",
+   phrases:[["my family","","моя семья"],["your sister","","твоя сестра"],["This is my brother.","","Это мой брат."]],
+   rule:"Выбирай знакомое слово my или your по ситуации."},
+  {kind:"Чей это родственник",head:"his · her",
+   phrases:[["his brother","","его брат"],["his sister","","его сестра"],["her brother","","её брат"],["her sister","","её сестра"]],
+   rule:"His — для «его», her — для «её». Используй только знакомые слова Family."},
+  {kind:"Вместе",head:"This is my…",
+   phrases:[["This is my mummy.","","Это моя мама."],["This is my daddy.","","Это мой папа."],
+            ["This is my grandma.","","Это моя бабушка."],["This is my grandpa.","","Это мой дедушка."]],
+   rule:"Восстанови уже знакомую готовую модель без новых слов и новой грамматики."}
+];
+LESSONS.family_l2.tasks=[
+  {t:"gap",q:"Вставь пропущенные буквы.",word:"brother",show:[0,1,6],pool:["o","t","h","e","a"]},
+  {t:"choice",q:"Выбери слово: «Это моя сестра». This is ___ sister.",
+   opts:[{txt:"my",ok:1},{txt:"your"},{txt:"his"},{txt:"her"}]},
+  {t:"choice",q:"Как сказать «его брат»?",
+   opts:[{txt:"his brother",ok:1},{txt:"her brother"},{txt:"your brother"},{txt:"my brother"}]},
+  {t:"letters",q:"Собери слово «семья».",answer:"family",pool:["f","a","m","i","l","y","e"]},
+  {t:"order",q:"Составь знакомую модель «Это мой дедушка».",
+   answer:["This","is","my","grandpa."],extra:["your"]},
+  {t:"choice",q:"Как сказать «её сестра»?",
+   opts:[{txt:"her sister",ok:1},{txt:"his sister"},{txt:"your sister"},{txt:"my sister"}]}
+];
+/* Родительская запись нужна только как источник темы; core-теория/практика
+   синхронизированы с фактическими подуроками, ADV остаётся отдельным. */
+LESSONS.family.theory=[...LESSONS.family_l1.theory,...LESSONS.family_l2.theory];
+LESSONS.family.tasks=[...LESSONS.family_l1.tasks,...LESSONS.family_l2.tasks];
+
 
 /* Проверка темы использует только основной материал двух уроков family.
    Углублённый блок family.adv остаётся отдельным и в проверку не входит. */
@@ -5678,12 +6219,12 @@ LESSONS.family_check={
     {t:"gap",area:"l1",q:"Вставь пропущенную букву.",word:"sister",show:[0,2,3,4,5],pool:["i"]},
     {t:"listen",area:"l1",q:"Послушай и выбери, что прозвучало.",play:"brother",
      opts:[{txt:"sister"},{txt:"brother",ok:1},{txt:"mummy"},{txt:"daddy"}]},
-    {t:"choice",area:"l2",q:"Как сказать «его мама»?",
-     opts:[{txt:"his mum",ok:1},{txt:"her mum"}]},
+    {t:"choice",area:"l2",q:"Как сказать «его брат»?",
+     opts:[{txt:"his brother",ok:1},{txt:"her brother"}]},
     {t:"tf",area:"l2",q:"Много детей по-английски — «childs».",
      answer:false,why:"Правильно — children, это слово-исключение из обычного правила множественного числа."},
-    {t:"order",area:"l2",q:"Составь предложение «Это мои родители».",
-     answer:["These","are","my","parents."],extra:["is"]},
+    {t:"order",area:"l2",q:"Составь предложение «Это моя сестра».",
+     answer:["This","is","my","sister."],extra:["are"]},
     {t:"gap",area:"l2",q:"Вставь пропущенную букву.",word:"family",show:[0,1,2,3,5],pool:["l"]},
     {t:"choice",area:"l2",q:"Как назвать бабушку?",
      opts:[{txt:"grandma",ok:1},{txt:"grandpa"}]}
@@ -5714,11 +6255,72 @@ buildTopicLessons("colours",[
   {title:"Основные цвета",
    goal:"После урока сможет: узнать основные цвета, правильно назвать их, сопоставить слово и цвет и понимать названия цветов на слух.",
    theory:[0,1,2], tasks:[0,1,2,3,4,6,8,11],
-   words:["red","yellow","green","blue","white","black","orange","pink","pen","pencil","book","bag"]},
+   words:["red","blue","green","yellow","black","white","orange","pink"]},
   {title:"Цвета вокруг нас",
    goal:"После урока сможет: описывать цвет предметов, использовать конструкцию It is и применять цвета в простых предложениях.",
    theory:[3,4,5], tasks:[5,7,9,10,12,13], words:[]},
 ]);
+
+/* v1.55.0 · Нормативная синхронизация Colours Around Me.
+   Только 8 цветов + What colour is it? / It is…; colours_check не меняется. */
+LESSONS.colours.words=["red","blue","green","yellow","black","white","orange","pink"];
+LESSONS.colours_l1.words=["red","blue","green","yellow","black","white","orange","pink"];
+LESSONS.colours_l1.name="Основные цвета";
+LESSONS.colours_l1.sub="После урока сможет: узнавать, называть и сопоставлять восемь нормативных цветов.";
+LESSONS.colours_l1.theory=[
+  {kind:"Цвета",head:"red · blue · green · yellow",
+   phrases:[["red","рэд","красный"],["blue","блу","синий"],["green","грин","зелёный"],["yellow","йЭлоу","жёлтый"]],
+   rule:"Слушай цвет, находи его образец и повторяй слово."},
+  {kind:"Цвета",head:"black · white · orange · pink",
+   phrases:[["black","блэк","чёрный"],["white","уайт","белый"],["orange","Ориндж","оранжевый"],["pink","пинк","розовый"]],
+   rule:"Все восемь цветов входят в основной словарь Colours Around Me."},
+  {kind:"Вспомни восемь",head:"Listen · Find · Say",
+   phrases:[["red","",""],["blue","",""],["green","",""],["yellow","",""],
+            ["black","",""],["white","",""],["orange","",""],["pink","",""]],
+   rule:"Новых предметных слов здесь нет: работаем только с цветами."}
+];
+LESSONS.colours_l1.tasks=[
+  {t:"choice",q:"Какое слово означает «красный»?",opts:[{txt:"red",ok:1},{txt:"green"},{txt:"blue"},{txt:"black"}]},
+  {t:"listen",q:"Послушай и выбери цвет.",play:"yellow",opts:[{txt:"yellow",ok:1},{txt:"green"},{txt:"blue"},{txt:"black"}]},
+  {t:"letters",q:"Собери слово «зелёный».",answer:"green",pool:["g","r","e","e","n","a","b"]},
+  {t:"match",q:"Соедини слово и перевод.",pairs:[["red","красный"],["blue","синий"],["white","белый"],["black","чёрный"]]},
+  {t:"dnd",q:"Перетащи слово к цвету.",
+   drops:[{emo:"🟥",cap:"",answer:"red"},{emo:"🟦",cap:"",answer:"blue"}],chips:["blue","red"]},
+  {t:"gap",q:"Вставь пропущенные буквы.",word:"orange",show:[0,1,5],pool:["r","a","n","g","o"]},
+  {t:"listen",q:"Послушай и выбери цвет.",play:"pink",opts:[{txt:"pink",ok:1},{txt:"orange"},{txt:"white"},{txt:"yellow"}]},
+  {t:"match",q:"Соедини слово и перевод.",pairs:[["yellow","жёлтый"],["green","зелёный"],["orange","оранжевый"],["pink","розовый"]]}
+];
+
+LESSONS.colours_l2.words=[];
+LESSONS.colours_l2.name="Как спросить и ответить о цвете";
+LESSONS.colours_l2.sub="После урока сможет: использовать What colour is it? и отвечать по готовой модели It is…";
+LESSONS.colours_l2.theory=[
+  {kind:"Как спросить",head:"What colour is it?",
+   art:"wave",cap:"Готовый знакомый вопрос о цвете.",
+   phrases:[["What colour is it?","уот кАла из ит","Какого это цвета?"]],
+   rule:"Используй вопрос как готовую модель."},
+  {kind:"Как ответить",head:"It is…",
+   phrases:[["It is red.","","Это красное."],["It is blue.","","Это синее."],["It is green.","","Это зелёное."],["It is yellow.","","Это жёлтое."]],
+   rule:"После It is добавляй только одно из восьми знакомых слов-цветов."},
+  {kind:"Ещё ответы",head:"It is…",
+   phrases:[["It is black.","","Это чёрное."],["It is white.","","Это белое."],["It is orange.","","Это оранжевое."],["It is pink.","","Это розовое."]],
+   rule:"Новых речевых моделей и новых цветов здесь нет."}
+];
+LESSONS.colours_l2.tasks=[
+  {t:"choice",q:"Как спросить «Какого это цвета?»",
+   opts:[{txt:"What colour is it?",ok:1},{txt:"It is red."},{txt:"What is it?"}]},
+  {t:"order",q:"Составь знакомый ответ.",answer:["It","is","blue."],extra:["are"]},
+  {t:"choice",q:"What colour is it? 🟩",opts:[{txt:"It is green.",ok:1},{txt:"It is red."},{txt:"It is pink."}]},
+  {t:"listen",q:"Послушай и выбери правильный ответ.",play:"It is yellow.",
+   opts:[{txt:"It is yellow.",ok:1},{txt:"It is blue."},{txt:"It is black."},{txt:"It is pink."}]},
+  {t:"tf",q:"«It is pink.» — правильный знакомый ответ на вопрос о цвете.",answer:true,
+   why:"Верно. It is… — нормативная модель ответа в Colours."},
+  {t:"speak",q:"Скажи цвет, затем готовый ответ.",word:"orange",wordRu:"оранжевый",
+   phrase:"It is orange.",phraseRu:"Это оранжевое."}
+];
+LESSONS.colours.theory=[...LESSONS.colours_l1.theory,...LESSONS.colours_l2.theory];
+LESSONS.colours.tasks=[...LESSONS.colours_l1.tasks,...LESSONS.colours_l2.tasks];
+
 
 /* Проверка темы использует только утверждённый основной материал colours.
    Углублённый блок colours.adv остаётся отдельным и в проверку не входит. */
@@ -5746,7 +6348,7 @@ function migrateColoursLegacyProgress(){
   if(!old||old.done!==true)return;
   if(PROG.colours_l1||PROG.colours_l2||PROG.colours_check)return;
   const ratio=(old.total||0)>0?Math.max(0,Math.min(1,(old.stars||0)/old.total)):1;
-  PROG.colours_l1={done:true,stars:Math.min(8,Math.round(8*ratio)),total:8,words:12,coins:0,tDone:true,tSeen:3,tTotal:3,legacyMigrated:true};
+  PROG.colours_l1={done:true,stars:Math.min(8,Math.round(8*ratio)),total:8,words:8,coins:0,tDone:true,tSeen:3,tTotal:3,legacyMigrated:true};
   PROG.colours_l2={done:true,stars:Math.min(6,Math.round(6*ratio)),total:6,words:0,coins:0,tDone:true,tSeen:3,tTotal:3,legacyMigrated:true};
   PROG.colours_check={done:true,stars:Math.min(10,Math.round(10*ratio)),total:10,legacyMigrated:true};
   saveAll();
@@ -6828,6 +7430,7 @@ function taskCard(area,t){
   /* Луми: спокойное присутствие рядом с заданием — объясняет, что делать,
      до того как ребёнок ответил. Меняется в fb() после ответа. */
   try{lumiShow(c,"explanation")}catch(e){}
+  if(t.visual)taskVisual(c,t.visual);
   const hq=document.createElement("button");hq.className="hearq";hq.type="button";
   hq.innerHTML="🎧";hq.setAttribute("aria-label","Прослушать задание");
   hq.onclick=e=>{e.stopPropagation();narrate([t.q],hq,"🎧")};
@@ -6839,7 +7442,58 @@ function taskCard(area,t){
      заданиях). Доступ к LUMA теперь только через сам кристалл в углу
      экрана — он уже есть на этом экране, ничего не потеряно. */
 }
+function taskVisual(parent,v){
+  if(!v)return null;
+  const d=document.createElement("div");d.className="task-visual";
+  if(v.kind==="art"&&ART[v.src])d.innerHTML=ART[v.src];
+  else if(v.kind==="swatch")d.innerHTML=`<div class="tv-swatch" style="background:${v.value||"#ddd"}"></div>`;
+  else d.innerHTML=`<div class="tv-emoji">${v.value||v.src||""}</div>`;
+  parent.appendChild(d);return d;
+}
+function compoundFail(st){
+  st.failed=true;
+  if(!st.missRecorded){st.missRecorded=true;mistakes++;wrongHere();head();}
+}
+function compoundMiniFeedback(parent,good,text){
+  const d=document.createElement("div");d.className="fb "+(good?"good":"bad");
+  d.innerHTML=(good?"✓ ":"↺ ")+(text|| (good?"Верно.":"Правильный вариант подсвечен."));
+  parent.appendChild(d);return d;
+}
+function finishCompound(c,st,note){
+  if(!st.failed){score++;head();fb(c,true,"Верно.");}
+  else{head();fb(c,false,note||"Задание завершено, но в одной из частей была ошибка.");}
+  nextBtn(c);
+}
+function renderCompoundChoice(c,t,mode){
+  const host=document.createElement("div");c.appendChild(host);
+  const st={idx:0,failed:false,missRecorded:false};
+  function draw(){
+    const it=t.items[st.idx];host.innerHTML="";
+    const h=document.createElement("div");h.className="compound-head";
+    h.innerHTML=`<span>Шаг ${st.idx+1} из ${t.items.length}</span><span>${mode==="listen"?"🎧":"✓"}</span>`;host.appendChild(h);
+    if(it.visual)taskVisual(host,it.visual);
+    if(it.q){const q=document.createElement("div");q.className="compound-q";q.textContent=it.q;host.appendChild(q);}
+    if(mode==="listen"){
+      const play=document.createElement("button");play.className="cta violet full";play.textContent="🔊 Послушать";
+      play.onclick=()=>say(it.play,play);host.appendChild(play);setTimeout(()=>say(it.play),250);
+    }
+    const g=document.createElement("div");g.className="opts";host.appendChild(g);let answered=false;
+    it.opts.forEach(o=>{const b=document.createElement("button");b.className="opt";
+      b.innerHTML=o.emo?`<span class="big">${o.emo}</span><span class="cap">${o.txt||""}</span>`:(o.txt||"");
+      b.onclick=()=>{if(answered)return;answered=true;if(o.txt)say(o.txt);
+        [...g.children].forEach(x=>x.disabled=true);
+        if(o.ok){b.classList.add("ok");compoundMiniFeedback(host,true,"Верно.");}
+        else{b.classList.add("no");compoundFail(st);[...g.children].forEach((x,i)=>{if(it.opts[i].ok)x.classList.add("ok")});compoundMiniFeedback(host,false,"Правильный вариант подсвечен.");}
+        if(it.note){const n=document.createElement("div");n.className="note";n.textContent=it.note;host.appendChild(n);}
+        const nx=document.createElement("button");nx.className="cta plain full compound-next";
+        nx.textContent=st.idx===t.items.length-1?"Завершить задание":"Дальше";
+        nx.onclick=()=>{if(st.idx<t.items.length-1){st.idx++;draw();scrollToTask();}else finishCompound(c,st);};host.appendChild(nx);
+      };g.appendChild(b);});
+  }
+  draw();
+}
 function bChoice(c,t){
+  if(t.items&&t.items.length){renderCompoundChoice(c,t,"choice");return;}
   const g=document.createElement("div");g.className="opts";let done=false;
   t.opts.forEach(o=>{const b=document.createElement("button");b.className="opt";
     b.innerHTML=o.emo?`<span class="big">${o.emo}</span><span class="cap">${o.txt||""}</span>`:o.txt;
@@ -6857,6 +7511,7 @@ function voicesReady(){
   try{return (speechSynthesis.getVoices()||[]).some(v=>/^en/i.test(v.lang))}catch(e){return false}
 }
 function bListen(c,t){
+  if(t.items&&t.items.length){renderCompoundChoice(c,t,"listen");return;}
   const p=document.createElement("button");p.className="cta violet full";
   p.textContent="🔊 Послушать ещё раз";p.style.marginBottom="10px";
   p.onclick=()=>say(t.play,p);c.appendChild(p);
@@ -6905,9 +7560,35 @@ function mnemoTip(c,word){
   const d=document.createElement("div");d.className="kind-note mtip";
   d.innerHTML="💡 "+m;c.appendChild(d);
 }
-function bLetters(c,t){const a=t.answer.split("");keyboard(c,t,a,a.map(()=>null),t.answer);}
-function bGap(c,t){const a=t.word.split("");keyboard(c,t,a,a.map((ch,i)=>t.show.includes(i)?ch:null),t.word);}
+function renderCompoundKeyboard(c,t,mode){
+  const host=document.createElement("div");c.appendChild(host);
+  const st={idx:0,failed:false,missRecorded:false};
+  function draw(){
+    const it=t.items[st.idx];host.innerHTML="";
+    const h=document.createElement("div");h.className="compound-head";
+    h.innerHTML=`<span>Шаг ${st.idx+1} из ${t.items.length}</span><span>${mode==="gap"?"⌨":"🔤"}</span>`;host.appendChild(h);
+    const word=mode==="gap"?it.word:it.answer;
+    if(it.q){const q=document.createElement("div");q.className="compound-q";q.textContent=it.q;host.appendChild(q);}
+    const ans=word.split("");
+    const filled=mode==="gap"?ans.map((ch,i)=>(it.show||[]).includes(i)?ch:null):ans.map(()=>null);
+    const slots=document.createElement("div");slots.className="slots";host.appendChild(slots);
+    const pool=document.createElement("div");pool.className="pool";host.appendChild(pool);
+    const paint=()=>{slots.innerHTML="";filled.forEach(ch=>{const z=document.createElement("div");z.className="slot"+(ch?" f":"");z.textContent=ch||"·";slots.appendChild(z);});};
+    paint();let done=false;
+    [...it.pool].sort(()=>Math.random()-.5).forEach(ch=>{const b=document.createElement("button");b.className="key";b.textContent=ch;
+      b.onclick=()=>{if(done)return;const i=filled.indexOf(null);if(i<0)return;
+        if(ans[i]===ch){filled[i]=ch;b.classList.add("used");paint();if(!filled.includes(null)){done=true;say(word);compoundMiniFeedback(host,true,`Готово: ${word}`);
+          const nx=document.createElement("button");nx.className="cta plain full compound-next";nx.textContent=st.idx===t.items.length-1?"Завершить задание":"Дальше";
+          nx.onclick=()=>{if(st.idx<t.items.length-1){st.idx++;draw();scrollToTask();}else finishCompound(c,st);};host.appendChild(nx);}}
+        else{compoundFail(st);b.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:220});}};
+      pool.appendChild(b);});
+  }
+  draw();
+}
+function bLetters(c,t){if(t.items&&t.items.length){renderCompoundKeyboard(c,t,"letters");return;}const a=t.answer.split("");keyboard(c,t,a,a.map(()=>null),t.answer);}
+function bGap(c,t){if(t.items&&t.items.length){renderCompoundKeyboard(c,t,"gap");return;}const a=t.word.split("");keyboard(c,t,a,a.map((ch,i)=>t.show.includes(i)?ch:null),t.word);}
 function bMatch(c,t){
+  const strict=!!(L&&L.areaNames&&!L.isCheck),st={failed:false,missRecorded:false};
   const w=document.createElement("div");w.className="mrows";
   const Lc=document.createElement("div"),R=document.createElement("div");
   Lc.className=R.className="mcol";w.appendChild(Lc);w.appendChild(R);c.appendChild(w);
@@ -6921,27 +7602,75 @@ function bMatch(c,t){
     b.onclick=()=>{if(!sel)return;
       if(sel.dataset.k===b.dataset.k){sel.classList.remove("sel");sel.classList.add("ok");
         b.classList.add("ok");sel=null;ok++;
-        if(ok===t.pairs.length){score++;head();fb(c,true,"Все пары собраны.");nextBtn(c);}
-      }else{mistakes++;wrongHere();b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),430);}};
+        if(ok===t.pairs.length){
+          if(strict&&st.failed){head();fb(c,false,"Все пары собраны, но в задании была ошибка.");}
+          else{score++;head();fb(c,true,"Все пары собраны.");}
+          nextBtn(c);}
+      }else{
+        if(strict)compoundFail(st);else{mistakes++;wrongHere();}
+        b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),430);}};
     R.appendChild(b);});
 }
+function renderCompoundOrder(c,t){
+  const host=document.createElement("div");c.appendChild(host);
+  const st={idx:0,failed:false,missRecorded:false};
+  function draw(){
+    const it=t.items[st.idx];host.innerHTML="";
+    const h=document.createElement("div");h.className="compound-head";h.innerHTML=`<span>Шаг ${st.idx+1} из ${t.items.length}</span><span>↕</span>`;host.appendChild(h);
+    const built=document.createElement("div");built.className="built";built.innerHTML='<span style="color:var(--gray);font-weight:500;font-size:14px">Нажимайте буквы по порядку</span>';host.appendChild(built);
+    const bank=document.createElement("div");bank.className="bank";host.appendChild(bank);const cur=[];let done=false;
+    [...it.answer,...(it.extra||[])].sort(()=>Math.random()-.5).forEach(w=>{const b=document.createElement("button");b.className="wb";b.textContent=w;
+      b.onclick=()=>{if(done)return;if(w===it.answer[cur.length]){cur.push(w);b.classList.add("used");built.innerHTML="";cur.forEach(x=>{const z=document.createElement("span");z.className="bw";z.textContent=x;built.appendChild(z)});
+        if(cur.length===it.answer.length){done=true;say(it.answer.join(", "));compoundMiniFeedback(host,true,"Последовательность собрана.");const nx=document.createElement("button");nx.className="cta plain full compound-next";nx.textContent=st.idx===t.items.length-1?"Завершить задание":"Дальше";nx.onclick=()=>{if(st.idx<t.items.length-1){st.idx++;draw();scrollToTask();}else finishCompound(c,st);};host.appendChild(nx);}}
+      else{compoundFail(st);b.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:220});}};bank.appendChild(b);});
+  }
+  draw();
+}
 function bOrder(c,t){
-  const built=document.createElement("div");built.className="built";
-  built.innerHTML='<span style="color:var(--gray);font-weight:500;font-size:14px">Нажимайте слова по порядку</span>';
-  c.appendChild(built);
-  const bank=document.createElement("div");bank.className="bank";c.appendChild(bank);
-  const cur=[];let done=false;
-  [...t.answer,...(t.extra||[])].sort(()=>Math.random()-.5).forEach(w=>{
-    const b=document.createElement("button");b.className="wb";b.textContent=w;
-    b.onclick=()=>{if(done)return;
-      if(w===t.answer[cur.length]){cur.push(w);b.classList.add("used");
-        built.innerHTML="";cur.forEach(x=>{const s=document.createElement("span");s.className="bw";s.textContent=x;built.appendChild(s)});
-        if(cur.length===t.answer.length){done=true;score++;head();
-          const sent=t.answer.join(" ");say(sent);
-          const f=fb(c,true,"Верно: <b>"+sent+"</b>");f.appendChild(spk(sent));nextBtn(c);}
-      }else{mistakes++;wrongHere();b.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},
-        {transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:220});}};
-    bank.appendChild(b);});
+  if(t.items&&t.items.length){renderCompoundOrder(c,t);return;}
+  if(!t.preChoice){
+    const built=document.createElement("div");built.className="built";
+    built.innerHTML='<span style="color:var(--gray);font-weight:500;font-size:14px">Нажимайте слова по порядку</span>';
+    c.appendChild(built);
+    const bank=document.createElement("div");bank.className="bank";c.appendChild(bank);
+    const cur=[];let done=false;
+    [...t.answer,...(t.extra||[])].sort(()=>Math.random()-.5).forEach(w=>{
+      const b=document.createElement("button");b.className="wb";b.textContent=w;
+      b.onclick=()=>{if(done)return;
+        if(w===t.answer[cur.length]){cur.push(w);b.classList.add("used");
+          built.innerHTML="";cur.forEach(x=>{const s=document.createElement("span");s.className="bw";s.textContent=x;built.appendChild(s)});
+          if(cur.length===t.answer.length){done=true;score++;head();
+            const sent=t.answer.join(" ");say(sent);
+            const f=fb(c,true,"Верно: <b>"+sent+"</b>");f.appendChild(spk(sent));nextBtn(c);}
+        }else{mistakes++;wrongHere();b.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},
+          {transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:220});}};
+      bank.appendChild(b);});
+    return;
+  }
+  const st={failed:false,missRecorded:false},host=document.createElement("div");c.appendChild(host);
+  function pre(){
+    host.innerHTML="";const pc=t.preChoice;
+    const h=document.createElement("div");h.className="compound-head";h.innerHTML="<span>Шаг 1 из 2</span><span>✓</span>";host.appendChild(h);
+    if(pc.visual)taskVisual(host,pc.visual);
+    if(pc.q){const q=document.createElement("div");q.className="compound-q";q.textContent=pc.q;host.appendChild(q);}
+    const g=document.createElement("div");g.className="opts";host.appendChild(g);let answered=false;
+    pc.opts.forEach(o=>{const b=document.createElement("button");b.className="opt";b.textContent=o.txt;
+      b.onclick=()=>{if(answered)return;answered=true;say(o.txt);[...g.children].forEach(x=>x.disabled=true);
+        if(o.ok){b.classList.add("ok");compoundMiniFeedback(host,true,"Верно.");}
+        else{b.classList.add("no");compoundFail(st);[...g.children].forEach((x,i)=>{if(pc.opts[i].ok)x.classList.add("ok")});compoundMiniFeedback(host,false,"Правильный вариант подсвечен.");}
+        const nx=document.createElement("button");nx.className="cta plain full compound-next";nx.textContent="Перейти к сборке";nx.onclick=order;host.appendChild(nx);};g.appendChild(b);});
+  }
+  function order(){
+    host.innerHTML="";const h=document.createElement("div");h.className="compound-head";h.innerHTML="<span>Шаг 2 из 2</span><span>↕</span>";host.appendChild(h);
+    const q=document.createElement("div");q.className="compound-q";q.textContent=t.q;host.appendChild(q);
+    const built=document.createElement("div");built.className="built";built.innerHTML='<span style="color:var(--gray);font-weight:500;font-size:14px">Нажимайте реплики по порядку</span>';host.appendChild(built);
+    const bank=document.createElement("div");bank.className="bank";host.appendChild(bank);const cur=[];let done=false;
+    [...t.answer,...(t.extra||[])].sort(()=>Math.random()-.5).forEach(w=>{const b=document.createElement("button");b.className="wb";b.textContent=w;
+      b.onclick=()=>{if(done)return;if(w===t.answer[cur.length]){cur.push(w);b.classList.add("used");built.innerHTML="";cur.forEach(x=>{const z=document.createElement("span");z.className="bw";z.textContent=x;built.appendChild(z)});
+          if(cur.length===t.answer.length){done=true;const sent=t.answer.join(" ");say(sent);if(!st.failed){score++;head();fb(c,true,"Верно.");}else{head();fb(c,false,"Последовательность собрана, но в задании была ошибка.");}nextBtn(c);}
+        }else{compoundFail(st);b.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:220});}};bank.appendChild(b);});
+  }
+  pre();
 }
 function bDnd(c,t){
   const zone=document.createElement("div");zone.className="dnd";
@@ -7163,6 +7892,21 @@ function startFix(){
 }
 
 /* работа над ошибками бесплатна — константа стоимости больше не нужна */
+function reviewAreaCategory(score,total){
+  if(!total)return "practice";
+  if(score>=6&&total===7)return "stable";
+  if(score>=4&&total===7)return "review";
+  const pct=score/total;
+  return pct>=.8?"stable":pct>=.5?"review":"practice";
+}
+function reviewAreaStats(lesson){
+  if(!lesson||!lesson.areaNames)return null;
+  const out={};
+  lesson.tasks.forEach((t,i)=>{if(!t.area)return;out[t.area]=out[t.area]||{score:0,total:0,category:"practice"};out[t.area].total++;if(!WRONG.includes(i))out[t.area].score++;});
+  Object.keys(out).forEach(k=>out[k].category=reviewAreaCategory(out[k].score,out[k].total));
+  return out;
+}
+function reviewAreaLabel(cat){return cat==="stable"?"навыки устойчивы":cat==="review"?"стоит повторить":"требуется дополнительная практика";}
 function finish(area){
   const total=L.tasks.length;
   const wasDone=!!(PROG[L.id]&&PROG[L.id].done);
@@ -7254,8 +7998,14 @@ function finish(area){
        перечисление полей вручную снова потеряло бы любые будущие метаданные.
        Полей, которые нужно СБРОСИТЬ при завершении, в записи нет — все
        накопительные (stars берётся через max, coins суммируется). */
-    PROG[parent]={...(PROG[parent]||{}),done:true,stars:sumStars,total:sumTotal,words:sumWords,
-      coins:((PROG[parent]&&PROG[parent].coins)||0)+bonus};
+    const keepAbc3LegacySummary=parent==="abc3"&&wasTopicDone&&
+      subIds.some(sid=>!(PROG[sid]&&Number.isFinite(PROG[sid].total)&&PROG[sid].total>0));
+    const oldParent=PROG[parent]||{};
+    PROG[parent]={...oldParent,done:true,
+      stars:keepAbc3LegacySummary?(oldParent.stars||0):sumStars,
+      total:keepAbc3LegacySummary?(oldParent.total||0):sumTotal,
+      words:keepAbc3LegacySummary?(oldParent.words||0):sumWords,
+      coins:(oldParent.coins||0)+bonus};
     PROG[L.id]={...(PROG[L.id]||{}),done:true,stars:score,total:total};
     saveAll();paintCoins();
     try{
@@ -7325,8 +8075,9 @@ function finish(area){
      срабатывал вообще ни для одной обычной темы. */
   /* Объединяем, а не заменяем — см. пояснение в ветке проверки темы выше:
      полная перезапись стирала поля теории, записанные markTheory(). */
+  const reviewAreas=(L.areaNames&&!L.isCheck)?reviewAreaStats(L):null;
   PROG[L.id]={...(PROG[L.id]||{}),done:true,stars:Math.max(prev.stars||0,score),total:total,
-    words:L.words.length,coins:money.total};
+    words:L.words.length,coins:money.total,...(reviewAreas?{areas:reviewAreas}:{})};
   SAVED=null;
   /* --- движок: уведомляем подсистемы --- */
   try{
@@ -7356,6 +8107,10 @@ function finish(area){
     <p style="color:var(--gray);font-weight:500;margin:0">Правильных ответов ${score} из ${total} · новых слов ${L.words.length}</p>
     ${bestStreak>=3?`<div style="margin-top:10px;font-weight:800;color:var(--violet)">🔥 Лучшая серия — ${bestStreak} подряд</div>`:""}`;
   area.appendChild(c);
+  if(reviewAreas){
+    ["l1","l2"].forEach(k=>{const rs=reviewAreas[k];if(!rs)return;const d=document.createElement("div");d.className="area-result";
+      d.innerHTML=`<b>${(L.areaNames&&L.areaNames[k])||k.toUpperCase()}</b> · ${rs.score} из ${rs.total}<br>${reviewAreaLabel(rs.category)}`;c.appendChild(d);});
+  }
   if(money.delta>0){const e=document.createElement("div");e.className="earned";
     e.innerHTML=`+${money.delta} лемов`+(perfect
       ?"<br><span style='font-size:13.5px;font-weight:600;opacity:.85'>2 за каждое задание и 4 сверху — ошибок не было</span>"
@@ -9196,12 +9951,12 @@ const ICAN={
  abc1:["I can read and write letters a–h.","Умею читать и писать буквы от a до h."],
  abc2:["I can read and write letters i–q.","Умею читать и писать буквы от i до q."],
  abc3:["I can read the whole English alphabet.","Знаю весь английский алфавит."],
- rev1:["I can use the alphabet and greet people.","Умею пользоваться алфавитом и здороваться."],
+ rev1:["I can use the letters and reading skills I’ve learned.","Умею использовать изученные буквы и навыки чтения."],
  family:["I can talk about my family.","Умею рассказать о своей семье."],
  colours:["I can name colours and school things.","Умею называть цвета и школьные вещи."],
  home:["I can say where things are at home.","Умею сказать, где что находится дома."],
  bday:["I can count to ten and say my age.","Умею считать до десяти и говорить, сколько мне лет."],
- rev2:["I can talk about myself in English.","Умею рассказать о себе по-английски."]
+ rev2:["I can use what I’ve learned together.","Умею использовать изученное вместе."]
 };
 
 /* ---- достижения ---- */
