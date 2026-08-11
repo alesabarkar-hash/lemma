@@ -1,0 +1,1 @@
+window.uxBook=function(id){let bid=TOPIC_BOOK_LINK[id],hit=bid&&Object.entries(BOOK).find(([,a])=>a.some(c=>c.id===bid));if(!hit)return;curTopic=id;setClass(+hit[0]);chId=bid;chPage=0;go('chapter');renderChapter();UX2.off()};
