@@ -1,0 +1,22 @@
+lesson-title{font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#ux-lessonbar .ux-lesson-sub{font-size:12px;color:var(--ux-muted);margin-top:2px}#ux-lessonbar .ux-count{font-size:12px;font-weight:900;color:var(--ux-muted);white-space:nowrap}
+#ux-lessonprogress{height:5px;background:#e5e2ed;border-radius:999px;overflow:hidden;margin-bottom:17px}#ux-lessonprogress i{display:block;height:100%;background:linear-gradient(90deg,var(--ux-violet),var(--ux-violet-2));border-radius:inherit}
+body.lesson-mode.uxv2-active .lhead{background:transparent;border:0;box-shadow:none;padding:0 0 12px}body.lesson-mode.uxv2-active .lhead .r1,body.lesson-mode.uxv2-active .lhead .ring{display:none}
+body.lesson-mode.uxv2-active .lhead h2{font-size:27px;letter-spacing:-.02em;margin:8px 0}
+body.lesson-mode.uxv2-active #area>.card,body.lesson-mode.uxv2-active #area>.theory,body.lesson-mode.uxv2-active #taskarea{border-radius:24px}
+body.lesson-mode.uxv2-active #nextbar{z-index:70}body.lesson-mode.uxv2-active #nextbar button{min-height:54px;border-radius:16px;font-weight:900}
+body.lesson-mode.uxv2-active .opt,body.lesson-mode.uxv2-active .tf button,body.lesson-mode.uxv2-active .key,body.lesson-mode.uxv2-active .wb,body.lesson-mode.uxv2-active .mit{min-height:46px}
+body.lesson-mode.uxv2-active #area>.card[data-ux-result="1"]{max-width:650px;margin:28px auto;padding:28px;border:1px solid var(--ux-line);box-shadow:var(--ux-shadow)}
+.ux-result-skills{text-align:left;background:#f7f6fb;border-radius:15px;padding:13px 15px;margin:14px 0;line-height:1.65;font-size:14px}
+@media(min-width:980px){
+  .ux-nav{left:22px;top:50%;bottom:auto;transform:translateY(-50%);width:112px;height:auto;grid-template-columns:1fr;padding:8px;gap:4px}.ux-nav button{min-height:72px;font-size:12px}
+  #uxv2-root{padding-left:148px;padding-bottom:48px}
+}
+@media(max-width:760px){
+  #uxv2-root{padding:16px 14px calc(94px + env(safe-area-inset-bottom))}
+  .ux-home-grid{grid-template-columns:1fr}.ux-title{font-size:34px}.ux-home-head{display:block}.ux-profile{width:max-content;max-width:100%;margin-top:12px}
+  .ux-mission{padding:22px;border-radius:24px}.ux-mission h2{font-size:31px}.ux-path-head,.ux-topic-head{display:block}.ux-topic-progress{margin-top:14px}
+  .ux-node{grid-template-columns:44px minmax(0,1fr)}.ux-node .ux-state{grid-column:2;justify-self:start;margin-top:-4px}
+  .ux-step{grid-template-columns:38px minmax(0,1fr)}.ux-step>button{grid-column:2;justify-self:start}.ux-materials{grid-template-columns:1fr}
+  body.lesson-mode.uxv2-active .wrap{padding:0 14px 92px}#ux-lessonbar{padding-top:max(10px,env(safe-area-inset-top))}
+}
+@media(max-width:390px){.ux-profile small{display:none}.ux-meta{font-size:12px;gap:9px}.ux-card{padding:17px}}
