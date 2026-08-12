@@ -2120,6 +2120,75 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 @media(max-width:760px){.lb-spread{display:block}.lb-page{padding:14px;border-radius:18px}.lb-page:not(.is-current){display:none}.lb-page h3{font-size:23px}.lb-vocab,.lb-colours,.lb-models,.lb-grammar,.lb-objects,.lb-variants{grid-template-columns:1fr 1fr}.lb-art{max-height:185px}.lb-art svg{max-height:185px}.lb-page-head{gap:8px}.lb-badge{font-size:11px;padding:6px 8px}.lb-btn,.lb-token{padding:9px;font-size:13px}.lb-match-row{font-size:13px}}
 @media(max-width:390px){.lb-vocab,.lb-colours,.lb-models,.lb-grammar,.lb-objects,.lb-variants{grid-template-columns:1fr}.lb-page{padding:12px}.lb-page h3{font-size:21px}.lb-lead{font-size:15px}}
 </style>
+
+<style id="ux2-phase1b">
+/* UX v2 Phase 1B — presentation only: s-den + s-academy */
+.ux2-nav-sentinel{display:none!important}
+:root{
+  --ux2-bg:#f5f6fa;--ux2-card:#fff;--ux2-ink:#1b182c;--ux2-muted:#706d7d;
+  --ux2-line:#e7e4ef;--ux2-v:#674df2;--ux2-v2:#8d78ff;--ux2-lime:#d8f45b;
+  --ux2-green:#21865b;--ux2-shadow:0 18px 48px rgba(57,43,126,.10);
+}
+body:not(.landing):not(.lesson-mode){background:var(--ux2-bg)}
+.ux2-den,.ux2-academy{max-width:1160px;margin:0 auto}
+.ux2-den-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 0 18px}
+.ux2-brandline{font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--ux2-v)}
+.ux2-brandline b{color:#9cc11e}.ux2-den-head h1{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.035em;margin:7px 0 0}
+.ux2-profile{display:flex;align-items:center;gap:10px;padding:7px 13px 7px 8px;border:1px solid var(--ux2-line);background:#fff;border-radius:999px}
+.ux2-avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#ece7ff,#def7ec);color:var(--ux2-v);font-weight:900}
+.ux2-profile b,.ux2-profile small{display:block}.ux2-profile b{font-size:13px}.ux2-profile small{font-size:11px;color:var(--ux2-muted);margin-top:2px}
+.ux2-mission{position:relative;overflow:hidden;padding:28px;border-radius:30px;background:linear-gradient(135deg,#5c46e5,#765ff1 64%,#9b87ff);color:#fff;box-shadow:var(--ux2-shadow)}
+.ux2-mission:after{content:"✦";position:absolute;right:-18px;top:-48px;font-size:190px;opacity:.08;pointer-events:none}
+.ux2-mission-label,.ux2-overline{display:block;font-size:12px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+.ux2-mission-label{opacity:.78}.ux2-overline{color:var(--ux2-v)}
+.ux2-mission h2{font-size:clamp(30px,4vw,45px);letter-spacing:-.03em;line-height:1.04;margin:11px 0 4px}
+.ux2-mission-stage{font-size:18px;font-weight:850;opacity:.94}
+.ux2-mission-progress{margin-top:18px;height:9px;border-radius:999px;background:rgba(255,255,255,.22);overflow:hidden}
+.ux2-mission-progress i{display:block;height:100%;border-radius:inherit;background:var(--ux2-lime)}
+.ux2-mission-meta{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0 18px;font-size:13px;font-weight:800;opacity:.9}
+.ux2-main-cta{position:relative;z-index:1;width:100%;min-height:56px;border:0;border-radius:17px;background:var(--ux2-lime);color:#282417;font-size:16px;font-weight:950;cursor:pointer;box-shadow:0 7px 0 rgba(31,28,15,.15)}
+.ux2-main-cta:active{transform:translateY(2px);box-shadow:0 4px 0 rgba(31,28,15,.15)}
+.ux2-home-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:18px;margin-top:18px}
+.ux2-panel{background:#fff;border:1px solid var(--ux2-line);border-radius:24px;padding:20px;box-shadow:0 7px 24px rgba(49,42,88,.05)}
+.ux2-panel h2{font-size:20px;margin:5px 0 0}.ux2-section-head{display:flex;align-items:end;justify-content:space-between;gap:14px}
+.ux2-link,.ux2-backline{border:0;background:transparent;color:var(--ux2-v);font-weight:900;cursor:pointer;padding:7px 0}
+.ux2-near-path{display:grid;gap:8px;margin-top:14px}
+.ux2-near-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:10px;padding:10px 11px;border-radius:14px;background:#fafafe}
+.ux2-near-row.current{background:#f0edff}.ux2-near-row.done{background:#f2fbf6}
+.ux2-near-dot{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#eceaf3;font-weight:900}
+.ux2-near-row.current .ux2-near-dot{background:var(--ux2-v);color:#fff}.ux2-near-row.done .ux2-near-dot{background:#e2f6eb;color:var(--ux2-green)}
+.ux2-near-row b{display:block;font-size:14px}.ux2-near-row small{display:block;font-size:12px;color:var(--ux2-muted);margin-top:2px}.ux2-near-state{font-size:11px;font-weight:850;color:var(--ux2-muted)}
+.ux2-secondary-actions{display:grid;gap:9px;margin-top:14px}.ux2-secondary-actions button{display:grid;grid-template-columns:32px 1fr;column-gap:8px;text-align:left;border:1px solid var(--ux2-line);background:#fafafe;border-radius:15px;padding:12px 13px;color:var(--ux2-ink);cursor:pointer}
+.ux2-secondary-actions button>span{grid-row:1/3;font-size:20px;align-self:center}.ux2-secondary-actions b{font-size:14px}.ux2-secondary-actions small{color:var(--ux2-muted);font-size:11.5px;margin-top:2px}
+.ux2-path-head{padding:8px 0 18px}.ux2-path-title-row{display:flex;align-items:end;justify-content:space-between;gap:18px}.ux2-path-title-row h1{font-size:clamp(31px,4vw,46px);letter-spacing:-.035em;margin:5px 0 5px}.ux2-path-title-row p{margin:0;color:var(--ux2-muted);font-size:15px}
+.ux2-path-summary{min-width:160px;text-align:right;font-size:13px;font-weight:850;color:var(--ux2-muted)}
+.ux2-class-chips{margin-top:16px}.ux2-path-root{display:block!important}
+.ux2-unit{margin:22px 0 10px}.ux2-unit-title{display:flex;align-items:center;gap:10px;margin-bottom:10px;color:var(--ux2-muted);font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.ux2-unit-title:after{content:"";flex:1;height:1px;background:var(--ux2-line)}
+.ux2-path-list{position:relative;display:grid;gap:9px}.ux2-path-list:before{content:"";position:absolute;left:24px;top:24px;bottom:24px;width:2px;background:#e3e0eb}
+.ux2-path-node{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:13px;text-align:left;border:1px solid var(--ux2-line);border-radius:19px;background:#fff;padding:14px;color:var(--ux2-ink);cursor:pointer}
+.ux2-path-node.current{border-color:#9b88ff;box-shadow:0 9px 24px rgba(101,76,242,.11)}.ux2-path-node.done{background:#fbfffc}.ux2-path-node.locked{opacity:.56;cursor:default}.ux2-path-node.review{background:linear-gradient(135deg,#fff,#f4f0ff);border-style:dashed}
+.ux2-node-icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#efedf5;font-weight:900}.ux2-path-node.current .ux2-node-icon{background:var(--ux2-v);color:#fff}.ux2-path-node.done .ux2-node-icon{background:#e3f6eb;color:var(--ux2-green)}
+.ux2-node-name{display:block;font-size:17px;font-weight:900}.ux2-node-sub{display:block;font-size:12.5px;color:var(--ux2-muted);margin-top:3px}.ux2-node-state{font-size:12px;font-weight:900;padding:7px 10px;border-radius:999px;background:#f2f0f7;white-space:nowrap}
+.ux2-path-node.current .ux2-node-state{background:#ebe7ff;color:#523ad2}.ux2-path-node.done .ux2-node-state{background:#e7f7ed;color:#177348}
+.ux2-global-nav{gap:2px}.ux2-global-nav button{white-space:nowrap}
+body:has(#s-drill:not(.hidden)) #m-learn.on,body:has(#s-drill:not(.hidden)) #d-learn.on{background:transparent!important;color:inherit!important}
+body:has(#s-drill:not(.hidden)) #m-train,body:has(#s-drill:not(.hidden)) #d-train{color:var(--violet)!important}
+body:has(#s-drill:not(.hidden)) #m-train{background:#EEE9FF!important}
+@media(max-width:760px){
+  body:has(#s-den:not(.hidden)) .top,body:has(#s-academy:not(.hidden)) .top{display:none}
+  .ux2-den,.ux2-academy{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  .ux2-den-head{display:block;padding-top:2px}.ux2-profile{width:max-content;max-width:100%;margin-top:11px}.ux2-den-head h1{font-size:31px}
+  .ux2-mission{padding:21px;border-radius:24px}.ux2-mission h2{font-size:31px}.ux2-mission-stage{font-size:16px}.ux2-mission-meta{font-size:12px;gap:9px}
+  .ux2-home-layout{grid-template-columns:1fr}.ux2-panel{padding:17px}.ux2-section-head{align-items:center}
+  .ux2-path-title-row{display:block}.ux2-path-summary{text-align:left;margin-top:9px}.ux2-path-title-row h1{font-size:32px}
+  .ux2-path-node{grid-template-columns:44px minmax(0,1fr)}.ux2-node-state{grid-column:2;justify-self:start;margin-top:-4px}
+  .ux2-mobile-nav{padding-bottom:max(6px,env(safe-area-inset-bottom));height:calc(64px + env(safe-area-inset-bottom))}
+}
+@media(min-width:980px){
+  .ux2-den{padding-top:6px}.ux2-academy{padding-top:2px}
+}
+</style>
+
 </head>
 <body>
 
@@ -2140,11 +2209,12 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
         <div class="tagline lnd">Онлайн-школа английского языка · 2–9 класс</div>
       </div>
     </div>
-    <div class="dnav">
+    <div class="dnav ux2-global-nav">
       <button id="d-den" class="on" onclick="go('den')">Главная</button>
-      <button id="d-learn" onclick="openAcademy('english')">Учиться</button>
+      <button id="d-learn" onclick="openAcademy('english')">Путь</button>
+      <button id="d-train" onclick="go('drill')">Тренировка</button>
       <button id="d-world" onclick="go('game')">Мир</button>
-      <button id="d-me" onclick="go('me')">Профиль</button>
+      <button id="d-me" class="ux2-nav-sentinel" onclick="go('me')" aria-hidden="true" tabindex="-1">Профиль</button>
     </div>
     <button class="wallet" onclick="go('prog')" aria-label="Открыть копилку"><span id="coin-n">0</span> лемов</button>
     <button class="worldbtn" onclick="go('game')" aria-label="Открыть мир LEMMA">🌎<span class="wtext"> Мир</span></button>
@@ -2579,47 +2649,39 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 </div>
 
 <!-- ============ ДОМ ИССЛЕДОВАТЕЛЯ ============ -->
-<div id="s-den" class="hidden">
-  <!-- атмосфера мира: спутник, свечение, растения — без изменений -->
-  <div id="den-scene"></div>
-
-  <!-- главный элемент экрана: чем заняться прямо сейчас -->
-  <div class="eyebrow" style="margin-top:16px"><i></i> Твоя задача сейчас</div>
-  <div id="den-exp"></div>
-
-  <div class="denrow">
-    <div class="dencol">
-      <div class="dlab">Последние открытия</div>
-      <div id="den-disc"></div>
+<div id="s-den" class="hidden ux2-den">
+  <section class="ux2-den-head" aria-labelledby="ux2-den-title">
+    <div>
+      <div class="ux2-brandline">ЛЕММА <b>✦</b> · <span id="ux2-home-class">2 класс</span></div>
+      <h1 id="ux2-den-title">Привет! Продолжим?</h1>
     </div>
-  </div>
-  <div id="den-atlas"></div>
+    <div class="ux2-profile" aria-label="Профиль исследователя">
+      <span class="ux2-avatar">◈</span>
+      <span><b>Исследователь</b><small><span id="ux2-home-coins">0</span> лемов</small></span>
+    </div>
+  </section>
 
-  <!-- учебный путь: главный раздел -->
-  <div class="dlab" style="margin-top:22px">Учиться</div>
-  <div class="dengrid" style="grid-template-columns:1fr">
-    <button class="dtile t-acad big" onclick="openAcademy('english')">
-      <span class="dg">✦</span><span class="dn">Учебный путь</span><span class="ds">темы, уроки и прогресс — весь маршрут обучения</span></button>
-    <button class="dtile t-jour" onclick="go('prog')">
-      <span class="dg">◪</span><span class="dn">Прогресс</span><span class="ds">путь и успехи</span></button>
-  </div>
+  <section id="ux2-mission" class="ux2-mission" aria-live="polite"></section>
 
-  <!-- мир вокруг: поддерживающий игровой слой -->
-  <div class="dlab" style="margin-top:20px">Мир вокруг</div>
-  <div class="dengrid">
-    <button class="dtile t-map sm" onclick="go('worldmap')">
-      <span class="dg">🗺</span><span class="dn">Карта мира</span><span class="ds">исследовать</span></button>
-    <button class="dtile t-coll sm" onclick="go('collect')">
-      <span class="dg">❂</span><span class="dn">Коллекции</span><span class="ds">слова и знаки</span></button>
-  </div>
+  <div class="ux2-home-layout">
+    <section class="ux2-panel">
+      <div class="ux2-section-head">
+        <div><span class="ux2-overline">Твой путь</span><h2>Что впереди</h2></div>
+        <button class="ux2-link" onclick="openAcademy('english')">Весь путь →</button>
+      </div>
+      <div id="ux2-near-path" class="ux2-near-path"></div>
+    </section>
 
-  <button class="cta full" style="margin-top:16px" onclick="denContinue()">Продолжить урок <span>→</span></button>
-  <div class="denfoot">
-    <button onclick="go('game')">Спутник</button>
-    <button onclick="go('hub')">Сердце Леммы</button>
-    <button onclick="go('parents')">Для родителей</button>
+    <aside class="ux2-panel ux2-secondary-panel">
+      <span class="ux2-overline">Дополнительно</span>
+      <h2>Если хочется ещё</h2>
+      <div class="ux2-secondary-actions">
+        <button onclick="go('drill')"><span>✦</span><b>Тренировка</b><small>коротко повторить</small></button>
+        <button id="ux2-current-book" onclick="ux2OpenCurrentBook()"><span>▤</span><b>Учебник</b><small>материал текущей темы</small></button>
+        <button onclick="go('game')"><span>◉</span><b>Мир</b><small>исследовать LEMMA</small></button>
+      </div>
+    </aside>
   </div>
-  <button class="back" onclick="goBack()">← Назад</button>
 </div>
 
 <!-- ============ КАРТА МИРА ============ -->
@@ -2629,39 +2691,20 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 </div>
 
 <!-- ============ АКАДЕМИЯ ============ -->
-<div id="s-academy" class="hidden">
-  <div id="ac-subnav"></div>
-  <div id="resume-academy"></div>
-  <div id="ac-head"></div>
-  <div class="chips" id="ac-classes"></div>
-  <div class="rooms" id="ac-rooms"></div>
-
-  <div class="sec">Ещё возможности</div>
-  <div class="card flat">
-    <p style="margin:0 0 6px;font-weight:800">Тренировка</p>
-    <p style="color:var(--gray);font-weight:500;font-size:14.5px;margin:0">
-      Десять случайных заданий из уже пройденных тем. Каждый раз новый набор — повторять можно сколько угодно.</p>
-    <div id="ac-tr-info" style="font-size:13px;font-weight:700;color:var(--violet);margin-top:8px"></div>
-    <button class="cta full" onclick="startTrainer()">Случайные задания →</button>
-    <button class="cta plain" onclick="go('drill')">Тренажёры: слова, артикли, предложения</button>
-  </div>
-
-  <div class="adv" style="margin-top:14px">
-    <div class="lbl">Для тех, кто хочет больше</div>
-    <h3>Углублённый английский</h3>
-    <p>Отдельные уроки поверх программы: теория, практика и произношение.</p>
-    <button class="cta violet full" onclick="go('deep')">Открыть раздел →</button>
-  </div>
-
-  <div class="card flat" style="text-align:center;margin-top:14px">
-    <div style="font-weight:800;margin-bottom:4px">Проверка звука и микрофона</div>
-    <div style="font-size:13.5px;color:var(--gray);font-weight:500">Слова произносит голос устройства, а произношение проверяется микрофоном.</div>
-    <button class="cta plain" onclick="say('hello',this);checkSound('ac-sndmsg')">🔊 Послушать «hello»</button>
-    <button class="cta plain" onclick="checkMic('ac-sndmsg')">🎤 Проверить микрофон</button>
-    <div id="ac-sndmsg" style="font-size:13px;font-weight:500;color:var(--gray);margin-top:8px"></div>
-  </div>
-
-  <button class="back" onclick="goBack()">← Назад</button>
+<div id="s-academy" class="hidden ux2-academy">
+  <section class="ux2-path-head">
+    <button class="ux2-backline" onclick="go('den')">← Главная</button>
+    <div class="ux2-path-title-row">
+      <div>
+        <span class="ux2-overline">Путь</span>
+        <h1 id="ux2-path-title">Английский · 2 класс</h1>
+        <p>Иди сверху вниз. Текущий этап всегда выделен.</p>
+      </div>
+      <div id="ux2-path-summary" class="ux2-path-summary"></div>
+    </div>
+    <div class="chips ux2-class-chips" id="ac-classes"></div>
+  </section>
+  <div id="ac-rooms" class="ux2-path-root"></div>
 </div>
 
 <!-- ============ ИГРОВОЙ ХАБ «СЕРДЦЕ ЛЕММЫ» ============ -->
@@ -2969,11 +3012,12 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
   </div>
 </div>
 
-<nav>
-  <button id="m-den" class="on" onclick="go('den')"><span class="ic">🏠</span>Главная</button>
-  <button id="m-learn" onclick="openAcademy('english')"><span class="ic">🎯</span>Учиться</button>
-  <button id="m-world" onclick="go('game')"><span class="ic">🌎</span>Мир</button>
-  <button id="m-me" onclick="go('me')"><span class="ic">👤</span>Профиль</button>
+<nav class="ux2-mobile-nav">
+  <button id="m-den" class="on" onclick="go('den')"><span class="ic">⌂</span>Главная</button>
+  <button id="m-learn" onclick="openAcademy('english')"><span class="ic">↟</span>Путь</button>
+  <button id="m-train" onclick="go('drill')"><span class="ic">✦</span>Тренировка</button>
+  <button id="m-world" onclick="go('game')"><span class="ic">◉</span>Мир</button>
+  <button id="m-me" class="ux2-nav-sentinel" onclick="go('me')" aria-hidden="true" tabindex="-1">Профиль</button>
 </nav>
 <div id="ghost"></div>
 <div id="nextbar"></div>
@@ -5022,6 +5066,54 @@ function emblemFor(id,i){
   if(e)return e;
   const pal=[["#8C74FF","#5B3BF0"],["#3BE0D2","#0FA69C"],["#FFD08A","#FFA51F"],["#FF8FA6","#FF4E74"]][i%4];
   return ["•",pal[0],pal[1]];
+}
+
+/* ===================== UX v2 PHASE 1B: READ-ONLY VIEW MODEL =====================
+   Эти helpers только читают TOPICS/LESSONS/PROG/SAVED. Они не сохраняют state,
+   не меняют locks, route, rewards или результаты уроков. */
+function ux2TopicRouteView(topicId){
+  const les=LESSONS[topicId];
+  if(!les)return {topicId:topicId,total:0,done:0,currentId:null,currentLabel:"",isReview:false};
+  if(!les.subLessons){
+    return {topicId:topicId,total:1,done:(PROG[topicId]&&PROG[topicId].done)?1:0,
+      currentId:topicId,currentLabel:les.areaNames?"Повторение":"Тема",isReview:!!les.areaNames};
+  }
+  const stages=les.subLessons.slice();
+  if(les.checkId)stages.push(les.checkId);
+  const doneCount=stages.filter(id=>PROG[id]&&PROG[id].done).length;
+  let currentId=stages.find(id=>!(PROG[id]&&PROG[id].done))||null;
+  let currentLabel="";
+  if(currentId===les.checkId)currentLabel="Проверка темы";
+  else{
+    const i=les.subLessons.indexOf(currentId);
+    if(i>=0)currentLabel="Урок "+(i+1);
+  }
+  return {topicId:topicId,total:stages.length,done:doneCount,currentId:currentId,currentLabel:currentLabel,isReview:false};
+}
+function getCurrentMission(){
+  const list=TOPICS[curClass]||[];
+  const savedInClass=!!(SAVED&&list.some(t=>t.id===SAVED.topic));
+  const target=(savedInClass&&LESSONS[SAVED.topic])?savedTarget():null;
+  if(target){
+    const topic=LESSONS[SAVED.topic],route=ux2TopicRouteView(SAVED.topic),targetLes=LESSONS[target];
+    let stageLabel=route.currentLabel||"Продолжить";
+    if(topic.subLessons){
+      if(target===topic.checkId)stageLabel="Проверка темы";
+      else{
+        const i=topic.subLessons.indexOf(target);
+        if(i>=0)stageLabel="Урок "+(i+1);
+      }
+    }else if(topic.areaNames)stageLabel="Повторение";
+    const detail=SAVED.stage==="theory"?"объяснение":
+      ("задание "+((SAVED.step||0)+1)+(targetLes.tasks&&targetLes.tasks.length?" из "+targetLes.tasks.length:""));
+    return {topicId:SAVED.topic,lessonId:target,validSaved:true,title:topic.name,
+      stageLabel:stageLabel,detail:detail,route:route};
+  }
+  const id=firstUndone();
+  if(!id||!LESSONS[id])return null;
+  const route=ux2TopicRouteView(id);
+  return {topicId:id,lessonId:route.currentId||id,validSaved:false,title:LESSONS[id].name,
+    stageLabel:route.currentLabel||"Тема",detail:"следующий этап",route:route};
 }
 
 /* ===================== ПРОДОЛЖЕНИЕ И СЛЕДУЮЩИЙ ШАГ ===================== */
@@ -8898,94 +8990,71 @@ function renderLanding(){
 }
 
 function renderDen(){
-  const st=novaState();
-  const who=st.companionId||"lumi";
-  const comp=COMPANIONS[who]||COMPANIONS.lumi;
-  const name=st.companionName||comp.name;
+  const mission=getCurrentMission();
+  const classEl=document.getElementById("ux2-home-class");
+  const coinsEl=document.getElementById("ux2-home-coins");
+  if(classEl)classEl.textContent=curClass+" класс";
+  if(coinsEl)coinsEl.textContent=COINS;
 
-  /* сцена дома */
-  const scene=document.getElementById("den-scene");
-  if(scene){
-    scene.innerHTML=
-      `<div class="denbg">
-         <div class="dsky"></div>
-         <div class="dglow"></div>
-         ${motesLayer(16)}
-         <div class="dplants">
-           <svg viewBox="0 0 420 120" preserveAspectRatio="none" aria-hidden="true">
-             <path class="lf lf1" d="M18 120 q6-52 34-72 q-10 44-22 72 Z"/>
-             <path class="lf lf2" d="M52 120 q2-40 26-58 q-8 34-16 58 Z"/>
-             <path class="lf lf3" d="M372 120 q-4-56-34-76 q10 48 20 76 Z"/>
-             <path class="lf lf4" d="M340 120 q-2-38-24-54 q6 32 12 54 Z"/>
-           </svg>
+  const box=document.getElementById("ux2-mission");
+  if(box){
+    if(mission){
+      const route=mission.route||ux2TopicRouteView(mission.topicId);
+      const pct=route.total?Math.round(route.done/route.total*100):0;
+      box.innerHTML=
+        `<span class="ux2-mission-label">Твоя миссия</span>
+         <h2>${escHtml(mission.title)}</h2>
+         <div class="ux2-mission-stage">${escHtml(mission.stageLabel)}${mission.detail?" · "+escHtml(mission.detail):""}</div>
+         <div class="ux2-mission-progress"><i style="width:${pct}%"></i></div>
+         <div class="ux2-mission-meta">
+           <span>Прогресс темы: ${route.done} из ${route.total}</span>
+           ${mission.validSaved?'<span>● место сохранено</span>':""}
          </div>
-         <div class="dwin"><span></span><span></span><span></span></div>
-         <div class="dpet">${charTag(who,"neutral",'alt="'+escHtml(name)+'"')}</div>
-         <div class="world-character-speech">${comp.line}<i>${comp.lineRu}</i></div>
-       </div>`;
-  }
-
-  /* текущая экспедиция */
-  const exp=document.getElementById("den-exp");
-  if(exp){
-    let id=null,note="";
-    if(SAVED&&LESSONS[SAVED.topic]){
-      id=SAVED.topic;
-      const rt=savedTarget();
-      if(rt){
-        const les2=LESSONS[rt];
-        const total2=SAVED.stage==="theory"?les2.theory.length:les2.tasks.length;
-        note=SAVED.stage==="theory"?"изучение записей":"задание "+(SAVED.step+1)+(total2?" из "+total2:"");
-      }else{
-        note="урок ждёт";
-      }
-    }
-    else{id=firstUndone();note=id?"экспедиция ждёт":"";}
-    if(id&&LESSONS[id]){
-      const les=LESSONS[id],p=PROG[id],pct=Lemma.progress.topicPct(id);
-      exp.innerHTML=
-        `<button class="expcard" onclick="${SAVED&&SAVED.topic===id?"resumeSaved()":"openTopic('"+id+"')"}">
-           <div class="exglow"></div>
-           <div class="exlab">Текущая экспедиция</div>
-           <div class="exname">${les.name}</div>
-           <div class="exnote">${note} · освоено ${pct}%</div>
-           <div class="exbar"><i style="width:${pct}%"></i></div>
-           <div class="exgo">Продолжить →</div>
-         </button>`;
+         <button id="ux2-mission-cta" class="ux2-main-cta">ПРОДОЛЖИТЬ →</button>`;
+      const cta=document.getElementById("ux2-mission-cta");
+      cta.onclick=mission.validSaved?()=>resumeSaved():()=>openTopic(mission.topicId);
     }else{
-      exp.innerHTML=`<div class="expcard flat"><div class="exlab">Экспедиции</div>
-        <div class="exname">Все маршруты пройдены</div>
-        <div class="exnote">Загляните на карту — откроются новые земли</div></div>`;
+      box.innerHTML=
+        `<span class="ux2-mission-label">Твоя миссия</span>
+         <h2>Маршрут этого класса пройден</h2>
+         <div class="ux2-mission-stage">Можно посмотреть весь учебный путь</div>
+         <button id="ux2-mission-cta" class="ux2-main-cta" style="margin-top:18px">ОТКРЫТЬ ПУТЬ →</button>`;
+      document.getElementById("ux2-mission-cta").onclick=()=>openAcademy("english");
     }
   }
 
-  /* последние открытия */
-  const disc=document.getElementById("den-disc");
-  if(disc){
-    const list=discoveryList().slice(0,4);
-    disc.innerHTML=list.length
-      ? list.map(d=>`<div class="dsc"><span class="di">✦</span>
-          <span class="dt"><b>${d.name}</b><i>${d.words} новых слов</i></span></div>`).join("")
-      : `<div class="dsc empty"><span class="di">◌</span>
-          <span class="dt"><b>Открытий пока нет</b><i>Пройдите первую экспедицию</i></span></div>`;
+  const near=document.getElementById("ux2-near-path");
+  if(near){
+    const list=(TOPICS[curClass]||[]).filter(t=>t.ready&&LESSONS[t.id]);
+    const currentId=mission?mission.topicId:null;
+    let ci=currentId?list.findIndex(t=>t.id===currentId):-1;
+    if(ci<0)ci=Math.max(0,list.length-1);
+    const from=Math.max(0,ci-1),to=Math.min(list.length,ci+3);
+    near.innerHTML=list.slice(from,to).map(t=>{
+      const done=!!(PROG[t.id]&&PROG[t.id].done);
+      const current=t.id===currentId;
+      return `<div class="ux2-near-row${done?" done":current?" current":""}">
+        <span class="ux2-near-dot">${done?"✓":current?"●":"○"}</span>
+        <span><b>${escHtml(LESSONS[t.id].name)}</b><small>${t.rev?"Обзорная точка":escHtml(t.sub||"")}</small></span>
+        <span class="ux2-near-state">${done?"готово":current?"сейчас":""}</span>
+      </div>`;
+    }).join("");
   }
 
-  /* живой атлас */
-  const atlas=document.getElementById("den-atlas");
-  if(atlas){
-    const w=Lemma.progress.words();
-    const world=Lemma.progress.world();
-    atlas.innerHTML=
-      `<div class="atlasbox">
-         <div class="alab">Живой Атлас</div>
-         <div class="arow"><span>Слова</span><b>${w.known} из ${w.total}</b>
-           <em><i style="width:${w.percent}%"></i></em></div>
-         <div class="arow"><span>Мир</span><b>${world.open} из ${world.total}</b>
-           <em><i style="width:${world.percent}%"></i></em></div>
-         <div class="arow"><span>Открытия</span><b>${discoveryList().length}</b>
-           <em><i style="width:${Math.min(100,discoveryList().length*10)}%"></i></em></div>
-       </div>`;
+  const book=document.getElementById("ux2-current-book");
+  if(book){
+    const id=mission&&mission.topicId;
+    const link=id&&TOPIC_BOOK_LINK[id];
+    book.disabled=!link;
+    book.onclick=link?()=>openTopicBook(id):()=>{};
   }
+}
+function openTopicBook(topicId){
+  const bookId=TOPIC_BOOK_LINK[topicId];
+  if(!bookId)return;
+  const hit=Object.entries(BOOK).find(([,chapters])=>chapters.some(ch=>ch.id===bookId));
+  if(!hit)return;
+  curTopic=topicId;setClass(+hit[0]);chId=bookId;chPage=0;go("chapter");renderChapter();
 }
 
 /* ================================ КАРТА МИРА =============================== */
@@ -9060,38 +9129,15 @@ function learnSubNav(active){
   ).join("")}</div>`;
 }
 function renderAcademy(){
-  const sn=document.getElementById("ac-subnav");if(sn)sn.innerHTML=learnSubNav("academy");
-  /* «Учебный путь» — переработанный экран. Раньше здесь были четыре
-     «комнаты», три из которых просто вели туда же, куда уже ведут
-     прямые вкладки внизу («Экспедиционный центр» → Уроки, «Библиотека»
-     → Учебник, «Лаборатория» → Практика) — это и была та самая
-     «вторая академия», о которой шла речь. Теперь вместо комнат —
-     список тем класса с их настоящим статусом (пройдена / текущая /
-     впереди), а «Архив» остаётся отдельно — он не дублирует ни одну
-     прямую вкладку. */
-  const head=document.getElementById("ac-head");
-  if(head){
-    const cls=Lemma.progress.byClass(curClass);
-    head.innerHTML=
-      `<div class="achead">
-         <div class="acbg"></div>${motesLayer(10,"soft")}
-         <div class="acin">
-           <div class="aclab">УЧЕБНЫЙ ПУТЬ</div>
-           <div class="acname">${curClass} класс · английский</div>
-           <div class="acmeta">
-             <span><b>${cls.done}</b>тем пройдено</span>
-             <span><b>${cls.percent}%</b>освоено</span>
-             <span><b>${curClass}</b>класс</span>
-           </div>
-         </div>
-       </div>`;
-  }
+  const title=document.getElementById("ux2-path-title");
+  if(title)title.textContent="Английский · "+curClass+" класс";
 
-  /* Переключатель класса — честно: чип только у тех классов, где
-     вообще есть записи в TOPICS. Класс без единой темы — это ещё не
-     решённый вопрос (что показывать вместо пустого списка), а
-     отдельная задача C5, поэтому здесь такие классы просто не
-     предлагаются, а не показываются серыми/неактивными. */
+  const list=topicList();
+  const ready=list.filter(t=>t.ready&&LESSONS[t.id]);
+  const doneCount=ready.filter(t=>PROG[t.id]&&PROG[t.id].done).length;
+  const summary=document.getElementById("ux2-path-summary");
+  if(summary)summary.textContent=doneCount+" из "+ready.length+" модулей завершено";
+
   const cw=document.getElementById("ac-classes");
   if(cw){
     cw.innerHTML="";
@@ -9099,10 +9145,7 @@ function renderAcademy(){
       const b=document.createElement("button");
       b.className="chip"+(c===curClass?" on":"");
       b.textContent=c+" класс";
-      b.onclick=()=>{
-        setClass(c);
-        renderAcademy();paintTrainerInfo();resumeCard("resume-academy");
-      };
+      b.onclick=()=>{setClass(c);renderAcademy();};
       cw.appendChild(b);
     });
   }
@@ -9111,85 +9154,54 @@ function renderAcademy(){
   if(!box)return;
   box.innerHTML="";
 
-  /* список тем — тот же порядок, что и везде (topicList()), со
-     статусом ✅/▶/🔒 по тому же принципу, что уже работает у уроков
-     внутри темы (renderLessonPath) — единый язык статусов по всему
-     сайту, не два разных. */
   let prevDone=true;
-  topicList().forEach(t=>{
+  const rows=[];
+  list.forEach(t=>{
     if(!t.ready||!LESSONS[t.id]){
-      /* тема заявлена, но контента для неё ещё нет — честный нейтральный
-         статус вместо того, чтобы прятать её совсем. Не участвует в
-         цепочке последовательной блокировки: это не «заблокировано,
-         откроется после предыдущей», а «пока не существует». */
-      const el=document.createElement("button");
-      el.className="room locked tone-night";
-      el.innerHTML=
-        `<div class="rglyph">…</div>
-         <div class="rbody">
-           <div class="ren">${t.no||""}</div>
-           <div class="rru">${t.name}</div>
-           <div class="rstate"><span class="pill n">В разработке</span></div>
-         </div>
-         <div class="rgo"></div>`;
-      box.appendChild(el);
+      rows.push({topic:t,missing:true,done:false,locked:false,current:false});
       return;
     }
-    const p=PROG[t.id];
-    const done=!!(p&&p.done);
+    const done=!!(PROG[t.id]&&PROG[t.id].done);
     const locked=!prevDone;
-    const status=done?"✅":locked?"🔒":"▶";
-    const les=LESSONS[t.id];
-    const pct=Lemma.progress.topicPct(t.id);
-    const subInfo=les.subLessons
-      ?`${les.subLessons.filter(id=>PROG[id]&&PROG[id].done).length} из ${les.subLessons.length} уроков`
-      :(done?"пройдена":"не начата");
-    /* смысловые статусы (C2.4) — временный нейтральный язык, тот же
-       .pill, что уже используется на странице темы. Логика done/locked
-       не меняется, только то, как она подписывается словами: без
-       текста «Повторение» отличалось только пунктирной рамкой — этого
-       было недостаточно (см. задачу), теперь есть явная метка. */
-    const lifecycle=done
-      ?`<span class="pill a">Завершено</span>`
-      :locked
-      ?`<span class="pill n">Заблокировано</span>`
-      :`<span class="pill v">Текущая</span>`;
-    const kind=t.rev?`<span class="pill c">Повторение</span>`:"";
-    const action=done?"Повторить →":locked?"":"Продолжить →";
-    const el=document.createElement("button");
-    el.className="room tone-"+(done?"amber":locked?"night":"teal")+(locked?" locked":"");
-    el.innerHTML=
-      `<div class="rglyph">${status}</div>
-       <div class="rbody">
-         <div class="ren">${t.no||""}</div>
-         <div class="rru">${les.name}</div>
-         <div class="rstate">${lifecycle}${kind}</div>
-         <div class="rab">${subInfo} · ${pct}%</div>
-       </div>
-       <div class="rgo">${action}</div>`;
-    if(!locked)el.onclick=()=>openTopic(t.id);
-    box.appendChild(el);
+    rows.push({topic:t,missing:false,done:done,locked:locked,current:!done&&!locked});
     prevDone=done;
   });
 
-  /* Архив — единственная бывшая «комната», которая остаётся: она не
-     дублирует ни одну прямую вкладку (коллекции — не то же самое,
-     что Уроки/Учебник/Практика). */
-  const archive=ACADEMY_ROOMS.find(r=>r.id==="archive");
-  if(archive){
-    const el=document.createElement("button");
-    el.className="room tone-night";
-    el.innerHTML=
-      `<div class="rglyph">${archive.glyph}</div>
-       <div class="rbody">
-         <div class="ren">${archive.en}</div>
-         <div class="rru">${archive.ru}</div>
-         <div class="rab">${archive.about}</div>
-         <div class="rex">${roomStatus("archive")}</div>
-       </div>
-       <div class="rgo">→</div>`;
-    el.onclick=()=>archive.go();
-    box.appendChild(el);
+  const renderRows=(items,label)=>{
+    const sec=document.createElement("section");sec.className="ux2-unit";
+    const head=document.createElement("div");head.className="ux2-unit-title";head.textContent=label;sec.appendChild(head);
+    const path=document.createElement("div");path.className="ux2-path-list";
+    items.forEach(r=>{
+      const t=r.topic,les=LESSONS[t.id];
+      const el=document.createElement("button");
+      el.className="ux2-path-node"+(r.done?" done":r.current?" current":r.locked?" locked":"")+(t.rev?" review":"");
+      if(r.missing){
+        el.disabled=true;
+        el.innerHTML=`<span class="ux2-node-icon">…</span><span><span class="ux2-node-name">${escHtml(t.name)}</span><span class="ux2-node-sub">Тема готовится</span></span><span class="ux2-node-state">в разработке</span>`;
+      }else{
+        const route=ux2TopicRouteView(t.id);
+        const sub=t.rev?"Обзорная точка":(route.total>1?route.done+" из "+route.total+" этапов":(r.done?"пройдено":"не начато"));
+        const state=r.done?"завершено":r.locked?"заблокировано":"текущий этап";
+        el.innerHTML=`<span class="ux2-node-icon">${r.done?"✓":r.locked?"🔒":"●"}</span>
+          <span><span class="ux2-node-name">${escHtml(les.name)}</span><span class="ux2-node-sub">${escHtml(sub)}</span></span>
+          <span class="ux2-node-state">${state}</span>`;
+        if(!r.locked)el.onclick=()=>openTopic(t.id);
+        else el.disabled=true;
+      }
+      path.appendChild(el);
+    });
+    sec.appendChild(path);box.appendChild(sec);
+  };
+
+  if(curClass===2){
+    const u1ids=new Set(["hello","abc1","abc2","abc3","rev1"]);
+    const u2ids=new Set(["family","colours","home","bday","rev2"]);
+    renderRows(rows.filter(r=>u1ids.has(r.topic.id)),"Unit 1 · первые шаги и алфавит");
+    renderRows(rows.filter(r=>u2ids.has(r.topic.id)),"Unit 2 · мир вокруг меня");
+    const other=rows.filter(r=>!u1ids.has(r.topic.id)&&!u2ids.has(r.topic.id));
+    if(other.length)renderRows(other,"Дальше");
+  }else{
+    renderRows(rows,"Учебный маршрут");
   }
 }
 function roomStatus(id){
