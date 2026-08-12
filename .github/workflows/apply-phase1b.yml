@@ -1,0 +1,36 @@
+name: Apply UX v2 Phase 1B
+
+on:
+  push:
+    branches: [ux-v2-phase1b]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ux-v2-phase1b
+          fetch-depth: 0
+      - name: Decode and verify patch
+        run: |
+          python - <<'PY'
+          import base64, gzip, pathlib
+          src = pathlib.Path('.phase1b.patch.gz.b64').read_text().strip()
+          pathlib.Path('/tmp/phase1b.patch').write_bytes(gzip.decompress(base64.b64decode(src)))
+          PY
+          git apply --check /tmp/phase1b.patch
+      - name: Apply Phase 1B
+        run: |
+          git apply /tmp/phase1b.patch
+          rm -f .phase1b.patch.gz.b64 .github/workflows/apply-phase1b.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "LEMMA UX v2 Phase 1B: Home and vertical Path"
+          git push origin HEAD:ux-v2-phase1b
