@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FFFFFF">
+<meta name="application-version" content="1.57.0">
 <title>ЛЕММА — английский язык, 2–9 класс</title>
 <style>
 @font-face{font-family:'Manrope Local';font-style:normal;font-display:swap;font-weight:200 800;
@@ -1705,7 +1706,7 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 .chip.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:var(--glow)}
 
 /* ---------- герой ---------- */
-.hero{position:relative;padding:22px 0 6px}
+.hero{position:relative;padding:22px 0 6px;overflow-x:clip}
 .hero:before{
   content:"";position:absolute;left:-24%;right:-24%;top:-70px;height:420px;z-index:-1;
   background:radial-gradient(50% 50% at 50% 50%,rgba(124,92,255,.24),transparent 70%);
@@ -2498,6 +2499,19 @@ body:has(#s-topic:not(.hidden)) #luma-root{display:none}
 .topic-material span{display:block;font-size:11px;line-height:16px;font-weight:500;color:var(--ux-muted);margin-top:1px}
 .topic-material .tm-go{color:#9A94AA;font-size:16px;font-weight:700}
 .topic-materials-empty{font-size:12px;line-height:18px;color:var(--ux-muted);font-weight:500;padding:16px 0}
+.topic-book-quick{display:none;width:100%;min-height:60px;margin-top:12px;padding:10px 13px;
+  grid-template-columns:38px minmax(0,1fr) auto;gap:11px;align-items:center;text-align:left;
+  border:1px solid #DDD5FF;border-radius:12px;background:linear-gradient(135deg,#F4F0FF,#FFFDF8);
+  color:var(--ux-ink);box-shadow:0 6px 18px rgba(74,47,212,.07)}
+.topic-book-quick .tbq-icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  background:var(--ux-violet);color:#fff}
+.topic-book-quick .tbq-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.topic-book-quick b{display:block;font-size:13px;line-height:18px;font-weight:700}
+.topic-book-quick span{display:block;font-size:10px;line-height:15px;font-weight:500;color:var(--ux-muted);margin-top:1px}
+.topic-book-quick>.tbq-icon{display:grid;color:#fff;margin-top:0}
+.topic-book-quick>.tbq-go{color:var(--ux-violet-dark);margin-top:0}
+.topic-book-quick .tbq-go{font-size:18px;color:var(--ux-violet-dark);font-weight:700}
 
 .topic-advanced-wrap{width:calc((100% - 24px)*.6666667);margin-top:24px}
 .topic-advanced-wrap:empty{display:none}
@@ -2559,6 +2573,7 @@ body:has(#s-topic:not(.hidden)) #luma-root{display:none}
   .topic-progress-card .tp-copy{font-size:10px;line-height:14px;margin:0}.topic-progress-card .tp-track{grid-column:1/-1;
     height:6px;margin-top:8px}.topic-progress-card .tp-foot{grid-column:2;grid-row:1/span 2;align-self:center;margin:0}
   .topic-progress-card .tp-foot span{display:none}.topic-progress-card .tp-foot b{font-size:14px;line-height:20px}
+  .topic-book-quick{display:grid}
   .topic-body-grid{margin-top:16px}.topic-section-head{min-height:24px;margin-bottom:8px}.topic-section-head h2{font-size:18px;line-height:24px}
   .topic-section-head p{display:none}.topic-stage-list{gap:8px}
   .topic-stage{min-height:76px;grid-template-columns:36px minmax(0,1fr) auto;column-gap:10px;padding:10px 12px;border-radius:12px}
@@ -2689,6 +2704,67 @@ body.lesson-mode.lesson-result-mode #area>.lesson-result-card{width:100%;max-wid
 body.lesson-mode .lesson-result-card>div:first-child{font-size:34px!important;letter-spacing:6px!important}
 .lesson-family-result-art{width:216px;height:144px;display:block;object-fit:cover;object-position:center 42%;
   margin:0 auto 12px;border-radius:14px;background:#F3EEFF}
+.lesson-hello-theory-art,.lesson-hello-task-art{height:144px;margin:0 0 16px;border-radius:12px;
+  overflow:hidden;background:#F4EEFF}
+.lesson-hello-theory-art img,.lesson-hello-task-art img{width:100%;height:100%;display:block;object-fit:cover}
+.lesson-hello-theory-art img{object-position:center 40%}.lesson-hello-task-art img{object-position:center 42%}
+.lesson-hello-feedback-art{width:52px;height:52px;flex:0 0 52px;order:-1;border-radius:50%;object-fit:cover;
+  border:2px solid #fff;box-shadow:0 3px 10px rgba(45,35,88,.10)}
+body.lesson-mode .fb.good .lesson-hello-feedback-art{background:#EEF9E8}
+body.lesson-mode .fb.bad .lesson-hello-feedback-art{background:#F2ECFF}
+.lesson-hello-result-art{width:216px;height:144px;display:block;object-fit:cover;object-position:center 38%;
+  margin:0 auto 12px;border-radius:14px;background:#F3EEFF}
+.hello-situation-drop{padding:0!important;overflow:hidden;position:relative;min-height:118px!important;background:#F3EEFF!important}
+.hello-situation-drop .big{display:block!important;width:100%;height:82px;font-size:0!important;background-size:cover;background-position:center 40%}
+.hello-situation-drop:nth-child(1) .big{background-image:url("assets/topics/hello/hello-greeting-v1.webp")}
+.hello-situation-drop:nth-child(2) .big{background-image:url("assets/topics/hello/hello-goodbye-v1.webp")}
+.hello-situation-drop .cap{display:block;padding:8px 9px 9px;font-size:12px;line-height:16px;font-weight:700}
+.bookfig.hello-book-art img{aspect-ratio:3/2;object-fit:cover;object-position:center 42%}
+.lb-photo.family-book-photo{min-height:0;border:0;padding:0;display:block;overflow:hidden;background:#F3EEFF}
+.lb-photo.family-book-photo img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 48%}
+
+/* PHASE 2A.2: единый нейтральный didactic-слой вместо legacy emoji-сцен.
+   Сюжетные изображения v2 используют собственные классы выше и не затрагиваются. */
+.didactic-badge{width:38px;height:38px;border-radius:10px;background:#F2EEFF;color:#4A2FD4;
+  display:grid;place-items:center;font-size:15px;line-height:18px;font-weight:800;letter-spacing:.01em}
+.lb-object .didactic-badge,.lb-variant .didactic-badge{margin:0 auto 6px}
+.task-visual.is-didactic{padding:12px;background:#F8F7FC}
+.didactic-visual{display:flex;flex-wrap:wrap;justify-content:center;gap:7px}
+.didactic-token{min-height:34px;display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;
+  border:1px solid #D9D4E8;border-radius:9px;background:#fff;color:#4B4560;font-size:13px;line-height:18px;font-weight:700}
+.didactic-symbol{width:72px;height:72px;margin:auto;display:grid;place-items:center;border:2px solid #D9D4E8;
+  border-radius:12px;background:#fff;color:#211A3B;font-size:36px;line-height:1;font-weight:800}
+.drop.didactic-drop{min-height:84px;display:grid;place-items:center;align-content:center;background:#fff}
+.drop.didactic-drop .big{width:48px;height:32px;margin:0 auto 6px;border-radius:8px;background:var(--didactic-swatch,transparent)}
+.drop.didactic-drop .big:empty:not([style]){display:none}
+
+/* Phase 2A correction: textbook screens use the same accepted desktop shell
+   as Main, Path and Topic. Mobile keeps its existing header and bottom nav. */
+@media(min-width:900px){
+  body:has(#s-book:not(.hidden)) .top,body:has(#s-chapter:not(.hidden)) .top{position:fixed;left:0;top:0;bottom:0;
+    width:216px;height:100vh;border-right:1px solid var(--ux-line);border-bottom:0;background:#fff;box-shadow:none}
+  body:has(#s-book:not(.hidden)) .top-in,body:has(#s-chapter:not(.hidden)) .top-in{height:100%;max-width:none;
+    padding:24px 16px 16px;display:flex;flex-direction:column;align-items:stretch;gap:0}
+  body:has(#s-book:not(.hidden)) .brandrow,body:has(#s-chapter:not(.hidden)) .brandrow{margin-bottom:28px;gap:10px}
+  body:has(#s-book:not(.hidden)) .logo,body:has(#s-chapter:not(.hidden)) .logo{width:40px;height:40px}
+  body:has(#s-book:not(.hidden)) .mark,body:has(#s-chapter:not(.hidden)) .mark{font-size:22px;line-height:24px;font-weight:800}
+  body:has(#s-book:not(.hidden)) .tagline,body:has(#s-chapter:not(.hidden)) .tagline{font-size:9px;line-height:14px}
+  body:has(#s-book:not(.hidden)) .dnav,body:has(#s-chapter:not(.hidden)) .dnav{display:flex;flex-direction:column;margin:0;gap:4px}
+  body:has(#s-book:not(.hidden)) .dnav button,body:has(#s-chapter:not(.hidden)) .dnav button{width:184px;height:40px;
+    display:flex;align-items:center;gap:12px;text-align:left;border-radius:8px;padding:0 12px;font-size:14px;line-height:20px;
+    font-weight:600;color:#57516F}
+  body:has(#s-book:not(.hidden)) .dnav button .dn-ic,body:has(#s-chapter:not(.hidden)) .dnav button .dn-ic{width:20px;height:20px;
+    display:grid;place-items:center;flex:0 0 20px}
+  body:has(#s-book:not(.hidden)) .dnav svg,body:has(#s-chapter:not(.hidden)) .dnav svg{width:20px;height:20px;fill:none;
+    stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  body:has(#s-book:not(.hidden)) .dnav button.on,body:has(#s-chapter:not(.hidden)) .dnav button.on{background:#EFEBFF;
+    color:var(--ux-violet-dark)}
+  body:has(#s-book:not(.hidden)) .wallet,body:has(#s-chapter:not(.hidden)) .wallet{margin:auto 0 0;width:184px;height:40px;
+    border-radius:8px;padding:0 12px;background:#F3F0FF;color:var(--ux-violet-dark);border:1px solid #E4DEFF;
+    box-shadow:none;text-align:left;font-size:14px;line-height:20px;font-weight:600}
+  body:has(#s-book:not(.hidden)) .wrap,body:has(#s-chapter:not(.hidden)) .wrap{max-width:none;margin:0 0 0 216px;
+    padding:0 32px 48px;min-height:100vh}
+}
 body.lesson-mode .lesson-result-card .q{margin:14px 0 5px!important;font-size:28px;line-height:36px;font-weight:700;letter-spacing:-.03em}
 body.lesson-mode .lesson-result-card>p:not(.q){font-size:14px!important;line-height:20px;color:var(--lesson-muted)!important}
 body.lesson-mode .lesson-result-card .earned{margin:20px 0 0;padding:16px;border-radius:12px;background:#F3F0FF;
@@ -2707,9 +2783,11 @@ body.lesson-mode .lesson-result-card>.lesson-result-repeat{height:44px;margin-to
   body.lesson-mode .wrap{max-width:none;padding:0 16px calc(112px + env(safe-area-inset-bottom))}
   #s-lesson{max-width:none}
   #s-lesson .lhead{height:68px;margin:0 -16px;padding:0 16px}
-  .lesson-focus-row{height:54px;grid-template-columns:36px minmax(0,1fr) auto;gap:10px}
+  .lesson-focus-row{height:54px;grid-template-columns:36px minmax(0,1fr) 34px;gap:10px}
   .lesson-exit{width:36px;height:36px;border-radius:9px;font-size:23px}
-  .lesson-focus-title{font-size:13px;line-height:18px}.lesson-focus-count{font-size:11px;line-height:16px}
+  .lesson-focus-title{display:block;width:100%;max-width:100%;font-size:13px;line-height:18px;text-align:left;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lesson-focus-count{width:34px;font-size:11px;line-height:16px;text-align:right}
   body.lesson-mode #area{margin-top:16px}
   body.lesson-mode.lesson-focused-theory #area .tsect.lesson-current-theory{padding:18px 16px;border-radius:12px}
   body.lesson-mode .tsect h3{font-size:20px;line-height:27px;margin-bottom:12px}
@@ -2718,16 +2796,19 @@ body.lesson-mode .lesson-result-card>.lesson-result-repeat{height:44px;margin-to
   body.lesson-mode .trule{padding:11px 13px;font-size:13px;line-height:19px}
   body.lesson-mode .hear{min-height:38px;font-size:12px}
   .lesson-family-theory-art{height:116px;margin-bottom:14px}.lesson-family-task-art{height:100px;margin-bottom:14px}
+  .lesson-hello-theory-art{height:116px;margin-bottom:14px}.lesson-hello-task-art{height:104px;margin-bottom:14px}
   body.lesson-mode #area>.task-card{min-height:0;padding:20px 16px 22px;border-radius:12px}
   body.lesson-mode .task-card .q{margin:7px 0 16px;font-size:20px;line-height:27px}
   body.lesson-mode .task-card .opt,body.lesson-mode .task-card .tf button{min-height:48px;padding:11px 13px;
     border-radius:10px;font-size:14px;line-height:20px}
   .lesson-family-feedback-art{width:46px;height:46px;flex-basis:46px}
+  .lesson-hello-feedback-art{width:46px;height:46px;flex-basis:46px}
   body.lesson-mode #nextbar{min-height:88px;padding:18px 16px calc(16px + env(safe-area-inset-bottom))}
   body.lesson-mode #nextbar .cta{height:48px;border-radius:10px}
   body.lesson-mode.lesson-result-mode #area{min-height:calc(100dvh - 98px)}
   body.lesson-mode.lesson-result-mode #area>.lesson-result-card{max-width:none;padding:28px 20px;border-radius:12px}
   .lesson-family-result-art{width:180px;height:120px;margin-bottom:8px}
+  .lesson-hello-result-art{width:180px;height:120px;margin-bottom:8px}
   body.lesson-mode .lesson-result-card .q{font-size:24px;line-height:32px}
 }
 </style>
@@ -3101,6 +3182,11 @@ body.lesson-mode .lesson-result-card>.lesson-result-repeat{height:44px;margin-to
     </section>
     <aside class="topic-progress-card" id="t-progress" aria-label="Прогресс темы"></aside>
   </div>
+  <button class="topic-book-quick" id="topic-book-quick" type="button" hidden>
+    <span class="tbq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/></svg></span>
+    <span><b>Учебник и материалы</b><span>Открыть объяснение темы без долгого поиска</span></span>
+    <span class="tbq-go">→</span>
+  </button>
   <div class="topic-body-grid">
     <main class="topic-route-panel">
       <div class="topic-section-head"><h2 id="t-route-title">Учебный маршрут</h2><p id="t-route-note"></p></div>
@@ -3932,6 +4018,7 @@ function confetti(anchor){
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition||null;
 /* распознавание речи работает только на защищённом соединении.
    Файл, открытый с диска, и встроенные браузеры микрофон не дают. */
+const APP_VERSION="1.57.0";
 const SECURE=(location.protocol==="https:"||location.hostname==="localhost"
   ||location.hostname==="127.0.0.1"||location.protocol==="capacitor:");
 const MIC_OK=!!SR&&SECURE;
@@ -3998,26 +4085,12 @@ function awardCoins(id,right,perfect,streakBonus){
   return {delta:d,total:Math.max(now,before)};}
 
 /* ===================== ИЛЛЮСТРАЦИИ ===================== */
-const ART={
- bk_review2_scene:`<svg viewBox="0 0 640 360" width="100%" role="img" aria-label="Временная сцена Review 2: семья готовится к празднику дома"><defs><linearGradient id="r2bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4EFFF"/><stop offset="1" stop-color="#FFF4DE"/></linearGradient></defs><rect width="640" height="360" rx="22" fill="url(#r2bg)"/><rect x="22" y="28" width="410" height="282" rx="18" fill="#fff" stroke="#8E79D7" stroke-width="3"/><line x1="228" y1="28" x2="228" y2="310" stroke="#D7CDEE" stroke-width="3"/><line x1="22" y1="170" x2="432" y2="170" stroke="#D7CDEE" stroke-width="3"/><text x="52" y="55" font-size="17" font-weight="700" fill="#58428F">bedroom</text><text x="255" y="55" font-size="17" font-weight="700" fill="#58428F">bathroom</text><text x="52" y="198" font-size="17" font-weight="700" fill="#58428F">kitchen</text><text x="255" y="198" font-size="17" font-weight="700" fill="#58428F">living room</text><text x="465" y="55" font-size="17" font-weight="700" fill="#58428F">garden</text><text x="485" y="258" font-size="17" font-weight="700" fill="#58428F">tree house</text><text x="58" y="112" font-size="42">👵 👴</text><text x="267" y="112" font-size="42">👨 👦</text><text x="58" y="255" font-size="42">👩 👧</text><text x="258" y="258" font-size="38">🎂 🎈 🎁</text><text x="478" y="115" font-size="44">🌳</text><text x="505" y="220" font-size="43">🏡</text><g transform="translate(452 138)"><circle cx="0" cy="0" r="12" fill="#ef4444"/><circle cx="28" cy="0" r="12" fill="#3b82f6"/><circle cx="56" cy="0" r="12" fill="#22c55e"/><circle cx="84" cy="0" r="12" fill="#eab308"/><circle cx="0" cy="30" r="12" fill="#111827"/><circle cx="28" cy="30" r="12" fill="#fff" stroke="#999"/><circle cx="56" cy="30" r="12" fill="#f97316"/><circle cx="84" cy="30" r="12" fill="#ec4899"/></g><text x="34" y="338" font-size="15" font-weight="700" fill="#6C5A91">Временная смысловая сцена · Family + Colours + Home + Birthday</text></svg>`,
- bk_world:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Луми у вывесок на английском"><defs><linearGradient id="sky_bk_world" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_world" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_world" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_world" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_world" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#sky_bk_world)"/><circle cx="28" cy="30" r="1.8" fill="#fff" opacity="0.8"/><circle cx="78" cy="18" r="1.3" fill="#fff" opacity="0.6"/><circle cx="250" cy="26" r="2" fill="#fff" opacity="0.85"/><circle cx="300" cy="60" r="1.5" fill="#fff" opacity="0.6"/><circle cx="46" cy="88" r="1.2" fill="#fff" opacity="0.5"/><circle cx="288" cy="128" r="1.6" fill="#fff" opacity="0.55"/><circle cx="196" cy="16" r="1.4" fill="#fff" opacity="0.7"/><circle cx="128" cy="34" r="1.1" fill="#fff" opacity="0.45"/><ellipse cx="160" cy="196" rx="140" ry="14" fill="#000" opacity=".22"/><g stroke="#111018" stroke-width="2.5"><rect x="16" y="88" width="74" height="88" rx="8" fill="#F7F4FF"/><rect x="26" y="100" width="54" height="26" rx="6" fill="#4F32E8"/><rect x="26" y="134" width="24" height="20" rx="4" fill="#16C4B8"/><rect x="56" y="134" width="24" height="20" rx="4" fill="#16C4B8"/><rect x="100" y="62" width="66" height="114" rx="8" fill="#F7F4FF"/><rect x="110" y="76" width="46" height="26" rx="6" fill="#CFF64F"/><rect x="110" y="112" width="46" height="20" rx="4" fill="#EDE8FE"/><rect x="118" y="142" width="30" height="34" rx="4" fill="#FFB43A"/></g><text x="53" y="118" text-anchor="middle" font-family="Helvetica" font-size="13" font-weight="bold" fill="#fff">OPEN</text><text x="133" y="94" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" fill="#111018">SALE</text><circle cx="286" cy="42" r="16" fill="#FFB43A" opacity=".9"/><image href="__CHAR_lumi_walking__" x="176" y="40" width="130" height="162" filter="url(#soft_bk_world)"/></svg>`,
- bk_letters:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Олли и буквы алфавита"><defs><linearGradient id="sky_bk_letters" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_letters" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_letters" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_letters" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_letters" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#mint_bk_letters)"/><circle cx="150" cy="96" r="86" fill="url(#glow_bk_letters)"/><g stroke="#111018" stroke-width="2.5" font-family="Helvetica" font-size="24" font-weight="bold" text-anchor="middle"><rect x="14" y="56" width="48" height="48" rx="12" fill="#4F32E8"/><text x="38" y="88" fill="#fff" stroke="none">a</text><rect x="14" y="112" width="48" height="48" rx="12" fill="#FFB43A"/><text x="38" y="144" fill="#111018" stroke="none">b</text><rect x="70" y="84" width="48" height="48" rx="12" fill="#16C4B8"/><text x="94" y="116" fill="#fff" stroke="none">c</text><rect x="70" y="140" width="48" height="48" rx="12" fill="#FF6F91"/><text x="94" y="172" fill="#fff" stroke="none">d</text><rect x="126" y="150" width="48" height="48" rx="12" fill="#CFF64F"/><text x="150" y="182" fill="#111018" stroke="none">e</text></g><image href="__CHAR_ollie_explaining__" x="186" y="24" width="124" height="154" filter="url(#soft_bk_letters)"/></svg>`,
- bk_silent:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Слова pin и pine"><defs><linearGradient id="sky_bk_silent" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_silent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_silent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_silent" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_silent" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#mint_bk_silent)"/><rect x="14" y="46" width="104" height="58" rx="14" fill="#fff" stroke="#111018" stroke-width="2.5"/><text x="66" y="86" text-anchor="middle" font-family="Helvetica" font-size="27" font-weight="bold" fill="#111018">pin</text><text x="66" y="122" text-anchor="middle" font-family="Helvetica" font-size="13" font-weight="bold" fill="#4F32E8">булавка</text><rect x="14" y="134" width="104" height="58" rx="14" fill="#EDE8FE" stroke="#4F32E8" stroke-width="2.5"/><text x="58" y="174" text-anchor="middle" font-family="Helvetica" font-size="27" font-weight="bold" fill="#111018">pin</text><text x="88" y="174" font-family="Helvetica" font-size="27" font-weight="bold" fill="#B4AECC">e</text><path d="M79 152 l20 30 M99 152 l-20 30" stroke="#FF6F91" stroke-width="3.5" stroke-linecap="round"/><rect x="128" y="86" width="56" height="34" rx="17" fill="#CFF64F" stroke="#111018" stroke-width="2.5"/><text x="156" y="109" text-anchor="middle" font-family="Helvetica" font-size="13" font-weight="bold" fill="#111018">сосна</text><image href="__CHAR_lumi_thinking__" x="196" y="40" width="112" height="139" filter="url(#soft_bk_silent)"/></svg>`,
- bk_hello:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Луми и Эхо здороваются"><defs><linearGradient id="sky_bk_hello" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_hello" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_hello" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_hello" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_hello" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#warm_bk_hello)"/><ellipse cx="160" cy="198" rx="146" ry="12" fill="#FF6F91" opacity=".18"/><image href="__CHAR_lumi_happy__" x="8" y="52" width="116" height="145" filter="url(#soft_bk_hello)"/><rect x="16" y="10" width="118" height="42" rx="16" fill="#4F32E8"/><path d="M46 52 l4 14 13-14 Z" fill="#4F32E8"/><text x="75" y="37" text-anchor="middle" font-family="Helvetica" font-size="17" font-weight="bold" fill="#fff">Hello!</text><rect x="182" y="12" width="122" height="42" rx="16" fill="#CFF64F" stroke="#111018" stroke-width="2.5"/><path d="M256 54 l4 14 13-14 Z" fill="#CFF64F" stroke="#111018" stroke-width="2.5"/><text x="243" y="39" text-anchor="middle" font-family="Helvetica" font-size="16" font-weight="bold" fill="#111018">Nice to meet you!</text><image href="__CHAR_echo_happy__" x="196" y="56" width="112" height="139" filter="url(#soft_bk_hello)"/></svg>`,
- bk_family:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Эхо и семья"><defs><linearGradient id="sky_bk_family" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_family" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_family" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_family" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_family" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#warm_bk_family)"/><ellipse cx="160" cy="198" rx="146" ry="12" fill="#4F32E8" opacity=".14"/><g stroke="#111018" stroke-width="2.5"><circle cx="40" cy="86" r="20" fill="#FF6F91"/><path d="M18 178 q0-46 22-46 t22 46 Z" fill="#FF6F91"/><circle cx="92" cy="78" r="23" fill="#4F32E8"/><path d="M66 178 q0-52 26-52 t26 52 Z" fill="#4F32E8"/><circle cx="144" cy="102" r="17" fill="#FFB43A"/><path d="M126 178 q0-38 18-38 t18 38 Z" fill="#FFB43A"/></g><g fill="#111018"><circle cx="34" cy="84" r="2.4"/><circle cx="46" cy="84" r="2.4"/><circle cx="85" cy="76" r="2.6"/><circle cx="99" cy="76" r="2.6"/><circle cx="139" cy="100" r="2.2"/><circle cx="149" cy="100" r="2.2"/></g><rect x="26" y="12" width="140" height="34" rx="17" fill="#fff" stroke="#111018" stroke-width="2.5"/><text x="96" y="35" text-anchor="middle" font-family="Helvetica" font-size="15" font-weight="bold" fill="#111018">This is my family</text><image href="__CHAR_echo_support__" x="196" y="48" width="114" height="142" filter="url(#soft_bk_family)"/></svg>`,
- bk_colours:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Флип и краски"><defs><linearGradient id="sky_bk_colours" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_colours" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_colours" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_colours" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_colours" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#mint_bk_colours)"/><ellipse cx="160" cy="198" rx="146" ry="12" fill="#16C4B8" opacity=".2"/><path d="M76 46 q66-14 92 28 q18 42-30 56 q-22 6-18 20 q4 17-20 17 q-62 0-76-48 q-14-54 52-73 Z" fill="#fff" stroke="#111018" stroke-width="2.5"/><circle cx="70" cy="76" r="13" fill="#FF3B3B" stroke="#111018" stroke-width="2"/><circle cx="112" cy="68" r="13" fill="#FFB43A" stroke="#111018" stroke-width="2"/><circle cx="140" cy="100" r="13" fill="#2FBF5B" stroke="#111018" stroke-width="2"/><circle cx="56" cy="120" r="13" fill="#4F32E8" stroke="#111018" stroke-width="2"/><circle cx="100" cy="132" r="13" fill="#111018"/><rect x="14" y="164" width="182" height="30" rx="15" fill="#CFF64F" stroke="#111018" stroke-width="2.5"/><text x="105" y="185" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" fill="#111018">a red pen · a blue bag</text><image href="__CHAR_flip_playing__" x="192" y="32" width="122" height="152" filter="url(#soft_bk_colours)"/></svg>`,
- bk_house:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Эхо и дом в разрезе"><defs><linearGradient id="sky_bk_house" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_house" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_house" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_house" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_house" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#warm_bk_house)"/><path d="M14 74 L92 26 L170 74 Z" fill="#FF6F91" stroke="#111018" stroke-width="2.5" stroke-linejoin="round"/><rect x="26" y="74" width="132" height="104" rx="6" fill="#fff" stroke="#111018" stroke-width="2.5"/><line x1="92" y1="74" x2="92" y2="178" stroke="#111018" stroke-width="2.5"/><line x1="26" y1="126" x2="158" y2="126" stroke="#111018" stroke-width="2.5"/><rect x="34" y="84" width="50" height="34" rx="5" fill="#EDE8FE"/><text x="59" y="105" text-anchor="middle" font-family="Helvetica" font-size="9.5" font-weight="bold" fill="#4F32E8">bedroom</text><rect x="100" y="84" width="50" height="34" rx="5" fill="#16C4B8" opacity=".35"/><text x="125" y="105" text-anchor="middle" font-family="Helvetica" font-size="9.5" font-weight="bold" fill="#0C7F77">bathroom</text><rect x="34" y="134" width="50" height="34" rx="5" fill="#FFB43A" opacity=".4"/><text x="59" y="155" text-anchor="middle" font-family="Helvetica" font-size="9.5" font-weight="bold" fill="#8A5A00">kitchen</text><rect x="100" y="134" width="50" height="34" rx="5" fill="#CFF64F" opacity=".55"/><text x="125" y="155" text-anchor="middle" font-family="Helvetica" font-size="9" font-weight="bold" fill="#111018">living room</text><image href="__CHAR_echo_neutral__" x="194" y="46" width="116" height="144" filter="url(#soft_bk_house)"/></svg>`,
- bk_numbers:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Флип и торт со свечами"><defs><linearGradient id="sky_bk_numbers" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_numbers" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_numbers" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_numbers" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_numbers" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#sky_bk_numbers)"/><circle cx="28" cy="30" r="1.8" fill="#fff" opacity="0.8"/><circle cx="78" cy="18" r="1.3" fill="#fff" opacity="0.6"/><circle cx="250" cy="26" r="2" fill="#fff" opacity="0.85"/><circle cx="300" cy="60" r="1.5" fill="#fff" opacity="0.6"/><circle cx="46" cy="88" r="1.2" fill="#fff" opacity="0.5"/><circle cx="288" cy="128" r="1.6" fill="#fff" opacity="0.55"/><circle cx="196" cy="16" r="1.4" fill="#fff" opacity="0.7"/><circle cx="128" cy="34" r="1.1" fill="#fff" opacity="0.45"/><ellipse cx="160" cy="196" rx="140" ry="14" fill="#000" opacity=".22"/><g stroke="#111018" stroke-width="2.5"><rect x="16" y="118" width="140" height="56" rx="10" fill="#FF6F91"/><path d="M16 132 q18 12 35 0 t35 0 t35 0 t35 0" fill="#fff"/><rect x="16" y="144" width="140" height="30" fill="#FFB43A"/></g><g stroke="#111018" stroke-width="2.2"><rect x="44" y="86" width="7" height="30" rx="3" fill="#fff"/><rect x="82" y="80" width="7" height="36" rx="3" fill="#fff"/><rect x="120" y="86" width="7" height="30" rx="3" fill="#fff"/></g><g fill="#FFB43A"><path d="M47.5 86 q8-12 0-20 q-8 8 0 20Z"/><path d="M85.5 80 q8-12 0-20 q-8 8 0 20Z"/><path d="M123.5 86 q8-12 0-20 q-8 8 0 20Z"/></g><rect x="14" y="24" width="52" height="30" rx="15" fill="#4F32E8"/><text x="40" y="45" text-anchor="middle" font-family="Helvetica" font-size="15" font-weight="bold" fill="#fff">one</text><rect x="76" y="18" width="54" height="30" rx="15" fill="#16C4B8"/><text x="103" y="39" text-anchor="middle" font-family="Helvetica" font-size="15" font-weight="bold" fill="#fff">two</text><image href="__CHAR_flip_excited__" x="186" y="34" width="126" height="157" filter="url(#soft_bk_numbers)"/></svg>`,
- bk_class:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Олли у доски"><defs><linearGradient id="sky_bk_class" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_class" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_class" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_class" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_class" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#warm_bk_class)"/><rect x="14" y="26" width="160" height="92" rx="8" fill="#2A6B4F" stroke="#111018" stroke-width="2.5"/><g font-family="Helvetica" font-weight="bold" fill="#fff"><text x="30" y="58" font-size="15">Open your books</text><text x="30" y="84" font-size="15">Listen and repeat</text></g><rect x="28" y="94" width="52" height="5" rx="2.5" fill="#CFF64F"/><g stroke="#111018" stroke-width="2.5"><rect x="14" y="140" width="96" height="10" rx="4" fill="#16C4B8"/><rect x="22" y="150" width="7" height="26" fill="#EDE8FE"/><rect x="95" y="150" width="7" height="26" fill="#EDE8FE"/></g><rect x="36" y="128" width="30" height="10" rx="3" fill="#FFB43A" stroke="#111018" stroke-width="2"/><image href="__CHAR_ollie_explaining__" x="190" y="44" width="118" height="147" filter="url(#soft_bk_class)"/></svg>`,
- bk_read:`<svg viewBox="0 0 320 210" width="100%" role="img" aria-label="Олли и раскрытая книга"><defs><linearGradient id="sky_bk_read" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1550"/><stop offset="1" stop-color="#3B2C86"/></linearGradient><linearGradient id="warm_bk_read" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3DC"/><stop offset="1" stop-color="#FFE0E8"/></linearGradient><linearGradient id="mint_bk_read" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3FBF7"/><stop offset="1" stop-color="#E8E2FF"/></linearGradient><radialGradient id="glow_bk_read" cx="50%" cy="42%" r="58%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="soft_bk_read" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1B1550" flood-opacity=".22"/></filter></defs><rect width="320" height="210" rx="12" fill="url(#mint_bk_read)"/><path d="M92 100 q-40-22-84-14 v76 q44-8 84 12 q40-20 84-12 v-76 q-44-8-84 14 Z" fill="#fff" stroke="#111018" stroke-width="2.5" stroke-linejoin="round"/><line x1="92" y1="100" x2="92" y2="174" stroke="#111018" stroke-width="2.5"/><g stroke="#EDE8FE" stroke-width="5" stroke-linecap="round"><path d="M22 118 h56"/><path d="M22 134 h56"/><path d="M22 150 h44"/><path d="M106 116 h56"/><path d="M106 132 h56"/><path d="M106 148 h44"/></g><g font-family="Helvetica" font-size="19" font-weight="bold"><circle cx="32" cy="46" r="17" fill="#4F32E8"/><text x="32" y="53" text-anchor="middle" fill="#fff">a</text><circle cx="82" cy="28" r="15" fill="#16C4B8"/><text x="82" y="35" text-anchor="middle" fill="#fff">b</text><circle cx="134" cy="44" r="16" fill="#FFB43A"/><text x="134" y="51" text-anchor="middle" fill="#111018">c</text></g><image href="__CHAR_ollie_reading__" x="190" y="36" width="118" height="147" filter="url(#soft_bk_read)"/></svg>`,
-
- door:`<svg viewBox="0 0 320 180" width="100%" role="img" aria-label="Дверь класса"><rect width="320" height="180" rx="10" fill="#F6F3FF"/><rect x="96" y="22" width="128" height="146" rx="10" fill="#fff" stroke="#111018" stroke-width="3"/><rect x="110" y="38" width="100" height="58" rx="8" fill="#16C4B8" stroke="#111018" stroke-width="2.5"/><rect x="122" y="110" width="76" height="30" rx="8" fill="#4F32E8"/><text x="160" y="131" text-anchor="middle" font-family="Helvetica" font-size="15" font-weight="bold" fill="#fff">Hello!</text><circle cx="204" cy="104" r="6" fill="#FFB43A" stroke="#111018" stroke-width="2.5"/><g stroke="#111018" stroke-width="3"><circle cx="46" cy="96" r="20" fill="#FF6F91"/><path d="M28 168 q0-38 18-38 t18 38 Z" fill="#4F32E8"/><path d="M64 118 l24-14" stroke-linecap="round"/></g><g fill="#111018"><circle cx="40" cy="94" r="2.8"/><circle cx="52" cy="94" r="2.8"/></g><path d="M40 104 q6 6 12 0" stroke="#111018" stroke-width="2.4" fill="none" stroke-linecap="round"/><rect x="244" y="46" width="60" height="34" rx="10" fill="#CFF64F" stroke="#111018" stroke-width="3"/><text x="274" y="69" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" fill="#111018">2 A</text></svg>`,
- wave:`<svg viewBox="0 0 320 180" width="100%" role="img" aria-label="Разговор двоих"><rect width="320" height="180" rx="10" fill="#F6F3FF"/><rect x="18" y="20" width="132" height="52" rx="18" fill="#4F32E8"/><path d="M44 72 l4 16 14-16 Z" fill="#4F32E8"/><text x="84" y="53" text-anchor="middle" font-family="Helvetica" font-size="16" font-weight="bold" fill="#fff">Who's this?</text><rect x="164" y="52" width="140" height="52" rx="18" fill="#CFF64F" stroke="#111018" stroke-width="3"/><path d="M262 104 l4 16 14-16 Z" fill="#CFF64F" stroke="#111018" stroke-width="3"/><text x="234" y="85" text-anchor="middle" font-family="Helvetica" font-size="15" font-weight="bold" fill="#111018">This is my sister.</text><g stroke="#111018" stroke-width="3"><circle cx="64" cy="128" r="21" fill="#FFB43A"/><path d="M45 176 q0-32 19-32 t19 32 Z" fill="#16C4B8"/><circle cx="250" cy="140" r="19" fill="#FF6F91"/><path d="M233 176 q0-28 17-28 t17 28 Z" fill="#4F32E8"/></g><g fill="#111018"><circle cx="58" cy="126" r="2.8"/><circle cx="70" cy="126" r="2.8"/><circle cx="244" cy="138" r="2.6"/><circle cx="256" cy="138" r="2.6"/></g><path d="M58 136 q6 5 12 0" stroke="#111018" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M244 148 q6 5 12 0" stroke="#111018" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>`,
- abc:`<svg viewBox="0 0 320 180" width="100%" role="img" aria-label="Ряд букв алфавита"><rect width="320" height="180" rx="10" fill="#F6F3FF"/><g stroke="#111018" stroke-width="3" font-family="Helvetica" font-size="26" font-weight="bold" text-anchor="middle"><rect x="18" y="62" width="50" height="50" rx="12" fill="#4F32E8"/><text x="43" y="97" fill="#fff" stroke="none">a</text><rect x="76" y="50" width="50" height="50" rx="12" fill="#16C4B8"/><text x="101" y="85" fill="#fff" stroke="none">b</text><rect x="134" y="44" width="50" height="50" rx="12" fill="#FFB43A"/><text x="159" y="79" fill="#111018" stroke="none">c</text><rect x="192" y="50" width="50" height="50" rx="12" fill="#FF6F91"/><text x="217" y="85" fill="#fff" stroke="none">d</text><rect x="250" y="62" width="50" height="50" rx="12" fill="#CFF64F"/><text x="275" y="97" fill="#111018" stroke="none">e</text></g><path d="M28 130 q132-34 264 0" stroke="#4F32E8" stroke-width="3" fill="none" stroke-dasharray="9 8" stroke-linecap="round"/><text x="160" y="160" text-anchor="middle" font-family="Helvetica" font-size="15" font-weight="bold" fill="#4F32E8">26 букв по порядку</text><circle cx="296" cy="30" r="8" fill="#CFF64F" stroke="#111018" stroke-width="2.5"/><circle cx="24" cy="34" r="6" fill="#FFB43A"/></svg>`,
- sound:`<svg viewBox="0 0 320 180" width="100%" role="img" aria-label="Одна буква — два звука"><rect width="320" height="180" rx="10" fill="#F6F3FF"/><rect x="124" y="18" width="72" height="66" rx="16" fill="#fff" stroke="#111018" stroke-width="3"/><text x="160" y="66" text-anchor="middle" font-family="Helvetica" font-size="38" font-weight="bold" fill="#111018">c</text><path d="M138 92 q-38 14 -52 34" stroke="#4F32E8" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M182 92 q38 14 52 34" stroke="#4F32E8" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="20" y="126" width="112" height="40" rx="20" fill="#16C4B8" stroke="#111018" stroke-width="3"/><text x="76" y="152" text-anchor="middle" font-family="Helvetica" font-size="16" font-weight="bold" fill="#fff">[k] · cat</text><rect x="188" y="126" width="112" height="40" rx="20" fill="#FFB43A" stroke="#111018" stroke-width="3"/><text x="244" y="152" text-anchor="middle" font-family="Helvetica" font-size="16" font-weight="bold" fill="#111018">[s] · city</text><circle cx="40" cy="40" r="7" fill="#CFF64F"/><circle cx="284" cy="36" r="9" fill="#FF6F91"/></svg>`,
- magice:`<svg viewBox="0 0 320 180" width="100%" role="img" aria-label="Немая буква e"><rect width="320" height="180" rx="10" fill="#F6F3FF"/><rect x="18" y="34" width="116" height="62" rx="14" fill="#fff" stroke="#111018" stroke-width="3"/><text x="76" y="78" text-anchor="middle" font-family="Helvetica" font-size="30" font-weight="bold" fill="#111018">not</text><text x="76" y="116" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" fill="#4F32E8">нот · не</text><rect x="186" y="34" width="116" height="62" rx="14" fill="#EDE8FE" stroke="#4F32E8" stroke-width="3"/><text x="234" y="78" text-anchor="middle" font-family="Helvetica" font-size="30" font-weight="bold" fill="#111018">not</text><text x="270" y="78" font-family="Helvetica" font-size="30" font-weight="bold" fill="#B4AECC">e</text><path d="M259 52 l24 34 M283 52 l-24 34" stroke="#FF6F91" stroke-width="4" stroke-linecap="round"/><text x="244" y="116" text-anchor="middle" font-family="Helvetica" font-size="14" font-weight="bold" fill="#4F32E8">ноут · записка</text><path d="M142 64 h34 M168 56 l10 8 -10 8" stroke="#4F32E8" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="66" y="136" width="188" height="34" rx="17" fill="#CFF64F" stroke="#111018" stroke-width="3"/><text x="160" y="159" text-anchor="middle" font-family="Helvetica" font-size="15" font-weight="bold" fill="#111018">e молчит, но меняет o</text></svg>`,
- qu:`<svg viewBox="0 0 320 180" width="100%" role="img" aria-label="Пара букв q и u"><rect width="320" height="180" rx="10" fill="#F6F3FF"/><rect x="40" y="40" width="64" height="64" rx="16" fill="#4F32E8" stroke="#111018" stroke-width="3"/><text x="72" y="86" text-anchor="middle" font-family="Helvetica" font-size="36" font-weight="bold" fill="#fff">q</text><rect x="112" y="40" width="64" height="64" rx="16" fill="#16C4B8" stroke="#111018" stroke-width="3"/><text x="144" y="86" text-anchor="middle" font-family="Helvetica" font-size="36" font-weight="bold" fill="#fff">u</text><path d="M92 30 q26-22 52 0" stroke="#FF6F91" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M188 72 h30 M210 64 l10 8 -10 8" stroke="#4F32E8" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="228" y="46" width="72" height="52" rx="24" fill="#CFF64F" stroke="#111018" stroke-width="3"/><text x="264" y="80" text-anchor="middle" font-family="Helvetica" font-size="22" font-weight="bold" fill="#111018">[кв]</text><text x="160" y="146" text-anchor="middle" font-family="Helvetica" font-size="16" font-weight="bold" fill="#4F32E8">queen · quick · quiet</text><circle cx="26" cy="150" r="7" fill="#FFB43A"/><circle cx="298" cy="140" r="6" fill="#FF6F91"/></svg>`
-};
+const LEGACY_EDUCATIONAL_ART_KEYS=Object.freeze([
+  "bk_review2_scene","bk_world","bk_letters","bk_silent","bk_hello","bk_family",
+  "bk_colours","bk_house","bk_numbers","bk_class","bk_read",
+  "door","wave","abc","sound","magice","qu"
+]);
+const ART=Object.freeze({});
 
 /* ===================== КОНТЕНТ ===================== */
 const CLASSES=[2,3,4,5,6,7,8,9];
@@ -6465,7 +6538,7 @@ const BOOK={2:[
   ]}
 ]};
 
-let bkClass=2,chId=null,chPage=0;
+let bkClass=2,chId=null,chPage=0,bookReturnTopic=null;
 
 /* ============ УЧЕБНИК ↔ УРОКИ — ЭТАП 2 ============
    Сопоставление вручную и только там, где связь однозначна: у главы про
@@ -7076,8 +7149,9 @@ function paintBookHead(){
   /* у главы: ch.title — название («Моя семья»), ch.sub — ярлык («Глава 4») —
      тот же порядок полей, что уже использует renderBook() в оглавлении */
 
+  const returnToTopic=bookReturnTopic&&BOOK_TOPIC_LINK[ch.id]===bookReturnTopic;
   head.innerHTML=`
-    <button class="bkback" onclick="go('book')">← К темам</button>
+    <button class="bkback" id="bk-context-back">${returnToTopic?"← К теме":"← К темам"}</button>
     <div class="bkcrumb full">Учебник · ${bkClass} класс · ${ch.sub} · ${ch.title}</div>
     <div class="bkcrumb short">Учебник / ${ch.sub} / стр. ${abs}</div>
     <div class="bktitle"><span class="bktag">${ch.sub}</span><h2>${ch.title}</h2></div>
@@ -7092,6 +7166,9 @@ function paintBookHead(){
         <div class="bkjump-msg" id="bk-jump-msg"></div>
       </div>
     </div>`;
+  document.getElementById("bk-context-back").onclick=returnToTopic
+    ?()=>openTopic(bookReturnTopic)
+    :()=>go("book");
 
   const pager=document.getElementById("bk-pager");
   const pages=pagerSet(total,abs);
@@ -7179,7 +7256,7 @@ function renderBook(){
   box.appendChild(n);
 }
 function chapterById(id){return (BOOK[bkClass]||[]).find(c=>c.id===id)}
-function openChapter(id){chId=id;chPage=0;go("chapter");renderChapter();}
+function openChapter(id){bookReturnTopic=null;chId=id;chPage=0;go("chapter");renderChapter();}
 
 function bookChoice(btn,ok){
   const card=btn.closest('.lb-activity');
@@ -7191,21 +7268,70 @@ function bookPoint(btn,ok){bookChoice(btn,ok);}
 function bookSay(text,btn){say(text,btn);const f=btn.closest('.lb-activity').querySelector('.lb-feedback');if(f)f.textContent='Послушай и повтори вслух.';}
 function renderLemmaActivity(a){
   let body='';
-  if(a.type==='choice'||a.type==='point')body=`<div class="lb-buttons">${(a.options||a.items.map(x=>[x,x===a.answer])).map(o=>`<button type="button" class="lb-btn" onclick="bookChoice(this,${o[1]?1:0})">${o[0]}</button>`).join('')}</div>`;
+  if(a.type==='choice'||a.type==='point')body=`<div class="lb-buttons">${(a.options||a.items.map(x=>[x,x===a.answer])).map(o=>`<button type="button" class="lb-btn" onclick="bookChoice(this,${o[1]?1:0})">${bookPresentationText(o[0])}</button>`).join('')}</div>`;
   else if(a.type==='say')body=`<button type="button" class="lb-btn" onclick='bookSay(${JSON.stringify(a.say)},this)'>🔊 Послушать и повторить</button>`;
-  else if(a.type==='match')body=`<div class="lb-match">${a.pairs.map(x=>`<div class="lb-match-row"><b>${x[0]}</b><span>↔</span><span>${x[1]}</span></div>`).join('')}</div>`;
-  else if(a.type==='build')body=`<div class="lb-build"><strong>${a.before}</strong><div class="lb-tokens">${a.tokens.map(x=>`<button type="button" class="lb-token" onclick="bookChoice(this,${x===a.answer?1:0})">${x}</button>`).join('')}</div></div>`;
-  else if(a.type==='checklist')body=`<div class="lb-checks">${a.items.map(x=>`<label class="lb-check"><input type="checkbox"><span>${x}</span></label>`).join('')}</div>`;
-  return `<section class="lb-activity"><h4>${a.title}</h4>${a.text?`<p>${a.text}</p>`:''}${body}<div class="lb-feedback"></div></section>`;
+  else if(a.type==='match')body=`<div class="lb-match">${a.pairs.map(x=>`<div class="lb-match-row"><b>${bookPresentationText(x[0])}</b><span>↔</span><span>${bookPresentationText(x[1])}</span></div>`).join('')}</div>`;
+  else if(a.type==='build')body=`<div class="lb-build"><strong>${bookPresentationText(a.before)}</strong><div class="lb-tokens">${a.tokens.map(x=>`<button type="button" class="lb-token" onclick="bookChoice(this,${x===a.answer?1:0})">${bookPresentationText(x)}</button>`).join('')}</div></div>`;
+  else if(a.type==='checklist')body=`<div class="lb-checks">${a.items.map(x=>`<label class="lb-check"><input type="checkbox"><span>${bookPresentationText(x)}</span></label>`).join('')}</div>`;
+  return `<section class="lb-activity"><h4>${bookPresentationText(a.title)}</h4>${a.text?`<p>${bookPresentationText(a.text,true)}</p>`:''}${body}<div class="lb-feedback"></div></section>`;
+}
+
+/* PHASE 2A.2 · единая граница presentation/rendering.
+   Legacy emoji остаются только в неизменяемом образовательном payload и
+   преобразуются здесь в нейтральные подписи/образцы. Ни один emoji-глиф не
+   попадает в DOM учебного экрана. */
+const DIDACTIC_GLYPHS=Object.freeze({
+  "👨‍👩‍👧‍👦":"семья","🏫":"класс","🚪":"уход домой","👑":"королева","🦘":"кенгуру",
+  "👩":"человек","👨":"человек","👧":"ребёнок","👦":"ребёнок","👵":"бабушка","👴":"дедушка","🧒":"ребёнок","🧑":"человек",
+  "🏠":"дом","🏡":"домик на дереве","🛏️":"спальня","🛏":"спальня","🛁":"ванная","🍳":"кухня","🍽️":"кухня","🛋️":"гостиная","🛋":"гостиная","🌳":"сад",
+  "🎂":"торт","🕯️":"свеча","🕯":"свеча","🎈":"шар","🎁":"подарок","🎉":"праздник","🥳":"праздник",
+  "🟥":"красный","🟦":"синий","🟧":"оранжевый","🟩":"зелёный","⬛":"чёрный","⬜":"белый","🟨":"жёлтый",
+  "🖊":"ручка","📕":"книга","📏":"линейка","🎒":"портфель","🍕":"пицца","🥛":"молоко",
+  "🐜":"муравей","🐱":"кошка","🐶":"собака","🥚":"яйцо","🚩":"флаг","🐴":"лошадь","🖋️":"чернила","🏺":"кувшин","📌":"булавка",
+  "💡":"подсказка","🐭":"мышь","👃":"нос","🍊":"апельсин","🐇":"кролик","🐍":"змея","☂️":"зонт","🦺":"жилет","🪟":"окно","📦":"коробка","⛵":"яхта","🤐":"молния",
+  "🟠":"оранжевый","⚫":"чёрный","⚪":"белый","🩷":"розовый","🌸":"розовый","🎨":"цвет","💬":"реплика","😊":"радость","✅":"готово",
+  "🎶":"песня","🙏":"спасибо","🤞":"желание","💨":"задуть","➡️":"передать"
+});
+function hasLegacyEmojiGlyph(value){return /\p{Extended_Pictographic}/u.test(String(value||""));}
+function didacticMark(value,fallback){
+  const raw=String(value||"").trim();
+  if(raw&&!hasLegacyEmojiGlyph(raw))return raw.slice(0,4);
+  const word=String(fallback||"").trim().split(/[\s/·]+/)[0];
+  return (word||"·").slice(0,2).toUpperCase();
+}
+function didacticTokens(value){
+  const raw=String(value||"").trim();
+  if(!raw)return [];
+  if(!hasLegacyEmojiGlyph(raw))return [raw];
+  let clean=raw;
+  Object.keys(DIDACTIC_GLYPHS).sort((a,b)=>b.length-a.length).forEach(g=>{
+    clean=clean.split(g).join(" · "+DIDACTIC_GLYPHS[g]+" · ");
+  });
+  clean=clean.replace(/[\uFE0F\u200D]/g,"").replace(/\p{Extended_Pictographic}/gu,"");
+  const tokens=clean.split(/\s*·\s*|\s{2,}/).map(x=>x.trim()).filter(Boolean);
+  return tokens.reduce((out,token)=>{
+    const last=out[out.length-1];
+    if(last&&last.value===token){last.count++;return out;}
+    out.push({value:token,count:1});return out;
+  },[]).map(x=>x.count>1?`${x.value} × ${x.count}`:x.value);
+}
+function bookPresentationText(value,allowHtml){
+  const raw=String(value==null?"":value);
+  return hasLegacyEmojiGlyph(raw)?escHtml(didacticTokens(raw).join(" · ")):(allowHtml?raw:escHtml(raw));
+}
+function didacticVisualHtml(value){
+  const tokens=didacticTokens(value);
+  if(tokens.length===1&&/^[\p{L}\p{N}]$/u.test(tokens[0]))return `<div class="didactic-symbol">${escHtml(tokens[0])}</div>`;
+  return tokens.length?`<div class="didactic-visual">${tokens.map(x=>`<span class="didactic-token">${escHtml(x)}</span>`).join("")}</div>`:"";
 }
 function renderLemmaPage(p,abs,current){
-  const art=p.photo?`<div class="lb-photo"><div><strong>Временная семейная фотография</strong><span>Здесь будет финальная иллюстрация семьи в художественном стиле LEMMA.</span></div></div>`:(p.img&&ART[p.img]?`<div class="lb-art">${resolveArt(ART[p.img])}</div>`:'');
-  const vocab=p.vocab?`<div class="lb-vocab">${p.vocab.map(x=>`<button type="button" class="lb-word" onclick='say(${JSON.stringify(x[0])},this)'><span class="lb-emoji">${x[2]}</span><span><b>${x[0]}</b><small>${x[1]}</small></span></button>`).join('')}</div>`:'';
+  const art=p.photo?`<div class="lb-photo family-book-photo"><img src="assets/topics/home/family-mission-v2.webp" alt="Семья вместе рассматривает семейный альбом" loading="eager" decoding="async"></div>`:(p.img&&ART[p.img]?`<div class="lb-art">${resolveArt(ART[p.img])}</div>`:'');
+  const vocab=p.vocab?`<div class="lb-vocab">${p.vocab.map(x=>`<button type="button" class="lb-word" onclick='say(${JSON.stringify(x[0])},this)'><span class="didactic-badge">${escHtml(didacticMark(x[2],x[0]))}</span><span><b>${x[0]}</b><small>${x[1]}</small></span></button>`).join('')}</div>`:'';
   const colours=p.colours?`<div class="lb-colours">${p.colours.map(x=>`<button type="button" class="lb-colour" onclick='say(${JSON.stringify(x[0])},this)'><span class="lb-swatch" style="background:${x[2]}"></span><span><b>${x[0]}</b><small>${x[1]}</small></span></button>`).join('')}</div>`:'';
   const models=p.models?`<div class="lb-models">${p.models.map(x=>`<div class="lb-model"><b>${x[0]}</b><small>${x[1]}</small></div>`).join('')}</div>`:'';
   const grammar=p.grammar?`<div class="lb-grammar">${p.grammar.map(x=>`<div class="lb-model"><b>${x[0]}</b><small>${x[1]}</small></div>`).join('')}</div>`:'';
-  const objects=p.objects?`<div class="lb-objects">${p.objects.map(x=>`<div class="lb-object"><span class="em">${x[0]}</span><b>${x[1]||x[2]}</b>${x[2]?`<small>${x[2]}</small>`:''}</div>`).join('')}</div>`:'';
-  const variants=p.variants?`<div class="lb-variants">${p.variants.map(x=>`<div class="lb-variant"><span class="em">${x[1]}</span><b>${x[0]}</b><small>${x[2]}</small></div>`).join('')}</div>`:'';
+  const objects=p.objects?`<div class="lb-objects">${p.objects.map(x=>`<div class="lb-object"><span class="didactic-badge">${escHtml(didacticMark(x[0],x[1]||x[2]))}</span><b>${x[1]||x[2]}</b>${x[2]&&!hasLegacyEmojiGlyph(x[2])?`<small>${x[2]}</small>`:''}</div>`).join('')}</div>`:'';
+  const variants=p.variants?`<div class="lb-variants">${p.variants.map(x=>`<div class="lb-variant"><span class="didactic-badge">${escHtml(didacticMark(x[1],x[0]))}</span><b>${x[0]}</b><small>${x[2]}</small></div>`).join('')}</div>`:'';
   return `<article class="lb-page${current?' is-current':''}" data-book-page="${abs}"><div class="lb-page-head"><div><div class="lb-kicker">${p.kicker||''}</div><h3>${p.h}</h3></div><span class="lb-badge">стр. ${abs}</span></div><p class="lb-lead">${p.lead||''}</p>${art}${vocab}${colours}${models}${grammar}${objects}${variants}<div class="lb-activities">${(p.activities||[]).map(renderLemmaActivity).join('')}</div>${p.note?`<div class="lb-note">${p.note}</div>`:''}</article>`;
 }
 function renderChapter(){
@@ -7236,7 +7362,20 @@ function renderChapter(){
   const hb=hearBtn(chunks,"🎧 Прослушать страницу");
   hb.className="bookhear";pg.appendChild(hb);
 
-  if(p.pic){
+  const helloBookScenes=ch.id==="b3"?[
+    "assets/topics/hello/hello-greeting-v1.webp",
+    "assets/topics/hello/hello-name-v1.webp",
+    "assets/topics/hello/hello-how-are-you-v1.webp",
+    "assets/topics/hello/hello-morning-v1.webp"
+  ]:null;
+  const helloBookPic=helloBookScenes&&helloBookScenes[chPage];
+  if(helloBookPic){
+    const f=document.createElement("div");f.className="bookfig hello-book-art";
+    f.innerHTML=`<img src="${helloBookPic}" alt="${p.h}" loading="eager" decoding="async">`;
+    pg.appendChild(f);
+    if(p.cap){const cp=document.createElement("div");cp.className="figcap";
+      cp.textContent="Рис. "+absPage+". "+p.cap;pg.appendChild(cp);}
+  }else if(p.pic){
     const f=document.createElement("div");f.className="bookfig";
     f.innerHTML=`<img src="${p.pic}" alt="" style="width:100%;display:block">`;
     pg.appendChild(f);
@@ -7369,6 +7508,7 @@ function openTopic(id,noPush){
   }
 
   renderTopicMaterials(id);
+  renderTopicBookQuick(id);
   renderAdvCard();
   go("topic",noPush);
 }
@@ -7500,13 +7640,26 @@ function appendTopicMaterial(box,icon,title,desc,action,href){
   box.appendChild(el);
 }
 
+function topicBookHit(topicId){
+  const bookId=TOPIC_BOOK_LINK[topicId];
+  const hit=bookId&&Object.entries(BOOK).find(([,list])=>list.some(c=>c.id===bookId));
+  return hit?{bookId:bookId,bookHit:hit}:null;
+}
+function openTopicBook(topicId){
+  const hit=topicBookHit(topicId);if(!hit)return;
+  bookReturnTopic=topicId;setClass(+hit.bookHit[0]);chId=hit.bookId;chPage=0;go("chapter");renderChapter();
+}
+function renderTopicBookQuick(topicId){
+  const quick=document.getElementById("topic-book-quick");if(!quick)return;
+  const hit=topicBookHit(topicId);quick.hidden=!hit;
+  quick.onclick=hit?()=>openTopicBook(topicId):null;
+}
+
 function renderTopicMaterials(topicId){
   const box=document.getElementById("t-materials");box.innerHTML="";
   const T=LESSONS[topicId];
-  const bookId=TOPIC_BOOK_LINK[topicId];
-  const bookHit=bookId&&Object.entries(BOOK).find(([,list])=>list.some(c=>c.id===bookId));
-  if(bookHit)appendTopicMaterial(box,"▤","Учебник","Объяснение темы",()=>{
-    setClass(+bookHit[0]);chId=bookId;chPage=0;go("chapter");renderChapter();});
+  const book=topicBookHit(topicId);
+  if(book)appendTopicMaterial(box,"▤","Учебник","Объяснение темы",()=>openTopicBook(topicId));
   if(T.print)appendTopicMaterial(box,"↓","Задания на бумаге","PDF · A4",null,T.print);
   appendTopicMaterial(box,"◎","Тренировка","Задания из уже пройденного материала.",()=>go("drill"));
 }
@@ -8032,8 +8185,8 @@ function theoryCard(area,t){
   const c=document.createElement("div");c.className="card";
   c.innerHTML=`<div class="kind">${t.kind}</div><p class="q">${t.head}</p>`;area.appendChild(c);
   c.appendChild(hearBtn(cardChunks(t),null,()=>markTheory(step,true)));
-  if(t.art){const s=document.createElement("div");s.className="scene";
-    s.innerHTML=ART[t.art]+(t.cap?`<div class="cap">${t.cap}</div>`:"");c.appendChild(s);}
+  if(t.art&&ART[t.art]){const s=document.createElement("div");s.className="scene";
+    s.innerHTML=resolveArt(ART[t.art])+(t.cap?`<div class="cap">${t.cap}</div>`:"");c.appendChild(s);}
   (t.phrases||[]).forEach(([en,tr,ru])=>{
     const r=document.createElement("div");r.className="phrase";
     const d=document.createElement("div");
@@ -8076,6 +8229,7 @@ function taskCard(area,t){
   const c=document.createElement("div");c.className="card task-card";
   c.innerHTML=`<div class="kind">Задание ${String(step+1).padStart(2,"0")} · ${KINDS[t.t]}</div>
     <div class="qrow"><p class="q">${t.q}</p></div>`;
+  if(hasLegacyEmojiGlyph(t.q))c.querySelector(".q").textContent=didacticTokens(t.q).join(" · ");
   area.appendChild(c);
   /* Луми: спокойное присутствие рядом с заданием — объясняет, что делать,
      до того как ребёнок ответил. Меняется в fb() после ответа. */
@@ -8097,7 +8251,8 @@ function taskVisual(parent,v){
   const d=document.createElement("div");d.className="task-visual";
   if(v.kind==="art"&&ART[v.src])d.innerHTML=ART[v.src];
   else if(v.kind==="swatch")d.innerHTML=`<div class="tv-swatch" style="background:${v.value||"#ddd"}"></div>`;
-  else d.innerHTML=`<div class="tv-emoji">${v.value||v.src||""}</div>`;
+  else{d.classList.add("is-didactic");d.innerHTML=didacticVisualHtml(v.value||v.src||"");}
+  if(!d.innerHTML)return null;
   parent.appendChild(d);return d;
 }
 function compoundFail(st){
@@ -8129,7 +8284,7 @@ function renderCompoundChoice(c,t,mode){
     }
     const g=document.createElement("div");g.className="opts";host.appendChild(g);let answered=false;
     it.opts.forEach(o=>{const b=document.createElement("button");b.className="opt";
-      b.innerHTML=o.emo?`<span class="big">${o.emo}</span><span class="cap">${o.txt||""}</span>`:(o.txt||"");
+      b.textContent=o.txt||"";
       b.onclick=()=>{if(answered)return;answered=true;if(o.txt)say(o.txt);
         [...g.children].forEach(x=>x.disabled=true);
         if(o.ok){b.classList.add("ok");compoundMiniFeedback(host,true,"Верно.");}
@@ -8146,7 +8301,7 @@ function bChoice(c,t){
   if(t.items&&t.items.length){renderCompoundChoice(c,t,"choice");return;}
   const g=document.createElement("div");g.className="opts";let done=false;
   t.opts.forEach(o=>{const b=document.createElement("button");b.className="opt";
-    b.innerHTML=o.emo?`<span class="big">${o.emo}</span><span class="cap">${o.txt||""}</span>`:o.txt;
+    b.textContent=o.txt||"";
     b.onclick=()=>{if(o.txt)say(o.txt);if(done)return;done=true;
       if(o.ok){b.classList.add("ok");score++;fb(c,true,"Верно.");}
       else{b.classList.add("no");mistakes++;wrongHere();
@@ -8244,11 +8399,13 @@ function bMatch(c,t){
   Lc.className=R.className="mcol";w.appendChild(Lc);w.appendChild(R);c.appendChild(w);
   let sel=null,ok=0;
   [...t.pairs].sort(()=>Math.random()-.5).forEach(([en])=>{
-    const b=document.createElement("div");b.className="mit";b.textContent=en;b.dataset.k=en;
+    const b=document.createElement("div");b.className="mit";
+    b.textContent=hasLegacyEmojiGlyph(en)?didacticTokens(en).join(" · "):en;b.dataset.k=en;
     b.onclick=()=>{say(en);Lc.querySelectorAll(".mit").forEach(x=>x.classList.remove("sel"));
       b.classList.add("sel");sel=b;};Lc.appendChild(b);});
   [...t.pairs].sort(()=>Math.random()-.5).forEach(([en,ru])=>{
-    const b=document.createElement("div");b.className="mit";b.textContent=ru;b.dataset.k=en;
+    const b=document.createElement("div");b.className="mit";
+    b.textContent=hasLegacyEmojiGlyph(ru)?didacticTokens(ru).join(" · "):ru;b.dataset.k=en;
     b.onclick=()=>{if(!sel)return;
       if(sel.dataset.k===b.dataset.k){sel.classList.remove("sel");sel.classList.add("ok");
         b.classList.add("ok");sel=null;ok++;
@@ -8325,7 +8482,11 @@ function bOrder(c,t){
 function bDnd(c,t){
   const zone=document.createElement("div");zone.className="dnd";
   t.drops.forEach(d=>{const b=document.createElement("div");b.className="drop";b.dataset.a=d.answer;
-    b.innerHTML=`<span class="big">${d.emo}</span><span class="cap">${d.cap}</span>`;zone.appendChild(b);});
+    b.classList.add("didactic-drop");
+    const swatches={"🟥":"#ef4444","🟦":"#3b82f6"};
+    const swatch=swatches[d.emo];
+    b.innerHTML=`<span class="big"${swatch?` style="--didactic-swatch:${swatch}"`:""}></span><span class="cap">${d.cap||DIDACTIC_GLYPHS[d.emo]||""}</span>`;
+    zone.appendChild(b);});
   c.appendChild(zone);
   const pool=document.createElement("div");pool.className="chipsrow";c.appendChild(pool);
   [...t.chips].sort(()=>Math.random()-.5).forEach(w=>{
@@ -11224,7 +11385,8 @@ function renderDiag(){
     try{
       const sn=Lemma.state.snapshot(),mt=Lemma.save.meta(),dy=Lemma.daily.get();
       em.innerHTML=
-        `<div class="crow"><b>Состояние</b><span>лемов ${sn.lemmas}, уровень ${sn.level}, слов ${sn.words}</span><i>ok</i></div>
+        `<div class="crow"><b>Релиз</b><span>LEMMA v${APP_VERSION}</span><i>ok</i></div>
+         <div class="crow"><b>Состояние</b><span>лемов ${sn.lemmas}, уровень ${sn.level}, слов ${sn.words}</span><i>ok</i></div>
          <div class="crow"><b>События</b><span>${Lemma.EVENTS.length} типов, в журнале ${Lemma.events.history().length}</span><i>ok</i></div>
          <div class="crow"><b>Прогресс</b><span>общий ${sn.progress.percent}%, мир ${sn.progress.world.percent}%</span><i>ok</i></div>
          <div class="crow"><b>Сохранения</b><span>версия ${mt.version}, зон ${mt.zones}, достижений ${mt.achievements}</span><i>ok</i></div>
@@ -11489,9 +11651,51 @@ function lessonFocusMeta(){
     pct:total?Math.round(shown/total*100):0,total:total,finished:finished};
 }
 function isFamilyLessonArt(){return !!(L&&L.id==="family_l2");}
+function isHelloLessonArt(){return !!(L&&(L.id==="hello_l1"||L.id==="hello_l2"));}
 function lessonFamilyImage(src,cls,alt){
   const img=document.createElement("img");img.src=src;img.className=cls;img.alt=alt||"";
   img.loading="eager";img.decoding="async";return img;
+}
+function helloTheoryScene(){
+  if(!isHelloLessonArt())return null;
+  const map=L.id==="hello_l1"
+    ?["hello-greeting-v1.webp","hello-goodbye-v1.webp","hello-name-v1.webp"]
+    :["hello-name-v1.webp","hello-how-are-you-v1.webp","hello-how-are-you-v1.webp"];
+  return "assets/topics/hello/"+(map[Math.min(step,map.length-1)]||map[0]);
+}
+function syncHelloLessonArt(){
+  if(!isHelloLessonArt())return;
+  if(stage==="theory"){
+    const sec=document.querySelector("#area .lesson-current-theory");
+    if(sec&&!sec.querySelector(".lesson-hello-theory-art")){
+      const box=document.createElement("div");box.className="lesson-hello-theory-art";
+      box.appendChild(lessonFamilyImage(helloTheoryScene(),"","Школьная ситуация по теме урока"));
+      const anchor=sec.querySelector(".tnum");anchor?anchor.after(box):sec.prepend(box);
+    }
+    return;
+  }
+  const card=document.querySelector("#area>.task-card");
+  if(card&&!card.querySelector(".lesson-hello-task-art")){
+    let src=null,alt="";
+    if(L.id==="hello_l1"&&step===0){src="assets/topics/hello/hello-greeting-v1.webp";alt="Дети здороваются у входа в класс";}
+    if(L.id==="hello_l2"&&step===0){src="assets/topics/hello/hello-name-v1.webp";alt="Дети знакомятся в классе";}
+    if(src){
+      const box=document.createElement("div");box.className="lesson-hello-task-art";
+      box.appendChild(lessonFamilyImage(src,"",alt));
+      const q=card.querySelector(".q,.qrow");q?card.insertBefore(box,q):card.prepend(box);
+    }
+  }
+  if(card&&L.id==="hello_l2"&&step===1){
+    card.querySelectorAll(".dnd .drop").forEach(d=>d.classList.add("hello-situation-drop"));
+  }
+  document.querySelectorAll("#area .fb").forEach(f=>{
+    if(f.querySelector(".lesson-hello-feedback-art"))return;
+    const good=f.classList.contains("good");
+    f.prepend(lessonFamilyImage(good
+      ?"assets/topics/hello/lesson/hello-feedback-good-v1.webp"
+      :"assets/topics/hello/lesson/hello-feedback-support-v1.webp",
+      "lesson-hello-feedback-art",good?"Спокойная похвала":"Спокойная поддержка"));
+  });
 }
 function syncFamilyLessonArt(){
   if(!isFamilyLessonArt())return;
@@ -11539,6 +11743,8 @@ function syncLessonResultPresentation(){
   c.classList.add("lesson-result-card");
   if(isFamilyLessonArt())c.prepend(lessonFamilyImage("assets/topics/family/lesson/family-l2-result-v1.webp",
     "lesson-family-result-art","Семья празднует завершённый урок"));
+  if(isHelloLessonArt())c.prepend(lessonFamilyImage("assets/topics/hello/lesson/hello-result-v1.webp",
+    "lesson-hello-result-art","Дети празднуют завершённый первый урок"));
   const stars=[...c.children].find(el=>el.tagName==="DIV"&&el.textContent.includes("⭐"));
   if(stars&&stars.textContent.includes("⭐"))stars.textContent=stars.textContent.replace(/⭐/g,"★");
   const q=c.querySelector(".q");
@@ -11594,6 +11800,7 @@ function syncLessonPresentation(){
     else if(/^🤔\s*/.test(f.textContent))f.textContent=f.textContent.replace(/^🤔\s*/,"! ");
   });
   syncFamilyLessonArt();
+  syncHelloLessonArt();
 }
 function queueLessonPresentation(){
   if(lessonPresentationQueued)return;lessonPresentationQueued=true;
