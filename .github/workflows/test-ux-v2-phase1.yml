@@ -1,0 +1,50 @@
+name: Test UX v2 Phase 1
+on:
+  push:
+    branches: [ux-v2-phase1-lite]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build preview index
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html');s=p.read_text()
+          css='<link rel="stylesheet" href="assets/ux-v2-phase1.css">'
+          core='<script src="assets/ux-v2-core.js"></script><script src="assets/ux-v2-book.js"></script><script src="assets/ux-v2-ui1.js"></script><script src="assets/ux-v2-ui2.js"></script>'
+          result='<script src="assets/ux-v2-result.js"></script>'
+          if css not in s:s=s.replace('</head>',css+'\n</head>',1)
+          if core not in s:s=s.replace('</body>',core+'\n</body>',1)
+          if result not in s:s=s.replace('</body>',result+'\n</body>',1)
+          p.write_text(s)
+          PY
+      - name: Syntax checks
+        run: |
+          node --check assets/ux-v2-core.js
+          node --check assets/ux-v2-book.js
+          node --check assets/ux-v2-ui1.js
+          node --check assets/ux-v2-ui2.js
+          node --check assets/ux-v2-result.js
+      - name: Browser acceptance
+        run: |
+          npm install --no-save playwright@1.54.1
+          npx playwright install chromium
+          python -m http.server 4173 >/tmp/lemma-http.log 2>&1 &
+          node .github/ux-phase1-test.mjs
+          node .github/ux-phase1-extra.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ux-v2-phase1-acceptance
+          path: artifacts/
+      - name: Commit preview index
+        run: |
+          git config user.name github-actions-bot
+          git config user.email actions@github.com
+          git add index.html
+          git diff --cached --quiet || git commit -m "Assemble UX v2 Phase 1 preview"
+          git push origin HEAD:ux-v2-phase1-lite
