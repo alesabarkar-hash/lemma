@@ -5,11 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap">
 <title>ЛЕММА — английский язык, 2–9 класс</title>
 <style>
+@font-face{font-family:'Manrope Local';font-style:normal;font-display:swap;font-weight:200 800;
+  src:url('assets/fonts/manrope-cyrillic-wght-normal.woff2') format('woff2-variations');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Manrope Local';font-style:normal;font-display:swap;font-weight:200 800;
+  src:url('assets/fonts/manrope-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,
+    U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   color-scheme:light only;
   /* основа */
@@ -1648,6 +1652,13 @@ nav button{border-radius:16px;transition:color .2s var(--sp),background .2s var(
 nav button.on{background:var(--lilac);color:var(--violet)}
 nav button .ic{transition:transform .3s var(--sp)}
 nav button.on .ic{transform:translateY(-2px) scale(1.08)}
+nav button .ic svg{width:20px;height:20px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* go() по-прежнему считает drill частью общего учебного раздела. В UX v2
+   только визуально отмечаем для ребёнка отдельный пункт «Тренировка». */
+body:has(#s-drill:not(.hidden)) #m-learn,
+body:has(#s-drill:not(.hidden)) #d-learn{background:transparent;color:var(--gray)}
+body:has(#s-drill:not(.hidden)) #m-me,
+body:has(#s-drill:not(.hidden)) #d-me{background:var(--lilac);color:var(--violet)}
 .back{bottom:calc(88px + env(safe-area-inset-bottom))}
 @media (min-width:900px){.back{bottom:26px}}
 #nextbar{bottom:calc(74px + env(safe-area-inset-bottom));
@@ -1933,6 +1944,58 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
   100%{transform:translateY(-260px) translateX(18px);opacity:0}}
 
 /* ---------- дом ---------- */
+.kid-home{display:grid;gap:14px;max-width:840px;margin:0 auto}
+.kid-welcome{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:2px 2px 0}
+.kid-welcome .kw-copy{min-width:0}
+.kid-welcome .kw-kicker{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--violet);font-weight:850}
+.kid-welcome h1{font-size:clamp(25px,7vw,34px);line-height:1.08;letter-spacing:-.04em;margin:4px 0 3px;font-weight:900}
+.kid-welcome p{margin:0;color:var(--ink-3);font-size:13.5px;font-weight:600}
+.kid-level{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:9px 12px;border-radius:13px;background:var(--lilac-3);color:var(--violet-dk);border:1px solid var(--lilac-2)}
+.kid-level b{font-size:16px;line-height:1;font-weight:900}
+.kid-level span{font-size:11px;font-weight:800;color:var(--ink-3)}
+.kid-dashboard{display:grid;gap:12px}
+.kid-mission-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:900;margin:2px 2px -3px}
+.mission-card{position:relative;overflow:hidden;background:linear-gradient(135deg,#6846F6 0%,#4A2FD4 68%,#3922B8 100%);color:#fff;border-radius:24px;padding:20px;box-shadow:0 16px 36px rgba(74,47,212,.23)}
+.mission-card:after{content:"";position:absolute;width:190px;height:190px;right:-86px;top:-96px;border-radius:50%;background:radial-gradient(circle,rgba(191,255,60,.22),transparent 68%)}
+.mission-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.mission-topic{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:850;color:rgba(255,255,255,.74)}
+.mission-state{border:1px solid rgba(255,255,255,.23);background:rgba(255,255,255,.12);border-radius:999px;padding:5px 9px;font-size:10.5px;font-weight:800;white-space:nowrap}
+.mission-title{position:relative;z-index:1;font-size:clamp(25px,7vw,34px);font-weight:900;letter-spacing:-.04em;line-height:1.06;margin:14px 0 13px}
+.mission-stage{position:relative;z-index:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.13);border-radius:15px;padding:11px 13px}
+.mission-stage span{display:block;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.68);font-weight:800}
+.mission-stage b{display:block;font-size:15px;font-weight:850;margin-top:2px}
+.mission-progress{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:7px 12px;align-items:center;margin-top:14px}
+.mission-progress span{font-size:11.5px;font-weight:750;color:rgba(255,255,255,.8)}
+.mission-progress b{font-size:12px;font-weight:900}
+.mission-progress em{grid-column:1/-1;height:6px;border-radius:99px;background:rgba(255,255,255,.2);overflow:hidden}
+.mission-progress em i{display:block;height:100%;border-radius:inherit;background:var(--lime)}
+.mission-go{position:relative;z-index:1;width:100%;margin-top:16px;border-radius:14px;background:#fff;color:var(--violet-dk);padding:13px 16px;font-size:14.5px;font-weight:900;box-shadow:0 7px 18px rgba(31,20,94,.18)}
+.mission-go:active{transform:translateY(1px)}
+.kid-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kid-stat{background:#fff;border:1px solid rgba(20,16,38,.07);border-radius:15px;padding:10px 8px;text-align:center}
+.kid-stat b{display:block;font-size:17px;font-weight:900;letter-spacing:-.03em}
+.kid-stat span{display:block;font-size:9.5px;color:var(--ink-3);font-weight:700;margin-top:1px;line-height:1.25}
+.kid-more{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kid-more button{min-height:48px;padding:11px 13px;border:1px solid rgba(20,16,38,.08);border-radius:15px;background:#fff;color:var(--ink-2);font-size:12.5px;font-weight:800;text-align:left}
+.kid-more button span{float:right;color:var(--violet);font-weight:900}
+.kid-empty{background:linear-gradient(145deg,#F2EEFF,#E7E0FF);border-radius:24px;padding:22px;color:var(--ink);box-shadow:var(--e2)}
+.kid-empty b{display:block;font-size:22px;font-weight:900;letter-spacing:-.03em}
+.kid-empty span{display:block;color:var(--ink-3);font-size:13.5px;font-weight:600;margin-top:4px}
+@media(min-width:760px){
+  .kid-home{gap:18px}
+  .kid-dashboard{grid-template-columns:minmax(0,1.7fr) minmax(240px,.8fr);gap:16px;align-items:start}
+  .kid-side{display:grid;gap:10px}
+  .mission-card{padding:25px 26px;border-radius:26px;min-height:344px;display:flex;flex-direction:column}
+  .mission-stage{max-width:360px}
+  .mission-progress{margin-top:auto;padding-top:20px}
+  .kid-more{grid-template-columns:1fr}
+}
+
+/* На ежедневных детских экранах LUMA доступна из уроков, но не плавает
+   поверх главной миссии и учебного маршрута. */
+body:has(#s-den:not(.hidden)) #luma-root,
+body:has(#s-academy:not(.hidden)) #luma-root{display:none}
+
 .denbg{position:relative;height:330px;border-radius:var(--r-xl);overflow:hidden;
   box-shadow:0 22px 54px rgba(16,12,44,.42)}
 .dsky{position:absolute;inset:0;
@@ -2058,16 +2121,49 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 .wnote{font-size:13.5px;color:var(--ink-3);font-weight:600;margin-top:14px;line-height:1.5}
 
 /* ---------- академия ---------- */
-.achead{position:relative;height:190px;border-radius:var(--r-xl);overflow:hidden;
-  box-shadow:0 20px 48px rgba(36,26,94,.36)}
+.learning-path{position:relative;display:grid;gap:0;margin:12px 0 6px;padding:4px 0;max-width:760px}
+.learning-path:before{content:"";position:absolute;left:27px;top:31px;bottom:31px;width:4px;border-radius:999px;background:linear-gradient(180deg,var(--violet),var(--lilac-2) 72%)}
+.path-stop{position:relative;display:grid;grid-template-columns:58px minmax(0,1fr);gap:13px;width:100%;padding:0 0 18px;text-align:left}
+.path-stop:last-child{padding-bottom:0}
+.path-node{position:relative;z-index:2;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;border:4px solid #fff;background:var(--lilac-2);color:var(--violet-dk);box-shadow:0 7px 18px rgba(36,26,94,.18);font-size:19px;font-weight:900}
+.path-stop.done .path-node{background:var(--lime);color:var(--ink)}
+.path-stop.current .path-node{background:var(--violet);color:#fff;box-shadow:0 0 0 6px rgba(91,59,240,.13),0 10px 24px rgba(91,59,240,.34)}
+.path-stop.locked .path-node,.path-stop.soon .path-node{background:#EEEAF5;color:#9993A8}
+.path-card{min-width:0;background:#fff;border:1px solid rgba(20,16,38,.07);border-radius:18px;padding:14px 15px;box-shadow:0 7px 20px rgba(36,26,94,.07)}
+.path-stop.current .path-card{border:2px solid var(--violet);padding:14px 15px;box-shadow:0 13px 30px rgba(91,59,240,.13)}
+.path-stop.locked .path-card,.path-stop.soon .path-card{background:#F8F7FB;box-shadow:none;opacity:.74}
+.path-topline{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:850}
+.path-tag{letter-spacing:0;text-transform:none;border-radius:999px;padding:4px 8px;background:var(--lilac);color:var(--violet-dk);white-space:nowrap}
+.path-stop.done .path-tag{background:#EDFAC7;color:#496100}
+.path-stop.locked .path-tag,.path-stop.soon .path-tag{background:#ECEAF0;color:#77717F}
+.path-title{font-size:18px;font-weight:900;letter-spacing:-.025em;line-height:1.15;margin-top:6px}
+.path-meta{font-size:12.5px;color:var(--ink-3);font-weight:600;line-height:1.4;margin-top:4px}
+.path-progress{height:5px;border-radius:999px;background:var(--hair);overflow:hidden;margin-top:11px}
+.path-progress i{display:block;height:100%;border-radius:inherit;background:var(--violet)}
+.path-stop.done .path-progress i{background:var(--lime-dk)}
+.path-action{font-size:12.5px;color:var(--violet);font-weight:900;margin-top:9px}
+.path-stop.done .path-action{color:#667D12}
+.path-review .path-node{border-radius:18px}
+.path-archive{position:relative;z-index:2;margin:8px 0 0;padding-top:10px;background:var(--bg)}
+.path-archive .room{width:100%}
+
+.achead{position:relative;min-height:112px;border-radius:20px;overflow:hidden;border:1px solid var(--lilac-2);box-shadow:0 10px 28px rgba(74,47,212,.12)}
 .acbg{position:absolute;inset:0;
-  background:radial-gradient(120% 90% at 50% 0%,#5B3BF0 0%,#3A21C0 45%,#1B1550 100%)}
-.acin{position:relative;z-index:2;padding:26px 20px}
-.aclab{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C8BCFF;font-weight:800}
-.acname{font-size:29px;font-weight:900;letter-spacing:-.04em;color:#fff;margin-top:6px}
-.acmeta{display:flex;gap:18px;margin-top:16px;flex-wrap:wrap}
-.acmeta span{display:flex;flex-direction:column;font-size:11px;color:rgba(255,255,255,.7);font-weight:700}
-.acmeta b{font-size:20px;color:#fff;font-weight:900;letter-spacing:-.03em}
+  background:linear-gradient(135deg,#F2EEFF 0%,#FAF9FF 72%,#F4FFE0 100%)}
+.acin{position:relative;z-index:2;padding:17px 18px}
+.aclab{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--violet);font-weight:850}
+.acname{font-size:24px;font-weight:900;letter-spacing:-.035em;color:var(--ink);margin-top:3px}
+.acmeta{display:flex;gap:16px;margin-top:9px;flex-wrap:wrap}
+.acmeta span{display:flex;align-items:baseline;gap:4px;font-size:10.5px;color:var(--ink-3);font-weight:700}
+.acmeta b{font-size:14px;color:var(--violet-dk);font-weight:900;letter-spacing:-.02em}
+@media(min-width:900px){
+  #s-academy{max-width:820px;margin:0 auto}
+  .achead{max-width:760px}
+  .learning-path{margin-top:14px}
+  .path-stop{grid-template-columns:54px minmax(0,1fr);gap:14px;padding-bottom:14px}
+  .path-node{width:54px;height:54px}
+  .learning-path:before{left:25px}
+}
 .rooms{display:grid;gap:11px;margin-top:16px}
 .room{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:14px;align-items:center;text-align:left;
   background:#fff;border:1px solid rgba(20,16,38,.07);border-radius:var(--r-l);padding:16px;
@@ -2119,6 +2215,521 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 .lb-local-pages{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;margin:16px 0 4px}.lb-local-pages span{font-size:13px;font-weight:800;color:#6d6474;margin-right:4px}.lb-local-pages button{width:36px;height:36px;border-radius:10px;border:1px solid #d9cfed;background:#fff;font-weight:800;cursor:pointer}.lb-local-pages button.on{background:var(--violet);color:#fff;border-color:var(--violet)}
 @media(max-width:760px){.lb-spread{display:block}.lb-page{padding:14px;border-radius:18px}.lb-page:not(.is-current){display:none}.lb-page h3{font-size:23px}.lb-vocab,.lb-colours,.lb-models,.lb-grammar,.lb-objects,.lb-variants{grid-template-columns:1fr 1fr}.lb-art{max-height:185px}.lb-art svg{max-height:185px}.lb-page-head{gap:8px}.lb-badge{font-size:11px;padding:6px 8px}.lb-btn,.lb-token{padding:9px;font-size:13px}.lb-match-row{font-size:13px}}
 @media(max-width:390px){.lb-vocab,.lb-colours,.lb-models,.lb-grammar,.lb-objects,.lb-variants{grid-template-columns:1fr}.lb-page{padding:12px}.lb-page h3{font-size:21px}.lb-lead{font-size:15px}}
+
+/* ========================================================================
+   PHASE 1B · утверждённый MASTER DESIGN SYSTEM MAPPING
+   Только s-den и s-academy. Геометрия ниже — норматив UX v2.0.
+   ======================================================================== */
+body:has(#s-den:not(.hidden)),body:has(#s-academy:not(.hidden)){
+  --ux-violet:#6C4CFF;--ux-violet-dark:#4A2FD4;--ux-lime:#B7FF3C;
+  --ux-bg:#F5F7F8;--ux-ink:#111827;--ux-muted:#6B7280;--ux-line:#E5E7EF;
+  --ux-lilac:#E9E0FF;--ux-blue:#D8E6FF;--ux-peach:#FFE9D6;
+  --ux-mint:#E8F7EF;--ux-yellow:#FFF3D1;
+  background:var(--ux-bg);color:var(--ux-ink);
+  font-family:'Manrope Local','Manrope','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:24px;
+  overflow-x:hidden}
+body:has(#s-den:not(.hidden)):before,body:has(#s-academy:not(.hidden)):before{display:none}
+#s-den,#s-academy{width:100%;max-width:1152px;margin:0 auto;color:var(--ux-ink)}
+#s-den .back,#s-academy .back{display:none}
+
+/* Общая типографика и вертикальный ритм */
+.kid-home{display:grid;gap:24px;max-width:none;margin:0}
+.section-line{min-height:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px}
+.section-line b{font-size:18px;line-height:24px;font-weight:600;letter-spacing:-.015em;color:var(--ux-ink)}
+.section-line span{font-size:14px;line-height:20px;font-weight:500;color:var(--ux-muted);text-align:right}
+.kid-welcome{min-height:64px;padding:0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.kid-welcome .kw-copy{min-width:0}
+.kid-welcome .kw-kicker{display:none}
+.kid-welcome h1{font-size:32px;line-height:40px;font-weight:600;letter-spacing:-.025em;margin:0}
+.kid-welcome p{font-size:14px;line-height:20px;font-weight:500;color:var(--ux-muted);margin:0}
+.kid-level{display:flex;align-items:baseline;gap:6px;padding:8px 12px;border:1px solid var(--ux-line);border-radius:10px;background:#fff;box-shadow:0 4px 16px rgba(17,24,39,.05)}
+.kid-level b{font-size:14px;line-height:20px;font-weight:700;color:var(--ux-violet-dark)}
+.kid-level span{font-size:12px;line-height:16px;font-weight:500;color:var(--ux-muted)}
+
+/* Главная: настоящая 12-колоночная dashboard-композиция 8 + 4 */
+.home-workspace{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:start}
+.continue-panel{grid-column:1/span 8;min-width:0}
+.today-panel{grid-column:9/span 4;min-width:0}
+.study-card{height:232px;position:relative;display:block;background:#F4F0FF;border:1px solid #E4DEFA;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(74,47,212,.08)}
+.study-card:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,#F7F4FF 0%,rgba(247,244,255,.98) 38%,rgba(247,244,255,.76) 53%,rgba(247,244,255,.12) 72%,transparent 100%);pointer-events:none}
+.study-copy{position:relative;z-index:2;width:61%;height:100%;min-width:0;padding:24px;display:flex;flex-direction:column;align-items:flex-start}
+.study-visual{position:absolute;z-index:0;inset:0;overflow:hidden;background:#F4F0FF}
+.study-visual:before,.study-visual:after{display:none}
+.study-visual img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:saturate(.96);transition:transform .35s ease}
+.study-card:hover .study-visual img{transform:scale(1.018)}
+.study-visual:not(.study-family) img{object-fit:cover;padding:0}
+.study-label{font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--ux-violet-dark);font-weight:700}
+.study-title{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.025em;color:var(--ux-ink);margin-top:4px}
+.study-meta{font-size:14px;line-height:20px;color:var(--ux-muted);font-weight:500;margin-top:2px}
+.study-progress{width:100%;display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;margin-top:auto}
+.study-progress span,.study-progress b{font-size:12px;line-height:16px;font-weight:600;color:var(--ux-muted)}
+.study-progress b{color:var(--ux-violet-dark)}
+.study-progress em{grid-column:1/-1;height:6px;border-radius:999px;background:#ECE9F7;overflow:hidden}
+.study-progress em i{display:block;height:100%;background:var(--ux-violet);border-radius:inherit}
+.study-go{width:160px;height:40px;display:inline-flex;align-items:center;justify-content:center;margin-top:12px;padding:0 16px;border-radius:8px;background:var(--ux-violet);color:#fff;font-size:14px;line-height:20px;font-weight:600;box-shadow:0 4px 12px rgba(108,76,255,.22)}
+.study-go:hover{background:var(--ux-violet-dark)}
+
+/* Ближайшие реальные этапы темы */
+.today-card{min-height:232px;background:#fff;border:1px solid var(--ux-line);border-radius:16px;padding:16px 20px;box-shadow:0 4px 16px rgba(17,24,39,.06)}
+.today-step{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #EEF0F4}
+.today-step:last-of-type{border-bottom:0}
+.today-step i{width:32px;height:32px;border-radius:8px;background:#F2EEFF;color:var(--ux-violet);display:grid;place-items:center;font-style:normal;font-size:13px;line-height:1;font-weight:700}
+.today-step.done i{background:var(--ux-mint);color:#3D8C24}.today-step.lock i{background:#F1F2F5;color:#9CA3AF}
+.today-step b{display:block;font-size:14px;line-height:20px;font-weight:600;color:var(--ux-ink)}
+.today-step span{display:block;font-size:12px;line-height:16px;color:var(--ux-muted);font-weight:500;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.today-step u{text-decoration:none;font-size:11px;line-height:16px;font-weight:600;color:#6956A8;background:#F3F0FF;border-radius:999px;padding:4px 8px}
+.today-luma{display:none}
+.today-luma .tl-art{width:32px;height:32px;border-radius:8px;background:var(--ux-violet);display:grid;place-items:center;flex:0 0 32px}
+.today-luma svg{width:18px;height:18px}.today-luma b{display:block;font-size:12px;line-height:16px;font-weight:700}.today-luma span{display:block;font-size:11px;line-height:16px;color:var(--ux-muted);font-weight:500}
+
+/* Реальная статистика — вторичный ряд шириной основной колонки */
+.week-panel{width:calc((100% - 24px)*.6666667);margin:0}
+.kid-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.kid-stat{min-height:72px;display:flex;align-items:center;gap:10px;text-align:left;background:#fff;border:1px solid var(--ux-line);border-radius:12px;padding:12px;box-shadow:0 4px 16px rgba(17,24,39,.05)}
+.kid-stat .ks-icon{width:32px;height:32px;flex:0 0 32px;border-radius:8px;display:grid;place-items:center;background:#F0ECFF;color:var(--ux-violet)}
+.kid-stat .ks-icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.kid-stat:nth-child(2) .ks-icon{background:#ECF2FF;color:#3467DC}.kid-stat:nth-child(3) .ks-icon{background:var(--ux-mint);color:#4F8D31}.kid-stat:nth-child(4) .ks-icon{background:var(--ux-yellow);color:#B97800}
+.kid-stat b{display:block;font-size:18px;line-height:24px;font-weight:600;color:var(--ux-ink)}
+.kid-stat span{display:block;font-size:11px;line-height:16px;color:var(--ux-muted);font-weight:500}
+
+/* Путь: та же сетка, поверхности и компонентная система */
+.academy-title{height:64px;display:flex;align-items:center;margin:0}
+.academy-title span{display:none}.academy-title h1{margin:0;font-size:32px;line-height:40px;letter-spacing:-.025em;font-weight:600;color:var(--ux-ink)}
+#ac-head{width:100%}
+.achead{height:128px;min-height:0;position:relative;border-radius:16px;border:1px solid var(--ux-line);background:#fff;box-shadow:0 4px 16px rgba(17,24,39,.05);overflow:hidden}
+.acbg{display:block;position:absolute;inset:0;background:#F6F2FF}.acbg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.93) 31%,rgba(255,255,255,.32) 58%,rgba(255,255,255,0) 100%)}
+.acbg img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.94)}
+.acin{position:relative;z-index:1;height:100%;padding:20px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-content:center;align-items:center;gap:2px 24px}
+.aclab{grid-column:1;font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--ux-violet-dark);font-weight:700}
+.acname{grid-column:1;font-size:18px;line-height:24px;font-weight:600;letter-spacing:-.015em;margin:0;color:var(--ux-ink)}
+.acmeta{grid-column:2;grid-row:1/3;margin:0;display:flex;gap:12px}
+.acmeta span{min-width:96px;height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:6px 10px;border-radius:10px;background:#F7F5FF;color:var(--ux-muted);font-size:11px;line-height:16px;font-weight:500}
+.acmeta b{font-size:14px;line-height:20px;font-weight:700;color:var(--ux-violet-dark)}
+.academy-workspace{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:24px;align-items:start}
+.academy-workspace>main{grid-column:1/span 8;min-width:0}
+.academy-aside{grid-column:9/span 4;display:grid;gap:16px;margin-top:36px}
+.learning-path{max-width:none;margin:0;padding:0;position:relative;display:grid;gap:0}
+.learning-path:before{left:21px;top:24px;bottom:24px;width:2px;background:#D8D2F7}
+.path-stop{grid-template-columns:44px minmax(0,1fr);gap:12px;padding:0 0 12px}
+.path-node{width:44px;height:44px;border:3px solid var(--ux-bg);font-size:13px;background:#F0EDF7;color:#9891A7;box-shadow:0 4px 12px rgba(46,35,105,.12)}
+.path-stop.current .path-node{background:var(--ux-violet);color:#fff;box-shadow:0 0 0 4px rgba(108,76,255,.12),0 5px 14px rgba(74,47,212,.20)}
+.path-stop.done .path-node{background:var(--ux-lime);color:var(--ux-ink)}
+.path-card{min-height:88px;position:relative;border-radius:12px;padding:8px calc(29% + 10px) 8px 16px;border:1px solid var(--ux-line);background:#fff;box-shadow:0 4px 16px rgba(17,24,39,.05);overflow:hidden}
+.path-card:after{content:"";position:absolute;z-index:0;top:0;right:0;bottom:0;width:35%;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.74) 19%,rgba(255,255,255,0) 54%);pointer-events:none}
+.path-stop.current .path-card{min-height:108px;border:1.5px solid var(--ux-violet);padding:9px calc(29% + 9.5px) 9px 15.5px;box-shadow:0 8px 24px rgba(74,47,212,.08)}
+.path-stop.locked .path-card,.path-stop.soon .path-card{background:#F8F8FA;opacity:1;box-shadow:none;color:#6B7280}
+.path-art{position:absolute;z-index:0;right:0;top:0;width:33%;height:100%;transform:none;border:0;border-radius:0 11px 11px 0;object-fit:cover;object-position:center;background:transparent;opacity:.98}
+.path-card>div:not(.path-art-wrap){position:relative;z-index:2}.path-stop.current .path-art{width:33%;height:100%;right:0}
+.path-stop.done .path-art{filter:none}.path-stop.locked .path-art,.path-stop.soon .path-art{filter:saturate(.72);opacity:.52}
+.path-review .path-art{border-radius:0 11px 11px 0;background:transparent}.path-review .path-card{background:#fff}
+.path-alphabet{position:absolute!important;z-index:1!important;right:0;top:0;width:33%;height:100%;padding:7px 8px 7px 20px;display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;pointer-events:none;font-family:'Manrope Local','Manrope','Helvetica Neue',Arial,sans-serif}
+.path-alphabet-range{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:20px;padding:0 7px;border:1px solid rgba(108,76,255,.18);border-radius:999px;background:rgba(250,248,255,.92);color:#4A2FD4;font-size:10px;line-height:14px;font-weight:800;letter-spacing:.03em;box-shadow:0 2px 7px rgba(74,47,212,.08)}
+.path-alphabet-cards{display:flex;align-items:center;justify-content:flex-end;gap:3px}
+.path-alphabet-card{width:22px;height:27px;display:grid;place-items:center;border:1px solid rgba(75,62,119,.13);border-radius:5px;color:#29233E;font-size:12px;line-height:1;font-weight:800;box-shadow:0 2px 6px rgba(45,35,87,.10)}
+.path-alphabet-card:nth-child(1){background:#E9E0FF}.path-alphabet-card:nth-child(2){background:#D8E6FF}.path-alphabet-card:nth-child(3){background:#FFE9D6}.path-alphabet-card:nth-child(4){background:#E8F7EF}
+.path-alphabet-review{display:flex;align-items:center;gap:5px}
+.path-alphabet-check{width:25px;height:25px;display:grid;place-items:center;border-radius:8px;background:#B7FF3C;color:#293700;border:1px solid rgba(73,104,0,.16);font-size:14px;font-weight:900;box-shadow:0 2px 7px rgba(92,130,0,.13)}
+.path-stop.locked .path-alphabet{filter:saturate(.45);opacity:.52}.path-stop.locked .path-alphabet-range{background:rgba(246,245,248,.92);color:#77717F}.path-stop.locked .path-alphabet-check{background:#E6E5E9;color:#85818B}
+.path-topline{font-size:11px;line-height:16px;letter-spacing:.1em;font-weight:700;color:#77758A}.path-tag{font-size:11px;line-height:16px;padding:2px 8px}
+.path-title{font-size:18px;line-height:24px;font-weight:600;letter-spacing:-.015em;margin-top:2px}.path-meta{font-size:12px;line-height:16px;font-weight:500;margin-top:1px;color:var(--ux-muted)}
+.path-progress{height:4px;margin-top:7px;background:#ECE9F7}.path-progress i{background:var(--ux-violet)}.path-action{font-size:12px;line-height:16px;font-weight:700;margin-top:6px;color:var(--ux-violet-dark)}
+.path-archive{display:none}
+.aside-card{min-height:112px;background:#fff;border:1px solid var(--ux-line);border-radius:12px;padding:16px 20px;box-shadow:0 4px 16px rgba(17,24,39,.05)}
+.aside-card .as-label{font-size:11px;line-height:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--ux-violet-dark);font-weight:700}
+.aside-card h3{font-size:18px;line-height:24px;font-weight:600;margin:4px 0 2px;letter-spacing:-.015em}.aside-card p{font-size:12px;line-height:16px;color:var(--ux-muted);font-weight:500;margin:0}
+.aside-progress{height:6px;border-radius:999px;background:#ECE9F7;overflow:hidden;margin-top:12px}.aside-progress i{display:block;height:100%;background:var(--ux-violet)}
+.aside-link{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px 0 0;color:var(--ux-violet-dark);font-size:12px;line-height:16px;font-weight:700;text-align:left}
+
+/* Desktop 1366×768: sidebar 216, padding 32, полезная ширина 1086 */
+@media(min-width:900px){
+  body:has(#s-den:not(.hidden)) .top,body:has(#s-academy:not(.hidden)) .top{position:fixed;left:0;top:0;bottom:0;width:216px;height:100vh;border-right:1px solid var(--ux-line);border-bottom:0;background:#fff;box-shadow:none}
+  body:has(#s-den:not(.hidden)) .top-in,body:has(#s-academy:not(.hidden)) .top-in{height:100%;max-width:none;padding:24px 16px 16px;display:flex;flex-direction:column;align-items:stretch;gap:0}
+  body:has(#s-den:not(.hidden)) .brandrow,body:has(#s-academy:not(.hidden)) .brandrow{margin-bottom:28px;gap:10px}
+  body:has(#s-den:not(.hidden)) .logo,body:has(#s-academy:not(.hidden)) .logo{width:40px;height:40px}
+  body:has(#s-den:not(.hidden)) .mark,body:has(#s-academy:not(.hidden)) .mark{font-size:22px;line-height:24px;font-weight:800}
+  body:has(#s-den:not(.hidden)) .tagline,body:has(#s-academy:not(.hidden)) .tagline{font-size:9px;line-height:14px}
+  body:has(#s-den:not(.hidden)) .dnav,body:has(#s-academy:not(.hidden)) .dnav{display:flex;flex-direction:column;margin:0;gap:4px}
+  body:has(#s-den:not(.hidden)) .dnav button,body:has(#s-academy:not(.hidden)) .dnav button{width:184px;height:40px;display:flex;align-items:center;gap:12px;text-align:left;border-radius:8px;padding:0 12px;font-size:14px;line-height:20px;font-weight:600;color:#57516F}
+  body:has(#s-den:not(.hidden)) .dnav button .dn-ic,body:has(#s-academy:not(.hidden)) .dnav button .dn-ic{width:20px;height:20px;display:grid;place-items:center;flex:0 0 20px}
+  body:has(#s-den:not(.hidden)) .dnav svg,body:has(#s-academy:not(.hidden)) .dnav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  body:has(#s-den:not(.hidden)) .dnav button.on,body:has(#s-academy:not(.hidden)) .dnav button.on{background:#EFEBFF;color:var(--ux-violet-dark)}
+  body:has(#s-den:not(.hidden)) .wallet,body:has(#s-academy:not(.hidden)) .wallet{margin:auto 0 0;width:184px;height:40px;border-radius:8px;padding:0 12px;background:#F3F0FF;color:var(--ux-violet-dark);border:1px solid #E4DEFF;box-shadow:none;text-align:left;font-size:14px;line-height:20px;font-weight:600}
+  body:has(#s-den:not(.hidden)) .wrap,body:has(#s-academy:not(.hidden)) .wrap{max-width:none;margin:0 0 0 216px;padding:0 32px 48px;min-height:100vh}
+}
+
+/* Mobile 390×844: header 56, padding 16, nav 64 + safe-area */
+@media(max-width:899px){
+  body:has(#s-den:not(.hidden)) .top,body:has(#s-academy:not(.hidden)) .top{height:56px;background:#fff;border-bottom:1px solid var(--ux-line);box-shadow:none}
+  body:has(#s-den:not(.hidden)) .top-in,body:has(#s-academy:not(.hidden)) .top-in{height:56px;max-width:none;padding:0 16px;gap:10px}
+  body:has(#s-den:not(.hidden)) .logo,body:has(#s-academy:not(.hidden)) .logo{width:32px;height:32px}
+  body:has(#s-den:not(.hidden)) .mark,body:has(#s-academy:not(.hidden)) .mark{font-size:18px;line-height:24px;font-weight:800}
+  body:has(#s-den:not(.hidden)) .tagline,body:has(#s-academy:not(.hidden)) .tagline{display:none}
+  body:has(#s-den:not(.hidden)) .wallet,body:has(#s-academy:not(.hidden)) .wallet{height:32px;font-size:11px;line-height:16px;font-weight:700;padding:0 10px;border-radius:8px;background:#F3F0FF;color:var(--ux-violet-dark)}
+  body:has(#s-den:not(.hidden)) .wrap{padding:12px 16px calc(80px + env(safe-area-inset-bottom))}
+  body:has(#s-academy:not(.hidden)) .wrap{padding:0 16px calc(80px + env(safe-area-inset-bottom))}
+  .kid-home{gap:20px}.kid-welcome{min-height:44px;gap:12px}.kid-welcome h1{font-size:24px;line-height:32px}.kid-welcome p{font-size:12px;line-height:16px}.kid-level{padding:6px 10px}
+  .section-line{min-height:24px;margin-bottom:8px}.section-line b{font-size:18px;line-height:24px}.section-line span{font-size:12px;line-height:16px}
+  .home-workspace{display:block}.today-panel{margin-top:20px}
+  .study-card{width:100%;height:216px;border-radius:16px}.study-card:after{background:linear-gradient(90deg,#F7F4FF 0%,rgba(247,244,255,.98) 43%,rgba(247,244,255,.78) 60%,rgba(247,244,255,.08) 86%,transparent 100%)}
+  .study-copy{width:66%;padding:16px}.study-label{font-size:11px;line-height:16px}.study-title{font-size:20px;line-height:28px;margin-top:4px}.study-meta{font-size:12px;line-height:16px;margin-top:1px}
+  .study-progress{gap:4px 8px}.study-progress span,.study-progress b{font-size:11px;line-height:16px}.study-progress em{height:5px}
+  .study-go{width:144px;height:40px;margin-top:10px;padding:0 12px;font-size:14px;line-height:20px}
+  .study-visual.study-family img{content:url("assets/topics/home/family-mission-mobile-v2.webp")}
+  .today-card{min-height:0;border-radius:12px;padding:8px 14px}.today-step{grid-template-columns:30px minmax(0,1fr) auto;gap:10px;padding:9px 0}.today-step i{width:30px;height:30px}.today-step b{font-size:14px;line-height:20px}.today-step span{font-size:11px;line-height:16px}.today-step u{font-size:10px;line-height:16px;padding:3px 7px}.today-luma{display:none}
+  .week-panel{width:100%}.kid-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.kid-stat{min-height:76px;display:block;text-align:center;padding:8px 4px;border-radius:12px}.kid-stat .ks-icon{width:28px;height:28px;margin:0 auto 3px}.kid-stat .ks-icon svg{width:15px;height:15px}.kid-stat b{font-size:14px;line-height:20px}.kid-stat span{font-size:9px;line-height:12px}
+
+  .academy-title{height:32px;margin:0 0 4px}.academy-title h1{font-size:24px;line-height:32px}
+  #ac-head{width:100%}.achead{height:84px;border-radius:12px}.acin{padding:10px 12px;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:0 8px}.aclab{display:block;font-size:9px;line-height:12px}.acname{grid-column:1;grid-row:2;font-size:14px;line-height:20px}.acmeta{grid-column:2;grid-row:1/3;gap:6px}.acmeta span{min-width:58px;height:32px;padding:2px 6px;font-size:8px;line-height:12px;border-radius:8px}.acmeta b{font-size:11px;line-height:16px}.acbg img{object-position:60% center}.acbg:after{background:linear-gradient(90deg,rgba(255,255,255,.98),rgba(255,255,255,.85) 45%,rgba(255,255,255,.08) 100%)}
+  .acbg img{content:url("assets/topics/path/path-hero-mobile-v2.webp")}
+  .academy-workspace{display:block;margin-top:8px}.academy-workspace .section-line{min-height:20px;margin-bottom:4px}.academy-workspace .section-line b{font-size:16px;line-height:20px}.academy-workspace .section-line span{display:none}.academy-aside{display:none}
+  .learning-path:before{left:19px;top:21px;bottom:21px}.path-stop{grid-template-columns:40px minmax(0,1fr);gap:10px;padding-bottom:8px}.path-node{width:40px;height:40px}
+  .path-card{min-height:76px;padding:7px calc(29% + 7px) 7px 12px}.path-card:after{width:38%;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.82) 18%,rgba(255,255,255,0) 58%)}.path-stop.current .path-card{min-height:96px;padding:7.5px calc(29% + 6.5px) 7.5px 11.5px}.path-art{right:0;top:0;width:34%;height:100%;border-radius:0 11px 11px 0}.path-stop.current .path-art{right:0;width:34%;height:100%}.path-alphabet{width:34%;padding:5px 6px 5px 12px}.path-alphabet-range{min-width:36px;height:17px;padding:0 5px;font-size:9px;line-height:12px}.path-alphabet-cards{gap:2px}.path-alphabet-card{width:16px;height:20px;border-radius:4px;font-size:10px}.path-alphabet-check{width:21px;height:21px;border-radius:6px;font-size:12px}.path-topline{font-size:10px;line-height:14px}.path-tag{font-size:10px;line-height:14px;padding:1px 6px}.path-title{font-size:14px;line-height:20px;margin-top:1px}.path-meta{font-size:11px;line-height:16px}.path-progress{height:4px;margin-top:5px}.path-action{font-size:11px;line-height:14px;margin-top:4px}
+
+  body:has(#s-den:not(.hidden)) nav,body:has(#s-academy:not(.hidden)) nav{height:calc(64px + env(safe-area-inset-bottom));left:0;right:0;bottom:0;border-radius:0;border:0;border-top:1px solid var(--ux-line);background:#fff;box-shadow:0 -4px 16px rgba(17,24,39,.05);padding:4px 12px calc(4px + env(safe-area-inset-bottom));backdrop-filter:none;-webkit-backdrop-filter:none}
+  body:has(#s-den:not(.hidden)) nav button,body:has(#s-academy:not(.hidden)) nav button{height:56px;padding:6px 2px 4px;gap:2px;border-radius:10px;font-size:11px;line-height:16px;font-weight:600;color:#6B7280}
+  body:has(#s-den:not(.hidden)) nav button.on,body:has(#s-academy:not(.hidden)) nav button.on{background:#F2EEFF;color:var(--ux-violet-dark)}
+  body:has(#s-den:not(.hidden)) nav button .ic,body:has(#s-academy:not(.hidden)) nav button .ic{transform:none}
+  body:has(#s-den:not(.hidden)) nav button .ic svg,body:has(#s-academy:not(.hidden)) nav button .ic svg{width:21px;height:21px}
+}
+
+/* ========================================================================
+   PHASE 1C · TOPIC SCREEN · принятый DESIGN MAPPING UX v2.0
+   Только s-topic. Phase 1B (s-den / s-academy) выше не изменяется.
+   ======================================================================== */
+body:has(#s-topic:not(.hidden)){
+  --ux-violet:#6C4CFF;--ux-violet-dark:#4A2FD4;--ux-lime:#B7FF3C;
+  --ux-bg:#F5F7F8;--ux-ink:#111827;--ux-muted:#6B7280;--ux-line:#E5E7EF;
+  --ux-lilac:#E9E0FF;--ux-mint:#E8F7EF;--ux-yellow:#FFF3D1;
+  background:var(--ux-bg);color:var(--ux-ink);
+  font-family:'Manrope Local','Manrope','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:24px;
+  overflow-x:hidden}
+body:has(#s-topic:not(.hidden)):before{display:none}
+body:has(#s-topic:not(.hidden)) #luma-root{display:none}
+#s-topic{width:100%;max-width:1152px;margin:0 auto;color:var(--ux-ink)}
+
+.topic-back-row{height:64px;display:flex;align-items:center}
+.topic-back-link{height:40px;display:inline-flex;align-items:center;gap:8px;padding:0 4px;
+  color:var(--ux-violet-dark);font-size:14px;line-height:20px;font-weight:700}
+.topic-back-link svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+.topic-overview-grid,.topic-body-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:start}
+.topic-overview-grid{margin-top:24px}
+.topic-overview{grid-column:1/span 8;height:176px;position:relative;background:#fff;border:1px solid #E7E5EE;
+  border-radius:16px;padding:20px 24px;box-shadow:0 8px 24px rgba(53,43,96,.07);overflow:hidden}
+.topic-overview.has-art{padding-right:310px}
+.topic-overview.has-art:before{content:"";position:absolute;z-index:0;width:300px;height:240px;right:-30px;top:-28px;
+  border-radius:46% 54% 34% 66%/53% 34% 66% 47%;background:linear-gradient(145deg,#F0EBFF,#E4D9FF 58%,#F5F2FF)}
+.topic-overview.has-art:after{content:"♡";position:absolute;z-index:1;right:286px;top:72px;color:#D8CCFF;
+  font-size:25px;line-height:1;font-weight:500;transform:rotate(-12deg)}
+.topic-overview.has-art>*:not(.topic-art){position:relative;z-index:2}
+.topic-art{display:none;position:absolute!important;z-index:1!important;right:6px;bottom:-38px;width:286px;height:218px;
+  object-fit:contain;object-position:center bottom;filter:drop-shadow(0 10px 13px rgba(64,44,117,.12));pointer-events:none}
+.topic-overview.has-art .topic-art{display:block}
+.topic-overview .topic-kicker{font-size:11px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ux-violet-dark);font-weight:700}
+.topic-overview h1{font-size:28px;line-height:36px;font-weight:600;letter-spacing:-.025em;margin:2px 0 0}
+.topic-overview .topic-sub{font-size:14px;line-height:20px;font-weight:600;color:var(--ux-violet-dark);margin-top:0}
+.topic-overview .topic-desc{max-width:620px;font-size:13px;line-height:18px;font-weight:500;color:var(--ux-muted);
+  margin:7px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.topic-overview .hear{width:auto;min-height:28px;margin:7px 0 0;padding:4px 10px;border:1px solid #DDD5FF;
+  border-radius:8px;background:#F5F2FF;color:var(--ux-violet-dark);font-family:inherit;font-size:11px;line-height:16px;
+  font-weight:700;box-shadow:none}
+.topic-overview .hear.playing{background:var(--ux-violet);border-color:var(--ux-violet);color:#fff}
+
+.topic-progress-card{grid-column:9/span 4;height:176px;background:#fff;border:1px solid #E7E5EE;
+  border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(53,43,96,.07);display:flex;flex-direction:column}
+.topic-progress-card .tp-label{font-size:11px;line-height:16px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ux-violet-dark);font-weight:700}
+.topic-progress-card .tp-value{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.02em;margin-top:4px}
+.topic-progress-card .tp-copy{font-size:12px;line-height:16px;font-weight:500;color:var(--ux-muted);margin-top:1px}
+.topic-progress-card .tp-track{height:7px;border-radius:999px;background:#ECE8F7;overflow:hidden;margin-top:auto}
+.topic-progress-card .tp-track i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#5632EE,#7E62FF)}
+.topic-progress-card .tp-foot{display:flex;justify-content:space-between;gap:12px;margin-top:8px;
+  color:var(--ux-muted);font-size:11px;line-height:16px;font-weight:600}
+.topic-progress-card .tp-foot b{color:var(--ux-violet-dark);font-weight:700}
+
+.topic-body-grid{margin-top:24px}
+.topic-route-panel{grid-column:1/span 8;min-width:0}
+.topic-materials-panel{grid-column:9/span 4;min-width:0}
+.topic-section-head{min-height:28px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px}
+.topic-section-head h2{font-size:20px;line-height:28px;font-weight:600;letter-spacing:-.02em;margin:0}
+.topic-section-head p{font-size:12px;line-height:18px;font-weight:500;color:var(--ux-muted);margin:2px 0 0;text-align:right}
+.topic-stage-list{display:grid;gap:12px}
+.topic-stage{width:100%;min-height:88px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;
+  column-gap:14px;align-items:center;text-align:left;background:#fff;border:1px solid #E8E6EF;
+  border-radius:12px;padding:14px 16px;box-shadow:0 6px 18px rgba(53,43,96,.055);cursor:pointer}
+.topic-stage .ts-state{grid-column:1;grid-row:1/span 2;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
+  background:#F2EEFF;color:var(--ux-violet-dark);font-size:15px;line-height:1;font-weight:800}
+.topic-stage .ts-copy{grid-column:2;min-width:0;display:block}
+.topic-stage .ts-top{display:flex;align-items:center;gap:8px;font-size:11px;line-height:16px;font-weight:700;color:#77758A}
+.topic-stage .ts-pill{display:inline-flex;align-items:center;border-radius:999px;padding:2px 8px;background:#F2EEFF;
+  color:var(--ux-violet-dark);font-size:10px;line-height:16px;font-weight:700}
+.topic-stage .ts-title{display:block;font-size:16px;line-height:22px;font-weight:600;letter-spacing:-.015em;margin-top:2px}
+.topic-stage .ts-meta{display:block;max-width:100%;font-size:12px;line-height:17px;font-weight:500;color:var(--ux-muted);margin-top:1px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topic-stage .ts-arrow{grid-column:3;grid-row:1/span 2;color:#9A94AA;font-size:18px;font-weight:700}
+.topic-stage.current{min-height:112px;border:1.5px solid var(--ux-violet);padding:14px 15.5px;
+  box-shadow:0 9px 26px rgba(89,61,215,.10);cursor:default}
+.topic-stage.current .ts-state{background:linear-gradient(145deg,#5533ED,#8569FF);color:#fff;box-shadow:0 6px 15px rgba(83,49,229,.22)}
+.topic-stage.done .ts-state{background:var(--ux-mint);color:#3E8628}
+.topic-stage.done .ts-pill{background:var(--ux-mint);color:#397326}
+.topic-stage.locked{background:#F8F8FA;box-shadow:none;color:#77758A;cursor:default;pointer-events:none}
+.topic-stage.locked .ts-state{background:#ECEEF2;color:#9298A5}
+.topic-stage.locked .ts-pill{background:#ECEEF2;color:#747986}
+.topic-stage-actions{grid-column:2/4;display:flex;align-items:center;gap:12px;margin-top:10px}
+.topic-primary{height:40px;min-width:144px;display:inline-flex;align-items:center;justify-content:center;padding:0 18px;
+  border-radius:8px;background:linear-gradient(135deg,#5935EE,#7350F5);color:#fff;font-size:14px;line-height:20px;font-weight:700;
+  box-shadow:0 5px 14px rgba(89,53,238,.22)}
+.topic-primary:hover{background:var(--ux-violet-dark)}
+.topic-restart{height:40px;padding:0 4px;color:var(--ux-violet-dark);font-size:12px;line-height:16px;font-weight:700}
+.topic-saved-note{grid-column:2/4;font-size:11px;line-height:16px;font-weight:500;color:var(--ux-muted);margin-top:5px}
+
+.topic-materials-card{background:#fff;border:1px solid #E8E6EF;border-radius:12px;padding:4px 16px;
+  box-shadow:0 7px 20px rgba(53,43,96,.06)}
+.topic-material{width:100%;min-height:64px;display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;
+  align-items:center;text-align:left;border-bottom:1px solid #EEF0F4;padding:8px 0;color:var(--ux-ink)}
+.topic-material:last-child{border-bottom:0}
+.topic-material .tm-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:#F2EEFF;
+  color:var(--ux-violet-dark);font-size:16px;line-height:1}
+.topic-material:nth-child(2) .tm-icon{background:var(--ux-yellow);color:#A66C00}
+.topic-material:nth-child(3) .tm-icon{background:var(--ux-mint);color:#3E8628}
+.topic-material b{display:block;font-size:13px;line-height:18px;font-weight:600}
+.topic-material span{display:block;font-size:11px;line-height:16px;font-weight:500;color:var(--ux-muted);margin-top:1px}
+.topic-material .tm-go{color:#9A94AA;font-size:16px;font-weight:700}
+.topic-materials-empty{font-size:12px;line-height:18px;color:var(--ux-muted);font-weight:500;padding:16px 0}
+
+.topic-advanced-wrap{width:calc((100% - 24px)*.6666667);margin-top:24px}
+.topic-advanced-wrap:empty{display:none}
+#s-topic .adv{margin:0;border:1px solid #DDD5FF;border-radius:12px;padding:18px 20px;background:#F7F4FF;box-shadow:none}
+#s-topic .adv .lbl{font-size:10px;line-height:16px;letter-spacing:.12em;color:var(--ux-violet-dark);font-weight:700}
+#s-topic .adv h3{font-size:18px;line-height:24px;font-weight:600;letter-spacing:-.015em;margin:3px 0}
+#s-topic .adv p{font-size:12px;line-height:18px;font-weight:500;color:var(--ux-muted);margin:0}
+#s-topic .adv .price-row{background:transparent;margin:8px 0 0;padding:0;font-size:11px;line-height:16px}
+#s-topic .adv .gate{margin-top:10px;border-radius:8px;padding:10px 12px;background:#fff;border:1px solid var(--ux-line);
+  font-size:11px;line-height:17px;color:var(--ux-muted)}
+#s-topic .adv .gate ul{margin:5px 0 0;padding-left:18px}
+#s-topic .adv .cta{width:auto;min-width:144px;height:40px;margin:12px 0 0;padding:0 16px;border:0;border-radius:8px;
+  box-shadow:none;font-size:13px;line-height:18px;font-weight:700}
+#s-topic .adv .cta.violet{background:var(--ux-violet);color:#fff}
+#s-topic .adv .cta.plain{background:#fff;border:1px solid var(--ux-line);color:var(--ux-muted)}
+
+@media(min-width:900px){
+  body:has(#s-topic:not(.hidden)) .top{position:fixed;left:0;top:0;bottom:0;width:216px;height:100vh;
+    border-right:1px solid var(--ux-line);border-bottom:0;background:#fff;box-shadow:none}
+  body:has(#s-topic:not(.hidden)) .top-in{height:100%;max-width:none;padding:24px 16px 16px;display:flex;
+    flex-direction:column;align-items:stretch;gap:0}
+  body:has(#s-topic:not(.hidden)) .brandrow{margin-bottom:28px;gap:10px}
+  body:has(#s-topic:not(.hidden)) .logo{width:40px;height:40px}
+  body:has(#s-topic:not(.hidden)) .mark{font-size:22px;line-height:24px;font-weight:800}
+  body:has(#s-topic:not(.hidden)) .tagline{font-size:9px;line-height:14px}
+  body:has(#s-topic:not(.hidden)) .dnav{display:flex;flex-direction:column;margin:0;gap:4px}
+  body:has(#s-topic:not(.hidden)) .dnav button{width:184px;height:40px;display:flex;align-items:center;gap:12px;
+    text-align:left;border-radius:8px;padding:0 12px;font-size:14px;line-height:20px;font-weight:600;color:#57516F}
+  body:has(#s-topic:not(.hidden)) .dnav button .dn-ic{width:20px;height:20px;display:grid;place-items:center;flex:0 0 20px}
+  body:has(#s-topic:not(.hidden)) .dnav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;
+    stroke-linecap:round;stroke-linejoin:round}
+  body:has(#s-topic:not(.hidden)) .dnav button.on{background:#EFEBFF;color:var(--ux-violet-dark)}
+  body:has(#s-topic:not(.hidden)) .wallet{margin:auto 0 0;width:184px;height:40px;border-radius:8px;padding:0 12px;
+    background:#F3F0FF;color:var(--ux-violet-dark);border:1px solid #E4DEFF;box-shadow:none;text-align:left;
+    font-size:14px;line-height:20px;font-weight:600}
+  body:has(#s-topic:not(.hidden)) .wrap{max-width:none;margin:0 0 0 216px;padding:0 32px 48px;min-height:100vh}
+}
+
+@media(max-width:899px){
+  body:has(#s-topic:not(.hidden)) .top{height:56px;background:#fff;border-bottom:1px solid var(--ux-line);box-shadow:none}
+  body:has(#s-topic:not(.hidden)) .top-in{height:56px;max-width:none;padding:0 16px;gap:10px}
+  body:has(#s-topic:not(.hidden)) .logo{width:32px;height:32px}
+  body:has(#s-topic:not(.hidden)) .mark{font-size:18px;line-height:24px;font-weight:800}
+  body:has(#s-topic:not(.hidden)) .tagline{display:none}
+  body:has(#s-topic:not(.hidden)) .wallet{height:32px;font-size:11px;line-height:16px;font-weight:700;padding:0 10px;
+    border-radius:8px;background:#F3F0FF;color:var(--ux-violet-dark)}
+  body:has(#s-topic:not(.hidden)) .wrap{padding:0 16px calc(80px + env(safe-area-inset-bottom))}
+  .topic-back-row{height:48px}.topic-back-link{height:40px;font-size:13px;padding:0}
+  .topic-overview-grid,.topic-body-grid{display:block}.topic-overview-grid{margin-top:8px}.topic-overview{height:156px;border-radius:16px;padding:14px 16px}
+  .topic-overview.has-art{padding-right:142px}.topic-overview.has-art:before{width:154px;height:190px;right:-22px;top:-18px}
+  .topic-overview.has-art:after{right:135px;top:74px;font-size:18px}.topic-art{right:-1px;bottom:-26px;width:154px;height:170px}
+  .topic-overview.has-art .topic-desc{max-width:190px;-webkit-line-clamp:3}.topic-overview.has-art .hear{font-size:9px;padding:3px 7px}
+  .topic-overview h1{font-size:22px;line-height:28px;margin-top:1px}.topic-overview .topic-sub{font-size:12px;line-height:16px}
+  .topic-overview .topic-desc{font-size:11px;line-height:16px;margin-top:5px;-webkit-line-clamp:2}
+  .topic-overview .hear{min-height:26px;margin-top:5px;padding:3px 8px;font-size:10px;line-height:16px}
+  .topic-progress-card{height:80px;margin-top:20px;border-radius:12px;padding:12px 14px;display:grid;
+    grid-template-columns:1fr auto;grid-template-rows:auto auto;column-gap:12px;align-content:center}
+  .topic-progress-card .tp-label{display:none}.topic-progress-card .tp-value{font-size:16px;line-height:22px;margin:0}
+  .topic-progress-card .tp-copy{font-size:10px;line-height:14px;margin:0}.topic-progress-card .tp-track{grid-column:1/-1;
+    height:6px;margin-top:8px}.topic-progress-card .tp-foot{grid-column:2;grid-row:1/span 2;align-self:center;margin:0}
+  .topic-progress-card .tp-foot span{display:none}.topic-progress-card .tp-foot b{font-size:14px;line-height:20px}
+  .topic-body-grid{margin-top:16px}.topic-section-head{min-height:24px;margin-bottom:8px}.topic-section-head h2{font-size:18px;line-height:24px}
+  .topic-section-head p{display:none}.topic-stage-list{gap:8px}
+  .topic-stage{min-height:76px;grid-template-columns:36px minmax(0,1fr) auto;column-gap:10px;padding:10px 12px;border-radius:12px}
+  .topic-stage .ts-state{width:36px;height:36px;border-radius:9px;font-size:13px}.topic-stage .ts-top{font-size:10px;line-height:14px}
+  .topic-stage .ts-pill{font-size:9px;line-height:14px;padding:1px 6px}.topic-stage .ts-title{font-size:14px;line-height:19px;margin-top:1px}
+  .topic-stage .ts-meta{font-size:10px;line-height:14px}.topic-stage.current{min-height:140px;padding:11px 11.5px}
+  .topic-stage-actions{grid-column:2/4;gap:10px;margin-top:8px}.topic-primary{min-width:144px;height:40px;padding:0 14px;font-size:13px}
+  .topic-restart{height:40px;font-size:11px}.topic-saved-note{grid-column:2/4;margin-top:4px;font-size:10px;line-height:14px}
+  .topic-materials-panel{margin-top:20px}.topic-materials-card{padding:3px 14px}.topic-material{min-height:60px}
+  .topic-advanced-wrap{width:100%;margin-top:20px}#s-topic .adv{padding:16px}
+  body:has(#s-topic:not(.hidden)) nav{height:calc(64px + env(safe-area-inset-bottom));left:0;right:0;bottom:0;
+    border-radius:0;border:0;border-top:1px solid var(--ux-line);background:#fff;box-shadow:0 -4px 16px rgba(17,24,39,.05);
+    padding:4px 12px calc(4px + env(safe-area-inset-bottom));backdrop-filter:none;-webkit-backdrop-filter:none}
+  body:has(#s-topic:not(.hidden)) nav button{height:56px;padding:6px 2px 4px;gap:2px;border-radius:10px;
+    font-size:11px;line-height:16px;font-weight:600;color:#6B7280}
+  body:has(#s-topic:not(.hidden)) nav button.on{background:#F2EEFF;color:var(--ux-violet-dark)}
+  body:has(#s-topic:not(.hidden)) nav button .ic{transform:none}
+  body:has(#s-topic:not(.hidden)) nav button .ic svg{width:21px;height:21px}
+}
+
+/* ========================================================================
+   PHASE 1D · FOCUSED LESSON SHELL + RESULT
+   Presentation-only: s-lesson. Phase 1B / Phase 1C selectors are untouched.
+   ======================================================================== */
+body.lesson-mode{
+  --lesson-violet:#6C4CFF;--lesson-violet-dark:#4A2FD4;--lesson-lime:#B7FF3C;
+  --lesson-bg:#F5F7F8;--lesson-ink:#111827;--lesson-muted:#6B7280;--lesson-line:#E5E7EF;
+  margin:0;background:var(--lesson-bg);color:var(--lesson-ink);
+  font-family:'Manrope Local','Manrope','Helvetica Neue',Arial,sans-serif;
+  font-size:16px;line-height:24px;overflow-x:hidden}
+body.lesson-mode:before{display:none}
+body.lesson-mode .top,body.lesson-mode nav,body.lesson-mode #luma-root{display:none!important}
+body.lesson-mode .wrap{width:100%;max-width:808px;min-height:100dvh;margin:0 auto;padding:0 24px 132px}
+#s-lesson{width:100%;max-width:760px;margin:0 auto}
+#s-lesson .lhead{position:sticky;top:0;z-index:45;height:76px;margin:0;background:rgba(255,255,255,.94);
+  color:var(--lesson-ink);border:0;border-bottom:1px solid var(--lesson-line);border-radius:0;padding:0;
+  box-shadow:none;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.lesson-focus-row{height:60px;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center}
+.lesson-exit{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;background:#fff;
+  border:1px solid var(--lesson-line);color:#5D6070;font-size:25px;line-height:1;font-weight:500;
+  box-shadow:0 3px 10px rgba(17,24,39,.04)}
+.lesson-exit:hover{background:#F3F0FF;color:var(--lesson-violet-dark)}
+.lesson-focus-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:15px;line-height:20px;font-weight:700;letter-spacing:-.012em;color:var(--lesson-ink)}
+.lesson-focus-count{white-space:nowrap;font-size:12px;line-height:16px;font-weight:600;color:var(--lesson-muted)}
+.lesson-focus-progress{height:4px;border-radius:999px;background:#E8E5F2;overflow:hidden}
+.lesson-focus-progress i{display:block;width:0;height:100%;border-radius:inherit;background:var(--lesson-violet);
+  transition:width .28s ease}
+#s-lesson .lhead>.r1,#s-lesson .lhead>h2,#s-lesson .lhead>.ring{display:none}
+body.lesson-mode #area{margin-top:24px;min-width:0}
+body.lesson-mode #area>.card,body.lesson-mode #area>.tpage{margin:0}
+
+/* Один реальный блок объяснения за раз. Остальное остаётся в DOM и данных,
+   но не конкурирует с текущим учебным фокусом. */
+body.lesson-mode.lesson-focused-theory #area .tpage>.thead2,
+body.lesson-mode.lesson-focused-theory #area .tpage>.tmeta,
+body.lesson-mode.lesson-focused-theory #area .tpage>.hear,
+body.lesson-mode.lesson-focused-theory #area .tpage>.trecap,
+body.lesson-mode.lesson-focused-theory #area .tpage>.cta{display:none!important}
+body.lesson-mode.lesson-focused-theory #area .tsect{display:none;opacity:1;transform:none}
+body.lesson-mode.lesson-focused-theory #area .tsect.lesson-current-theory{display:block;margin:0;padding:24px 26px;
+  background:#fff;border:1px solid var(--lesson-line);border-radius:16px;
+  box-shadow:0 8px 24px rgba(74,47,212,.07)}
+body.lesson-mode .tsect .tnum{margin-bottom:10px}
+body.lesson-mode .tsect .tnum b{width:36px;height:36px;border-radius:9px;background:#F0ECFF;
+  color:var(--lesson-violet-dark);box-shadow:none}
+body.lesson-mode .tsect .tnum span{font-size:10px;line-height:16px;letter-spacing:.12em;color:var(--lesson-violet-dark)}
+body.lesson-mode .tsect h3{font-size:24px;line-height:32px;font-weight:700;letter-spacing:-.025em;margin:0 0 14px}
+body.lesson-mode .phrase{min-height:62px;border:1px solid #E8E6EF;border-radius:12px;padding:11px 14px;box-shadow:none}
+body.lesson-mode .phrase+.phrase{margin-top:8px}
+body.lesson-mode .phrase .en{font-size:17px;line-height:22px;font-weight:700}
+body.lesson-mode .phrase .ru,body.lesson-mode .phrase .tr{font-size:12px;line-height:17px;color:var(--lesson-muted)}
+body.lesson-mode .spk{width:36px;height:36px;border-radius:9px;background:#F2EEFF;color:var(--lesson-violet-dark)}
+body.lesson-mode .spk,body.lesson-mode .hearq{position:relative;color:transparent!important;font-size:0!important}
+body.lesson-mode .spk:before,body.lesson-mode .hearq:before{content:"";width:17px;height:17px;display:block;margin:auto;
+  background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234A2FD4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 5 6 9H3v6h3l5 4V5Z'/%3E%3Cpath d='M15.5 8.5a5 5 0 0 1 0 7'/%3E%3Cpath d='M18 6a8.5 8.5 0 0 1 0 12'/%3E%3C/svg%3E")}
+body.lesson-mode .trule{margin-top:12px;border:1px solid #E6E0FF;border-radius:12px;background:#F7F4FF;
+  padding:13px 16px;font-size:14px;line-height:21px;box-shadow:none}
+body.lesson-mode .trule:before{display:none}
+body.lesson-mode .hear{min-height:40px;margin:12px 0 0;padding:8px 14px;border:1px solid #DDD5FF;
+  border-radius:8px;background:#fff;color:var(--lesson-violet-dark);font-size:13px;line-height:18px;box-shadow:none}
+.lesson-family-theory-art{height:144px;margin:0 0 16px;border-radius:12px;overflow:hidden;background:#F4EEFF}
+.lesson-family-theory-art img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 52%}
+
+/* Существующие renderer'ы остаются неизменными; shell нормализует только
+   поверхность, ритм и фокус их готового DOM. */
+body.lesson-mode #area>.task-card{min-height:420px;padding:28px;border:1px solid var(--lesson-line);
+  border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(74,47,212,.07)}
+body.lesson-mode .task-card .kind{font-size:10px;line-height:16px;letter-spacing:.12em;font-weight:700;color:var(--lesson-violet-dark)}
+body.lesson-mode .task-card .q{max-width:620px;margin:8px 0 20px;font-size:24px;line-height:32px;font-weight:700;letter-spacing:-.025em}
+body.lesson-mode .task-card .opts{display:grid;gap:10px}
+.lesson-family-task-art{height:126px;margin:0 0 18px;border-radius:12px;overflow:hidden;background:#F4EEFF}
+.lesson-family-task-art img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 43%}
+body.lesson-mode .task-card .opt,body.lesson-mode .task-card .tf button{min-height:52px;border:1px solid #E5E3EC;
+  border-radius:12px;padding:13px 16px;background:#fff;box-shadow:0 3px 10px rgba(17,24,39,.035);
+  font-size:15px;line-height:22px;font-weight:600;text-align:left}
+body.lesson-mode .task-card .opt:hover,body.lesson-mode .task-card .tf button:hover{border-color:#BEB0FF;
+  background:#FAF9FF;transform:none;box-shadow:0 4px 14px rgba(74,47,212,.07)}
+body.lesson-mode .task-card .opt.right{background:#EDF9E9;border-color:#B7DFAB;color:#2F6B26}
+body.lesson-mode .task-card .opt.wrong{background:#FFF0F2;border-color:#F3B9C3;color:#8F3043}
+body.lesson-mode .lumi-reaction{display:none!important}
+body.lesson-mode .fb{margin-top:16px;border-radius:12px;padding:14px 16px;box-shadow:none;font-size:14px;line-height:20px}
+body.lesson-mode .fb.good{background:#EDF9E9;border:1px solid #B7DFAB;color:#2F6B26}
+body.lesson-mode .fb.bad{background:#FFF0F2;border:1px solid #F3B9C3;color:#8F3043}
+body.lesson-mode .kind-note{font-size:12px;line-height:18px;color:var(--lesson-muted)}
+.lesson-family-feedback-art{width:52px;height:52px;flex:0 0 52px;order:-1;border-radius:50%;object-fit:cover;
+  border:2px solid #fff;box-shadow:0 3px 10px rgba(45,35,88,.10)}
+body.lesson-mode .fb.good .lesson-family-feedback-art{background:#EEF9E8}
+body.lesson-mode .fb.bad .lesson-family-feedback-art{background:#F2ECFF}
+
+/* Одна нижняя CTA, safe-area и центральная ширина на desktop. */
+body.lesson-mode #nextbar{left:0;right:0;bottom:0;max-width:none;transform:none;min-height:92px;
+  padding:20px max(24px,calc((100vw - 760px)/2)) calc(20px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(245,247,248,0),rgba(245,247,248,.96) 28%,#F5F7F8 58%);
+  gap:0;align-items:flex-end}
+body.lesson-mode #nextbar .nb-back{display:none!important}
+body.lesson-mode #nextbar .cta{height:48px;max-width:760px;margin:0 auto;padding:0 20px;border:0;border-radius:10px;
+  background:var(--lesson-violet);color:#fff;box-shadow:0 6px 16px rgba(74,47,212,.20);
+  font-size:14px;line-height:20px;font-weight:700}
+
+/* Result — те же реальные значения и обработчики finish(), но одна ясная
+   иерархия действий вместо набора равнозначных кнопок. */
+body.lesson-mode.lesson-result-mode #area{display:grid;place-items:center;min-height:calc(100dvh - 124px);margin-top:0}
+body.lesson-mode.lesson-result-mode .wrap{padding-bottom:0}
+body.lesson-mode.lesson-result-mode #area>.lesson-result-card{width:100%;max-width:600px;margin:0;padding:36px 40px;
+  border:1px solid var(--lesson-line);border-radius:16px;background:#fff;text-align:center!important;
+  box-shadow:0 12px 32px rgba(74,47,212,.09)}
+body.lesson-mode .lesson-result-card>div:first-child{font-size:34px!important;letter-spacing:6px!important}
+.lesson-family-result-art{width:216px;height:144px;display:block;object-fit:cover;object-position:center 42%;
+  margin:0 auto 12px;border-radius:14px;background:#F3EEFF}
+body.lesson-mode .lesson-result-card .q{margin:14px 0 5px!important;font-size:28px;line-height:36px;font-weight:700;letter-spacing:-.03em}
+body.lesson-mode .lesson-result-card>p:not(.q){font-size:14px!important;line-height:20px;color:var(--lesson-muted)!important}
+body.lesson-mode .lesson-result-card .earned{margin:20px 0 0;padding:16px;border-radius:12px;background:#F3F0FF;
+  color:var(--lesson-violet-dark);box-shadow:none;font-size:18px}
+body.lesson-mode .lesson-result-card .note{margin-top:16px;border:1px solid #E6E0FF;border-radius:12px;
+  background:#F7F4FF;color:var(--lesson-muted);box-shadow:none}
+body.lesson-mode .lesson-result-card>.cta,body.lesson-mode .lesson-result-card>.more-wrap{display:none!important}
+body.lesson-mode .lesson-result-card>.lesson-result-main,body.lesson-mode .lesson-result-card>.lesson-result-repeat{display:flex!important}
+body.lesson-mode .lesson-result-card>.lesson-result-main{height:48px;margin-top:24px;border-radius:10px;background:var(--lesson-violet);
+  color:#fff;box-shadow:0 6px 16px rgba(74,47,212,.20);font-size:14px;font-weight:700}
+body.lesson-mode .lesson-result-card>.lesson-result-repeat{height:44px;margin-top:10px;border:1px solid #DDD8E8;
+  width:100%;justify-content:center;border-radius:10px;background:#fff;color:var(--lesson-violet-dark);
+  box-shadow:none;font-size:13px;font-weight:700}
+
+@media(max-width:899px){
+  body.lesson-mode .wrap{max-width:none;padding:0 16px calc(112px + env(safe-area-inset-bottom))}
+  #s-lesson{max-width:none}
+  #s-lesson .lhead{height:68px;margin:0 -16px;padding:0 16px}
+  .lesson-focus-row{height:54px;grid-template-columns:36px minmax(0,1fr) auto;gap:10px}
+  .lesson-exit{width:36px;height:36px;border-radius:9px;font-size:23px}
+  .lesson-focus-title{font-size:13px;line-height:18px}.lesson-focus-count{font-size:11px;line-height:16px}
+  body.lesson-mode #area{margin-top:16px}
+  body.lesson-mode.lesson-focused-theory #area .tsect.lesson-current-theory{padding:18px 16px;border-radius:12px}
+  body.lesson-mode .tsect h3{font-size:20px;line-height:27px;margin-bottom:12px}
+  body.lesson-mode .phrase{min-height:56px;padding:9px 11px}body.lesson-mode .phrase .spk{flex:0 0 36px}
+  body.lesson-mode .phrase .en{font-size:15px;line-height:20px}
+  body.lesson-mode .trule{padding:11px 13px;font-size:13px;line-height:19px}
+  body.lesson-mode .hear{min-height:38px;font-size:12px}
+  .lesson-family-theory-art{height:116px;margin-bottom:14px}.lesson-family-task-art{height:100px;margin-bottom:14px}
+  body.lesson-mode #area>.task-card{min-height:0;padding:20px 16px 22px;border-radius:12px}
+  body.lesson-mode .task-card .q{margin:7px 0 16px;font-size:20px;line-height:27px}
+  body.lesson-mode .task-card .opt,body.lesson-mode .task-card .tf button{min-height:48px;padding:11px 13px;
+    border-radius:10px;font-size:14px;line-height:20px}
+  .lesson-family-feedback-art{width:46px;height:46px;flex-basis:46px}
+  body.lesson-mode #nextbar{min-height:88px;padding:18px 16px calc(16px + env(safe-area-inset-bottom))}
+  body.lesson-mode #nextbar .cta{height:48px;border-radius:10px}
+  body.lesson-mode.lesson-result-mode #area{min-height:calc(100dvh - 98px)}
+  body.lesson-mode.lesson-result-mode #area>.lesson-result-card{max-width:none;padding:28px 20px;border-radius:12px}
+  .lesson-family-result-art{width:180px;height:120px;margin-bottom:8px}
+  body.lesson-mode .lesson-result-card .q{font-size:24px;line-height:32px}
+}
 </style>
 </head>
 <body>
@@ -2141,13 +2752,12 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
       </div>
     </div>
     <div class="dnav">
-      <button id="d-den" class="on" onclick="go('den')">Главная</button>
-      <button id="d-learn" onclick="openAcademy('english')">Учиться</button>
-      <button id="d-world" onclick="go('game')">Мир</button>
-      <button id="d-me" onclick="go('me')">Профиль</button>
+      <button id="d-den" class="on" onclick="go('den')"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M9 20v-6h6v6"/></svg></span>Главная</button>
+      <button id="d-learn" onclick="openAcademy('english')"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="8" cy="18" r="2"/><path d="M8 6h5l3 1M7 8l1 8m2 1h5l3-8"/></svg></span>Путь</button>
+      <button id="d-me" onclick="go('drill')"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3m10-10h-3M5 12H2"/></svg></span>Тренировка</button>
+      <button id="d-world" onclick="go('game')"><span class="dn-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>Мир</button>
     </div>
     <button class="wallet" onclick="go('prog')" aria-label="Открыть копилку"><span id="coin-n">0</span> лемов</button>
-    <button class="worldbtn" onclick="go('game')" aria-label="Открыть мир LEMMA">🌎<span class="wtext"> Мир</span></button>
     <button class="landin" onclick="enterApp()">Войти</button>
     <button class="landgo" onclick="enterApp()">Начать бесплатно</button>
   </div>
@@ -2475,27 +3085,44 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 
 <!-- ============ СТРАНИЦА ТЕМЫ ============ -->
 <div id="s-topic" class="hidden">
-  <button class="back" onclick="goBack()">← Все темы</button>
-  <div class="thead">
-    <div class="no" id="t-no"></div>
-    <h2 id="t-name"></h2>
-    <p id="t-desc"></p>
-    <div class="row">
-      <div><b id="t-words">0</b><span>новых слов</span></div>
-      <div><b id="t-tasks">0</b><span>заданий</span></div>
-      <div><b id="t-stars">—</b><span>ваш результат</span></div>
-    </div>
+  <div class="topic-back-row">
+    <button class="topic-back-link" type="button" onclick="go('academy',true)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Путь
+    </button>
   </div>
-  <div id="t-resume"></div>
-  <div class="sec">Что делаем</div>
-  <div id="t-acts"></div>
-  <div class="sec">Углублённо</div>
-  <div id="t-adv"></div>
+  <div class="topic-overview-grid">
+    <section class="topic-overview" aria-labelledby="t-name">
+      <div class="topic-kicker" id="t-no"></div>
+      <h1 id="t-name"></h1>
+      <div class="topic-sub" id="t-sub"></div>
+      <p class="topic-desc" id="t-desc"></p>
+      <div id="t-hear"></div>
+      <img class="topic-art" id="t-art" alt="">
+    </section>
+    <aside class="topic-progress-card" id="t-progress" aria-label="Прогресс темы"></aside>
+  </div>
+  <div class="topic-body-grid">
+    <main class="topic-route-panel">
+      <div class="topic-section-head"><h2 id="t-route-title">Учебный маршрут</h2><p id="t-route-note"></p></div>
+      <div class="topic-stage-list" id="t-acts"></div>
+    </main>
+    <aside class="topic-materials-panel">
+      <div class="topic-section-head"><h2>Материалы темы</h2></div>
+      <div class="topic-materials-card" id="t-materials"></div>
+    </aside>
+  </div>
+  <div class="topic-advanced-wrap" id="t-adv"></div>
 </div>
 
 <!-- ============ УРОК ============ -->
 <div id="s-lesson" class="hidden">
   <div class="lhead">
+    <div class="lesson-focus-row">
+      <button class="lesson-exit" type="button" onclick="leaveLesson()" aria-label="Выйти из урока">×</button>
+      <div class="lesson-focus-title" id="lesson-focus-title"></div>
+      <div class="lesson-focus-count" id="lesson-focus-count"></div>
+    </div>
+    <div class="lesson-focus-progress" aria-hidden="true"><i id="lesson-focus-progress"></i></div>
     <div class="r1"><span id="lh-class"></span><span class="badge" id="lh-stage"></span></div>
     <h2 id="lh-title"></h2>
     <div class="ring">
@@ -2580,46 +3207,23 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 
 <!-- ============ ДОМ ИССЛЕДОВАТЕЛЯ ============ -->
 <div id="s-den" class="hidden">
-  <!-- атмосфера мира: спутник, свечение, растения — без изменений -->
-  <div id="den-scene"></div>
-
-  <!-- главный элемент экрана: чем заняться прямо сейчас -->
-  <div class="eyebrow" style="margin-top:16px"><i></i> Твоя задача сейчас</div>
-  <div id="den-exp"></div>
-
-  <div class="denrow">
-    <div class="dencol">
-      <div class="dlab">Последние открытия</div>
-      <div id="den-disc"></div>
+  <div class="kid-home">
+    <div id="den-welcome"></div>
+    <div class="home-workspace">
+      <section class="continue-panel">
+        <div class="section-line"><b>Продолжить обучение</b></div>
+        <div id="den-exp"></div>
+      </section>
+      <aside class="today-panel">
+        <div class="section-line"><b>Твоя задача сейчас</b></div>
+        <div id="den-now"></div>
+      </aside>
     </div>
+    <section class="week-panel">
+      <div class="section-line"><b>Твой прогресс</b><span>Текущие результаты</span></div>
+      <div id="den-stats"></div>
+    </section>
   </div>
-  <div id="den-atlas"></div>
-
-  <!-- учебный путь: главный раздел -->
-  <div class="dlab" style="margin-top:22px">Учиться</div>
-  <div class="dengrid" style="grid-template-columns:1fr">
-    <button class="dtile t-acad big" onclick="openAcademy('english')">
-      <span class="dg">✦</span><span class="dn">Учебный путь</span><span class="ds">темы, уроки и прогресс — весь маршрут обучения</span></button>
-    <button class="dtile t-jour" onclick="go('prog')">
-      <span class="dg">◪</span><span class="dn">Прогресс</span><span class="ds">путь и успехи</span></button>
-  </div>
-
-  <!-- мир вокруг: поддерживающий игровой слой -->
-  <div class="dlab" style="margin-top:20px">Мир вокруг</div>
-  <div class="dengrid">
-    <button class="dtile t-map sm" onclick="go('worldmap')">
-      <span class="dg">🗺</span><span class="dn">Карта мира</span><span class="ds">исследовать</span></button>
-    <button class="dtile t-coll sm" onclick="go('collect')">
-      <span class="dg">❂</span><span class="dn">Коллекции</span><span class="ds">слова и знаки</span></button>
-  </div>
-
-  <button class="cta full" style="margin-top:16px" onclick="denContinue()">Продолжить урок <span>→</span></button>
-  <div class="denfoot">
-    <button onclick="go('game')">Спутник</button>
-    <button onclick="go('hub')">Сердце Леммы</button>
-    <button onclick="go('parents')">Для родителей</button>
-  </div>
-  <button class="back" onclick="goBack()">← Назад</button>
 </div>
 
 <!-- ============ КАРТА МИРА ============ -->
@@ -2630,35 +3234,12 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 
 <!-- ============ АКАДЕМИЯ ============ -->
 <div id="s-academy" class="hidden">
-  <div id="ac-subnav"></div>
-  <div id="resume-academy"></div>
+  <div class="academy-title"><span>Путь</span><h1>Учебный маршрут</h1></div>
   <div id="ac-head"></div>
-  <div class="chips" id="ac-classes"></div>
-  <div class="rooms" id="ac-rooms"></div>
-
-  <div class="sec">Ещё возможности</div>
-  <div class="card flat">
-    <p style="margin:0 0 6px;font-weight:800">Тренировка</p>
-    <p style="color:var(--gray);font-weight:500;font-size:14.5px;margin:0">
-      Десять случайных заданий из уже пройденных тем. Каждый раз новый набор — повторять можно сколько угодно.</p>
-    <div id="ac-tr-info" style="font-size:13px;font-weight:700;color:var(--violet);margin-top:8px"></div>
-    <button class="cta full" onclick="startTrainer()">Случайные задания →</button>
-    <button class="cta plain" onclick="go('drill')">Тренажёры: слова, артикли, предложения</button>
-  </div>
-
-  <div class="adv" style="margin-top:14px">
-    <div class="lbl">Для тех, кто хочет больше</div>
-    <h3>Углублённый английский</h3>
-    <p>Отдельные уроки поверх программы: теория, практика и произношение.</p>
-    <button class="cta violet full" onclick="go('deep')">Открыть раздел →</button>
-  </div>
-
-  <div class="card flat" style="text-align:center;margin-top:14px">
-    <div style="font-weight:800;margin-bottom:4px">Проверка звука и микрофона</div>
-    <div style="font-size:13.5px;color:var(--gray);font-weight:500">Слова произносит голос устройства, а произношение проверяется микрофоном.</div>
-    <button class="cta plain" onclick="say('hello',this);checkSound('ac-sndmsg')">🔊 Послушать «hello»</button>
-    <button class="cta plain" onclick="checkMic('ac-sndmsg')">🎤 Проверить микрофон</button>
-    <div id="ac-sndmsg" style="font-size:13px;font-weight:500;color:var(--gray);margin-top:8px"></div>
+  <div class="academy-workspace">
+    <main><div class="section-line"><b>Темы по порядку</b><span>Нажми на доступную тему</span></div>
+      <div class="learning-path" id="ac-rooms"></div></main>
+    <aside class="academy-aside" id="ac-aside"></aside>
   </div>
 
   <button class="back" onclick="goBack()">← Назад</button>
@@ -2970,10 +3551,10 @@ body.lesson-mode #nextbar{bottom:calc(24px + env(safe-area-inset-bottom))}
 </div>
 
 <nav>
-  <button id="m-den" class="on" onclick="go('den')"><span class="ic">🏠</span>Главная</button>
-  <button id="m-learn" onclick="openAcademy('english')"><span class="ic">🎯</span>Учиться</button>
-  <button id="m-world" onclick="go('game')"><span class="ic">🌎</span>Мир</button>
-  <button id="m-me" onclick="go('me')"><span class="ic">👤</span>Профиль</button>
+  <button id="m-den" class="on" onclick="go('den')"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M9 20v-6h6v6"/></svg></span>Главная</button>
+  <button id="m-learn" onclick="openAcademy('english')"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="8" cy="18" r="2"/><path d="M8 6h5l3 1M7 8l1 8m2 1h5l3-8"/></svg></span>Путь</button>
+  <button id="m-me" onclick="go('drill')"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3m10-10h-3M5 12H2"/></svg></span>Тренировка</button>
+  <button id="m-world" onclick="go('game')"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>Мир</button>
 </nav>
 <div id="ghost"></div>
 <div id="nextbar"></div>
@@ -6753,37 +7334,21 @@ function startTrainer(){
 /* ===================== СТРАНИЦА ТЕМЫ ===================== */
 function openTopic(id,noPush){
   curTopic=id;L=LESSONS[id];
+  const overview=document.querySelector("#s-topic .topic-overview");
+  const topicArt=document.getElementById("t-art");
+  const familyArt=id==="family";
+  overview.classList.toggle("has-art",familyArt);
+  topicArt.src=familyArt?"assets/topics/family/family-hero-v1.png":"";
+  topicArt.alt=familyArt?"Семья: родители, сын и дочь":"";
   document.getElementById("t-no").textContent=L.no;
   document.getElementById("t-name").textContent=L.name;
+  document.getElementById("t-sub").textContent=L.sub||"";
   document.getElementById("t-desc").textContent=L.desc;
-  const td=document.getElementById("t-desc");
-  if(td&&!td.nextElementSibling?.classList?.contains("hear")){
-    const hb=hearBtn([L.name,L.desc],"🎧 Прослушать описание темы");
-    td.parentNode.insertBefore(hb,td.nextSibling);}
-  document.getElementById("t-words").textContent=L.words.length;
-  document.getElementById("t-tasks").textContent=L.tasks.length;
-  const p=PROG[id];
-  document.getElementById("t-stars").textContent=p&&p.done?("★ "+p.stars+"/"+p.total):"—";
+  const hear=document.getElementById("t-hear");hear.innerHTML="";
+  hear.appendChild(hearBtn([L.name,L.desc],"🎧 Прослушать тему"));
 
-  const res=document.getElementById("t-resume");res.innerHTML="";
   const resumeTarget=(SAVED&&SAVED.topic===id)?savedTarget():null;
-  if(resumeTarget){
-    /* resumeTarget — либо сама тема (для тем без уроков, как раньше),
-       либо точный подурок/проверка — savedTarget() уже проверил, что
-       запись валидна для текущей структуры темы. */
-    const lessonObj=LESSONS[resumeTarget];
-    const totalSteps=SAVED.stage==="theory"?lessonObj.theory.length:lessonObj.tasks.length;
-    const d=document.createElement("div");d.className="card";d.style.borderColor="var(--violet)";
-    d.innerHTML=`<div class="kind">Незаконченный урок${L.subLessons?" · "+lessonObj.name:""}</div>
-      <p style="font-weight:700;margin:8px 0 2px">Вы остановились ${SAVED.stage==="theory"?"на объяснении":"на задании"} ${SAVED.step+1}${totalSteps?" из "+totalSteps:""}.</p>
-      <p style="color:var(--gray);font-weight:500;margin:0;font-size:14.5px">Прогресс сохранён — можно продолжить с того же места.</p>`;
-    const b=document.createElement("button");b.className="cta violet full";b.textContent="Продолжить";
-    b.onclick=()=>{L=lessonObj;stage=SAVED.stage;step=SAVED.step;score=SAVED.score||0;mistakes=SAVED.mistakes||0;openLesson(true)};
-    d.appendChild(b);
-    const b2=document.createElement("button");b2.className="cta plain";b2.textContent="Начать тему заново";
-    b2.onclick=()=>{SAVED=null;saveAll();openTopic(id)};
-    d.appendChild(b2);res.appendChild(d);
-  }else if(SAVED&&SAVED.topic===id){
+  if(!resumeTarget&&SAVED&&SAVED.topic===id){
     /* SAVED указывает на эту тему, но savedTarget() не смог его подтвердить —
        запись устарела относительно текущей структуры темы. Тихо сбрасываем,
        чтобы не всплыла повторно, список уроков и так покажет, что делать дальше. */
@@ -6792,73 +7357,158 @@ function openTopic(id,noPush){
 
   const acts=document.getElementById("t-acts");acts.innerHTML="";
   if(L.subLessons){
-    /* тема разбита на уроки — новый «Учебный путь» вместо старых двух кнопок */
-    renderLessonPath(acts,id);
+    document.getElementById("t-route-title").textContent="Учебный маршрут";
+    document.getElementById("t-route-note").textContent="Урок 1 → Урок 2 → Проверка";
+    renderTopicProgress(id,false);
+    renderLessonPath(acts,id,resumeTarget);
   }else{
-    addAct(acts,"var(--lilac)","📖","Объяснение темы",`${L.theory.length} блоков одной страницей, с озвучкой`,()=>{stage="theory";step=0;resetRun();openLesson()});
-    addAct(acts,"var(--lime)","✏️","Практика",`${L.tasks.length} заданий, все разного типа`,()=>{stage="practice";step=0;resetRun();openLesson()});
-  }
-  const a=document.createElement("a");a.href=L.print;a.setAttribute("download","");
-  a.className="act";a.innerHTML=`<span class="ic" style="background:#F1EFE7">🖨</span>
-    <span style="flex:1"><span class="t">Лист для печати</span><br><span class="d">PDF · A4 · 2 листа · чёрно-белая печать</span></span>
-    <span class="go">↓</span>`;
-  acts.appendChild(a);
-
-  /* УЧЕБНИК ↔ УРОКИ, Этап 2: обратная связь только там, где она есть в
-     BOOK_TOPIC_LINK — без домыслов по совпадению названий. Ищем главу по
-     всем классам BOOK, а не по текущему bkClass — он может быть не тем
-     классом, к которому относится глава. */
-  const bookId=TOPIC_BOOK_LINK[id];
-  const bookHit=bookId&&Object.entries(BOOK).find(([,list])=>list.some(c=>c.id===bookId));
-  if(bookHit){
-    addAct(acts,"var(--amber-lt)","📚","Открыть объяснение в учебнике",
-      "Та же тема главой в учебнике — без заданий, просто почитать",
-      ()=>{setClass(+bookHit[0]);chId=bookId;chPage=0;go("chapter");renderChapter();});
+    document.getElementById("t-route-title").textContent="Повторение";
+    document.getElementById("t-route-note").textContent="Вспомнить материал → Итоговая практика";
+    renderTopicProgress(id,true);
+    renderReviewPath(acts,id,resumeTarget);
   }
 
+  renderTopicMaterials(id);
   renderAdvCard();
   go("topic",noPush);
 }
-/* «Учебный путь» внутри темы — только для тем с LESSONS[id].subLessons
-   Темы без этого флага показывают старые две
-   кнопки «Объяснение темы»/«Практика», этот код их не касается. */
-function renderLessonPath(acts,topicId){
+
+/* Display-only progress: читает реальные записи этапов, ничего не пишет и
+   не участвует в последовательной блокировке. Review остаётся одной записью. */
+function renderTopicProgress(topicId,isReview){
+  const box=document.getElementById("t-progress");
+  if(isReview){
+    const pct=Lemma.progress.topicPct(topicId);
+    const p=PROG[topicId];
+    box.innerHTML=`<div class="tp-label">Прогресс повторения</div>
+      <div class="tp-value">${pct}% освоено</div>
+      <div class="tp-copy">Единый модуль повторения</div>
+      <div class="tp-track"><i style="width:${pct}%"></i></div>
+      <div class="tp-foot"><span>${p&&p.done&&p.total?`Результат ${p.stars||0} из ${p.total}`:"Результат появится после практики"}</span><b>${pct}%</b></div>`;
+    return;
+  }
+  const T=LESSONS[topicId];
+  const stageIds=[...(T.subLessons||[]),T.checkId].filter(Boolean);
+  const done=stageIds.filter(sid=>PROG[sid]&&PROG[sid].done).length;
+  const pct=Math.round(done/Math.max(stageIds.length,1)*100);
+  box.innerHTML=`<div class="tp-label">Прогресс темы</div>
+    <div class="tp-value">${done} из ${stageIds.length} этапов</div>
+    <div class="tp-copy">завершено</div>
+    <div class="tp-track"><i style="width:${pct}%"></i></div>
+    <div class="tp-foot"><span>Уроки и проверка</span><b>${pct}%</b></div>`;
+}
+
+function topicStageState(done,locked,isCurrent){
+  if(done)return{cls:"done",symbol:"✓",label:"Завершён"};
+  if(locked)return{cls:"locked",symbol:"🔒",label:"Закрыт"};
+  if(isCurrent)return{cls:"current",symbol:"●",label:"Сейчас"};
+  return{cls:"available",symbol:"○",label:"Доступен"};
+}
+
+function topicSavedCopy(lessonObj){
+  if(!SAVED)return"";
+  const total=SAVED.stage==="theory"?lessonObj.theory.length:lessonObj.tasks.length;
+  const where=SAVED.stage==="theory"?"объяснение":"задание";
+  return `Сохранено: ${where} ${Math.min((SAVED.step||0)+1,Math.max(total,1))}${total?` из ${total}`:""}`;
+}
+
+function appendTopicStage(acts,data){
+  const el=document.createElement(data.locked||data.state.cls==="current"?"div":"button");
+  if(el.tagName==="BUTTON")el.type="button";
+  el.className="topic-stage "+data.state.cls;
+  el.innerHTML=`<span class="ts-state">${data.state.symbol}</span>
+    <span class="ts-copy"><span class="ts-top">${data.step}<span class="ts-pill">${data.state.label}</span></span>
+      <span class="ts-title">${data.title}</span><span class="ts-meta">${data.meta}</span></span>
+    ${data.state.cls==="current"?"":"<span class=\"ts-arrow\">→</span>"}`;
+  if(data.state.cls==="current"){
+    const actions=document.createElement("span");actions.className="topic-stage-actions";
+    const primary=document.createElement("button");primary.type="button";primary.className="topic-primary";
+    primary.textContent=data.saved?"Продолжить":"Начать";primary.onclick=e=>{e.stopPropagation();data.start()};actions.appendChild(primary);
+    if(data.saved){
+      const restart=document.createElement("button");restart.type="button";restart.className="topic-restart";restart.textContent="Начать заново";
+      restart.onclick=e=>{e.stopPropagation();SAVED=null;saveAll();openTopic(curTopic)};actions.appendChild(restart);
+    }
+    el.appendChild(actions);
+    if(data.saved){const note=document.createElement("span");note.className="topic-saved-note";note.textContent=data.savedCopy;el.appendChild(note)}
+  }else if(!data.locked){el.onclick=data.start}
+  acts.appendChild(el);
+}
+
+/* Обычная тема: прежняя цепочка prevDone остаётся единственным источником locks. */
+function renderLessonPath(acts,topicId,resumeTarget){
   const T=LESSONS[topicId];
   const ids=T.subLessons;
+  let firstCurrent=null;
   let prevDone=true;
-  ids.forEach((lid,i)=>{
+  const rows=ids.map((lid,i)=>{
     const les=LESSONS[lid];
     const p=PROG[lid];
     const done=!!(p&&p.done);
     const locked=!prevDone;
-    const status=done?"✅":locked?"🔒":"▶";
-    const b=document.createElement("button");
-    b.className="act"+(locked?" locked":"");
-    b.innerHTML=`<span class="status">${status}</span>
-      <span class="ic" style="background:var(--lilac)">📖</span>
-      <span style="flex:1"><span class="t">Урок ${i+1}. ${les.name}</span><br>
-        <span class="d">${les.sub}</span></span>
-      <span class="go">→</span>`;
-    if(!locked)b.onclick=()=>{L=les;curTopic=topicId;stage=les.theory.length?"theory":"practice";
-      step=0;resetRun();openLesson()};
-    acts.appendChild(b);
+    if(!done&&!locked&&firstCurrent===null)firstCurrent=lid;
     prevDone=done;
+    return{id:lid,les,done,locked,step:`Урок ${i+1}`};
   });
-  /* Проверка темы — открывается только когда оба урока пройдены */
   const checkId=T.checkId;
   const checkLes=LESSONS[checkId];
   const checkDone=!!(PROG[checkId]&&PROG[checkId].done);
   const checkLocked=!prevDone;
-  const cb=document.createElement("button");
-  cb.className="act checkrow"+(checkLocked?" locked":"");
-  cb.innerHTML=`<span class="status">${checkDone?"✅":checkLocked?"🔒":"⭐"}</span>
-    <span class="ic" style="background:var(--lilac)">📝</span>
-    <span style="flex:1"><span class="t">Проверка темы</span><br>
-      <span class="d">${checkDone?"Пройдена — можно повторить":"10 вопросов по обоим урокам"}</span></span>
-    <span class="go">→</span>`;
-  if(!checkLocked)cb.onclick=()=>{L=checkLes;curTopic=topicId;stage="practice";
-    step=0;resetRun();openLesson()};
-  acts.appendChild(cb);
+  if(!checkDone&&!checkLocked&&firstCurrent===null)firstCurrent=checkId;
+  rows.push({id:checkId,les:checkLes,done:checkDone,locked:checkLocked,step:"Проверка"});
+
+  const currentId=resumeTarget||firstCurrent;
+  rows.forEach(row=>{
+    const saved=resumeTarget===row.id;
+    const isCurrent=currentId===row.id;
+    const start=saved
+      ?()=>resumeSaved()
+      :()=>{L=row.les;curTopic=topicId;stage=row.les.isCheck?"practice":(row.les.theory.length?"theory":"practice");step=0;resetRun();openLesson()};
+    const meta=row.les.isCheck
+      ?(row.done&&PROG[row.id]&&PROG[row.id].total?`Результат ${PROG[row.id].stars||0} из ${PROG[row.id].total}`:`${row.les.tasks.length} вопросов по обоим урокам`)
+      :(row.les.sub||"");
+    appendTopicStage(acts,{step:row.step,title:row.les.isCheck?"Проверка темы":row.les.name,meta,
+      state:topicStageState(row.done,row.locked,isCurrent),locked:row.locked,saved,start,savedCopy:saved?topicSavedCopy(row.les):""});
+  });
+}
+
+/* Review не получает искусственных подуроков: это две презентационные строки
+   одной записи LESSONS[revId], запускающие прежние theory/tasks. */
+function renderReviewPath(acts,topicId,resumeTarget){
+  const T=LESSONS[topicId];
+  const p=PROG[topicId]||{};
+  const done=!!p.done;
+  const theoryComplete=theoryDone(topicId);
+  const savedTheory=resumeTarget===topicId&&SAVED.stage==="theory";
+  const savedPractice=resumeTarget===topicId&&SAVED.stage!=="theory";
+  const current=savedTheory?"theory":savedPractice?"practice":theoryComplete?"practice":"theory";
+  const theoryStart=savedTheory?()=>resumeSaved():()=>{L=T;curTopic=topicId;stage="theory";step=0;resetRun();openLesson()};
+  appendTopicStage(acts,{step:"Шаг 1",title:"Вспомнить материал",meta:`${T.theory.length} блока повторения`,
+    state:topicStageState(theoryComplete,false,current==="theory"),locked:false,saved:savedTheory,start:theoryStart,
+    savedCopy:savedTheory?topicSavedCopy(T):""});
+  const practiceStart=savedPractice?()=>resumeSaved():()=>{L=T;curTopic=topicId;stage="practice";step=0;resetRun();openLesson()};
+  appendTopicStage(acts,{step:"Шаг 2",title:"Итоговая практика",meta:done&&p.total?`Результат ${p.stars||0} из ${p.total}`:`${T.tasks.length} заданий`,
+    state:topicStageState(done,false,current==="practice"),locked:false,saved:savedPractice,start:practiceStart,
+    savedCopy:savedPractice?topicSavedCopy(T):""});
+}
+
+function appendTopicMaterial(box,icon,title,desc,action,href){
+  const el=document.createElement(href?"a":"button");
+  if(href){el.href=href;el.setAttribute("download","")}else el.type="button";
+  el.className="topic-material";
+  el.innerHTML=`<span class="tm-icon">${icon}</span><span><b>${title}</b><span>${desc}</span></span><span class="tm-go">${href?"↓":"→"}</span>`;
+  if(action)el.onclick=action;
+  box.appendChild(el);
+}
+
+function renderTopicMaterials(topicId){
+  const box=document.getElementById("t-materials");box.innerHTML="";
+  const T=LESSONS[topicId];
+  const bookId=TOPIC_BOOK_LINK[topicId];
+  const bookHit=bookId&&Object.entries(BOOK).find(([,list])=>list.some(c=>c.id===bookId));
+  if(bookHit)appendTopicMaterial(box,"▤","Учебник","Объяснение темы",()=>{
+    setClass(+bookHit[0]);chId=bookId;chPage=0;go("chapter");renderChapter();});
+  if(T.print)appendTopicMaterial(box,"↓","Задания на бумаге","PDF · A4",null,T.print);
+  appendTopicMaterial(box,"◎","Тренировка","Задания из уже пройденного материала.",()=>go("drill"));
 }
 
 function addAct(box,bg,ic,t,d,fn){
@@ -8898,65 +9548,95 @@ function renderLanding(){
 }
 
 function renderDen(){
-  const st=novaState();
-  const who=st.companionId||"lumi";
-  const comp=COMPANIONS[who]||COMPANIONS.lumi;
-  const name=st.companionName||comp.name;
-
-  /* сцена дома */
-  const scene=document.getElementById("den-scene");
-  if(scene){
-    scene.innerHTML=
-      `<div class="denbg">
-         <div class="dsky"></div>
-         <div class="dglow"></div>
-         ${motesLayer(16)}
-         <div class="dplants">
-           <svg viewBox="0 0 420 120" preserveAspectRatio="none" aria-hidden="true">
-             <path class="lf lf1" d="M18 120 q6-52 34-72 q-10 44-22 72 Z"/>
-             <path class="lf lf2" d="M52 120 q2-40 26-58 q-8 34-16 58 Z"/>
-             <path class="lf lf3" d="M372 120 q-4-56-34-76 q10 48 20 76 Z"/>
-             <path class="lf lf4" d="M340 120 q-2-38-24-54 q6 32 12 54 Z"/>
-           </svg>
-         </div>
-         <div class="dwin"><span></span><span></span><span></span></div>
-         <div class="dpet">${charTag(who,"neutral",'alt="'+escHtml(name)+'"')}</div>
-         <div class="world-character-speech">${comp.line}<i>${comp.lineRu}</i></div>
+  const welcome=document.getElementById("den-welcome");
+  if(welcome){
+    const ready=topicList().filter(t=>t.ready&&LESSONS[t.id]);
+    const done=ready.filter(t=>PROG[t.id]&&PROG[t.id].done).length;
+    welcome.innerHTML=
+      `<div class="kid-welcome">
+         <div class="kw-copy"><div class="kw-kicker">Главная</div>
+           <h1>${done?"Продолжим обучение?":"Начнём обучение?"}</h1>
+           <p>${done?"Твой прогресс сохранён.":"Первая тема уже готова."}</p></div>
+         <div class="kid-level"><b>${curClass}</b><span>класс</span></div>
        </div>`;
   }
 
-  /* текущая экспедиция */
+  /* Текущая миссия: существующее состояние SAVED/PROG только отображается. */
   const exp=document.getElementById("den-exp");
+  let missionId=null,missionStage="",missionHasSaved=false;
   if(exp){
-    let id=null,note="";
     if(SAVED&&LESSONS[SAVED.topic]){
-      id=SAVED.topic;
+      missionId=SAVED.topic;
       const rt=savedTarget();
       if(rt){
         const les2=LESSONS[rt];
         const total2=SAVED.stage==="theory"?les2.theory.length:les2.tasks.length;
-        note=SAVED.stage==="theory"?"изучение записей":"задание "+(SAVED.step+1)+(total2?" из "+total2:"");
+        missionStage=SAVED.stage==="theory"?"Объяснение":"Задание "+(SAVED.step+1)+(total2?" из "+total2:"");
       }else{
-        note="урок ждёт";
+        missionStage="Выбрать урок";
       }
     }
-    else{id=firstUndone();note=id?"экспедиция ждёт":"";}
-    if(id&&LESSONS[id]){
-      const les=LESSONS[id],p=PROG[id],pct=Lemma.progress.topicPct(id);
-      exp.innerHTML=
-        `<button class="expcard" onclick="${SAVED&&SAVED.topic===id?"resumeSaved()":"openTopic('"+id+"')"}">
-           <div class="exglow"></div>
-           <div class="exlab">Текущая экспедиция</div>
-           <div class="exname">${les.name}</div>
-           <div class="exnote">${note} · освоено ${pct}%</div>
-           <div class="exbar"><i style="width:${pct}%"></i></div>
-           <div class="exgo">Продолжить →</div>
-         </button>`;
-    }else{
-      exp.innerHTML=`<div class="expcard flat"><div class="exlab">Экспедиции</div>
-        <div class="exname">Все маршруты пройдены</div>
-        <div class="exnote">Загляните на карту — откроются новые земли</div></div>`;
+    else{
+      missionId=firstUndone();
+      if(missionId&&LESSONS[missionId]){
+        const topic=LESSONS[missionId];
+        if(topic.subLessons){
+          const nextIndex=topic.subLessons.findIndex(lid=>!(PROG[lid]&&PROG[lid].done));
+          missionStage=nextIndex>=0?`Урок ${nextIndex+1} из ${topic.subLessons.length}`:"Проверка темы";
+        }else missionStage="Начать тему";
+      }
     }
+    if(missionId&&LESSONS[missionId]){
+      const les=LESSONS[missionId],pct=Lemma.progress.topicPct(missionId);
+      missionHasSaved=!!(SAVED&&SAVED.topic===missionId&&savedTarget());
+      const missionArt=missionId==="family"
+        ?"assets/topics/home/family-mission-v2.webp"
+        :`assets/topics/path/${missionId}-v2.webp`;
+      exp.innerHTML=
+        `<div class="study-card">
+           <div class="study-copy">
+             <div class="study-label">Твоя миссия</div>
+             <div class="study-title">${les.name}</div>
+             <div class="study-meta">${les.no||"Тема"} · ${missionStage}</div>
+             <div class="study-progress"><span>Прогресс темы</span><b>${pct}%</b><em><i style="width:${pct}%"></i></em></div>
+             <button class="study-go" onclick="${missionHasSaved?"resumeSaved()":"openTopic('"+missionId+"')"}">Продолжить →</button>
+           </div>
+           <div class="study-visual${missionId==="family"?" study-family":""}" aria-hidden="true"><img src="${missionArt}" width="600" height="400" alt="" fetchpriority="high" decoding="async"></div>
+         </div>`;
+    }else{
+      exp.innerHTML=`<div class="kid-empty"><b>Все маршруты пройдены!</b>
+        <span>Можно повторить любую тему в разделе «Путь».</span></div>`;
+    }
+  }
+
+  const stats=document.getElementById("den-stats");
+  if(stats){
+    const cls=Lemma.progress.byClass(curClass);
+    const words=Lemma.progress.words();
+    stats.innerHTML=`<div class="kid-stats">
+      <div class="kid-stat"><i class="ks-icon"><svg viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M8 20a3 3 0 0 1 0-6h10"/></svg></i><div><b>${cls.done}</b><span>тем пройдено</span></div></div>
+      <div class="kid-stat"><i class="ks-icon"><svg viewBox="0 0 24 24"><path d="M5 5h6v14H5zM13 5h6v14h-6z"/><path d="M8 8h1m7 0h1"/></svg></i><div><b>${words.known}</b><span>слов открыто</span></div></div>
+      <div class="kid-stat"><i class="ks-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8 12 2.5 2.5L16 9"/></svg></i><div><b>${cls.percent}%</b><span>освоено</span></div></div>
+      <div class="kid-stat"><i class="ks-icon"><svg viewBox="0 0 24 24"><path d="m12 3 3 5.5 6 .8-4.4 4.2 1.1 6-5.7-2.8-5.7 2.8 1.1-6L3 9.3l6-.8z"/></svg></i><div><b>${COINS}</b><span>лемов</span></div></div>
+    </div>`;
+  }
+
+  const now=document.getElementById("den-now");
+  if(now){
+    if(missionId&&LESSONS[missionId]){
+      const topic=LESSONS[missionId];
+      const rows=[];
+      if(topic.subLessons){
+        topic.subLessons.forEach((lid,i)=>{
+          const done=!!(PROG[lid]&&PROG[lid].done);
+          const active=!done&&!rows.some(r=>r.active);
+          rows.push({name:`Урок ${i+1}`,sub:LESSONS[lid].name,done,active});
+        });
+        const checkDone=!!(PROG[topic.checkId]&&PROG[topic.checkId].done);
+        rows.push({name:"Проверка",sub:"10 вопросов по теме",done:checkDone,active:!checkDone&&rows.every(r=>r.done)});
+      }else rows.push({name:missionStage,sub:topic.name,done:false,active:true});
+      now.innerHTML=`<div class="today-card">${rows.map(r=>`<div class="today-step${r.done?" done":r.active?"":" lock"}"><i>${r.done?"✓":r.active?"→":"·"}</i><div><b>${r.name}</b><span>${r.sub}</span></div><u>${r.done?"Готово":r.active?"Сейчас":"Далее"}</u></div>`).join("")}<div class="today-luma"><i class="tl-art">${LUMA_ART}</i><div><b>LUMA рядом</b><span>Поможет, если понадобится подсказка</span></div></div></div>`;
+    }else now.innerHTML=`<div class="today-card"><div class="today-step done"><i>✓</i><div><b>Все темы пройдены</b><span>Можно выбрать тему для повторения</span></div></div></div>`;
   }
 
   /* последние открытия */
@@ -9072,16 +9752,16 @@ function renderAcademy(){
   const head=document.getElementById("ac-head");
   if(head){
     const cls=Lemma.progress.byClass(curClass);
+    const ready=topicList().filter(t=>t.ready&&LESSONS[t.id]).length;
     head.innerHTML=
       `<div class="achead">
-         <div class="acbg"></div>${motesLayer(10,"soft")}
+         <div class="acbg" aria-hidden="true"><img src="assets/topics/path/path-hero-v2.webp" width="1440" height="240" alt="" fetchpriority="high" decoding="async"></div>
          <div class="acin">
-           <div class="aclab">УЧЕБНЫЙ ПУТЬ</div>
-           <div class="acname">${curClass} класс · английский</div>
+           <div class="aclab">Путь обучения</div>
+           <div class="acname">${curClass} класс · Английский</div>
            <div class="acmeta">
-             <span><b>${cls.done}</b>тем пройдено</span>
-             <span><b>${cls.percent}%</b>освоено</span>
-             <span><b>${curClass}</b>класс</span>
+             <span><b>${cls.done} из ${ready}</b> тем пройдено</span>
+             <span><b>${cls.percent}%</b> освоено</span>
            </div>
          </div>
        </div>`;
@@ -9123,22 +9803,21 @@ function renderAcademy(){
          цепочке последовательной блокировки: это не «заблокировано,
          откроется после предыдущей», а «пока не существует». */
       const el=document.createElement("button");
-      el.className="room locked tone-night";
+      el.className="path-stop soon";
       el.innerHTML=
-        `<div class="rglyph">…</div>
-         <div class="rbody">
-           <div class="ren">${t.no||""}</div>
-           <div class="rru">${t.name}</div>
-           <div class="rstate"><span class="pill n">В разработке</span></div>
-         </div>
-         <div class="rgo"></div>`;
+        `<div class="path-node">…</div>
+         <div class="path-card">
+           <div class="path-topline"><span>${t.no||"Тема"}</span><span class="path-tag">Скоро</span></div>
+           <div class="path-title">${t.name}</div>
+           <div class="path-meta">Тема готовится</div>
+         </div>`;
       box.appendChild(el);
       return;
     }
     const p=PROG[t.id];
     const done=!!(p&&p.done);
     const locked=!prevDone;
-    const status=done?"✅":locked?"🔒":"▶";
+    const status=done?"✓":locked?"🔒":"▶";
     const les=LESSONS[t.id];
     const pct=Lemma.progress.topicPct(t.id);
     const subInfo=les.subLessons
@@ -9149,24 +9828,36 @@ function renderAcademy(){
        не меняется, только то, как она подписывается словами: без
        текста «Повторение» отличалось только пунктирной рамкой — этого
        было недостаточно (см. задачу), теперь есть явная метка. */
-    const lifecycle=done
-      ?`<span class="pill a">Завершено</span>`
-      :locked
-      ?`<span class="pill n">Заблокировано</span>`
-      :`<span class="pill v">Текущая</span>`;
-    const kind=t.rev?`<span class="pill c">Повторение</span>`:"";
+    const stateText=done?"Пройдено":locked?"Закрыто":"Сейчас";
     const action=done?"Повторить →":locked?"":"Продолжить →";
+    const art=`assets/topics/path/${t.id}-v2.webp`;
+    const alphabetVisual={
+      abc1:{range:"A–H",letters:["A","B","C","D"]},
+      abc2:{range:"I–Q",letters:["I","J","K","L"]},
+      abc3:{range:"R–Z",letters:["R","S","T","U"]},
+      rev1:{range:"A–Z",letters:[],review:true}
+    }[t.id];
+    const alphabetLayer=alphabetVisual
+      ?`<div class="path-alphabet" aria-hidden="true">
+          <span class="path-alphabet-range">${alphabetVisual.range}</span>
+          ${alphabetVisual.review
+            ?`<span class="path-alphabet-review"><span class="path-alphabet-range">A–Z</span><span class="path-alphabet-check">✓</span></span>`
+            :`<span class="path-alphabet-cards">${alphabetVisual.letters.map(letter=>`<span class="path-alphabet-card">${letter}</span>`).join("")}</span>`}
+        </div>`
+      :"";
     const el=document.createElement("button");
-    el.className="room tone-"+(done?"amber":locked?"night":"teal")+(locked?" locked":"");
+    el.className="path-stop "+(done?"done":locked?"locked":"current")+(t.rev?" path-review":"");
     el.innerHTML=
-      `<div class="rglyph">${status}</div>
-       <div class="rbody">
-         <div class="ren">${t.no||""}</div>
-         <div class="rru">${les.name}</div>
-         <div class="rstate">${lifecycle}${kind}</div>
-         <div class="rab">${subInfo} · ${pct}%</div>
-       </div>
-       <div class="rgo">${action}</div>`;
+      `<div class="path-node">${status}</div>
+       <div class="path-card">
+         <div class="path-topline"><span>${t.no||"Тема"}${t.rev?" · Повторение":""}</span><span class="path-tag">${stateText}</span></div>
+         <div class="path-title">${les.name}</div>
+         <div class="path-meta">${subInfo} · освоено ${pct}%</div>
+         <div class="path-progress"><i style="width:${pct}%"></i></div>
+         ${action?`<div class="path-action">${action}</div>`:""}
+         <img class="path-art" src="${art}" width="480" height="320" alt="" loading="lazy" decoding="async">
+         ${alphabetLayer}
+       </div>`;
     if(!locked)el.onclick=()=>openTopic(t.id);
     box.appendChild(el);
     prevDone=done;
@@ -9177,6 +9868,7 @@ function renderAcademy(){
      что Уроки/Учебник/Практика). */
   const archive=ACADEMY_ROOMS.find(r=>r.id==="archive");
   if(archive){
+    const wrap=document.createElement("div");wrap.className="path-archive";
     const el=document.createElement("button");
     el.className="room tone-night";
     el.innerHTML=
@@ -9189,7 +9881,33 @@ function renderAcademy(){
        </div>
        <div class="rgo">→</div>`;
     el.onclick=()=>archive.go();
-    box.appendChild(el);
+    wrap.appendChild(el);box.appendChild(wrap);
+  }
+
+  const aside=document.getElementById("ac-aside");
+  if(aside){
+    const cls=Lemma.progress.byClass(curClass);
+    const next=firstUndone();
+    aside.innerHTML=`
+      <div class="aside-card">
+        <div class="as-label">Твой прогресс</div>
+        <h3>${cls.done} тем пройдено</h3>
+        <p>${next&&LESSONS[next]?`Сейчас: ${LESSONS[next].name}`:"Все доступные темы завершены"}</p>
+        <div class="aside-progress"><i style="width:${cls.percent}%"></i></div>
+        <button class="aside-link" onclick="go('prog')">Посмотреть результаты <span>→</span></button>
+      </div>
+      <div class="aside-card">
+        <div class="as-label">Закрепить знания</div>
+        <h3>Тренировка</h3>
+        <p>Слова, артикли и предложения из пройденного материала.</p>
+        <button class="aside-link" onclick="go('drill')">Открыть тренировку <span>→</span></button>
+      </div>
+      <div class="aside-card">
+        <div class="as-label">Материалы</div>
+        <h3>Коллекции</h3>
+        <p>Собранные слова и знаки достижений.</p>
+        <button class="aside-link" onclick="go('collect')">Открыть коллекции <span>→</span></button>
+      </div>`;
   }
 }
 function roomStatus(id){
@@ -10748,6 +11466,146 @@ function resetProgress(){
     });
   });
 }
+
+/* ========================================================================
+   PHASE 1D · presentation helpers for the existing lesson engine.
+   They only arrange DOM already produced by theoryPage(), task renderers and
+   finish(); scoring, saving, rewards, locks and controller functions remain
+   the single source of truth above.
+   ======================================================================== */
+function lessonFocusMeta(){
+  if(!L)return {title:"Урок",count:"",pct:0,total:0};
+  const parent=L.parent&&LESSONS[L.parent]?LESSONS[L.parent]:null;
+  const topicName=parent&&parent.name?parent.name:(L.name||"Урок");
+  let suffix="";
+  if(parent&&Array.isArray(parent.subLessons)){
+    const i=parent.subLessons.indexOf(L.id);
+    if(i>=0)suffix=" · Урок "+(i+1);
+  }else if(L.isCheck)suffix=" · Проверка";
+  const total=stage==="theory"?L.theory.length:L.tasks.length;
+  const finished=stage!=="theory"&&step>=total;
+  const shown=total?Math.min(total,finished?total:step+1):0;
+  return {title:topicName+suffix,count:shown+" / "+total,
+    pct:total?Math.round(shown/total*100):0,total:total,finished:finished};
+}
+function isFamilyLessonArt(){return !!(L&&L.id==="family_l2");}
+function lessonFamilyImage(src,cls,alt){
+  const img=document.createElement("img");img.src=src;img.className=cls;img.alt=alt||"";
+  img.loading="eager";img.decoding="async";return img;
+}
+function syncFamilyLessonArt(){
+  if(!isFamilyLessonArt())return;
+  if(stage==="theory"){
+    const sec=document.querySelector("#area .lesson-current-theory");
+    if(sec&&!sec.querySelector(".lesson-family-theory-art")){
+      const box=document.createElement("div");box.className="lesson-family-theory-art";
+      box.appendChild(lessonFamilyImage("assets/topics/family/lesson/family-l2-theory-v1.webp","","Семья вместе рассматривает семейный альбом"));
+      const anchor=sec.querySelector(".tnum");anchor?anchor.after(box):sec.prepend(box);
+    }
+    return;
+  }
+  const card=document.querySelector("#area>.task-card");
+  if(card&&!card.querySelector(".lesson-family-task-art")){
+    const box=document.createElement("div");box.className="lesson-family-task-art";
+    box.appendChild(lessonFamilyImage("assets/topics/family/lesson/family-l2-task-v1.webp","","Семья вместе рассматривает фотографии"));
+    const q=card.querySelector(".q,.qrow");q?card.insertBefore(box,q):card.prepend(box);
+  }
+  document.querySelectorAll("#area .fb").forEach(f=>{
+    if(f.querySelector(".lesson-family-feedback-art"))return;
+    const good=f.classList.contains("good");
+    f.prepend(lessonFamilyImage(good
+      ?"assets/topics/family/lesson/family-feedback-good-v1.webp"
+      :"assets/topics/family/lesson/family-feedback-support-v1.webp",
+      "lesson-family-feedback-art",good?"Радостная поддержка":"Спокойная поддержка"));
+  });
+}
+function lessonTheoryContinue(){
+  if(!L||stage!=="theory")return;
+  const total=L.theory.length;
+  if(total&&step<total)markTheory(step,false);
+  if(step<total-1){step++;render();window.scrollTo(0,0);return;}
+  /* В прежней длинной теории step всегда оставался 0, поэтому при входе в
+     практику старого theory-SAVED не существовало. Focused-подача сохраняет
+     промежуточные theory-шаги; на границе очищаем именно эту уже завершённую
+     остановку, восстанавливая прежнюю семантику начала практики с step 0. */
+  SAVED=null;saveAll();stage="practice";step=0;resetRun();render();scrollToTask();
+}
+function syncLessonResultPresentation(){
+  if(!L||L.isDrill||L.isFix||L.isCheck||L.isTrainer)return;
+  const area=document.getElementById("area");
+  const c=area&&area.querySelector(":scope > .card");
+  if(!c)return;
+  if(c.classList.contains("lesson-result-card")){document.body.classList.add("lesson-result-mode");return;}
+  c.classList.add("lesson-result-card");
+  if(isFamilyLessonArt())c.prepend(lessonFamilyImage("assets/topics/family/lesson/family-l2-result-v1.webp",
+    "lesson-family-result-art","Семья празднует завершённый урок"));
+  const stars=[...c.children].find(el=>el.tagName==="DIV"&&el.textContent.includes("⭐"));
+  if(stars&&stars.textContent.includes("⭐"))stars.textContent=stars.textContent.replace(/⭐/g,"★");
+  const q=c.querySelector(".q");
+  if(q)q.textContent="Урок завершён";
+  const direct=[...c.children].filter(x=>x.tagName==="BUTTON");
+  let primary=direct.find(x=>/Перейти к уроку|Начать проверку темы|Следующая тема|К учебному пути|Вернуться к теме/.test(x.textContent||""));
+  if(primary){
+    primary.classList.add("lesson-result-main");
+    primary.textContent="Продолжить путь";
+    primary.onclick=()=>openAcademy("english");
+  }
+  let repeat=c.querySelector(".more-panel button");
+  if(repeat){repeat.classList.add("lesson-result-repeat");repeat.textContent="Повторить урок";c.appendChild(repeat);}
+  document.body.classList.add("lesson-result-mode");
+}
+let lessonPresentationQueued=false;
+function syncLessonPresentation(){
+  lessonPresentationQueued=false;
+  const screen=document.getElementById("s-lesson");
+  if(!screen||screen.classList.contains("hidden")||!L)return;
+  const meta=lessonFocusMeta();
+  const title=document.getElementById("lesson-focus-title");
+  const count=document.getElementById("lesson-focus-count");
+  const progress=document.getElementById("lesson-focus-progress");
+  if(title)title.textContent=meta.title;
+  if(count)count.textContent=meta.count;
+  if(progress)progress.style.width=meta.pct+"%";
+  document.body.classList.toggle("lesson-focused-theory",stage==="theory"&&meta.total>0);
+  document.body.classList.remove("lesson-result-mode");
+
+  const bar=document.getElementById("nextbar");
+  if(stage==="theory"&&meta.total>0){
+    const sections=[...document.querySelectorAll("#area .tsect")];
+    sections.forEach((sec,i)=>sec.classList.toggle("lesson-current-theory",i===Math.min(step,sections.length-1)));
+    const hear=document.querySelector("#area .lesson-current-theory .hear");
+    if(hear&&/🎧/.test(hear.textContent))hear.textContent=hear.textContent.replace(/🎧\s*/,"");
+    if(bar&&!bar.querySelector(".lesson-focus-next")){
+      bar.innerHTML="";
+      const b=document.createElement("button");b.className="cta full lesson-focus-next";
+      b.textContent="Продолжить";b.onclick=lessonTheoryContinue;
+      bar.appendChild(b);bar.className="on";
+    }
+  }else if(meta.finished){
+    if(bar){bar.innerHTML="";bar.className="";}
+    syncLessonResultPresentation();
+  }else if(bar&&bar.classList.contains("on")){
+    bar.querySelectorAll(".nb-back").forEach(b=>b.remove());
+    const main=bar.querySelector(".cta");
+    if(main&&!/^Продолжить\s*→?$/.test((main.textContent||"").trim())){main.innerHTML="Продолжить <span>→</span>";}
+  }
+  document.querySelectorAll("#area .fb").forEach(f=>{
+    if(/^🎉\s*/.test(f.textContent))f.textContent=f.textContent.replace(/^🎉\s*/,"✓ ");
+    else if(/^🤔\s*/.test(f.textContent))f.textContent=f.textContent.replace(/^🤔\s*/,"! ");
+  });
+  syncFamilyLessonArt();
+}
+function queueLessonPresentation(){
+  if(lessonPresentationQueued)return;lessonPresentationQueued=true;
+  requestAnimationFrame(syncLessonPresentation);
+}
+(function(){
+  const area=document.getElementById("area"),bar=document.getElementById("nextbar");
+  if(!area||!bar||!("MutationObserver" in window))return;
+  const observer=new MutationObserver(queueLessonPresentation);
+  observer.observe(area,{childList:true,subtree:true});
+  observer.observe(bar,{childList:true,subtree:true});
+})();
 
 /* кнопка «назад» уходит с дороги при прокрутке вниз и возвращается при прокрутке вверх */
 (function(){
