@@ -1,0 +1,78 @@
+{
+  "release": "HELLO! MEET ME v2.2",
+  "baseline": "f8b0723af3d128f032d5bde4bd5b8d2f1ee27453",
+  "branch": "edu-rebuild/hello-v2.2",
+  "production_changed": false,
+  "educational_counts": {
+    "lesson_1": { "theory": 3, "scored_tasks": 6, "unscored_speak": 1 },
+    "lesson_2": { "theory": 3, "scored_tasks": 6, "unscored_speak": 1 },
+    "check": { "questions": 8, "listen_questions": 1 }
+  },
+  "result_denominator": 6,
+  "speak": {
+    "required_for_completion": true,
+    "completed": true,
+    "correct_or_incorrect_assigned": false,
+    "included_in_score": false
+  },
+  "rewards": {
+    "first_perfect_lesson_completion_lemmas": 18,
+    "repeat_lesson_completion_lemmas": 0,
+    "anti_farm_changed": false
+  },
+  "saved_resume": {
+    "preserves_stage_and_step": true,
+    "format_changed": false
+  },
+  "sorting": {
+    "pointer_drag_and_drop": true,
+    "tap_to_tap": true,
+    "shared_answer_resolver": true,
+    "wrong_drop_returns_to_source": true,
+    "correct_drop_locks_in_zone": true,
+    "repeat_drop_is_ignored": true
+  },
+  "dialogue_identity": {
+    "speaker_a": "Ben",
+    "speaker_b": "Mia",
+    "answer": "I'm Mia.",
+    "lesson_check_worksheet_consistent": true
+  },
+  "speech_card_audio": {
+    "button_does_not_select_answer": true,
+    "answer_button_does_not_start_audio": true,
+    "separate_accessible_names": true,
+    "external_runtime_dependency": false
+  },
+  "image_presentation": {
+    "roles": ["scene-wide", "scene-card", "character-reaction"],
+    "mobile_and_desktop_focal_points": true,
+    "hard_cover_crop_for_hello_scenes": false,
+    "morning_scene_has_visual_morning_cues": true
+  },
+  "textbook_reader_mode": {
+    "global_bottom_navigation_hidden": true,
+    "luma_orb_hidden": true,
+    "return_to_topic_available": true
+  },
+  "static_qa": {
+    "javascript_parse_errors": 0,
+    "missing_local_assets": 0,
+    "external_runtime_urls": 0,
+    "check_script": "scripts/check_hello_v22.mjs",
+    "status": "passed"
+  },
+  "runtime_qa": {
+    "javascript_errors": 0,
+    "horizontal_overflow": 0,
+    "missing_images": 0,
+    "external_requests": 0,
+    "tested_states": 18,
+    "pointer_drag_correct": "passed",
+    "pointer_drag_wrong_return": "passed",
+    "tap_to_tap": "passed",
+    "repeat_action_blocked": "passed",
+    "next_task_transition": "passed",
+    "status": "passed"
+  }
+}
