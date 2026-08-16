@@ -2811,6 +2811,89 @@ body.lesson-mode .lesson-result-card>.lesson-result-repeat{height:44px;margin-to
   .lesson-hello-result-art{width:180px;height:120px;margin-bottom:8px}
   body.lesson-mode .lesson-result-card .q{font-size:24px;line-height:32px}
 }
+
+/* Hello! Meet Me · EDU Rebuild v2.2 functional + visual completion */
+.speech-card{min-width:0;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;
+  border:1px solid #DED8EE;border-radius:12px;background:#fff;color:#211A3B;font-weight:800}
+.speech-card.compact{padding:8px 9px;border-radius:10px}.speech-card-text{min-width:0;line-height:1.35}
+.speech-card-choice{min-width:0;min-height:44px;flex:1;display:flex;align-items:center;padding:0;border:0;border-radius:8px;
+  background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.speech-card-choice:focus-visible,.answer-card-choice:focus-visible,.hello-zone-choice:focus-visible{outline:3px solid #B8A8FF;outline-offset:2px}
+.answer-card-choice{min-width:0;min-height:44px;flex:1;display:flex;align-items:center;padding:0;border:0;border-radius:8px;
+  background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.speech-card-audio,.hello-book-audio{width:44px!important;height:44px!important;min-width:44px!important;display:grid!important;
+  place-items:center;padding:0!important;border-radius:10px!important;background:#F3F0FF!important;color:#4A2FD4!important;border:1px solid #E1DAFF!important}
+.speech-card-audio.playing,.hello-book-audio.playing{background:#E3F7C3!important}
+.scene-wide,.scene-card{overflow:hidden;background:linear-gradient(145deg,#F7F4FF,#EEE9FF);border:1px solid #E7E0F5}
+.scene-wide img,.scene-card img{width:100%;height:100%;display:block;object-fit:contain;background:transparent}
+.scene-wide{aspect-ratio:3/2}.scene-card{aspect-ratio:4/3}
+.character-reaction{object-fit:contain!important;background:transparent!important}
+[data-scene="meeting"] img{object-position:50% 46%}[data-scene="morning"] img{object-position:50% 48%}
+[data-scene="farewell"] img{object-position:48% 50%}[data-scene="meeting-alt"] img{object-position:50% 44%}
+[data-scene="name"] img{object-position:50% 47%}
+.hello-theory-figure{height:auto;margin:4px 0 16px;border-radius:16px}
+.hello-theory-figure img,.hello-task-scene img,.hello-scene-card img,.hello-book-scenes img{width:100%;height:100%;display:block}
+.hello-theory-copy{font-size:16px;line-height:1.55;color:#4D465E}
+.hello-theory-copy p{margin:0 0 10px}.hello-theory-speech{display:grid;gap:8px;margin:12px 0}
+.hello-theory-dialogue,.hello-dialogue{display:grid;gap:12px;margin:14px 0}.hello-dialogue-people,.hello-dialogue-cast{display:flex;gap:10px}
+.hello-person{flex:1;display:grid;grid-template-columns:36px 1fr;align-items:center;gap:3px 9px;padding:9px;border:1px solid #E0DBEB;border-radius:12px;background:#fff}
+.hello-person>span{grid-row:1/3;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;font-weight:900;background:#EDE8FF;color:#4A2FD4}
+.hello-person.speaker-b>span{background:#FFF0DD;color:#8C4E00}.hello-person b{font-size:13px}.hello-person small{font-size:11px;color:#777084}
+.hello-dialogue-lines{display:grid;gap:7px}.hello-dialogue-line{display:flex;align-items:center;gap:7px}.hello-dialogue-line.speaker-b{padding-left:20px}
+.hello-speaker-marker{width:28px;height:28px;flex:0 0 28px;display:grid;place-items:center;border-radius:50%;background:#EDE8FF;color:#4A2FD4;font-weight:900;font-size:12px}
+.speaker-b>.hello-speaker-marker,.speech-card.speaker-b .hello-speaker-marker{background:#FFF0DD;color:#8C4E00}
+.hello-dialogue-line .speech-card{flex:1}.hello-local-sequence{width:100%;margin-top:12px}
+.hello-task-scene{height:auto;margin:0 0 14px;border-radius:14px}
+.speech-option{position:relative;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px;text-align:left;cursor:pointer}
+.speech-option .option-label{font-weight:800}.speech-option .speech-card-audio{margin-left:auto}
+.scene-option{padding:0!important;overflow:hidden;display:grid!important;grid-template-columns:112px 1fr;align-items:center!important;text-align:left!important}
+.scene-option img{width:112px;height:88px;object-fit:contain;background:#F7F4FF}.scene-option-label{padding:10px;font-size:12px;line-height:16px;color:#57516F}
+.hello-match{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hello-match-scenes,.hello-match-phrases{display:grid;gap:8px}
+.hello-scene-card{width:100%;height:auto;padding:0;overflow:hidden;border:2px solid #E0DBEB;border-radius:12px;background:#fff;text-align:left;color:#4D465E;touch-action:none;cursor:grab}
+.hello-scene-card:active{cursor:grabbing}.hello-scene-card img{height:auto;aspect-ratio:4/3;object-fit:contain;background:#F7F4FF}.hello-scene-card img.flip{transform:scaleX(-1)}.hello-scene-card span{display:block;padding:7px;font-size:11px;line-height:15px}
+.hello-scene-card.selected,.speech-card.selected,.hello-match-phrase.selected{border-color:#7056E8;box-shadow:0 0 0 2px #E7E0FF}.hello-scene-card.matched,.hello-match-phrase.matched{border-color:#7DB329;background:#F1F9DE;opacity:.82}
+.hello-sort-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;min-height:40px}
+.hello-sort-cards .hello-scene-card{touch-action:none;user-select:none;-webkit-user-select:none}
+.hello-sort-zones{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.hello-sort-zone{position:relative;min-height:112px;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:7px;padding:10px 50px 10px 10px;border:2px dashed #CFC6E8;border-radius:12px;background:#FAF8FF;transition:border-color .16s,background .16s,transform .16s}
+.hello-sort-zone.drag-over{border-color:#7056E8;background:#F0ECFF;transform:translateY(-2px)}
+.hello-sort-zone .hello-scene-card.placed{cursor:default;border-color:#A8CE6D;background:#F5FAEA}.hello-sort-zone .hello-scene-card.placed img{aspect-ratio:4/3}
+.hello-scene-card.dragging{opacity:.35}.hello-drag-ghost{position:fixed;z-index:9999;width:150px;pointer-events:none;opacity:.96;transform:rotate(1.5deg);box-shadow:0 16px 36px rgba(49,35,92,.28)}
+.hello-sort-status{min-height:20px;margin:8px 0 0;color:#5B5270;font-size:12px;line-height:18px;text-align:center;font-weight:700}
+.hello-zone-choice{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px}.hello-zone-choice>b{font-size:14px}.hello-zone-choice>span{font-size:11px;line-height:15px;color:#645B78}.hello-sort-zone>.spk{position:absolute;right:8px;top:50%;transform:translateY(-50%)}
+.hello-function-bank,.hello-dialogue-bank{display:grid;gap:8px}.hello-function-bank .speech-card.selectable,.hello-dialogue-bank .speech-card.selectable{cursor:default}.hello-function-bank .placed{display:none}
+.hello-function-zones{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.hello-function-zone,.hello-dialogue-slot{min-height:58px;display:flex;align-items:center;gap:8px;padding:9px;border:1px dashed #BFB6D5;border-radius:10px;background:#FAF8FF;text-align:left;color:#4D465E}
+.hello-function-zone>span,.hello-dialogue-slot>span{width:26px;height:26px;flex:0 0 26px;display:grid;place-items:center;border-radius:8px;background:#EDE8FF;color:#4A2FD4;font-weight:900}
+.hello-dialogue-cast{margin-bottom:12px}.hello-dialogue-slots{display:grid;gap:7px;margin-bottom:12px}.hello-dialogue-slot.filled{padding:0;border-style:solid}.hello-dialogue-slot.filled>span{display:none}.hello-dialogue-slot .speech-card{width:100%;border:0}
+.hello-dialogue-slot em{font-size:11px;color:#777084;font-style:normal}.hello-dialogue-bank .speech-card{padding-left:8px}.hello-dialogue-bank .hello-speaker-marker{margin-right:2px}
+.hello-dialogue-slot-choice,.hello-zone-choice{min-width:0;min-height:44px;flex:1;border:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.hello-tap-tip{margin:10px 0 0;text-align:center;font-size:12px;color:#777084}.hello-speak-panel{display:grid;gap:12px;text-align:center}
+.hello-speak-model{padding:22px;border-radius:14px;background:#F4F0FF;color:#3D28B5;font-size:34px;line-height:1.1;font-weight:900}.hello-speak-panel p{margin:0;color:#686075;font-size:13px;line-height:19px}
+.hello-result-stats{display:grid;gap:8px;margin:14px 0}.hello-result-stats p{margin:0;padding:11px 12px;border-radius:10px;background:#F6F3FF;color:#4D465E;text-align:left}
+.hello-book-scenes{display:grid;grid-template-columns:2fr 1fr;gap:8px;margin:12px 0}.hello-book-scenes figure{margin:0;overflow:hidden;border-radius:14px;background:linear-gradient(145deg,#F7F4FF,#EEE9FF);border:1px solid #E7E0F5}.hello-book-main-scene{aspect-ratio:3/2}.hello-book-mini-scene{aspect-ratio:4/3}
+.hello-book-main-scene img,.hello-book-mini-scene img{object-fit:contain}.hello-book-dialogue{display:grid;gap:7px;margin:12px 0}.hello-book-dialogue-line{display:flex;align-items:center;gap:7px}.hello-book-dialogue-line.speaker-b{padding-left:18px}.hello-book-dialogue-line .speech-card{flex:1}
+.hello-book-listen{display:grid;gap:7px}.hello-book-choice .lb-btn{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left}.hello-book-choice .hello-book-audio{display:grid!important;flex:0 0 44px}
+.hello-name-cards{display:flex;gap:8px}.hello-name-card{flex:1;min-height:48px;border:1px solid #DDD7E9;border-radius:10px;background:#fff;font-weight:900}.hello-name-card.good{background:#EAF8CE;border-color:#A0C25E}.hello-name-model{margin-top:10px;padding:12px;border-radius:10px;background:#F4F0FF;text-align:center;font-size:20px;font-weight:800}
+.hello-self-checks .lb-check{min-height:44px}.lb-page.is-current{box-shadow:0 0 0 2px #8870ED,0 12px 30px rgba(60,40,120,.08)}
+@media(max-width:899px){
+  .hello-theory-figure,.hello-task-scene{height:auto}.hello-match{gap:7px}.hello-scene-card img{height:auto}
+  .hello-sort-zone{min-height:84px;padding:9px 44px 9px 9px}.hello-function-zones{grid-template-columns:1fr}.hello-speak-model{font-size:29px}
+  .scene-option{grid-template-columns:96px 1fr}.scene-option img{width:96px;height:82px}.hello-book-scenes{grid-template-columns:1fr}.hello-book-main-scene,.hello-book-mini-scene{height:auto}
+  .lb-spread{grid-template-columns:1fr!important}.lb-page:not(.is-current){display:none}.hello-book-dialogue-line.speaker-b{padding-left:10px}
+  [data-scene="meeting"] img{object-position:48% 48%}[data-scene="morning"] img{object-position:50% 50%}
+  [data-scene="farewell"] img{object-position:46% 52%}[data-scene="meeting-alt"] img{object-position:50% 46%}
+  [data-scene="name"] img{object-position:50% 49%}
+}
+
+/* Reader mode: the chapter owns the viewport. Global mobile navigation and
+   the floating game assistant never cover learning material. */
+body:has(#s-book:not(.hidden)) nav,body:has(#s-chapter:not(.hidden)) nav,
+body:has(#s-book:not(.hidden)) #luma-root,body:has(#s-chapter:not(.hidden)) #luma-root{display:none!important}
+body:has(#s-book:not(.hidden)) .wrap,body:has(#s-chapter:not(.hidden)) .wrap{padding-bottom:32px}
+#s-chapter>.back{display:none}
+@media(max-width:899px){
+  body:has(#s-chapter:not(.hidden)) .top{display:none!important}
+  body:has(#s-chapter:not(.hidden)) .wrap{padding-top:12px}
+}
 </style>
 </head>
 <body>
@@ -3688,7 +3771,43 @@ body.lesson-mode .lesson-result-card>.lesson-result-repeat{height:44px;margin-to
 <script>
 
 /* ===================== ОЗВУЧКА ===================== */
-const AUDIO={};
+const HELLO_AUDIO_BASE="assets/audio/hello/";
+const HELLO_AUDIO_KEYS=Object.freeze({
+  "Hello!":"hello","Hi!":"hi","Good morning!":"good-morning",
+  "Goodbye!":"goodbye","Bye!":"bye","See you!":"see-you",
+  "What's your name?":"whats-your-name","My name is Mia.":"my-name-is-mia",
+  "My name is Ben.":"my-name-is-ben","I'm Mia.":"im-mia","I'm Ben.":"im-ben",
+  "Nice to meet you.":"nice-to-meet-you"
+});
+function canonicalSpeechText(text){
+  const plain=String(text||"").replace(/^\s*[AB]:\s*/,"").replace(/\u2019/g,"'").trim();
+  if(HELLO_AUDIO_KEYS[plain])return plain;
+  const punct=/[.!?]$/.test(plain)?plain:plain+(/[?]$/.test(plain)?"":"!");
+  return HELLO_AUDIO_KEYS[punct]?punct:plain;
+}
+function helloAudioSrc(text,voice){
+  const key=HELLO_AUDIO_KEYS[canonicalSpeechText(text)];
+  return key?HELLO_AUDIO_BASE+key+"-"+(voice==="b"?"b":"a")+".mp3":null;
+}
+const AUDIO=Object.freeze(Object.fromEntries(Object.keys(HELLO_AUDIO_KEYS)
+  .map(text=>[text,helloAudioSrc(text,"a")])));
+let HELLO_AUDIO_ACTIVE=null;
+function playHelloAudio(text,voice,btn,onEnd){
+  const src=helloAudioSrc(text,voice);
+  if(!src){say(text,btn);if(onEnd)setTimeout(onEnd,900);return;}
+  try{if(HELLO_AUDIO_ACTIVE)HELLO_AUDIO_ACTIVE.pause();}catch(e){}
+  const a=new Audio(src);HELLO_AUDIO_ACTIVE=a;
+  if(btn)btn.classList.add("playing");
+  const done=()=>{if(btn)btn.classList.remove("playing");if(HELLO_AUDIO_ACTIVE===a)HELLO_AUDIO_ACTIVE=null;if(onEnd)onEnd()};
+  a.onended=done;a.onerror=done;a.play().catch(done);
+}
+function playHelloSequence(items,btn){
+  const queue=(items||[]).slice();
+  if(btn)btn.classList.add("playing");
+  const next=()=>{const item=queue.shift();if(!item){if(btn)btn.classList.remove("playing");return;}
+    playHelloAudio(item.text||item,item.voice||"a",btn,()=>setTimeout(next,260));};
+  next();
+}
 const TTS={ok:("speechSynthesis" in window),voice:null,unlocked:false};
 function loadVoices(){if(!TTS.ok)return;const a=speechSynthesis.getVoices();if(!a.length)return;
   const en=a.filter(v=>/^en/i.test(v.lang));
@@ -3921,6 +4040,43 @@ function hearBtn(chunks,label,onPlay){
 function spk(w){const b=document.createElement("button");b.className="spk";b.type="button";
   b.setAttribute("aria-label","Послушать "+w);b.textContent="🔊";
   b.onclick=e=>{e.stopPropagation();say(w,b)};return b;}
+function helloSpk(text,voice){
+  const b=document.createElement("button");b.className="spk speech-card-audio";b.type="button";
+  b.setAttribute("aria-label","Послушать: "+text);b.textContent="🔊";
+  b.onclick=e=>{e.stopPropagation();playHelloAudio(text,voice||"a",b)};return b;
+}
+function speechCard(text,voice,compact){
+  const d=document.createElement("div");d.className="speech-card"+(compact?" compact":"");
+  const line=document.createElement("span");line.className="speech-card-text";line.textContent=text;d.appendChild(line);
+  d.appendChild(helloSpk(text,voice));return d;
+}
+function helloSceneKey(src){
+  const value=String(src||"");
+  if(value.includes("morning"))return "morning";
+  if(value.includes("goodbye"))return "farewell";
+  if(value.includes("how-are-you"))return "meeting-alt";
+  if(value.includes("name"))return "name";
+  return "meeting";
+}
+function selectableSpeechCard(text,voice,compact,label){
+  const d=document.createElement("div");d.className="speech-card selectable"+(compact?" compact":"");
+  const choose=document.createElement("button");choose.type="button";choose.className="speech-card-choice";
+  choose.setAttribute("aria-label",label||("Выбрать ответ: "+text));
+  const line=document.createElement("span");line.className="speech-card-text";line.textContent=text;choose.appendChild(line);
+  d.appendChild(choose);d.appendChild(helloSpk(text,voice));d._choose=choose;return d;
+}
+function helloDialogue(lines,cls){
+  const host=document.createElement("div");host.className=cls||"hello-dialogue";
+  const people=document.createElement("div");people.className="hello-dialogue-people";
+  [["A","a","Ben"],["B","b","Mia"]].forEach(([label,voice,name])=>{
+    const p=document.createElement("div");p.className="hello-person speaker-"+voice;
+    p.innerHTML=`<span>${label}</span><b>${name}</b>`;people.appendChild(p);});host.appendChild(people);
+  const bubbles=document.createElement("div");bubbles.className="hello-dialogue-lines";
+  lines.forEach(line=>{const row=document.createElement("div");row.className="hello-dialogue-line speaker-"+(line.voice||"a");
+    const who=document.createElement("span");who.className="hello-speaker-marker";who.textContent=line.speaker||"A";
+    row.appendChild(who);row.appendChild(speechCard(line.text,line.voice,true));bubbles.appendChild(row);});
+  host.appendChild(bubbles);return host;
+}
 
 /* ===================== ПРОФИЛИ ===================== */
 let USERS=[],UID=null;
@@ -4018,7 +4174,7 @@ function confetti(anchor){
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition||null;
 /* распознавание речи работает только на защищённом соединении.
    Файл, открытый с диска, и встроенные браузеры микрофон не дают. */
-const APP_VERSION="1.57.0";
+const APP_VERSION="1.57.0-hello-v2.1-pilot";
 const SECURE=(location.protocol==="https:"||location.hostname==="localhost"
   ||location.hostname==="127.0.0.1"||location.protocol==="capacitor:");
 const MIC_OK=!!SR&&SECURE;
@@ -5994,25 +6150,44 @@ const BOOK={2:[
     tip:"Поставь палец перед губами. Если язык его касается — ты произносишь правильно."}
   ]},
 
- {id:"b3",title:"Знакомство",sub:"Глава 3",
-  about:"Как поздороваться, назвать своё имя и не сделать три самые частые ошибки.",
+ {id:"b3",title:"Hello! Meet Me",sub:"Глава 3",
+  about:"Четыре страницы: встреча, прощание, вопрос об имени и знакомство.",
   pages:[
-   {h:"Привет и здравствуйте",img:"bk_hello",cap:"Одно слово для друзей, другое для взрослых.",
-    text:"По-английски здороваются двумя словами. <b>Hi</b> — короткое и своё, для друзей и одноклассников. <b>Hello</b> — спокойное и вежливое, подходит всем: учителю, соседу, директору. Ошибиться легко, а звучит заметно.",
-    words:[["hello","здравствуйте"],["hi","привет"],["goodbye","до свидания"],["bye","пока"]],
-    tip:"Не знаешь, что выбрать, — говори <b>hello</b>. Оно подходит всегда."},
-   {h:"Как назвать своё имя",
-    text:"Своё имя называют так: <b>My name is Anna</b>. Или короче: <b>I'm Anna</b>. Обрати внимание на маленькое слово <b>is</b>. По-русски мы говорим «Меня зовут Анна» без всякого глагола. По-английски без <b>is</b> предложение рассыпается.",
-    words:[["My name is Anna.","Меня зовут Анна."],["I'm Tom.","Я Том."],["What's your name?","Как тебя зовут?"]],
-    tip:"Слово <b>I</b> — «я» — всегда пишется с большой буквы. Даже в середине предложения."},
-   {h:"Как дела?",img:"bk_hello",cap:"Вопрос, на который отвечают одинаково.",
-    text:"Англичане часто спрашивают <b>How are you?</b> Но это не настоящий вопрос о здоровье. Это просто часть приветствия. Отвечают коротко: <b>I'm fine, thanks</b> — и тут же спрашивают в ответ: <b>And you?</b> Рассказывать, что болит голова, тут не нужно.",
-    words:[["How are you?","Как дела?"],["I'm fine, thanks.","Хорошо, спасибо."],["And you?","А ты?"]],
-    tip:"Ответил — верни вопрос. Это считается вежливым."},
-   {h:"Good morning",
-    text:"В основном Hello уже встречается знакомое приветствие <b>good morning</b>. Его достаточно узнать и использовать как готовую фразу вместе с остальным материалом основной темы.",
-    words:[["good morning","доброе утро"]],
-    tip:"Углублённые приветствия по времени суток остаются в отдельном Hello ADV и здесь не изучаются."}
+   {kind:"lemmaBook",spread:1,h:"Hello",kicker:"Страница 1 · Look and point · Listen and say",
+    scene:"assets/topics/hello/hello-greeting-v1.webp",sceneAlt:"Два ребёнка встретились и приветственно машут",
+    miniScene:"assets/topics/hello/hello-morning-arrival-worksheet-v1.webp",miniAlt:"Дети с рюкзаками встречаются у класса в начале дня",
+    lead:"Посмотри: герои встретились. Утром для такой встречи есть отдельная готовая реплика.",
+    models:[["Hello!","встреча"],["Hi!","встреча"],["Good morning!","утренняя встреча"]],
+    activities:[
+     {type:"helloListen",title:"Listen and say",text:"Послушай каждую реплику и повтори.",items:["Hello!","Hi!","Good morning!"]},
+     {type:"helloScenePhrase",title:"Scene → phrase",text:"Выбери реплику для утренней сцены.",items:["Hello!","Good morning!","Goodbye!"],answer:"Good morning!"}
+    ],note:"Английские реплики можно слушать. Самостоятельное чтение пока не проверяется."},
+   {kind:"lemmaBook",spread:1,h:"Goodbye",kicker:"Страница 2 · Find · Match · Listen",
+    scene:"assets/topics/hello/hello-goodbye-v1.webp",sceneAlt:"Один ребёнок уходит, второй машет вслед",
+    lead:"Встреча заканчивается: один герой уходит, второй машет ему вслед.",
+    models:[["Goodbye!","прощание"],["Bye!","прощание"],["See you!","прощание"]],
+    activities:[
+     {type:"helloListen",title:"Listen and choose",text:"Послушай реплики прощания.",items:["Goodbye!","Bye!","See you!"]},
+     {type:"helloScenePhrase",title:"Кто уходит?",text:"Выбери реплику для этой сцены.",items:["See you!","Hello!","Good morning!"],answer:"See you!"}
+    ],note:"Главная подсказка сцены — герой явно удаляется от собеседника."},
+   {kind:"lemmaBook",spread:2,h:"What's your name?",kicker:"Страница 3 · Dialogue · Match · Name card",
+    scene:"assets/topics/hello/hello-name-v1.webp",sceneAlt:"Дети знакомятся, рядом лежат карточки имён",
+    lead:"Один ребёнок спрашивает имя, другой выбирает готовую карточку ответа.",
+    dialogue:[{speaker:"A",voice:"a",text:"Hello!"},{speaker:"A",voice:"a",text:"What's your name?"},{speaker:"B",voice:"b",text:"My name is Mia."}],
+    models:[["What's your name?","вопрос"],["My name is Mia.","ответ"],["I'm Mia.","короткий ответ"]],
+    activities:[
+     {type:"helloListen",title:"Кто спрашивает?",text:"Послушай вопрос и два готовых ответа.",items:["What's your name?","My name is Mia.","I'm Mia."]},
+     {type:"helloScenePhrase",title:"Question → answer",text:"Выбери готовый ответ на вопрос What's your name?",items:["My name is Mia.","Goodbye!","Good morning!"],answer:"My name is Mia."},
+     {type:"helloNameCard",title:"Карточка имени",text:"Выбери готовую карточку и подставь её в модель I'm...",items:["Mia","Ben"]}
+    ]},
+   {kind:"lemmaBook",spread:2,h:"Nice to meet you",kicker:"Страница 4 · Dialogue · I can",
+    scene:"assets/topics/hello/hello-how-are-you-v1.webp",sceneAlt:"Дети познакомились и дружелюбно реагируют",
+    lead:"Послушай короткий разговор знакомства целиком.",
+    dialogue:[{speaker:"A",voice:"a",text:"Hello!"},{speaker:"A",voice:"a",text:"What's your name?"},{speaker:"B",voice:"b",text:"I'm Mia."},{speaker:"A",voice:"a",text:"Nice to meet you."}],
+    activities:[
+     {type:"helloDialogue",title:"Listen to the dialogue",text:"Каждую реплику можно послушать отдельно."},
+     {type:"helloSelf",title:"Теперь ты умеешь",text:"Отметь, что у тебя уже получается.",items:["поздороваться","попрощаться","спросить имя","назвать своё имя"]}
+    ],note:"Самооценка не начисляет баллы и не считается проверяемым заданием."}
   ]},
 
 
@@ -6625,6 +6800,171 @@ LESSONS.hello_check={
      opts:[{txt:"Fine, thanks",ok:1},{txt:"Goodbye"}]},
     {t:"tf",area:"l2",q:"«Hello» и «What is your name?» значат одно и то же.",
      answer:false,why:"Hello — это приветствие, а «What is your name?» — вопрос об имени. Разные фразы для разных целей."}
+  ]
+};
+function migrateHelloV21LegacyProgress(){
+  const old=PROG.hello;
+  if(!old||old.done!==true||PROG.hello_l1||PROG.hello_l2||PROG.hello_check)return;
+  const ratio=(old.total||0)>0?Math.max(0,Math.min(1,(old.stars||0)/old.total)):1;
+  PROG.hello_l1={done:true,stars:Math.min(6,Math.round(6*ratio)),total:6,words:6,coins:0,
+    speakDone:true,speakTotal:1,tDone:true,tSeen:3,tTotal:3,legacyMigrated:true};
+  PROG.hello_l2={done:true,stars:Math.min(6,Math.round(6*ratio)),total:6,words:4,coins:0,
+    speakDone:true,speakTotal:1,tDone:true,tSeen:3,tTotal:3,legacyMigrated:true};
+  PROG.hello_check={done:true,stars:Math.min(8,Math.round(8*ratio)),total:8,legacyMigrated:true};
+  saveAll();
+}
+migrateHelloV21LegacyProgress();
+
+/* ========================================================================
+   HELLO! MEET ME · EDU REBUILD v2.1
+   Runtime source of truth for the pilot. The stable stage ids are preserved
+   so existing PROG/locks/reward history continue to work without migration.
+   ======================================================================== */
+const HELLO_SCENES=Object.freeze({
+  meeting:"assets/topics/hello/hello-greeting-v1.webp",
+  morning:"assets/topics/hello/hello-morning-arrival-worksheet-v1.webp",
+  farewell:"assets/topics/hello/hello-goodbye-v1.webp",
+  meetingAlt:"assets/topics/hello/hello-how-are-you-v1.webp",
+  name:"assets/topics/hello/hello-name-v1.webp"
+});
+const HELLO_V21_THEORY_L1=[
+  {kind:"Встреча",head:"Встретились — поздоровайся!",scene:HELLO_SCENES.meeting,
+   sceneAlt:"Два ребёнка встретились, смотрят друг на друга и приветственно машут",
+   body:"<p>Когда люди встречаются, они здороваются.</p><p>Послушай.<br>Посмотри на героев.<br>Повтори.</p>",
+   speech:["Hello!","Hi!"],audio:[{text:"Hello!",voice:"a"},{text:"Hi!",voice:"b"},{text:"Hello!",voice:"a"},{text:"Hi!",voice:"b"}]},
+  {kind:"Утро",head:"Утром можно сказать Good morning!",scene:HELLO_SCENES.morning,
+   sceneAlt:"Утренняя встреча детей в школе",
+   body:"<p>Утро.</p><p>Ты встретил человека.</p><p>Послушай и повтори.</p>",
+   speech:["Good morning!"],audio:[{text:"Good morning!",voice:"a"},{text:"Good morning!",voice:"b"}]},
+  {kind:"Прощание",head:"Пора идти — попрощайся!",scene:HELLO_SCENES.farewell,
+   sceneAlt:"Один ребёнок уходит, второй машет ему вслед",
+   body:"<p>Когда встреча заканчивается, можно сказать:</p><p>Послушай.<br>Посмотри, кто уходит.<br>Повтори.</p>",
+   speech:["Goodbye!","Bye!","See you!"],audio:[{text:"Goodbye!",voice:"a"},{text:"Bye!",voice:"b"},{text:"See you!",voice:"a"}]}
+];
+const HELLO_V21_TASKS_L1=[
+  {t:"choice",q:"Они встретились. Что сказать?",scene:HELLO_SCENES.meeting,
+   sceneAlt:"Два ребёнка подходят друг к другу и приветственно машут",supportAudio:true,
+   opts:[{txt:"Hello!",ok:1},{txt:"Goodbye!"},{txt:"See you!"}],
+   correct:"Да! Они встретились — Hello!",incorrect:"Посмотри: они только встретились."},
+  {t:"choice",q:"Сейчас утро. Что сказать?",scene:HELLO_SCENES.morning,
+   sceneAlt:"Утренняя встреча двух персонажей",supportAudio:true,
+   opts:[{txt:"Good morning!",ok:1},{txt:"Bye!"},{txt:"Goodbye!"}],
+   correct:"Верно — Good morning!",incorrect:"Посмотри: сейчас утро и герои встретились."},
+  {t:"sceneMatch",q:"Соедини сцену и реплику.",supportAudio:true,
+   pairs:[
+    {key:"meet",scene:HELLO_SCENES.meeting,alt:"Герои встретились",phrase:"Hi!"},
+    {key:"leave",scene:HELLO_SCENES.farewell,alt:"Один герой уходит, второй машет вслед",phrase:"Bye!"}
+   ],correct:"Готово! Hi — при встрече, Bye — при прощании.",
+   incorrect:"Неправильная пара возвращается.",hint:"Посмотри ещё раз: герой приходит к собеседнику или уходит от него?"},
+  {t:"sceneSort",q:"Кто встречается, а кто прощается?",supportAudio:true,
+   cards:[
+    {key:"meet-1",scene:HELLO_SCENES.meeting,alt:"Дети идут навстречу",zone:"meet"},
+    {key:"meet-2",scene:HELLO_SCENES.meetingAlt,alt:"Дети остановились друг перед другом",zone:"meet"},
+    {key:"bye-1",scene:HELLO_SCENES.farewell,alt:"Один ребёнок удаляется",zone:"bye"},
+    {key:"bye-2",scene:HELLO_SCENES.farewell,alt:"Дети расходятся, один машет",zone:"bye",flip:true}
+   ],zones:[{key:"meet",title:"Встреча",speech:"Hello! / Hi!"},{key:"bye",title:"Прощание",speech:"Goodbye! / Bye! / See you!"}],
+   correct:"Отлично! Ты различаешь встречу и прощание.",incorrect:"Сценка возвращается.",
+   hint:"Посмотри: встреча начинается или заканчивается?"},
+  {t:"listen",q:"Послушай. Какая сцена подходит?",play:"See you!",
+   opts:[
+    {scene:HELLO_SCENES.meeting,alt:"Два героя встречаются"},
+    {scene:HELLO_SCENES.farewell,alt:"Один герой уходит, второй машет вслед",ok:1},
+    {scene:HELLO_SCENES.name,alt:"Ребёнок занимается знакомым делом"}
+   ],correct:"Да! See you — герои прощаются.",incorrect:"Послушай ещё раз и посмотри, кто уходит."},
+  {t:"choice",q:"Выбери реплику для конца встречи.",scene:HELLO_SCENES.farewell,
+   sceneAlt:"Один герой разворачивается и уходит, второй машет",supportAudio:true,
+   opts:[{txt:"Hello!"},{txt:"Good morning!"},{txt:"See you!",ok:1}],
+   correct:"Да — See you!",incorrect:"Встреча уже закончилась. Какая реплика подходит для прощания?"},
+  {t:"helloSpeak",q:"Послушай и повтори: Hello!",model:"Hello!",prompt:"Hello!",
+   feedback:"Ты потренировался говорить Hello!",scored:false}
+];
+
+const HELLO_V21_THEORY_L2=[
+  {kind:"Вопрос об имени",head:"Как тебя зовут?",scene:HELLO_SCENES.name,
+   sceneAlt:"Два ребёнка впервые знакомятся",
+   body:"<p>Ты встретил нового человека.</p><p>Можно спросить:</p><p>Послушай.</p>",
+   speech:["What's your name?"],dialogue:[
+    {speaker:"A",voice:"a",text:"Hello!"},{speaker:"B",voice:"b",text:"Hello!"},{speaker:"A",voice:"a",text:"What's your name?"}]},
+  {kind:"Ответ",head:"Скажи своё имя",scene:HELLO_SCENES.name,
+   sceneAlt:"Mia показывает карточку имени",
+   body:"<p>На вопрос <b>What's your name?</b> можно ответить двумя способами.</p><p>Оба варианта подходят.</p>",
+   speech:["What's your name?","My name is Mia.","I'm Mia."],audio:[
+    {text:"What's your name?",voice:"a"},{text:"My name is Mia.",voice:"b"},{text:"I'm Mia.",voice:"b"}]},
+  {kind:"Знакомство",head:"Приятно познакомиться!",scene:HELLO_SCENES.meetingAlt,
+   sceneAlt:"Два героя познакомились и дружелюбно реагируют",
+   body:"<p>После знакомства можно сказать:</p><p>Послушай короткий разговор.</p>",
+   speech:["Nice to meet you."],dialogue:[
+    {speaker:"A",voice:"a",text:"Hello!"},{speaker:"A",voice:"a",text:"What's your name?"},
+    {speaker:"B",voice:"b",text:"I'm Mia."},{speaker:"A",voice:"a",text:"Nice to meet you."}]}
+];
+const HELLO_V21_TASKS_L2=[
+  {t:"choice",q:"Ты хочешь узнать имя. Что спросить?",scene:HELLO_SCENES.name,
+   sceneAlt:"Новый ребёнок и карточка имени",supportAudio:true,
+   opts:[{txt:"What's your name?",ok:1},{txt:"Goodbye!"},{txt:"Good morning!"}],
+   correct:"Верно! What's your name? — вопрос об имени.",incorrect:"Нужно спросить имя. Выбери вопрос."},
+  {t:"match",q:"Соедини вопрос и ответ.",supportAudio:true,
+   pairs:[["What's your name?","My name is Mia."],["Hello!","Hi!"]],
+   correct:"Получились знакомые части разговора.",incorrect:"Неправильная пара возвращается."},
+  {t:"choice",q:"Выбери ответ.",scene:HELLO_SCENES.name,
+   sceneAlt:"Ben спрашивает имя, у Mia готовая карточка имени",supportAudio:true,
+   opts:[{txt:"I'm Mia.",ok:1},{txt:"See you!"},{txt:"Good morning!"}],
+   correct:"Да! I'm Mia.",incorrect:"Посмотри на карточку имени. Нужно представиться."},
+  {t:"dialogueOrder",q:"Собери знакомство. Кто что говорит?",supportAudio:true,
+   lines:[
+    {speaker:"A",voice:"a",text:"Hello!"},{speaker:"A",voice:"a",text:"What's your name?"},
+    {speaker:"B",voice:"b",text:"I'm Mia."},{speaker:"A",voice:"a",text:"Nice to meet you."}
+   ],correct:"Получился короткий диалог знакомства!",incorrect:"Посмотри, кто спрашивает имя, а кто отвечает."},
+  {t:"listen",q:"Послушай. Какой ответ подходит?",play:"What's your name?",supportAudio:true,
+   opts:[{txt:"My name is Mia.",ok:1},{txt:"Bye!"},{txt:"See you!"}],
+   correct:"Да! Это ответ на вопрос об имени.",incorrect:"Послушай ещё раз: человек спрашивает имя."},
+  {t:"functionSort",q:"Куда подходит реплика?",supportAudio:true,
+   items:[
+    {text:"Hello!",zone:"start",voice:"a"},{text:"What's your name?",zone:"ask",voice:"a"},
+    {text:"I'm Ben.",zone:"name",voice:"b"},{text:"Goodbye!",zone:"finish",voice:"b"}
+   ],zones:[
+    {key:"start",title:"Начать знакомство."},{key:"ask",title:"Спросить имя."},
+    {key:"name",title:"Назвать имя."},{key:"finish",title:"Закончить встречу."}
+   ],correct:"Все реплики на своих местах.",incorrect:"Реплика возвращается. Посмотри на функцию каждой фразы."},
+  {t:"helloSpeak",q:"Послушай и представься по модели.",model:"I'm Mia.",prompt:"I'm...",
+   feedback:"Ты потренировался представляться по-английски.",scored:false}
+];
+
+Object.assign(LESSONS.hello,{
+  name:"Hello! Meet Me",sub:"Знакомство",desc:"Поздоровайся, попрощайся, спроси имя и представься по готовой модели.",
+  intro:"Первый разговор по-английски начинается со встречи. Здесь английские реплики можно слушать и узнавать по ситуации — самостоятельное чтение ещё не проверяется.",
+  words:["Hello.","Hi.","Good morning.","Goodbye.","Bye.","See you.","What's your name?","My name is...","I'm...","Nice to meet you."],
+  theory:[...HELLO_V21_THEORY_L1,...HELLO_V21_THEORY_L2],tasks:[...HELLO_V21_TASKS_L1,...HELLO_V21_TASKS_L2],adv:null
+});
+Object.assign(LESSONS.hello_l1,{
+  name:"Hello & Goodbye",sub:"Встреча, утро и прощание",words:["Hello.","Hi.","Good morning.","Goodbye.","Bye.","See you."],
+  theory:HELLO_V21_THEORY_L1,tasks:HELLO_V21_TASKS_L1,helloV21:true,scoredTotal:6,speakTotal:1
+});
+Object.assign(LESSONS.hello_l2,{
+  name:"Meet Me",sub:"Имя и знакомство",words:["What's your name?","My name is...","I'm...","Nice to meet you."],
+  theory:HELLO_V21_THEORY_L2,tasks:HELLO_V21_TASKS_L2,helloV21:true,scoredTotal:6,speakTotal:1
+});
+LESSONS.hello_check={
+  id:"hello_check",no:LESSONS.hello.no+" · Проверка темы",name:"Проверка Hello! Meet Me",
+  sub:"8 самостоятельных вопросов",words:[],print:null,parent:"hello",isCheck:true,helloV21:true,
+  areaNames:{l1:"Встреча и прощание",l2:"Знакомство и имя"},theory:[],tasks:[
+   {t:"choice",area:"l1",q:"Что подходит к этой встрече?",scene:HELLO_SCENES.meeting,supportAudio:true,
+    opts:[{txt:"Hi!",ok:1},{txt:"Goodbye!"},{txt:"See you!"}]},
+   {t:"choice",area:"l1",q:"Сейчас утро. Что сказать?",scene:HELLO_SCENES.morning,supportAudio:true,
+    opts:[{txt:"Good morning!",ok:1},{txt:"Bye!"},{txt:"Goodbye!"}]},
+   {t:"sceneMatch",area:"l1",q:"Соедини сцену и реплику.",supportAudio:true,pairs:[
+    {key:"meet",scene:HELLO_SCENES.meeting,alt:"Сцена встречи",phrase:"Hello!"},
+    {key:"leave",scene:HELLO_SCENES.farewell,alt:"Сцена прощания",phrase:"Goodbye!"}]},
+   {t:"choice",area:"l1",q:"Что сказать в этой ситуации?",scene:HELLO_SCENES.farewell,supportAudio:true,
+    opts:[{txt:"See you!",ok:1},{txt:"Hello!"},{txt:"Good morning!"}]},
+   {t:"choice",area:"l2",q:"Как узнать имя нового ребёнка?",scene:HELLO_SCENES.name,supportAudio:true,
+    opts:[{txt:"What's your name?",ok:1},{txt:"Goodbye!"},{txt:"Hi!"}]},
+   {t:"listen",area:"l2",q:"Послушай. Какой ответ подходит?",play:"What's your name?",scene:HELLO_SCENES.name,supportAudio:true,
+    opts:[{txt:"My name is Mia.",ok:1},{txt:"Bye!"},{txt:"Good morning!"}]},
+   {t:"dialogueOrder",area:"l2",q:"Расставь реплики знакомства по порядку.",supportAudio:true,lines:[
+    {speaker:"A",voice:"a",text:"Hello!"},{speaker:"A",voice:"a",text:"What's your name?"},
+    {speaker:"B",voice:"b",text:"I'm Mia."},{speaker:"A",voice:"a",text:"Nice to meet you."}]},
+   {t:"choice",area:"l2",q:"Дети уже назвали имена. Что сказать?",scene:HELLO_SCENES.meetingAlt,supportAudio:true,
+    opts:[{txt:"Nice to meet you.",ok:1},{txt:"Goodbye!"},{txt:"Good morning!"}]}
   ]
 };
 
@@ -7273,6 +7613,11 @@ function renderLemmaActivity(a){
   else if(a.type==='match')body=`<div class="lb-match">${a.pairs.map(x=>`<div class="lb-match-row"><b>${bookPresentationText(x[0])}</b><span>↔</span><span>${bookPresentationText(x[1])}</span></div>`).join('')}</div>`;
   else if(a.type==='build')body=`<div class="lb-build"><strong>${bookPresentationText(a.before)}</strong><div class="lb-tokens">${a.tokens.map(x=>`<button type="button" class="lb-token" onclick="bookChoice(this,${x===a.answer?1:0})">${bookPresentationText(x)}</button>`).join('')}</div></div>`;
   else if(a.type==='checklist')body=`<div class="lb-checks">${a.items.map(x=>`<label class="lb-check"><input type="checkbox"><span>${bookPresentationText(x)}</span></label>`).join('')}</div>`;
+  else if(a.type==='helloListen')body=`<div class="hello-book-listen">${a.items.map((x,i)=>`<div class="speech-card compact"><span class="speech-card-text">${escHtml(x)}</span><button type="button" class="spk hello-book-audio" data-audio-text="${escHtml(x)}" data-voice="${i%2?'b':'a'}" aria-label="Послушать ${escHtml(x)}">🔊</button></div>`).join('')}</div>`;
+  else if(a.type==='helloScenePhrase')body=`<div class="lb-buttons hello-book-choice">${a.items.map(x=>`<button type="button" class="lb-btn" data-hello-answer="${x===a.answer?'1':'0'}">${escHtml(x)}<span class="hello-book-audio" data-audio-text="${escHtml(x)}" data-voice="a" role="button" aria-label="Послушать ${escHtml(x)}">🔊</span></button>`).join('')}</div>`;
+  else if(a.type==='helloNameCard')body=`<div class="hello-name-cards">${a.items.map(x=>`<button type="button" class="hello-name-card" data-name="${escHtml(x)}">${escHtml(x)}</button>`).join('')}</div><div class="hello-name-model">I'm <b>...</b></div>`;
+  else if(a.type==='helloDialogue')body='<div class="hello-book-dialogue-note">Нажми на динамик рядом с каждой репликой.</div>';
+  else if(a.type==='helloSelf')body=`<div class="lb-checks hello-self-checks">${a.items.map(x=>`<label class="lb-check"><input type="checkbox"><span>${escHtml(x)}</span></label>`).join('')}</div>`;
   return `<section class="lb-activity"><h4>${bookPresentationText(a.title)}</h4>${a.text?`<p>${bookPresentationText(a.text,true)}</p>`:''}${body}<div class="lb-feedback"></div></section>`;
 }
 
@@ -7325,14 +7670,24 @@ function didacticVisualHtml(value){
   return tokens.length?`<div class="didactic-visual">${tokens.map(x=>`<span class="didactic-token">${escHtml(x)}</span>`).join("")}</div>`:"";
 }
 function renderLemmaPage(p,abs,current){
-  const art=p.photo?`<div class="lb-photo family-book-photo"><img src="assets/topics/home/family-mission-v2.webp" alt="Семья вместе рассматривает семейный альбом" loading="eager" decoding="async"></div>`:(p.img&&ART[p.img]?`<div class="lb-art">${resolveArt(ART[p.img])}</div>`:'');
+  const art=p.scene?`<div class="hello-book-scenes"><figure class="hello-book-main-scene scene-wide" data-scene="${helloSceneKey(p.scene)}"><img src="${p.scene}" alt="${escHtml(p.sceneAlt||'')}" loading="eager" decoding="async"></figure>${p.miniScene?`<figure class="hello-book-mini-scene scene-card" data-scene="${helloSceneKey(p.miniScene)}"><img src="${p.miniScene}" alt="${escHtml(p.miniAlt||'')}" loading="eager" decoding="async"></figure>`:''}</div>`:
+    p.photo?`<div class="lb-photo family-book-photo"><img src="assets/topics/home/family-mission-v2.webp" alt="Семья вместе рассматривает семейный альбом" loading="eager" decoding="async"></div>`:(p.img&&ART[p.img]?`<div class="lb-art">${resolveArt(ART[p.img])}</div>`:'');
   const vocab=p.vocab?`<div class="lb-vocab">${p.vocab.map(x=>`<button type="button" class="lb-word" onclick='say(${JSON.stringify(x[0])},this)'><span class="didactic-badge">${escHtml(didacticMark(x[2],x[0]))}</span><span><b>${x[0]}</b><small>${x[1]}</small></span></button>`).join('')}</div>`:'';
   const colours=p.colours?`<div class="lb-colours">${p.colours.map(x=>`<button type="button" class="lb-colour" onclick='say(${JSON.stringify(x[0])},this)'><span class="lb-swatch" style="background:${x[2]}"></span><span><b>${x[0]}</b><small>${x[1]}</small></span></button>`).join('')}</div>`:'';
   const models=p.models?`<div class="lb-models">${p.models.map(x=>`<div class="lb-model"><b>${x[0]}</b><small>${x[1]}</small></div>`).join('')}</div>`:'';
   const grammar=p.grammar?`<div class="lb-grammar">${p.grammar.map(x=>`<div class="lb-model"><b>${x[0]}</b><small>${x[1]}</small></div>`).join('')}</div>`:'';
   const objects=p.objects?`<div class="lb-objects">${p.objects.map(x=>`<div class="lb-object"><span class="didactic-badge">${escHtml(didacticMark(x[0],x[1]||x[2]))}</span><b>${x[1]||x[2]}</b>${x[2]&&!hasLegacyEmojiGlyph(x[2])?`<small>${x[2]}</small>`:''}</div>`).join('')}</div>`:'';
   const variants=p.variants?`<div class="lb-variants">${p.variants.map(x=>`<div class="lb-variant"><span class="didactic-badge">${escHtml(didacticMark(x[1],x[0]))}</span><b>${x[0]}</b><small>${x[2]}</small></div>`).join('')}</div>`:'';
-  return `<article class="lb-page${current?' is-current':''}" data-book-page="${abs}"><div class="lb-page-head"><div><div class="lb-kicker">${p.kicker||''}</div><h3>${p.h}</h3></div><span class="lb-badge">стр. ${abs}</span></div><p class="lb-lead">${p.lead||''}</p>${art}${vocab}${colours}${models}${grammar}${objects}${variants}<div class="lb-activities">${(p.activities||[]).map(renderLemmaActivity).join('')}</div>${p.note?`<div class="lb-note">${p.note}</div>`:''}</article>`;
+  const dialogue=p.dialogue?`<div class="hello-book-dialogue">${p.dialogue.map(line=>`<div class="hello-book-dialogue-line speaker-${line.voice||'a'}"><span class="hello-speaker-marker">${escHtml(line.speaker)}</span><div class="speech-card compact"><span class="speech-card-text">${escHtml(line.text)}</span><button type="button" class="spk hello-book-audio" data-audio-text="${escHtml(line.text)}" data-voice="${line.voice||'a'}" aria-label="Послушать ${escHtml(line.text)}">🔊</button></div></div>`).join('')}</div>`:'';
+  return `<article class="lb-page${current?' is-current':''}" data-book-page="${abs}"><div class="lb-page-head"><div><div class="lb-kicker">${p.kicker||''}</div><h3>${p.h}</h3></div><span class="lb-badge">стр. ${abs}</span></div><p class="lb-lead">${p.lead||''}</p>${art}${dialogue}${vocab}${colours}${models}${grammar}${objects}${variants}<div class="lb-activities">${(p.activities||[]).map(renderLemmaActivity).join('')}</div>${p.note?`<div class="lb-note">${p.note}</div>`:''}</article>`;
+}
+function wireHelloBook(root){
+  root.querySelectorAll('.hello-book-audio').forEach(btn=>btn.onclick=e=>{e.stopPropagation();playHelloAudio(btn.dataset.audioText,btn.dataset.voice||'a',btn)});
+  root.querySelectorAll('[data-hello-answer]').forEach(btn=>btn.onclick=e=>{if(e.target.closest('.hello-book-audio'))return;
+    const card=btn.closest('.lb-activity');card.querySelectorAll('[data-hello-answer]').forEach(x=>x.classList.remove('good','bad'));
+    const ok=btn.dataset.helloAnswer==='1';btn.classList.add(ok?'good':'bad');card.querySelector('.lb-feedback').textContent=ok?'Подходит к сцене.':'Посмотри на сцену ещё раз.';});
+  root.querySelectorAll('.hello-name-card').forEach(btn=>btn.onclick=()=>{const card=btn.closest('.lb-activity');card.querySelectorAll('.hello-name-card').forEach(x=>x.classList.remove('good'));btn.classList.add('good');
+    card.querySelector('.hello-name-model b').textContent=btn.dataset.name+'.';playHelloAudio("I'm "+btn.dataset.name+'.','b',btn);});
 }
 function renderChapter(){
   const ch=chapterById(chId);if(!ch){go("book");return;}
@@ -7349,6 +7704,7 @@ function renderChapter(){
     const pair=[pairStart,pairStart+1].filter(i=>i<ch.pages.length);
     pg.innerHTML=`<div class="runhead"><span>${ch.sub} · ${ch.title}</span><span>ЛЕММА</span></div><div class="lb-spread">${pair.map(i=>renderLemmaPage(ch.pages[i],pageOffset(list,idx)+i,i===chPage)).join("")}</div>`;
     body.appendChild(pg);
+    wireHelloBook(pg);
   }else{
     pg.innerHTML=`<div class="runhead"><span>${ch.sub} · ${ch.title}</span><span>ЛЕММА</span></div>
       <h3 class="ph">${p.h}</h3>`;
@@ -7476,9 +7832,10 @@ function openTopic(id,noPush){
   const overview=document.querySelector("#s-topic .topic-overview");
   const topicArt=document.getElementById("t-art");
   const familyArt=id==="family";
-  overview.classList.toggle("has-art",familyArt);
-  topicArt.src=familyArt?"assets/topics/family/family-hero-v1.png":"";
-  topicArt.alt=familyArt?"Семья: родители, сын и дочь":"";
+  const helloArt=id==="hello";
+  overview.classList.toggle("has-art",familyArt||helloArt);
+  topicArt.src=familyArt?"assets/topics/family/family-hero-v1.png":helloArt?HELLO_SCENES.meeting:"";
+  topicArt.alt=familyArt?"Семья: родители, сын и дочь":helloArt?"Два ребёнка встречаются и приветствуют друг друга":"";
   document.getElementById("t-no").textContent=L.no;
   document.getElementById("t-name").textContent=L.name;
   document.getElementById("t-sub").textContent=L.sub||"";
@@ -7883,7 +8240,7 @@ function cancelAuto(){
   if(b)b.classList.remove("autonext");
 }
 function wrongHere(){if(!WRONG.includes(step))WRONG.push(step);}
-function resetRun(){score=0;mistakes=0;WRONG=[];streak=0;bestStreak=0;}
+function resetRun(){score=0;mistakes=0;WRONG=[];streak=0;bestStreak=0;speakCompleted=false;}
 
 /* отмечаем, что блок теории открыт и — отдельно — что его слушали */
 function markTheory(idx,heard){
@@ -8052,17 +8409,17 @@ function theoryPage(area){
   if(L.intro){
     const p=document.createElement("p");p.className="tintro";p.innerHTML=L.intro;hd.appendChild(p);}
   const meta=document.createElement("div");meta.className="tmeta";
-  meta.innerHTML=`<span class="pill v">${L.theory.length} блоков</span>
-    <span class="pill t">${(L.words||[]).length} новых слов</span>
-    <span class="pill a">${L.tasks.length} заданий после</span>`;
+  meta.innerHTML=`<span class="pill v">${L.theory.length} блока</span>
+    <span class="pill t">${(L.words||[]).length} новых реплик</span>
+    <span class="pill a">${L.scoredTotal!=null?`${L.scoredTotal} заданий + устная практика`:`${L.tasks.length} заданий после`}</span>`;
   hd.appendChild(meta);
   wrap.appendChild(hd);
 
   const all=[];
   if(L.intro)all.push(L.intro);
   L.theory.forEach(t=>cardChunks(t).forEach(x=>all.push(x)));
-  const hb=hearBtn(all,"🎧 Прослушать всю тему");
-  hb.style.marginTop="18px";wrap.appendChild(hb);
+  if(!L.helloV21){const hb=hearBtn(all,"🎧 Прослушать всю тему");
+    hb.style.marginTop="18px";wrap.appendChild(hb);}
 
   L.theory.forEach((t,i)=>{
     const sec=document.createElement("section");sec.className="tsect";
@@ -8075,6 +8432,24 @@ function theoryPage(area){
     sec.appendChild(n);
 
     const h=document.createElement("h3");h.innerHTML=t.head;sec.appendChild(h);
+
+    if(t.scene){const figure=document.createElement("figure");figure.className="hello-theory-figure scene-wide";figure.dataset.scene=helloSceneKey(t.scene);
+      const img=document.createElement("img");img.src=t.scene;img.alt=t.sceneAlt||"";img.loading="eager";img.decoding="async";
+      figure.appendChild(img);sec.appendChild(figure);}
+
+    if(t.body){const body=document.createElement("div");body.className="hello-theory-copy";
+      body.innerHTML=t.body;sec.appendChild(body);}
+
+    if(t.speech&&t.speech.length){const speech=document.createElement("div");speech.className="hello-theory-speech";
+      t.speech.forEach((line,i)=>speech.appendChild(speechCard(line,(i%2?"b":"a"),false)));
+      sec.appendChild(speech);}
+
+    if(t.dialogue&&t.dialogue.length){sec.appendChild(helloDialogue(t.dialogue,"hello-theory-dialogue"));}
+
+    if((t.audio&&t.audio.length)||(t.dialogue&&t.dialogue.length)){
+      const listen=document.createElement("button");listen.type="button";listen.className="hear hello-local-sequence";
+      listen.textContent=t.dialogue?"Послушать диалог":"Послушать и повторить";
+      listen.onclick=()=>playHelloSequence(t.dialogue||t.audio,listen);sec.appendChild(listen);}
 
     if(t.art&&ART[t.art]){
       const sc=document.createElement("div");sc.className="scene";sc.innerHTML=resolveArt(ART[t.art]);
@@ -8121,8 +8496,8 @@ function theoryPage(area){
         b.textContent=line;b.onclick=()=>say(line);d.appendChild(b);});
       sec.appendChild(d);}
 
-    const bb=hearBtn(cardChunks(t),"🎧 Прослушать этот блок",()=>markTheory(i,true));
-    bb.style.marginTop="18px";sec.appendChild(bb);
+    if(!L.helloV21){const bb=hearBtn(cardChunks(t),"🎧 Прослушать этот блок",()=>markTheory(i,true));
+      bb.style.marginTop="18px";sec.appendChild(bb);}
     wrap.appendChild(sec);});
 
   const rc=document.createElement("div");rc.className="trecap";
@@ -8224,7 +8599,8 @@ function bridge(area){
 
 const KINDS={choice:"Выбор ответа",listen:"На слух",letters:"Сборка слова",match:"Пары",
   order:"Порядок слов",dnd:"Перетаскивание",gap:"Пропущенные буквы",tf:"Верно или нет",
-  speak:"Произношение"};
+  speak:"Произношение",helloSpeak:"Устная тренировка",sceneMatch:"Сопоставление",
+  sceneSort:"Ситуации",dialogueOrder:"Диалог",functionSort:"Реплики"};
 function taskCard(area,t){
   const c=document.createElement("div");c.className="card task-card";
   c.innerHTML=`<div class="kind">Задание ${String(step+1).padStart(2,"0")} · ${KINDS[t.t]}</div>
@@ -8234,13 +8610,17 @@ function taskCard(area,t){
   /* Луми: спокойное присутствие рядом с заданием — объясняет, что делать,
      до того как ребёнок ответил. Меняется в fb() после ответа. */
   try{lumiShow(c,"explanation")}catch(e){}
+  if(t.scene){const figure=document.createElement("figure");figure.className="hello-task-scene scene-card";figure.dataset.scene=helloSceneKey(t.scene);
+    const img=document.createElement("img");img.src=t.scene;img.alt=t.sceneAlt||"Ситуация задания";img.loading="eager";img.decoding="async";
+    figure.appendChild(img);c.insertBefore(figure,c.querySelector(".qrow"));}
   if(t.visual)taskVisual(c,t.visual);
   const hq=document.createElement("button");hq.className="hearq";hq.type="button";
   hq.innerHTML="🎧";hq.setAttribute("aria-label","Прослушать задание");
   hq.onclick=e=>{e.stopPropagation();narrate([t.q],hq,"🎧")};
   c.querySelector(".qrow").appendChild(hq);
   ({choice:bChoice,listen:bListen,letters:bLetters,match:bMatch,order:bOrder,dnd:bDnd,gap:bGap,tf:bTF,
-    speak:bSpeak})[t.t](c,t);
+    speak:bSpeak,helloSpeak:bHelloSpeak,sceneMatch:bSceneMatch,sceneSort:bSceneSort,
+    dialogueOrder:bDialogueOrder,functionSort:bFunctionSort})[t.t](c,t);
   /* Кнопка «Подсказка LUMA» на каждом задании убрана — дублировала кристалл
      и визуально мешала (накладывалась на варианты ответа на коротких
      заданиях). Доступ к LUMA теперь только через сам кристалл в углу
@@ -8300,14 +8680,20 @@ function renderCompoundChoice(c,t,mode){
 function bChoice(c,t){
   if(t.items&&t.items.length){renderCompoundChoice(c,t,"choice");return;}
   const g=document.createElement("div");g.className="opts";let done=false;
-  t.opts.forEach(o=>{const b=document.createElement("button");b.className="opt";
-    b.textContent=o.txt||"";
-    b.onclick=()=>{if(o.txt)say(o.txt);if(done)return;done=true;
-      if(o.ok){b.classList.add("ok");score++;fb(c,true,"Верно.");}
+  t.opts.forEach((o,idx)=>{const b=document.createElement(t.supportAudio?"div":"button");b.className="opt";
+    let chooseButton=b;
+    if(t.supportAudio){b.classList.add("speech-option");chooseButton=document.createElement("button");chooseButton.type="button";chooseButton.className="answer-card-choice";chooseButton.setAttribute("aria-label","Выбрать ответ: "+(o.txt||("вариант "+(idx+1))));b.appendChild(chooseButton);}
+    if(o.scene){b.classList.add("scene-option");const img=document.createElement("img");img.src=o.scene;img.alt=o.alt||"Сцена "+(idx+1);img.loading="eager";b.appendChild(img);
+      const cap=document.createElement("span");cap.className="scene-option-label";cap.textContent=o.alt||"Сцена "+(idx+1);b.appendChild(cap);}
+    else{const label=document.createElement("span");label.className="option-label";label.textContent=o.txt||"";chooseButton.appendChild(label);}
+    if(t.supportAudio&&o.txt)b.appendChild(helloSpk(o.txt,o.voice||"a"));
+    const choose=()=>{if(done)return;done=true;
+      if(o.ok){b.classList.add("ok");score++;fb(c,true,t.correct||"Верно.");}
       else{b.classList.add("no");mistakes++;wrongHere();
         [...g.children].forEach((x,i)=>{if(t.opts[i].ok)x.classList.add("ok")});
-        fb(c,false,"Правильный вариант подсвечен.");}
+        fb(c,false,t.incorrect||"Правильный вариант подсвечен.");}
       head();nextBtn(c);};
+    chooseButton.onclick=choose;
     g.appendChild(b);});
   c.appendChild(g);
 }
@@ -8319,7 +8705,8 @@ function bListen(c,t){
   if(t.items&&t.items.length){renderCompoundChoice(c,t,"listen");return;}
   const p=document.createElement("button");p.className="cta violet full";
   p.textContent="🔊 Послушать ещё раз";p.style.marginBottom="10px";
-  p.onclick=()=>say(t.play,p);c.appendChild(p);
+  const local=helloAudioSrc(t.play,"a");
+  p.onclick=()=>local?playHelloAudio(t.play,"a",p):say(t.play,p);c.appendChild(p);
 
   /* если звука в этом браузере нет, задание должно остаться решаемым */
   const box=document.createElement("div");c.appendChild(box);
@@ -8331,15 +8718,17 @@ function bListen(c,t){
       (ip?` <span style="color:var(--violet-dk)">/${ip}/</span>`:"");
     box.appendChild(d);}
 
-  if(!voicesReady()){
+  if(!local&&!voicesReady()){
     setTimeout(()=>{if(!voicesReady())
       reveal("Звук в этом браузере недоступен, поэтому слово показано:");},900);
-  }else{
+  }else if(!local){
     const h=document.createElement("button");h.className="cta plain";
     h.style.marginBottom="14px";h.textContent="Не слышно? Показать слово";
     h.onclick=()=>{reveal("Слово, которое прозвучало:");h.remove();};
     c.appendChild(h);
     setTimeout(()=>say(t.play),400);
+  }else{
+    setTimeout(()=>playHelloAudio(t.play,"a",p),400);
   }
   bChoice(c,t);
 }
@@ -8393,29 +8782,34 @@ function renderCompoundKeyboard(c,t,mode){
 function bLetters(c,t){if(t.items&&t.items.length){renderCompoundKeyboard(c,t,"letters");return;}const a=t.answer.split("");keyboard(c,t,a,a.map(()=>null),t.answer);}
 function bGap(c,t){if(t.items&&t.items.length){renderCompoundKeyboard(c,t,"gap");return;}const a=t.word.split("");keyboard(c,t,a,a.map((ch,i)=>t.show.includes(i)?ch:null),t.word);}
 function bMatch(c,t){
-  const strict=!!(L&&L.areaNames&&!L.isCheck),st={failed:false,missRecorded:false};
+  const strict=!!((L&&L.areaNames&&!L.isCheck)||t.supportAudio),st={failed:false,missRecorded:false};
   const w=document.createElement("div");w.className="mrows";
   const Lc=document.createElement("div"),R=document.createElement("div");
   Lc.className=R.className="mcol";w.appendChild(Lc);w.appendChild(R);c.appendChild(w);
   let sel=null,ok=0;
   [...t.pairs].sort(()=>Math.random()-.5).forEach(([en])=>{
     const b=document.createElement("div");b.className="mit";
-    b.textContent=hasLegacyEmojiGlyph(en)?didacticTokens(en).join(" · "):en;b.dataset.k=en;
-    b.onclick=()=>{say(en);Lc.querySelectorAll(".mit").forEach(x=>x.classList.remove("sel"));
+    const choose=document.createElement("button");choose.type="button";choose.className="speech-card-choice";choose.setAttribute("aria-label","Выбрать карточку: "+en);
+    const label=document.createElement("span");label.textContent=hasLegacyEmojiGlyph(en)?didacticTokens(en).join(" · "):en;choose.appendChild(label);b.appendChild(choose);
+    if(t.supportAudio)b.appendChild(helloSpk(en,"a"));b.dataset.k=en;
+    choose.onclick=()=>{Lc.querySelectorAll(".mit").forEach(x=>x.classList.remove("sel"));
       b.classList.add("sel");sel=b;};Lc.appendChild(b);});
   [...t.pairs].sort(()=>Math.random()-.5).forEach(([en,ru])=>{
     const b=document.createElement("div");b.className="mit";
-    b.textContent=hasLegacyEmojiGlyph(ru)?didacticTokens(ru).join(" · "):ru;b.dataset.k=en;
-    b.onclick=()=>{if(!sel)return;
+    const choose=document.createElement("button");choose.type="button";choose.className="speech-card-choice";choose.setAttribute("aria-label","Выбрать карточку: "+ru);
+    const label=document.createElement("span");label.textContent=hasLegacyEmojiGlyph(ru)?didacticTokens(ru).join(" · "):ru;choose.appendChild(label);b.appendChild(choose);
+    if(t.supportAudio)b.appendChild(helloSpk(ru,"b"));b.dataset.k=en;
+    choose.onclick=()=>{if(!sel)return;
       if(sel.dataset.k===b.dataset.k){sel.classList.remove("sel");sel.classList.add("ok");
         b.classList.add("ok");sel=null;ok++;
         if(ok===t.pairs.length){
-          if(strict&&st.failed){head();fb(c,false,"Все пары собраны, но в задании была ошибка.");}
-          else{score++;head();fb(c,true,"Все пары собраны.");}
+          if(strict&&st.failed){head();fb(c,false,t.incorrect||"Все пары собраны, но в задании была ошибка.");}
+          else{score++;head();fb(c,true,t.correct||"Все пары собраны.");}
           nextBtn(c);}
       }else{
         if(strict)compoundFail(st);else{mistakes++;wrongHere();}
-        b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),430);}};
+        b.classList.add("shake");setTimeout(()=>b.classList.remove("shake"),430);
+        if(!c.querySelector(".match-hint")&&(t.incorrect||t.hint)){const n=document.createElement("div");n.className="note match-hint";n.textContent=t.incorrect||t.hint;c.appendChild(n);}}};
     R.appendChild(b);});
 }
 function renderCompoundOrder(c,t){
@@ -8573,6 +8967,152 @@ function bDnd(c,t){
   h.textContent="Нажми на слово, потом на картинку — или перетащи пальцем";
   c.appendChild(h);
 }
+function helloTaskFailure(state){
+  state.failed=true;
+  if(!state.recorded){state.recorded=true;mistakes++;wrongHere();head();}
+}
+function helloSceneCard(item,index){
+  const b=document.createElement("button");b.type="button";b.className="hello-scene-card scene-card";b.dataset.key=item.key||String(index);b.dataset.scene=helloSceneKey(item.scene);
+  const img=document.createElement("img");img.src=item.scene;img.alt=item.alt||"Сцена "+(index+1);img.loading="eager";img.draggable=false;
+  if(item.flip)img.classList.add("flip");b.appendChild(img);
+  const label=document.createElement("span");label.textContent=item.alt||"Сцена "+(index+1);b.appendChild(label);return b;
+}
+function bSceneMatch(c,t){
+  const host=document.createElement("div");host.className="hello-match";c.appendChild(host);
+  const scenes=document.createElement("div"),phrases=document.createElement("div");scenes.className="hello-match-scenes";phrases.className="hello-match-phrases";
+  host.appendChild(scenes);host.appendChild(phrases);const state={failed:false,recorded:false};let selected=null,matched=0;
+  [...t.pairs].sort(()=>Math.random()-.5).forEach((item,i)=>{const b=helloSceneCard(item,i);b.dataset.key=item.key;
+    b.onclick=()=>{scenes.querySelectorAll("button").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selected=b;};scenes.appendChild(b);});
+  [...t.pairs].sort(()=>Math.random()-.5).forEach(item=>{const b=selectableSpeechCard(item.phrase,"b",true,"Выбрать реплику: "+item.phrase);b.classList.add("speech-option","hello-match-phrase");b.dataset.key=item.key;
+    const choose=()=>{if(!selected||b.classList.contains("matched"))return;
+      if(selected.dataset.key===b.dataset.key){selected.classList.add("matched");selected.classList.remove("selected");b.classList.add("matched");selected=null;matched++;
+        if(matched===t.pairs.length){if(!state.failed){score++;head();fb(c,true,t.correct||"Все пары собраны.");}
+          else{head();fb(c,false,t.incorrect||"Пары собраны после подсказки.");}nextBtn(c);}}
+      else{helloTaskFailure(state);selected.classList.add("shake");setTimeout(()=>selected&&selected.classList.remove("shake"),350);
+        if(!c.querySelector(".hello-task-hint")){const n=document.createElement("div");n.className="note hello-task-hint";n.textContent=t.hint||t.incorrect||"Попробуй ещё раз.";c.appendChild(n);}}};
+    b._choose.onclick=choose;phrases.appendChild(b);});
+}
+function bSceneSort(c,t){
+  const state={failed:false,recorded:false};let selected=null,placed=0,completed=false;
+  const cards=document.createElement("div");cards.className="hello-sort-cards";c.appendChild(cards);
+  const status=document.createElement("div");status.className="hello-sort-status";status.setAttribute("role","status");status.setAttribute("aria-live","polite");
+  function selectCard(card){
+    if(!card||card.dataset.placed==="1"||completed)return;
+    c.querySelectorAll(".hello-scene-card.selected").forEach(x=>x.classList.remove("selected"));
+    selected=card;card.classList.add("selected");status.textContent="Сценка выбрана. Теперь выбери зону.";
+  }
+  const zones=document.createElement("div");zones.className="hello-sort-zones";c.appendChild(zones);
+  t.zones.forEach(z=>{const zone=document.createElement("div");zone.className="hello-sort-zone";zone.dataset.key=z.key;
+    const chooseZone=document.createElement("button");chooseZone.type="button";chooseZone.className="hello-zone-choice";chooseZone.setAttribute("aria-label","Выбрать зону: "+z.title);
+    const title=document.createElement("b");title.textContent=z.title;chooseZone.appendChild(title);
+    const speech=document.createElement("span");speech.textContent=z.speech;chooseZone.appendChild(speech);zone.appendChild(chooseZone);
+    const audio=document.createElement("button");audio.type="button";audio.className="spk";audio.textContent="🔊";audio.setAttribute("aria-label","Послушать реплики зоны");
+    audio.onclick=e=>{e.stopPropagation();playHelloSequence(z.speech.split(" / ").map((text,i)=>({text,voice:i%2?"b":"a"})),audio)};zone.appendChild(audio);
+    chooseZone.onclick=()=>resolvePlacement(selected,zone,"tap");zones.appendChild(zone);});
+
+  function resolvePlacement(card,zone,inputMode){
+    if(!card||!zone||completed||card.dataset.placed==="1")return false;
+    c.querySelectorAll(".hello-sort-zone.drag-over").forEach(x=>x.classList.remove("drag-over"));
+    card.classList.remove("selected","dragging");
+    selected=null;
+    if(card.dataset.zone!==zone.dataset.key){
+      helloTaskFailure(state);card.classList.add("shake","returning");
+      status.textContent="Пока не подходит. Сценка вернулась на исходное место.";
+      setTimeout(()=>card.classList.remove("shake","returning"),380);
+      if(!c.querySelector(".hello-task-hint")){const n=document.createElement("div");n.className="note hello-task-hint";n.textContent=t.hint;c.insertBefore(n,status);}
+      return false;
+    }
+    card.dataset.placed="1";card.classList.add("placed");card.disabled=true;zone.appendChild(card);placed++;
+    status.textContent=inputMode==="drag"?"Верно. Сценка перемещена в зону.":"Верно. Сценка помещена в зону.";
+    if(placed===t.cards.length&&!completed){
+      completed=true;
+      if(!state.failed){score++;head();fb(c,true,t.correct);}else{head();fb(c,false,"Готово после подсказки. "+t.correct);}
+      nextBtn(c);
+    }
+    return true;
+  }
+
+  t.cards.forEach((item,i)=>{
+    const card=helloSceneCard(item,i);card.dataset.zone=item.zone;cards.appendChild(card);
+    let drag=null,ghost=null,moved=false;
+    const clearDrag=()=>{
+      if(ghost){ghost.remove();ghost=null;}
+      card.classList.remove("dragging");
+      c.querySelectorAll(".hello-sort-zone.drag-over").forEach(x=>x.classList.remove("drag-over"));
+      drag=null;
+    };
+    const moveGhost=(x,y)=>{if(ghost){ghost.style.left=(x-75)+"px";ghost.style.top=(y-70)+"px";}};
+    card.addEventListener("pointerdown",e=>{
+      if(card.dataset.placed==="1"||completed||e.button>0)return;
+      drag={id:e.pointerId,x:e.clientX,y:e.clientY};moved=false;card.setPointerCapture(e.pointerId);
+    });
+    card.addEventListener("pointermove",e=>{
+      if(!drag||drag.id!==e.pointerId)return;
+      if(!moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){
+        moved=true;card.classList.add("dragging");ghost=card.cloneNode(true);ghost.disabled=true;ghost.classList.add("hello-drag-ghost");ghost.removeAttribute("data-placed");document.body.appendChild(ghost);
+      }
+      if(!moved)return;
+      moveGhost(e.clientX,e.clientY);
+      c.querySelectorAll(".hello-sort-zone.drag-over").forEach(x=>x.classList.remove("drag-over"));
+      const hit=document.elementFromPoint(e.clientX,e.clientY);const over=hit&&hit.closest(".hello-sort-zone");if(over)over.classList.add("drag-over");
+    });
+    card.addEventListener("pointerup",e=>{
+      if(!drag||drag.id!==e.pointerId)return;
+      if(moved){
+        const hit=document.elementFromPoint(e.clientX,e.clientY);const zone=hit&&hit.closest(".hello-sort-zone");
+        card.dataset.suppressTap="1";setTimeout(()=>delete card.dataset.suppressTap,420);
+        if(zone)resolvePlacement(card,zone,"drag");else status.textContent="Сценка вернулась. Перетащи её в одну из зон.";
+      }
+      clearDrag();
+    });
+    card.addEventListener("pointercancel",clearDrag);
+    card.onclick=()=>{if(card.dataset.suppressTap!=="1")selectCard(card);};
+  });
+  const tip=document.createElement("p");tip.className="hello-tap-tip";tip.textContent="Перетащи сценку в зону — или нажми сценку, затем зону.";c.appendChild(tip);c.appendChild(status);
+}
+function bFunctionSort(c,t){
+  const state={failed:false,recorded:false};let selected=null,placed=0;
+  const bank=document.createElement("div");bank.className="hello-function-bank";c.appendChild(bank);
+  [...t.items].sort(()=>Math.random()-.5).forEach(item=>{const card=selectableSpeechCard(item.text,item.voice,true,"Выбрать реплику: "+item.text);card.dataset.zone=item.zone;
+    const choose=()=>{bank.querySelectorAll(".speech-card").forEach(x=>x.classList.remove("selected"));selected=card;card.classList.add("selected");};card._choose.onclick=choose;bank.appendChild(card);});
+  const zones=document.createElement("div");zones.className="hello-function-zones";c.appendChild(zones);
+  t.zones.forEach((z,i)=>{const zone=document.createElement("button");zone.type="button";zone.className="hello-function-zone";zone.dataset.key=z.key;zone.innerHTML=`<span>${i+1}</span><b>${z.title}</b>`;
+    zone.onclick=()=>{if(!selected)return;if(selected.dataset.zone===z.key){selected.classList.add("placed");selected.removeAttribute("tabindex");selected=null;placed++;
+        if(placed===t.items.length){if(!state.failed){score++;head();fb(c,true,t.correct);}else{head();fb(c,false,t.incorrect);}nextBtn(c);}}
+      else{helloTaskFailure(state);selected.classList.add("shake");setTimeout(()=>selected&&selected.classList.remove("shake"),350);}};zones.appendChild(zone);});
+  const tip=document.createElement("p");tip.className="hello-tap-tip";tip.textContent="Нажми на реплику, затем на её место.";c.appendChild(tip);
+}
+function bDialogueOrder(c,t){
+  const cast=document.createElement("div");cast.className="hello-dialogue-cast";
+  [["A","Ben","спрашивает"],["B","Mia","отвечает"]].forEach(([letter,name,role],i)=>{const p=document.createElement("div");p.className="hello-person speaker-"+(i?"b":"a");p.innerHTML=`<span>${letter}</span><b>${name}</b><small>${role}</small>`;cast.appendChild(p);});c.appendChild(cast);
+  const state={failed:false,recorded:false};let selected=null,placed=0;
+  const slots=document.createElement("div");slots.className="hello-dialogue-slots";c.appendChild(slots);
+  t.lines.forEach((line,i)=>{const slot=document.createElement("div");slot.className="hello-dialogue-slot";slot.dataset.index=String(i);
+    const pos=document.createElement("span");pos.textContent=i+1;slot.appendChild(pos);
+    const chooseSlot=document.createElement("button");chooseSlot.type="button";chooseSlot.className="hello-dialogue-slot-choice";chooseSlot.setAttribute("aria-label","Поставить выбранную реплику на позицию "+(i+1));chooseSlot.textContent="Нажми, чтобы поставить реплику";slot.appendChild(chooseSlot);slots.appendChild(slot);});
+  const bank=document.createElement("div");bank.className="hello-dialogue-bank";c.appendChild(bank);
+  [...t.lines].sort(()=>Math.random()-.5).forEach(line=>{const card=selectableSpeechCard(line.text,line.voice,true,"Выбрать реплику "+line.speaker+": "+line.text);card.classList.add("speaker-"+line.voice);card.dataset.index=String(t.lines.indexOf(line));
+    const mark=document.createElement("span");mark.className="hello-speaker-marker";mark.textContent=line.speaker;card.prepend(mark);
+    const choose=()=>{bank.querySelectorAll(".speech-card").forEach(x=>x.classList.remove("selected"));selected=card;card.classList.add("selected");};card._choose.onclick=choose;bank.appendChild(card);});
+  slots.querySelectorAll(".hello-dialogue-slot-choice").forEach(chooseSlot=>chooseSlot.onclick=()=>{const slot=chooseSlot.closest(".hello-dialogue-slot");if(!selected||slot.classList.contains("filled"))return;
+    if(selected.dataset.index===slot.dataset.index){slot.classList.add("filled");slot.innerHTML="";slot.appendChild(selected);selected.classList.remove("selected");selected=null;placed++;
+      if(placed===t.lines.length){if(!state.failed){score++;head();fb(c,true,t.correct||"Диалог собран!");}else{head();fb(c,false,t.incorrect||"Диалог собран после подсказки.");}nextBtn(c);}}
+    else{helloTaskFailure(state);selected.classList.add("shake");setTimeout(()=>selected&&selected.classList.remove("shake"),350);
+      if(!c.querySelector(".hello-task-hint")){const n=document.createElement("div");n.className="note hello-task-hint";n.textContent=t.incorrect||"Посмотри, кто спрашивает и кто отвечает.";c.appendChild(n);}}});
+  const tip=document.createElement("p");tip.className="hello-tap-tip";tip.textContent="Нажми на карточку, затем на нужную позицию.";c.appendChild(tip);
+}
+let speakCompleted=false;
+function bHelloSpeak(c,t){
+  const panel=document.createElement("div");panel.className="hello-speak-panel";
+  const prompt=document.createElement("div");prompt.className="hello-speak-model";prompt.textContent=t.prompt;panel.appendChild(prompt);
+  const listen=document.createElement("button");listen.type="button";listen.className="cta plain full";listen.textContent="▶ Послушать";
+  listen.onclick=()=>playHelloAudio(t.model,"a",listen);panel.appendChild(listen);
+  const instruction=document.createElement("p");instruction.textContent="Скажи реплику вслух. Мы не оцениваем произношение — это тренировка.";panel.appendChild(instruction);
+  const done=document.createElement("button");done.type="button";done.className="cta full";done.textContent="Я сказал(а)";
+  done.onclick=()=>{if(speakCompleted)return;speakCompleted=true;done.disabled=true;
+    const note=document.createElement("div");note.className="fb good hello-speak-done";note.textContent="✓ "+t.feedback;c.appendChild(note);nextBtn(c);};panel.appendChild(done);c.appendChild(panel);
+  setTimeout(()=>playHelloAudio(t.model,"a",listen),250);
+}
 function bTF(c,t){
   const g=document.createElement("div");g.className="tf";let done=false;
   [["Верно",true],["Неверно",false]].forEach(([l,v])=>{
@@ -8719,7 +9259,7 @@ function reviewAreaStats(lesson){
 }
 function reviewAreaLabel(cat){return cat==="stable"?"навыки устойчивы":cat==="review"?"стоит повторить":"требуется дополнительная практика";}
 function finish(area){
-  const total=L.tasks.length;
+  const total=Number.isFinite(L.scoredTotal)?L.scoredTotal:L.tasks.length;
   const wasDone=!!(PROG[L.id]&&PROG[L.id].done);
   /* LUMA: короткая вспышка энергии — только визуальный отклик, ничего не читает и не пишет */
   try{LumaUI.pulse("energy")}catch(e){}
@@ -8872,7 +9412,12 @@ function finish(area){
   const n=score>=total-1?3:score>=total-3?2:1;
   const perfect=(mistakes===0&&score===total);
   const prev=PROG[L.id]||{stars:0,coins:0};
-  const money=awardCoins(L.id,score,perfect,Math.floor(bestStreak/3));
+  /* Hello v2.1 keeps the published anti-farm promise strictly: once either
+     sublesson is completed, replay is practice only.  Other modules retain
+     the existing best-result/difference behaviour in awardCoins(). */
+  const money=(L.helloV21&&wasDone)
+    ?{total:prev.coins||0,delta:0}
+    :awardCoins(L.id,score,perfect,Math.floor(bestStreak/3));
   try{
     novaEvent("RIGHT",score);
     if(L.isDrill)novaEvent("DRILL",1);
@@ -8888,7 +9433,8 @@ function finish(area){
      полная перезапись стирала поля теории, записанные markTheory(). */
   const reviewAreas=(L.areaNames&&!L.isCheck)?reviewAreaStats(L):null;
   PROG[L.id]={...(PROG[L.id]||{}),done:true,stars:Math.max(prev.stars||0,score),total:total,
-    words:L.words.length,coins:money.total,...(reviewAreas?{areas:reviewAreas}:{})};
+    words:L.words.length,coins:money.total,...(L.speakTotal?{speakDone:true,speakTotal:L.speakTotal}:{}),
+    ...(reviewAreas?{areas:reviewAreas}:{})};
   SAVED=null;
   /* --- движок: уведомляем подсистемы --- */
   try{
@@ -8915,7 +9461,9 @@ function finish(area){
   const c=document.createElement("div");c.className="card";c.style.textAlign="center";
   c.innerHTML=`<div style="font-size:38px;letter-spacing:4px">${"⭐".repeat(n)}</div>
     <p class="q" style="margin:10px 0 6px">Тема пройдена</p>
-    <p style="color:var(--gray);font-weight:500;margin:0">Правильных ответов ${score} из ${total} · новых слов ${L.words.length}</p>
+    ${L.helloV21&&L.speakTotal
+      ?`<div class="hello-result-stats"><p><b>Правильно:</b> ${score} из ${total}</p><p><b>Устная тренировка:</b> выполнена</p></div>`
+      :`<p style="color:var(--gray);font-weight:500;margin:0">Правильных ответов ${score} из ${total} · новых слов ${L.words.length}</p>`}
     ${bestStreak>=3?`<div style="margin-top:10px;font-weight:800;color:var(--violet)">🔥 Лучшая серия — ${bestStreak} подряд</div>`:""}`;
   area.appendChild(c);
   if(reviewAreas){
@@ -8929,7 +9477,9 @@ function finish(area){
       +(bestStreak>=3?`<br><span style='font-size:13.5px;font-weight:600;opacity:.85'>плюс ${Math.floor(bestStreak/3)} за серию без ошибок</span>`:"");
     c.appendChild(e);}
   else{const e=document.createElement("div");e.className="note";
-    e.innerHTML="За повтор лемы не начисляются. Пройдите лучше прежнего — доплатим разницу.";c.appendChild(e);}
+    e.innerHTML=L.helloV21
+      ?"За повтор лемы не начисляются — награда за этот урок уже получена."
+      :"За повтор лемы не начисляются. Пройдите лучше прежнего — доплатим разницу.";c.appendChild(e);}
 
   /* ==== ЕДИНЫЙ СТАНДАРТ ЭКРАНА РЕЗУЛЬТАТА ====
      Раньше здесь было 6–8 равнозначных кнопок одним потоком — трудно
@@ -9794,7 +10344,7 @@ function renderDen(){
           rows.push({name:`Урок ${i+1}`,sub:LESSONS[lid].name,done,active});
         });
         const checkDone=!!(PROG[topic.checkId]&&PROG[topic.checkId].done);
-        rows.push({name:"Проверка",sub:"10 вопросов по теме",done:checkDone,active:!checkDone&&rows.every(r=>r.done)});
+        rows.push({name:"Проверка",sub:`${(LESSONS[topic.checkId]&&LESSONS[topic.checkId].tasks.length)||0} вопросов по теме`,done:checkDone,active:!checkDone&&rows.every(r=>r.done)});
       }else rows.push({name:missionStage,sub:topic.name,done:false,active:true});
       now.innerHTML=`<div class="today-card">${rows.map(r=>`<div class="today-step${r.done?" done":r.active?"":" lock"}"><i>${r.done?"✓":r.active?"→":"·"}</i><div><b>${r.name}</b><span>${r.sub}</span></div><u>${r.done?"Готово":r.active?"Сейчас":"Далее"}</u></div>`).join("")}<div class="today-luma"><i class="tl-art">${LUMA_ART}</i><div><b>LUMA рядом</b><span>Поможет, если понадобится подсказка</span></div></div></div>`;
     }else now.innerHTML=`<div class="today-card"><div class="today-step done"><i>✓</i><div><b>Все темы пройдены</b><span>Можно выбрать тему для повторения</span></div></div></div>`;
@@ -11665,7 +12215,7 @@ function helloTheoryScene(){
 }
 function syncHelloLessonArt(){
   if(!isHelloLessonArt())return;
-  if(stage==="theory"){
+  if(stage==="theory"&& !L.helloV21){
     const sec=document.querySelector("#area .lesson-current-theory");
     if(sec&&!sec.querySelector(".lesson-hello-theory-art")){
       const box=document.createElement("div");box.className="lesson-hello-theory-art";
@@ -11675,7 +12225,7 @@ function syncHelloLessonArt(){
     return;
   }
   const card=document.querySelector("#area>.task-card");
-  if(card&&!card.querySelector(".lesson-hello-task-art")){
+  if(!L.helloV21&&card&&!card.querySelector(".lesson-hello-task-art")){
     let src=null,alt="";
     if(L.id==="hello_l1"&&step===0){src="assets/topics/hello/hello-greeting-v1.webp";alt="Дети здороваются у входа в класс";}
     if(L.id==="hello_l2"&&step===0){src="assets/topics/hello/hello-name-v1.webp";alt="Дети знакомятся в классе";}
@@ -11688,13 +12238,13 @@ function syncHelloLessonArt(){
   if(card&&L.id==="hello_l2"&&step===1){
     card.querySelectorAll(".dnd .drop").forEach(d=>d.classList.add("hello-situation-drop"));
   }
-  document.querySelectorAll("#area .fb").forEach(f=>{
+  document.querySelectorAll("#area .fb:not(.hello-speak-done)").forEach(f=>{
     if(f.querySelector(".lesson-hello-feedback-art"))return;
     const good=f.classList.contains("good");
     f.prepend(lessonFamilyImage(good
       ?"assets/topics/hello/lesson/hello-feedback-good-v1.webp"
       :"assets/topics/hello/lesson/hello-feedback-support-v1.webp",
-      "lesson-hello-feedback-art",good?"Спокойная похвала":"Спокойная поддержка"));
+      "lesson-hello-feedback-art character-reaction",good?"Спокойная похвала":"Спокойная поддержка"));
   });
 }
 function syncFamilyLessonArt(){
@@ -11881,6 +12431,7 @@ try{
   const entered=lsGet("lemma-entered",false);
   go(DIAG?"diag":((entered||hasProgress())?"den":"home"),true);
 }catch(e){go(DIAG?"diag":"den",true);}
+
 </script>
 </body>
 </html>
