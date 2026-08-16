@@ -45,3 +45,13 @@ Production changed: no.
 - Horizontal overflow: 0.
 - Visible missing images: 0.
 - External runtime requests: 0.
+
+## Worksheet correction
+
+- Page 1, Task 1 has exactly four situations and four one-to-one lines.
+- Mapping: meeting → `Hello!`; morning meeting → `Good morning!`; leaving → `Goodbye!`; farewell wave → `See you!`.
+- `Hi!`, `Bye!`, multiple correct mappings and the former six-line instruction are absent from this task.
+
+## Audio status
+
+The current `flite` audio files are temporary QA voiceover. They are not final commercial mastering.

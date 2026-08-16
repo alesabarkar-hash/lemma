@@ -55,6 +55,23 @@
     "luma_orb_hidden": true,
     "return_to_topic_available": true
   },
+  "worksheet": {
+    "pages": 2,
+    "task_1_lines": 4,
+    "task_1_one_to_one": true,
+    "task_1_mapping": {
+      "meeting": "Hello!",
+      "morning_meeting": "Good morning!",
+      "leaving": "Goodbye!",
+      "farewell_wave": "See you!"
+    },
+    "task_1_excluded_phrases": ["Hi!", "Bye!"]
+  },
+  "audio_mastering": {
+    "engine": "flite",
+    "status": "temporary_qa_voiceover",
+    "commercial_mastering": false
+  },
   "static_qa": {
     "javascript_parse_errors": 0,
     "missing_local_assets": 0,

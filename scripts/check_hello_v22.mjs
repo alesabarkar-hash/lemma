@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const worksheetSource = fs.readFileSync(path.join(root, "scripts/generate_hello_worksheet.py"), "utf8");
+const qaReport = JSON.parse(fs.readFileSync(path.join(root, "docs/qa/HELLO-v2.2-qa-report.json"), "utf8"));
 const failures = [];
 const ok = (condition, label) => condition ? console.log(`ok  ${label}`) : failures.push(label);
 const between = (start, end) => {
@@ -64,6 +66,16 @@ for (const file of [
   "scripts/generate_hello_worksheet.py",
   "docs/HELLO_EDU_REBUILD_v2.2.md",
 ]) ok(fs.existsSync(path.join(root, file)), `${file} exists`);
+
+ok(worksheetSource.includes('"Соедини ситуацию и реплику."'), "worksheet Task 1 exact instruction");
+ok(worksheetSource.includes('phrases = ["See you!", "Hello!", "Goodbye!", "Good morning!"]'),
+  "worksheet Task 1 has exactly four normative phrases");
+ok(!worksheetSource.includes("Проведи шесть линий") && !worksheetSource.includes("Несколько реплик могут подходить"),
+  "worksheet Task 1 legacy multi-match wording removed");
+ok(qaReport.worksheet?.task_1_lines === 4 && qaReport.worksheet?.task_1_one_to_one === true,
+  "QA report records four one-to-one worksheet matches");
+ok(qaReport.audio_mastering?.status === "temporary_qa_voiceover" && qaReport.audio_mastering?.commercial_mastering === false,
+  "QA report marks flite audio as temporary, not commercial mastering");
 
 if (failures.length) {
   console.error(`\n${failures.length} failed:`);

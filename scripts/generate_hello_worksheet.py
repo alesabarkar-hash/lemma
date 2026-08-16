@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Build the two-page A4 Hello! Meet Me reinforcement worksheet."""
 
+from io import BytesIO
 from pathlib import Path
+from PIL import Image
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
@@ -20,6 +22,7 @@ W, H = A4
 MM = 72 / 25.4
 M = 14 * MM
 IMAGE_CACHE = {}
+CROP_CACHE = {}
 
 
 def image(path):
@@ -27,6 +30,24 @@ def image(path):
     if key not in IMAGE_CACHE:
         IMAGE_CACHE[key] = ImageReader(key)
     return IMAGE_CACHE[key]
+
+
+def cropped_image(path, crop):
+    """Return a cached normalized crop of an existing worksheet scene."""
+    key = (str(path), tuple(crop))
+    if key not in CROP_CACHE:
+        with Image.open(path) as source:
+            width, height = source.size
+            left, top, right, bottom = crop
+            cut = source.crop((
+                round(width * left), round(height * top),
+                round(width * right), round(height * bottom),
+            ))
+            stream = BytesIO()
+            cut.save(stream, format="PNG", optimize=True)
+            stream.seek(0)
+            CROP_CACHE[key] = (ImageReader(stream), stream)
+    return CROP_CACHE[key][0]
 
 
 def register_fonts():
@@ -59,12 +80,13 @@ def header(c, page):
     c.line(M, H - M - 8, W - M, H - M - 8)
 
 
-def image_box(c, path, x, y, w, h, label=None):
+def image_box(c, path, x, y, w, h, label=None, crop=None):
     c.setFillColor(colors.white)
     c.setStrokeColor(colors.HexColor("#BDB6C9"))
     c.roundRect(x, y, w, h, 6, fill=1, stroke=1)
     pad = 3
-    c.drawImage(image(path), x + pad, y + pad + (10 if label else 0),
+    source = cropped_image(path, crop) if crop else image(path)
+    c.drawImage(source, x + pad, y + pad + (10 if label else 0),
                 w - 2 * pad, h - 2 * pad - (10 if label else 0), preserveAspectRatio=True,
                 anchor="c", mask="auto")
     if label:
@@ -124,33 +146,33 @@ def page_one(c):
     y = H - M - 34
     text(c, M, y, "1. Match · Соедини реплики с ситуациями", 12, True)
     y -= 16
-    para(c, M, y, W - 2 * M, "Проведи шесть линий карандашом. Несколько реплик могут подходить к одной картинке.", 8.5)
+    para(c, M, y, W - 2 * M, "Соедини ситуацию и реплику.", 8.5)
 
-    scene_w, scene_h, scene_gap = 52 * MM, 25 * MM, 7 * MM
+    scene_w, scene_h, scene_gap = 39.5 * MM, 25 * MM, 4 * MM
     scene_y = y - 24 - scene_h
     scenes = [
-        ("hello-greeting-v1.webp", "Сцена 1"),
-        ("hello-morning-arrival-worksheet-v1.webp", "Сцена 2"),
-        ("hello-goodbye-v1.webp", "Сцена 3"),
+        ("hello-greeting-v1.webp", "Ситуация 1", None),
+        ("hello-morning-arrival-worksheet-v1.webp", "Ситуация 2", None),
+        ("hello-goodbye-v1.webp", "Ситуация 3", (0.00, 0.00, 0.62, 1.00)),
+        ("hello-goodbye-v1.webp", "Ситуация 4", (0.32, 0.00, 1.00, 1.00)),
     ]
-    for i, (src, label) in enumerate(scenes):
+    for i, (src, label, crop) in enumerate(scenes):
         x = M + i * (scene_w + scene_gap)
-        image_box(c, ASSETS / src, x, scene_y, scene_w, scene_h, label)
+        image_box(c, ASSETS / src, x, scene_y, scene_w, scene_h, label, crop)
         c.setFillColor(colors.HexColor("#6D6679"))
         c.circle(x + scene_w / 2, scene_y - 5, 2.2, fill=1, stroke=0)
 
-    phrases = ["Bye!", "Hello!", "Good morning!", "See you!", "Hi!", "Goodbye!"]
-    phrase_w, phrase_h, phrase_gap = 52 * MM, 11 * MM, 7 * MM
+    phrases = ["See you!", "Hello!", "Goodbye!", "Good morning!"]
+    phrase_w, phrase_h, phrase_gap = 39.5 * MM, 11 * MM, 4 * MM
     phrase_top = scene_y - 12 * MM
     for i, value in enumerate(phrases):
-        col, row = i % 3, i // 3
-        x = M + col * (phrase_w + phrase_gap)
-        py = phrase_top - row * (phrase_h + 4 * MM) - phrase_h
+        x = M + i * (phrase_w + phrase_gap)
+        py = phrase_top - phrase_h
         phrase_box(c, x, py, phrase_w, phrase_h, value)
         c.setFillColor(colors.HexColor("#6D6679"))
         c.circle(x + phrase_w / 2, py + phrase_h + 5, 2.2, fill=1, stroke=0)
 
-    y2 = phrase_top - 2 * (phrase_h + 4 * MM) - 10 * MM
+    y2 = py - 10 * MM
     text(c, M, y2, "2. Find and circle · Найди и обведи", 12, True)
     y2 -= 15
     para(c, M, y2, W - 2 * M, "В каждом ряду обведи одну подходящую картинку. Круг должен полностью поместиться вокруг карточки.", 8.5)
